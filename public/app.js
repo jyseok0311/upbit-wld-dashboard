@@ -50,25 +50,44 @@ function setError(msg) { state.error = msg; const el = $('err'); el.hidden = !ms
 function setConn(c) { state.conn = c; }
 
 // ---------- REST 초기 데이터 (브라우저 Origin 요청은 분당 6회 수준으로 제한되므로 최소한만 호출) ----------
-async function restJson(path, tries = 5) {
+// 업비트는 Origin 이 붙은 요청(REST + WebSocket 접속)을 IP 단위로 분당 약 6회로 제한한다.
+// 429 응답에는 CORS 헤더가 없어 브라우저에서는 "Failed to fetch"(TypeError) 로 보이므로 둘을 같은 제한으로 취급한다.
+async function restJson(path, tries = 6) {
   for (let i = 0; i < tries; i++) {
-    const r = await fetch(REST + path, { cache: 'no-store' });
-    if (r.status === 429) { const wait = 10 * (i + 1); setError(`업비트 요청 제한(429) · ${wait}초 후 자동 재시도`); await sleep(wait * 1000); continue; }
+    let r;
+    try { r = await fetch(REST + path, { cache: 'no-store' }); }
+    catch { r = { status: 429 }; }
+    if (r.status === 429) { const wait = 15 * (i + 1); setError(`업비트 요청 제한 · ${wait}초 후 자동 재시도 (${i + 1}/${tries})`); await sleep(wait * 1000); continue; }
     if (!r.ok) throw new Error(`HTTP ${r.status} ${path}`);
     return r.json();
   }
-  throw new Error('요청 제한으로 초기 데이터를 받지 못했습니다. 1분 뒤 새로 고침해 주세요.');
+  throw new Error('rate-limited');
+}
+
+// REST 캔들(과거)과 WebSocket 으로 이미 쌓인 캔들(최신)을 시간 기준으로 합친다
+function mergeCandles(rest, live, max) {
+  const map = new Map();
+  for (const c of rest) map.set(c.time, c);
+  for (const c of live) map.set(c.time, c);
+  return [...map.values()].sort((a, b) => a.time - b.time).slice(-max);
 }
 
 async function bootstrap() {
   setError('초기 캔들 데이터를 받는 중…');
-  state.candles1m = (await restJson(`/v1/candles/minutes/1?market=${MARKET}&count=200`)).reverse().map(toCandle);
-  await sleep(1100);
-  state.candles5m = (await restJson(`/v1/candles/minutes/5?market=${MARKET}&count=120`)).reverse().map(toCandle);
-  await sleep(1100);
-  try { state.trades = (await restJson(`/v1/trades/ticks?market=${MARKET}&count=200`, 2)).map(toTrade); }
-  catch { state.trades = []; }
-  setError(null);
+  try {
+    const c1 = (await restJson(`/v1/candles/minutes/1?market=${MARKET}&count=200`)).reverse().map(toCandle);
+    state.candles1m = mergeCandles(c1, state.candles1m, 300);
+    dirty = true;
+    await sleep(1500);
+    const c5 = (await restJson(`/v1/candles/minutes/5?market=${MARKET}&count=120`)).reverse().map(toCandle);
+    state.candles5m = mergeCandles(c5, state.candles5m, 200);
+    state.bootstrapFailed = false;
+    setError(null);
+  } catch {
+    // REST 를 못 받아도 WebSocket 1분봉이 쌓이면 60분 뒤부터 지표가 계산된다
+    state.bootstrapFailed = true;
+    setError(`업비트 요청 제한으로 과거 캔들을 받지 못했습니다. 실시간 캔들을 누적 중 (${state.candles1m.length}/60) · 1~2분 뒤 새로 고침하면 바로 받을 수 있습니다.`);
+  }
   dirty = true;
 }
 
@@ -78,12 +97,14 @@ function upsertCandle(arr, raw, max) {
   if (lastC && lastC.time === c.time) arr[arr.length - 1] = c;
   else if (!lastC || c.time > lastC.time) { arr.push(c); if (arr.length > max) arr.shift(); }
 }
+let wsRetry = 0;
 function connectWS() {
   setConn('connecting');
   const ws = new WebSocket(WS_URL);
   ws.binaryType = 'arraybuffer';
   let ping;
   ws.onopen = () => {
+    wsRetry = 0;
     ws.send(JSON.stringify([
       { ticket: 'scalp-dash-' + Math.random().toString(36).slice(2, 10) },
       { type: 'ticker', codes: [MARKET] }, { type: 'trade', codes: [MARKET] }, { type: 'orderbook', codes: [MARKET] },
@@ -110,13 +131,21 @@ function connectWS() {
           bidAskRatio: totalAsk ? totalBid / totalAsk : 0, units: units.slice(0, 10) };
         break;
       }
-      case 'candle.1m': if (state.candles1m.length) upsertCandle(state.candles1m, d, 300); break;
-      case 'candle.5m': if (state.candles5m.length) upsertCandle(state.candles5m, d, 200); break;
+      case 'candle.1m':
+        upsertCandle(state.candles1m, d, 300);
+        if (state.bootstrapFailed) setError(`업비트 요청 제한으로 과거 캔들을 받지 못했습니다. 실시간 캔들을 누적 중 (${state.candles1m.length}/60) · 1~2분 뒤 새로 고침하면 바로 받을 수 있습니다.`);
+        break;
+      case 'candle.5m': upsertCandle(state.candles5m, d, 200); break;
       default: return;
     }
     state.updatedAt = Date.now(); dirty = true;
   };
-  ws.onclose = () => { clearInterval(ping); setConn('reconnect'); setTimeout(connectWS, 3000); };
+  // 접속 실패가 반복되면 재시도 간격을 5초 → 10 → 20 → 40 → 60초로 늘려 요청 제한을 더 소모하지 않는다
+  ws.onclose = () => {
+    clearInterval(ping); setConn('reconnect');
+    const wait = Math.min(60000, 5000 * 2 ** Math.min(wsRetry++, 4));
+    setTimeout(connectWS, wait);
+  };
   ws.onerror = () => ws.close();
 }
 
@@ -293,7 +322,7 @@ function renderPosition(m) {
 
 function render(m) {
   const s = state, c = s.computed;
-  const connLabel = { connecting: '연결 중…', live: 'WebSocket 실시간', reconnect: '재연결 중…' }[s.conn];
+  const connLabel = { connecting: '연결 중…', live: 'WebSocket 실시간', reconnect: '재연결 대기 중 (요청 제한 회피를 위해 간격을 늘림)' }[s.conn];
   $('meta').textContent = `${connLabel}${s.updatedAt ? ' · 갱신 ' + kstTime(s.updatedAt) : ''}`;
   $('market').textContent = `${s.market} · 업비트 · 1분봉`;
   $('title').textContent = `${BASE} 스캘핑 조건 대시보드`;
@@ -422,7 +451,7 @@ bindSettings();
 renderSettings();
 render(null);
 if ('serviceWorker' in navigator) navigator.serviceWorker.register('./sw.js').then(r => { swReg = r; }).catch(() => {});
-connectWS();
+connectWS();                       // WebSocket 접속 1회
+setTimeout(bootstrap, 1500);       // 그 다음 REST 2회 (1분봉, 5분봉) — 분당 6회 제한 안에서 여유 확보
 pollHoldings();
-bootstrap().catch(e => setError(e.message));
 setInterval(tick, 1000);
