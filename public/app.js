@@ -12,11 +12,22 @@ const WS_URL = 'wss://api.upbit.com/websocket/v1';
 const KST = 9 * 3600;
 const LS_KEY = `scalp-dash:${MARKET}`;
 
+// 연관도 분석용 비교 바스켓: 시장 요인(비트코인) + 업비트 상장 AI 테마 코인. WebSocket 한 연결로 함께 수신한다.
+const BASKET = [
+  { code: 'KRW-BTC', label: '비트코인', kind: 'market' },
+  { code: 'KRW-TAO', label: '비트텐서(TAO)', kind: 'ai' },
+  { code: 'KRW-NEAR', label: '니어(NEAR)', kind: 'ai' },
+  { code: 'KRW-RENDER', label: '렌더(RENDER)', kind: 'ai' },
+].filter(b => b.code !== MARKET);
+
 const state = {
   market: MARKET, candles1m: [], candles5m: [], orderbook: null, trades: [], ticker: null,
   error: null, updatedAt: null, conn: 'connecting', log: [], alertLog: [], holdings: { status: 'unknown' }, computed: null,
+  basket: Object.fromEntries(BASKET.map(b => [b.code, { ...b, ticker: null, candles5m: [], loaded: false }])),
+  bootstrapFailed: false, loadedAt: Date.now(),
 };
 let dirty = false, lastStatus = null, firstDraw = true, holdingsFailures = 0, swReg = null;
+const listeners = new Set();
 
 // ---------- 설정 (localStorage) ----------
 const DEFAULTS = { qty: 0, avgPrice: 0, takeProfitPct: 20, dropPct: 20, dropWindowMin: 180, notify: true, sound: true };
@@ -105,10 +116,11 @@ function connectWS() {
   let ping;
   ws.onopen = () => {
     wsRetry = 0;
+    const all = [MARKET, ...BASKET.map(b => b.code)];
     ws.send(JSON.stringify([
       { ticket: 'scalp-dash-' + Math.random().toString(36).slice(2, 10) },
-      { type: 'ticker', codes: [MARKET] }, { type: 'trade', codes: [MARKET] }, { type: 'orderbook', codes: [MARKET] },
-      { type: 'candle.1m', codes: [MARKET] }, { type: 'candle.5m', codes: [MARKET] },
+      { type: 'ticker', codes: all }, { type: 'trade', codes: [MARKET] }, { type: 'orderbook', codes: [MARKET] },
+      { type: 'candle.1m', codes: [MARKET] }, { type: 'candle.5m', codes: all },
       { format: 'DEFAULT' },
     ]));
     setConn('live');
@@ -116,10 +128,19 @@ function connectWS() {
   };
   ws.onmessage = e => {
     let d; try { d = JSON.parse(new TextDecoder().decode(e.data)); } catch { return; }
+    const tick = t => ({ price: t.trade_price, change: t.change, changeRate: t.signed_change_rate, changePrice: t.signed_change_price,
+      high24: t.high_price, low24: t.low_price, accTradePrice24h: t.acc_trade_price_24h, accVolume24h: t.acc_trade_volume_24h, prevClose: t.prev_closing_price });
+    // 비교 바스켓 종목 메시지
+    if (d.code && d.code !== MARKET) {
+      const b = state.basket[d.code]; if (!b) return;
+      if (d.type === 'ticker') b.ticker = tick(d);
+      else if (d.type === 'candle.5m') upsertCandle(b.candles5m, d, 200);
+      else return;
+      state.updatedAt = Date.now(); dirty = true; return;
+    }
     switch (d.type) {
       case 'ticker':
-        state.ticker = { price: d.trade_price, change: d.change, changeRate: d.signed_change_rate, changePrice: d.signed_change_price,
-          high24: d.high_price, low24: d.low_price, accTradePrice24h: d.acc_trade_price_24h, accVolume24h: d.acc_trade_volume_24h, prevClose: d.prev_closing_price };
+        state.ticker = tick(d);
         break;
       case 'trade':
         state.trades.unshift(toTrade(d)); if (state.trades.length > 200) state.trades.length = 200; break;
@@ -404,7 +425,15 @@ function tick() {
   }
   const m = state.ticker ? checkAlerts(state.ticker.price) : null;
   render(m);
+  for (const fn of listeners) { try { fn(state); } catch { /* 구독자 오류는 대시보드에 영향 주지 않음 */ } }
 }
+
+// 다른 모듈(relate.js 등)이 같은 데이터·REST 제한 관리 로직을 쓰도록 공개
+window.dash = {
+  state, MARKET, BASE, BASKET, KST, restJson, mergeCandles, toCandle, fmt, fmtKRW, big, kstTime,
+  subscribe(fn) { listeners.add(fn); return () => listeners.delete(fn); },
+  markDirty() { dirty = true; },
+};
 
 // ---------- 설정 폼 이벤트 ----------
 function bindSettings() {

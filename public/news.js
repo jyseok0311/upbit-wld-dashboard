@@ -13,11 +13,11 @@ function ago(iso) {
   return `${Math.floor(h / 24)}일 전`;
 }
 
+const VIEWS = ['dash', 'news', 'relate'];
 function showView(name) {
-  const news = name === 'news';
-  $('view-dash').hidden = news; $('view-news').hidden = !news;
-  $('tab-dash').classList.toggle('active', !news); $('tab-news').classList.toggle('active', news);
-  if (news) { seenAt = Date.now(); try { localStorage.setItem(LS_SEEN, String(seenAt)); } catch { /* 무시 */ } $('news-badge').hidden = true; }
+  if (!VIEWS.includes(name)) name = 'dash';
+  for (const v of VIEWS) { $(`view-${v}`).hidden = v !== name; $(`tab-${v}`).classList.toggle('active', v === name); }
+  if (name === 'news') { seenAt = Date.now(); try { localStorage.setItem(LS_SEEN, String(seenAt)); } catch { /* 무시 */ } $('news-badge').hidden = true; }
 }
 
 function render() {
@@ -58,7 +58,7 @@ document.querySelectorAll('.news-head .chip').forEach(ch => ch.addEventListener(
   cat = ch.dataset.cat; render();
 }));
 $('news-refresh').addEventListener('click', load);
-window.addEventListener('hashchange', () => showView(location.hash === '#news' ? 'news' : 'dash'));
-showView(location.hash === '#news' ? 'news' : 'dash');
+window.addEventListener('hashchange', () => showView(location.hash.slice(1)));
+showView(location.hash.slice(1));
 load();
 setInterval(load, 5 * 60 * 1000);

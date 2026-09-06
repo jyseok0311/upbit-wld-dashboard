@@ -15,8 +15,13 @@ const MAX_PER_CAT = 40;
 const MAX_NEW_TRANSLATIONS = 90;
 
 const CATEGORIES = [
-  { key: 'wld', label: '월드코인 · World', query: '(Worldcoin OR "World Network" OR "World ID" OR "Tools for Humanity" OR "WLD token") when:3d' },
-  { key: 'openai', label: 'OpenAI · 샘 올트먼', query: '(OpenAI OR "Sam Altman" OR ChatGPT) when:1d' },
+  {
+    key: 'wld', label: '월드코인 · World',
+    query: '(Worldcoin OR "WLD token" OR "Tools for Humanity" OR ("World Network" (crypto OR token OR Altman OR blockchain)) OR ("World ID" (Altman OR crypto OR iris OR Orb))) when:3d',
+    // 제목에 월드코인 관련 단어가 실제로 있어야 함 (Animation World Network 등 오탐 제거)
+    mustMatch: /worldcoin|\bwld\b|tools for humanity|world network|world id|world app|\borb\b|altman|iris.?scan|eye.?scan/i,
+  },
+  { key: 'openai', label: 'OpenAI · 샘 올트먼', query: '(OpenAI OR "Sam Altman" OR ChatGPT) when:1d', mustMatch: /openai|altman|chatgpt|gpt/i },
 ];
 
 const sleep = ms => new Promise(r => setTimeout(r, ms));
@@ -87,7 +92,8 @@ async function main() {
     catch (e) { console.error(`[news] ${cat.key} RSS 실패:`, e.message); items = prev?.categories?.find(c => c.key === cat.key)?.items || []; }
     // 해외 기사 위주: 한글 제목 제외, 중복 제거, 최신순
     const seen = new Set();
-    items = items.filter(it => !hasHangul(it.title)).filter(it => { const k = norm(it.title); if (seen.has(k)) return false; seen.add(k); return true; })
+    items = items.filter(it => !hasHangul(it.title)).filter(it => !cat.mustMatch || cat.mustMatch.test(it.title))
+      .filter(it => { const k = norm(it.title); if (seen.has(k)) return false; seen.add(k); return true; })
       .sort((a, b) => Date.parse(b.publishedAt) - Date.parse(a.publishedAt)).slice(0, MAX_PER_CAT);
     for (const it of items) {
       if (cache[it.title]) { it.titleKo = cache[it.title]; continue; }

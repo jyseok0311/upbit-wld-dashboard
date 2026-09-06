@@ -8,6 +8,7 @@
 - **수익률 매도 알림**: 보유 수량과 평균 매수가를 입력하면 수익률이 20%, 40%, 60%… 단계를 새로 넘을 때마다 브라우저 알림
 - **급락 매수 알림**: 최근 N분 고점 또는 전일 종가 대비 20%(조절 가능) 이상 급락하면 브라우저 알림
 - **해외 뉴스 · 속보**: 월드코인·OpenAI 관련 영문 기사를 15분마다 수집해 한국어로 기계 번역 (GitHub Actions)
+- **WLD · OpenAI 연관도**: OpenAI·올트먼 헤드라인 이후 30분·60분 WLD 반응(BTC 대비 초과 반응), 비트코인·AI 테마 코인(TAO·NEAR·RENDER)과의 5분봉 상관·베타, 뉴스 결합도, 정규화 가격 비교 차트
 
 > 이 도구는 지표 조건의 충족 여부를 보여줄 뿐이며 매수·매도 권유나 투자 조언이 아닙니다.
 > 조건 충족이 수익을 보장하지 않으며 모든 거래 판단과 결과의 책임은 사용자에게 있습니다.
@@ -53,6 +54,10 @@ node server.mjs
 public/index.html   화면 마크업·스타일
 public/app.js       데이터 수신(REST 초기화 + WebSocket) · 렌더링
 public/engine.js    지표 계산 · 조건 판정 (순수 함수)
+public/news.js      뉴스 탭 (news.json 표시) · 탭 전환
+public/relate.js    WLD·OpenAI 연관도 분석 탭 (뉴스 반응 · 상관 · 베타)
+public/sw.js        서비스 워커 (알림 클릭 처리) · manifest.json PWA 설치 정보
+scripts/fetch-news.mjs        구글 뉴스 RSS 수집 + 한국어 번역 → public/news.json
 server.mjs          로컬 서버: 정적 파일 + /api/holdings (upbit CLI)
 .github/workflows/pages.yml   GitHub Pages 자동 배포
 ```

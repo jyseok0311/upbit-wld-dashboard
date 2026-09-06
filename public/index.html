@@ -105,6 +105,15 @@
   .news-item .src { color: var(--muted); font-size: 11px; margin-top: 6px; display: flex; gap: 8px; }
   .news-item .src b { color: var(--accent); font-weight: 700; }
   .news-item.fresh .ko::before { content: "NEW"; font-size: 10px; background: var(--up); color: #fff; border-radius: 4px; padding: 0 5px; margin-right: 6px; vertical-align: middle; }
+  /* 연관도 */
+  #view-relate { display: block; padding: 14px 22px 30px; }
+  .rel-grid { display: grid; grid-template-columns: 1.4fr 1fr; gap: 14px; }
+  @media (max-width: 1000px) { .rel-grid { grid-template-columns: 1fr; } }
+  .interp p { margin: 0 0 8px; font-size: 13px; line-height: 1.6; }
+  .interp p:last-child { color: var(--muted); font-size: 12px; }
+  .news-item .react { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 6px; font-size: 12px; color: var(--muted); }
+  .news-item .react b { font-weight: 700; }
+  .news-item .react small { font-size: 11px; }
   [hidden] { display: none !important; }
 </style>
 </head>
@@ -122,6 +131,7 @@
 <nav class="tabs">
   <a href="#dash" id="tab-dash" class="active">대시보드</a>
   <a href="#news" id="tab-news">뉴스 · 속보<span class="badge" id="news-badge" hidden>0</span></a>
+  <a href="#relate" id="tab-relate">WLD · OpenAI 연관도</a>
 </nav>
 <div class="err" id="err" hidden></div>
 
@@ -220,8 +230,46 @@
   </div>
 </section>
 
+<section id="view-relate" hidden>
+  <div class="news-head">
+    <span class="meta" id="rel-meta">데이터 대기…</span>
+  </div>
+  <div class="err" id="rel-status" hidden style="border-radius:10px;margin-bottom:12px"></div>
+  <div class="card" style="margin-bottom:14px">
+    <h2>연관도 요약 (실시간 · 5분봉 기준)</h2>
+    <div class="kpis" id="rel-kpis"></div>
+  </div>
+  <div class="rel-grid">
+    <div class="col">
+      <div class="card">
+        <h2>최근 12시간 정규화 가격 비교 · ▼ 표시는 OpenAI·올트먼 헤드라인</h2>
+        <div id="rel-chart" style="height:340px"></div>
+      </div>
+      <div class="card two">
+        <div><h2>수익률 상관계수 (5분봉)</h2><table id="rel-corr"></table></div>
+        <div><h2>실시간 시세 비교</h2><table id="rel-tickers"></table></div>
+      </div>
+      <div class="card">
+        <h2>해석</h2>
+        <div class="interp" id="rel-text"></div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card">
+        <h2>OpenAI·올트먼 헤드라인 이후 WLD 가격 반응</h2>
+        <div class="news-list" id="rel-events"></div>
+      </div>
+    </div>
+  </div>
+  <div class="card disclaimer" style="margin-top:14px">
+    OpenAI는 비상장 기업으로 주가가 없어, 이 화면은 (1) OpenAI 관련 해외 헤드라인 발생 후 WLD 가격 반응, (2) WLD와 비트코인·AI 테마 코인의 수익률 상관·베타,
+    (3) 뉴스 결합도라는 간접 지표로 연관성을 살펴봅니다. 표본이 적고 상관관계는 인과관계가 아니므로 참고 자료로만 활용하세요. 투자 조언이 아닙니다.
+  </div>
+</section>
+
 <div id="toasts"></div>
 <script type="module" src="./app.js"></script>
 <script type="module" src="./news.js"></script>
+<script type="module" src="./relate.js"></script>
 </body>
 </html>
