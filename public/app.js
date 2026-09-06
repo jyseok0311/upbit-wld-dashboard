@@ -380,21 +380,8 @@ function render(m) {
       s.trades.slice(0, 12).map(t => `<tr><td>${kstTime(t.ts)}</td><td>${fmt(t.price)}</td><td>${big(t.volume)}</td><td class="${t.side === 'BID' ? 'bid' : 'ask'}">${t.side === 'BID' ? '매수' : '매도'}</td></tr>`).join('');
   }
 
-  const h = s.holdings, hEl = $('holdings');
-  if (h.status === 'ok') {
-    if (h.coin && h.coin.balance + h.coin.locked > 0 && s.ticker) {
-      const qty = h.coin.balance + h.coin.locked, val = qty * s.ticker.price, cost = qty * h.coin.avgBuyPrice, pnl = val - cost, pnlPct = cost ? pnl / cost * 100 : 0;
-      hEl.className = 'kpis';
-      hEl.innerHTML = [
-        ['보유 수량', `${fmt(qty, 4)} ${BASE}`, h.coin.locked ? `주문 중 ${fmt(h.coin.locked, 4)}` : ''],
-        ['평균 매수가', fmtKRW(h.coin.avgBuyPrice), ''],
-        ['평가 금액', fmtKRW(val), `매수 원금 ${fmtKRW(cost)}`],
-        ['평가 손익', `<span class="${pnl >= 0 ? 'chg up' : 'chg down'}">${pnl >= 0 ? '+' : ''}${fmtKRW(pnl)}</span>`, `${pnlPct >= 0 ? '+' : ''}${pnlPct.toFixed(2)}%`],
-        ['보유 원화', fmtKRW(h.krw), ''],
-      ].map(([l, v, s2]) => `<div class="kpi"><div class="l">${l}</div><div class="v">${v}</div><div class="s">${s2}</div></div>`).join('');
-    } else { hEl.className = 'hold-empty'; hEl.textContent = `${BASE} 보유 없음 · 보유 원화 ${fmtKRW(h.krw)}`; }
-  } else if (h.status === 'error') { hEl.className = 'hold-empty'; hEl.textContent = `조회 불가: ${h.message}`; }
-  else if (h.status === 'unavailable') { hEl.className = 'hold-empty'; hEl.textContent = '웹 모드에서는 표시되지 않습니다. PC에서 node server.mjs 로 실행하면 API 키로 잔고를 표시합니다. 위 알림 설정에 수량·평단을 직접 입력해도 됩니다.'; }
+  // 잔고(로컬 서버 모드)는 카드로 표시하지 않고 [잔고에서 불러오기] 버튼 노출 여부에만 사용한다
+  $('btn-load').hidden = !(s.holdings.status === 'ok' && s.holdings.coin);
 
   $('alertlog').innerHTML = s.alertLog.length ? s.alertLog.map(a =>
     `<div><span class="t">${kstTime(a.time)}</span><span class="pill ${a.kind === 'sell' ? 'buy_strong' : 'sell_strong'}">${a.kind === 'sell' ? '매도' : '매수'}</span><span>${a.title} · ${a.body}</span></div>`).join('')
