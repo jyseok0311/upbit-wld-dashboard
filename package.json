@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "type": "module",
-  "description": "업비트 KRW-WLD 실시간 스캘핑 지표 조건 대시보드 (GitHub Pages 웹 + 로컬 서버 잔고 조회)",
+  "description": "업비트 KRW-WLD 실시간 스캘핑 지표 조건 대시보드 · 수익률/급락 알림 · 해외 뉴스 번역 · OpenAI 연관도 (GitHub Pages)",
   "homepage": "https://jyseok0311.github.io/upbit-wld-dashboard/",
   "repository": { "type": "git", "url": "https://github.com/jyseok0311/upbit-wld-dashboard.git" },
   "scripts": {

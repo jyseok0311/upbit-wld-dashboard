@@ -1,5 +1,5 @@
 // 브라우저 앱: 업비트 공개 REST(초기 캔들)와 WebSocket(실시간)으로 데이터를 받아 engine.js 로 조건을 판정한다.
-// 서버 없이 GitHub Pages 같은 정적 호스팅에서 동작한다. 잔고 패널은 로컬 서버(/api/holdings)가 있을 때만 채워진다.
+// 서버 없이 GitHub Pages 같은 정적 호스팅에서 동작한다. 업비트 API 키는 사용하지 않는다(공개 시세만 사용).
 // 알림: 보유 수량·평균 매수가를 입력하면 수익률이 목표(기본 20%) 단계를 넘을 때마다 매도 알림,
 //       최근 고점·전일 종가 대비 기준(기본 20%) 이상 급락하면 매수 알림을 브라우저 알림으로 보낸다.
 import { computeAll } from './engine.js';
@@ -22,11 +22,11 @@ const BASKET = [
 
 const state = {
   market: MARKET, candles1m: [], candles5m: [], orderbook: null, trades: [], ticker: null,
-  error: null, updatedAt: null, conn: 'connecting', log: [], alertLog: [], holdings: { status: 'unknown' }, computed: null,
+  error: null, updatedAt: null, conn: 'connecting', log: [], alertLog: [], computed: null,
   basket: Object.fromEntries(BASKET.map(b => [b.code, { ...b, ticker: null, candles5m: [], loaded: false }])),
   bootstrapFailed: false, loadedAt: Date.now(),
 };
-let dirty = false, lastStatus = null, firstDraw = true, holdingsFailures = 0, swReg = null;
+let dirty = false, lastStatus = null, firstDraw = true, swReg = null;
 const listeners = new Set();
 
 // ---------- 설정 (localStorage) ----------
@@ -170,20 +170,6 @@ function connectWS() {
   ws.onerror = () => ws.close();
 }
 
-// ---------- 잔고 (로컬 서버가 있을 때만) ----------
-async function pollHoldings() {
-  try {
-    const r = await fetch(`/api/holdings?market=${MARKET}`, { cache: 'no-store' });
-    if (!r.ok) throw new Error('no server');
-    state.holdings = await r.json(); holdingsFailures = 0;
-  } catch {
-    holdingsFailures++;
-    state.holdings = { status: 'unavailable' };
-  }
-  dirty = true;
-  if (holdingsFailures < 2) setTimeout(pollHoldings, 30000);
-}
-
 // ---------- 알림 ----------
 function permissionLabel() {
   if (!('Notification' in window)) return '이 브라우저는 알림 미지원';
@@ -324,7 +310,6 @@ function renderSettings() {
   $('in-notify').checked = settings.notify; $('in-sound').checked = settings.sound;
   $('perm').textContent = permissionLabel();
   $('perm').className = 'perm ' + (('Notification' in window) ? Notification.permission : 'denied');
-  $('btn-load').hidden = !(state.holdings.status === 'ok' && state.holdings.coin);
 }
 function renderPosition(m) {
   const el = $('position');
@@ -405,9 +390,6 @@ function render(m) {
       s.trades.slice(0, 12).map(t => `<tr><td>${kstTime(t.ts)}</td><td>${fmt(t.price)}</td><td>${big(t.volume)}</td><td class="${t.side === 'BID' ? 'bid' : 'ask'}">${t.side === 'BID' ? '매수' : '매도'}</td></tr>`).join('');
   }
 
-  // 잔고(로컬 서버 모드)는 카드로 표시하지 않고 [잔고에서 불러오기] 버튼 노출 여부에만 사용한다
-  $('btn-load').hidden = !(s.holdings.status === 'ok' && s.holdings.coin);
-
   $('alertlog').innerHTML = s.alertLog.length ? s.alertLog.map(a =>
     `<div><span class="t">${kstTime(a.time)}</span><span class="pill ${a.kind === 'sell' ? 'buy_strong' : 'sell_strong'}">${a.kind === 'sell' ? '매도' : '매수'}</span><span>${a.title} · ${a.body}</span></div>`).join('')
     : '<div style="color:var(--muted)">아직 알림 없음</div>';
@@ -457,11 +439,6 @@ function bindSettings() {
   });
   $('btn-perm').addEventListener('click', requestPermission);
   $('btn-test').addEventListener('click', () => notify('sell', '테스트 알림', `${MARKET} 알림이 이렇게 표시됩니다.`));
-  $('btn-load').addEventListener('click', () => {
-    const h = state.holdings; if (h.status !== 'ok' || !h.coin) return;
-    $('in-qty').value = (h.coin.balance + h.coin.locked).toFixed(4); $('in-avg').value = h.coin.avgBuyPrice;
-    toast('잔고 값을 불러왔습니다. [저장]을 눌러 적용하세요.');
-  });
   $('btn-reset').addEventListener('click', () => { alertState.lastSellLevel = 0; alertState.dropFired = false; state.alertLog = []; saveLocal(); dirty = true; toast('알림 기록과 단계를 초기화했습니다.'); });
 }
 
@@ -473,5 +450,4 @@ render(null);
 if ('serviceWorker' in navigator) navigator.serviceWorker.register('./sw.js').then(r => { swReg = r; }).catch(() => {});
 connectWS();                       // WebSocket 접속 1회
 setTimeout(bootstrap, 1500);       // 그 다음 REST 2회 (1분봉, 5분봉) — 분당 6회 제한 안에서 여유 확보
-pollHoldings();
 setInterval(tick, 1000);

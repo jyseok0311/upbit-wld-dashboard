@@ -15,18 +15,17 @@
 
 ## 두 가지 실행 방식
 
-| 방식 | 데이터 경로 | 잔고 연동 |
-|---|---|---|
-| **웹 (GitHub Pages)** | 브라우저가 업비트 공개 REST(초기 캔들)와 WebSocket(실시간)을 직접 사용 | 없음 (수량·평단 직접 입력) |
-| **로컬 서버** | 시세는 웹과 동일, 잔고만 서버가 업비트 공식 CLI(`upbit`)로 조회 | 알림 설정의 [잔고에서 불러오기] 버튼으로 수량·평단 자동 입력 |
+| 방식 | 데이터 경로 |
+|---|---|
+| **웹 (GitHub Pages)** | 브라우저가 업비트 공개 REST(초기 캔들)와 WebSocket(실시간)을 직접 사용 |
+| **로컬 미리보기** | 같은 파일을 `node server.mjs` 로 로컬에서 제공 (개발용) |
 
+업비트 API 키나 계정 정보는 사용하지 않습니다. 보유 수량과 평균 매수가는 알림 설정에 직접 입력하며 브라우저에만 저장됩니다.
 다른 종목은 주소 뒤에 `?market=KRW-BTC` 처럼 붙이면 됩니다.
 
-## 로컬 실행
+## 로컬 미리보기
 
 ```powershell
-npm install -g @upbit-official/upbit-cli   # 최초 1회
-upbit.cmd config set                        # 잔고를 보려면 API 키 등록 (선택)
 node server.mjs
 ```
 
@@ -58,7 +57,7 @@ public/news.js      뉴스 탭 (news.json 표시) · 탭 전환
 public/relate.js    WLD·OpenAI 연관도 분석 탭 (뉴스 반응 · 상관 · 베타)
 public/sw.js        서비스 워커 (알림 클릭 처리) · manifest.json PWA 설치 정보
 scripts/fetch-news.mjs        구글 뉴스 RSS 수집 + 한국어 번역 → public/news.json
-server.mjs          로컬 서버: 정적 파일 + /api/holdings (upbit CLI)
+server.mjs          로컬 미리보기용 정적 파일 서버
 .github/workflows/pages.yml   GitHub Pages 자동 배포
 ```
 
@@ -72,4 +71,4 @@ server.mjs          로컬 서버: 정적 파일 + /api/holdings (upbit CLI)
   과거 캔들을 못 받아도 실시간 1분봉이 60개 쌓이면 지표가 계산됩니다.
 - 알림은 페이지가 열려 있을 때(백그라운드 탭 포함) 브라우저 알림으로 도착합니다. 브라우저를 완전히 닫은 상태의 푸시는 별도 서버가 필요해 지원하지 않습니다.
   휴대폰에서는 브라우저 메뉴의 "홈 화면에 추가"로 설치(PWA)해 두면 앱처럼 띄워 둘 수 있습니다.
-- API 키는 이 저장소에 포함되지 않습니다. 로컬 서버는 `upbit config set`으로 사용자 홈 폴더에 저장된 키를 읽습니다.
+- 이 앱은 업비트 API 키를 요구하지 않으며 주문·잔고 같은 계정 기능이 없습니다. 공개 시세만 사용합니다.
