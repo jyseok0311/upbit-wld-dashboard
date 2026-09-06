@@ -1,0 +1,7 @@
+node_modules/
+.news-cache.json
+.env
+.env.*
+*.log
+.DS_Store
+Thumbs.db

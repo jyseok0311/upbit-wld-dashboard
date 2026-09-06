@@ -1,0 +1,231 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>WLD 스캘핑 조건 대시보드</title>
+<meta name="description" content="업비트 KRW-WLD 1분봉 기술적 지표 조건, 수익률·급락 알림, 월드코인·OpenAI 해외 뉴스 한국어 번역. 투자 조언이 아닙니다.">
+<meta name="theme-color" content="#121826">
+<link rel="manifest" href="./manifest.json">
+<link rel="icon" href="./icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="./icon.svg">
+<script src="https://cdn.jsdelivr.net/npm/lightweight-charts@4.2.0/dist/lightweight-charts.standalone.production.js"></script>
+<style>
+  :root {
+    --bg: #0b0f17; --panel: #121826; --panel2: #182033; --line: #232c42;
+    --text: #e6eaf2; --muted: #8b95ad; --up: #ff5b6e; --down: #3f8cff;
+    --green: #22c55e; --amber: #f59e0b; --red: #ef4444; --accent: #7c9cff;
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--text); font: 14px/1.5 "Pretendard", "Malgun Gothic", system-ui, sans-serif; }
+  header { display: flex; align-items: center; gap: 18px; padding: 12px 22px; border-bottom: 1px solid var(--line); background: var(--panel); position: sticky; top: 0; z-index: 5; flex-wrap: wrap; }
+  header h1 { font-size: 17px; margin: 0; font-weight: 700; letter-spacing: -0.2px; }
+  header .market { color: var(--muted); font-size: 13px; }
+  .price { font-size: 26px; font-weight: 800; font-variant-numeric: tabular-nums; }
+  .chg { font-weight: 700; font-variant-numeric: tabular-nums; }
+  .chg.up { color: var(--up); } .chg.down { color: var(--down); }
+  .status { margin-left: auto; padding: 8px 16px; border-radius: 999px; font-weight: 800; font-size: 14px; border: 1px solid var(--line); background: var(--panel2); }
+  .status.neutral { color: var(--muted); }
+  .status.buy_watch { color: var(--green); border-color: rgba(34,197,94,.35); }
+  .status.buy_strong { color: #052e16; background: var(--green); border-color: var(--green); }
+  .status.sell_watch { color: var(--amber); border-color: rgba(245,158,11,.4); }
+  .status.sell_strong { color: #1c0a00; background: var(--amber); border-color: var(--amber); }
+  .meta { color: var(--muted); font-size: 12px; }
+  nav.tabs { display: flex; gap: 4px; padding: 8px 22px 0; background: var(--panel); border-bottom: 1px solid var(--line); }
+  nav.tabs a { padding: 8px 16px; border-radius: 10px 10px 0 0; color: var(--muted); text-decoration: none; font-weight: 700; font-size: 13px; border: 1px solid transparent; border-bottom: 0; }
+  nav.tabs a.active { color: var(--text); background: var(--bg); border-color: var(--line); }
+  nav.tabs a .badge { display: inline-block; min-width: 18px; padding: 0 6px; margin-left: 6px; border-radius: 999px; background: var(--accent); color: #0b0f17; font-size: 11px; text-align: center; }
+  .err { background: rgba(124,156,255,.12); color: #c7d2fe; padding: 8px 22px; font-size: 13px; border-bottom: 1px solid rgba(124,156,255,.3); }
+  main { display: grid; grid-template-columns: 1.6fr 1fr; gap: 14px; padding: 14px 22px 30px; }
+  @media (max-width: 1100px) { main { grid-template-columns: 1fr; } }
+  .card { background: var(--panel); border: 1px solid var(--line); border-radius: 12px; padding: 14px 16px; }
+  .card h2 { font-size: 13px; margin: 0 0 10px; color: var(--muted); font-weight: 700; text-transform: uppercase; letter-spacing: .6px; }
+  .col { display: flex; flex-direction: column; gap: 14px; }
+  #chart { height: 360px; } #rsi { height: 120px; }
+  .kpis { display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 10px; }
+  .kpi { background: var(--panel2); border-radius: 10px; padding: 10px 12px; }
+  .kpi .l { color: var(--muted); font-size: 11px; } .kpi .v { font-size: 16px; font-weight: 700; font-variant-numeric: tabular-nums; }
+  .kpi .s { font-size: 11px; color: var(--muted); }
+  ul.cond { list-style: none; margin: 0; padding: 0; }
+  ul.cond li { display: flex; align-items: center; gap: 10px; padding: 7px 0; border-bottom: 1px dashed var(--line); font-size: 13px; }
+  ul.cond li:last-child { border-bottom: 0; }
+  .dot { width: 10px; height: 10px; border-radius: 50%; background: #2b3550; flex: 0 0 10px; }
+  .dot.on.buy { background: var(--green); box-shadow: 0 0 8px rgba(34,197,94,.7); }
+  .dot.on.sell { background: var(--amber); box-shadow: 0 0 8px rgba(245,158,11,.7); }
+  li .val { margin-left: auto; color: var(--muted); font-variant-numeric: tabular-nums; font-size: 12px; }
+  li.on .val { color: var(--text); }
+  .count { float: right; font-weight: 800; }
+  .bar { height: 12px; border-radius: 6px; background: linear-gradient(90deg, var(--up) var(--p), var(--down) var(--p)); }
+  .bar-lbl { display: flex; justify-content: space-between; font-size: 12px; color: var(--muted); margin-top: 4px; font-variant-numeric: tabular-nums; }
+  table { width: 100%; border-collapse: collapse; font-size: 12px; font-variant-numeric: tabular-nums; }
+  td, th { padding: 3px 6px; text-align: right; } th { color: var(--muted); font-weight: 600; }
+  td.ask { color: var(--down); } td.bid { color: var(--up); }
+  .depth { position: relative; }
+  .depth span { position: absolute; top: 2px; bottom: 2px; opacity: .18; border-radius: 3px; }
+  .depth.ask span { right: 0; background: var(--down); } .depth.bid span { left: 0; background: var(--up); }
+  .log { max-height: 220px; overflow: auto; font-size: 12px; }
+  .log div { display: flex; gap: 10px; padding: 5px 0; border-bottom: 1px dashed var(--line); align-items: baseline; }
+  .log .t { color: var(--muted); flex: 0 0 70px; }
+  .pill { padding: 1px 8px; border-radius: 999px; font-size: 11px; font-weight: 700; white-space: nowrap; }
+  .pill.neutral { background: #2b3550; color: var(--muted); }
+  .pill.buy_watch, .pill.buy_strong { background: rgba(34,197,94,.2); color: var(--green); }
+  .pill.sell_watch, .pill.sell_strong { background: rgba(245,158,11,.2); color: var(--amber); }
+  .disclaimer { color: var(--muted); font-size: 11.5px; line-height: 1.6; }
+  .hold-empty { color: var(--muted); font-size: 13px; }
+  .two { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  @media (max-width: 700px) { .two { grid-template-columns: 1fr; } header { gap: 10px; } .status { margin-left: 0; } }
+  /* 설정 폼 */
+  form.settings { display: grid; grid-template-columns: 1fr 1fr; gap: 8px 10px; }
+  form.settings label { display: flex; flex-direction: column; gap: 3px; font-size: 11px; color: var(--muted); }
+  form.settings input[type=number] { background: var(--panel2); border: 1px solid var(--line); color: var(--text); border-radius: 8px; padding: 7px 9px; font-size: 14px; font-variant-numeric: tabular-nums; width: 100%; }
+  form.settings .row { grid-column: 1 / -1; display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin-top: 4px; }
+  form.settings .chk { display: flex; align-items: center; gap: 6px; font-size: 12px; color: var(--text); }
+  .btn { background: var(--panel2); border: 1px solid var(--line); color: var(--text); border-radius: 8px; padding: 7px 12px; font-size: 12px; font-weight: 700; cursor: pointer; }
+  .btn.primary { background: var(--accent); color: #0b0f17; border-color: var(--accent); }
+  .btn:hover { filter: brightness(1.1); }
+  .perm { font-size: 12px; margin-top: 8px; padding: 6px 10px; border-radius: 8px; background: var(--panel2); color: var(--muted); }
+  .perm.granted { color: var(--green); } .perm.denied { color: var(--amber); }
+  /* 토스트 */
+  #toasts { position: fixed; right: 16px; bottom: 16px; display: flex; flex-direction: column; gap: 8px; z-index: 50; max-width: 380px; }
+  .toast { background: var(--panel2); border: 1px solid var(--line); border-left: 4px solid var(--accent); color: var(--text); padding: 10px 14px; border-radius: 10px; font-size: 13px; box-shadow: 0 8px 24px rgba(0,0,0,.4); opacity: 0; transform: translateY(8px); transition: all .3s; }
+  .toast.show { opacity: 1; transform: none; }
+  .toast.sell { border-left-color: var(--green); } .toast.buy { border-left-color: var(--amber); }
+  /* 뉴스 */
+  #view-news { display: block; padding: 14px 22px 30px; }
+  .news-head { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin-bottom: 12px; }
+  .news-head .chip { padding: 6px 12px; border-radius: 999px; border: 1px solid var(--line); background: var(--panel2); color: var(--muted); font-size: 12px; font-weight: 700; cursor: pointer; }
+  .news-head .chip.active { color: var(--text); border-color: var(--accent); }
+  .news-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  @media (max-width: 900px) { .news-grid { grid-template-columns: 1fr; } }
+  .news-list { display: flex; flex-direction: column; gap: 8px; }
+  .news-item { display: block; background: var(--panel2); border: 1px solid var(--line); border-radius: 10px; padding: 10px 12px; text-decoration: none; color: var(--text); }
+  .news-item:hover { border-color: var(--accent); }
+  .news-item .ko { font-weight: 700; font-size: 14px; line-height: 1.45; }
+  .news-item .en { color: var(--muted); font-size: 12px; margin-top: 3px; line-height: 1.4; }
+  .news-item .src { color: var(--muted); font-size: 11px; margin-top: 6px; display: flex; gap: 8px; }
+  .news-item .src b { color: var(--accent); font-weight: 700; }
+  .news-item.fresh .ko::before { content: "NEW"; font-size: 10px; background: var(--up); color: #fff; border-radius: 4px; padding: 0 5px; margin-right: 6px; vertical-align: middle; }
+  [hidden] { display: none !important; }
+</style>
+</head>
+<body>
+<header>
+  <div>
+    <h1 id="title">WLD 스캘핑 조건 대시보드</h1>
+    <div class="market" id="market">KRW-WLD · 업비트 · 1분봉</div>
+  </div>
+  <div class="price" id="price">–</div>
+  <div class="chg" id="chg">–</div>
+  <div class="meta" id="meta">연결 중…</div>
+  <div class="status neutral" id="status">데이터 대기</div>
+</header>
+<nav class="tabs">
+  <a href="#dash" id="tab-dash" class="active">대시보드</a>
+  <a href="#news" id="tab-news">뉴스 · 속보<span class="badge" id="news-badge" hidden>0</span></a>
+</nav>
+<div class="err" id="err" hidden></div>
+
+<main id="view-dash">
+  <div class="col">
+    <div class="card">
+      <h2>1분봉 · EMA 9/21 · 볼린저(20,2)</h2>
+      <div id="chart"></div>
+      <h2 style="margin-top:10px">RSI(14)</h2>
+      <div id="rsi"></div>
+    </div>
+    <div class="card">
+      <h2>지표 요약</h2>
+      <div class="kpis" id="kpis"></div>
+    </div>
+    <div class="card two">
+      <div>
+        <h2>호가 잔량 (상위 10호가)</h2>
+        <div class="bar" id="obbar" style="--p:50%"></div>
+        <div class="bar-lbl"><span id="obbid">매수 –</span><span id="obratio">–</span><span id="obask">매도 –</span></div>
+        <table id="obtable" style="margin-top:8px"></table>
+      </div>
+      <div>
+        <h2>최근 체결 200건 매수/매도 비중</h2>
+        <div class="bar" id="trbar" style="--p:50%"></div>
+        <div class="bar-lbl"><span id="trbuy">매수 –</span><span id="trsell">매도 –</span></div>
+        <table id="trtable" style="margin-top:8px"></table>
+      </div>
+    </div>
+  </div>
+  <div class="col">
+    <div class="card">
+      <h2>내 포지션 · 알림 설정</h2>
+      <div id="position" class="hold-empty" style="margin-bottom:12px">시세 수신 대기 중…</div>
+      <form class="settings" id="settings-form">
+        <label>보유 수량 (WLD)<input type="number" id="in-qty" min="0" step="any" placeholder="예: 150"></label>
+        <label>평균 매수가 (원)<input type="number" id="in-avg" min="0" step="any" placeholder="예: 480"></label>
+        <label>매도 알림 · 수익률 단계 (%)<input type="number" id="in-tp" min="1" step="1" value="20"></label>
+        <label>매수 알림 · 급락 기준 (%)<input type="number" id="in-drop" min="1" step="1" value="20"></label>
+        <label>급락 판정 기간 (분, 최대 600)<input type="number" id="in-win" min="5" max="600" step="5" value="180"></label>
+        <div class="row">
+          <label class="chk"><input type="checkbox" id="in-notify" checked> 브라우저 알림</label>
+          <label class="chk"><input type="checkbox" id="in-sound" checked> 소리</label>
+        </div>
+        <div class="row">
+          <button type="submit" class="btn primary">저장</button>
+          <button type="button" class="btn" id="btn-perm">알림 켜기</button>
+          <button type="button" class="btn" id="btn-test">테스트 알림</button>
+          <button type="button" class="btn" id="btn-load" hidden>잔고에서 불러오기</button>
+          <button type="button" class="btn" id="btn-reset">알림 기록 초기화</button>
+        </div>
+      </form>
+      <div class="perm" id="perm">알림 권한 확인 중…</div>
+      <div class="disclaimer" style="margin-top:8px">
+        매도 알림은 수익률이 단계(20%, 40%, 60%…)를 새로 넘을 때마다, 매수 알림은 최근 고점 또는 전일 종가 대비 기준 이상 급락했을 때 1회 발송됩니다.
+        알림은 이 페이지가 열려 있을 때(백그라운드 탭 포함) 도착합니다. 휴대폰에서는 브라우저 메뉴의 "홈 화면에 추가"로 설치해 두면 편합니다.
+      </div>
+    </div>
+    <div class="card">
+      <h2>알림 기록</h2>
+      <div class="log" id="alertlog"></div>
+    </div>
+    <div class="card">
+      <h2>매수 관심 조건 <span class="count" id="buycount">0 / 7</span></h2>
+      <ul class="cond" id="buylist"></ul>
+    </div>
+    <div class="card">
+      <h2>매도 · 이탈 조건 <span class="count" id="sellcount">0 / 7</span></h2>
+      <ul class="cond" id="selllist"></ul>
+    </div>
+    <div class="card">
+      <h2>보유 현황 (로컬 서버 · API 키 자산 조회 권한)</h2>
+      <div id="holdings" class="hold-empty">조회 중…</div>
+    </div>
+    <div class="card">
+      <h2>상태 변화 로그</h2>
+      <div class="log" id="log"></div>
+    </div>
+    <div class="card disclaimer">
+      이 화면은 업비트 공개 시세를 바탕으로 사전에 정한 기술적 지표 조건의 충족 여부와 사용자가 정한 수익률·낙폭 기준 도달을 표시하는 도구입니다.
+      매수·매도 권유나 투자 조언이 아니며, 조건 충족이 수익을 보장하지 않습니다. 모든 거래 판단과 결과의 책임은 사용자에게 있습니다.
+      데이터는 업비트 WebSocket으로 실시간 수신되며 지연이나 오류가 있을 수 있습니다.
+      주소 뒤에 <code>?market=KRW-BTC</code> 처럼 붙이면 다른 종목을 볼 수 있습니다.
+    </div>
+  </div>
+</main>
+
+<section id="view-news" hidden>
+  <div class="news-head">
+    <span class="chip active" data-cat="all">전체</span>
+    <span class="chip" data-cat="wld">월드코인 · World</span>
+    <span class="chip" data-cat="openai">OpenAI · 샘 올트먼</span>
+    <span class="meta" id="news-meta" style="margin-left:auto">뉴스 불러오는 중…</span>
+    <button type="button" class="btn" id="news-refresh">새로 고침</button>
+  </div>
+  <div class="news-grid" id="news-grid"></div>
+  <div class="card disclaimer" style="margin-top:14px">
+    해외 매체(영문) 기사를 구글 뉴스에서 15분 간격으로 수집해 기계 번역(한국어)으로 제공합니다. 번역 오류가 있을 수 있으니 중요한 내용은 원문을 확인하세요.
+    제목을 누르면 원문 기사로 이동합니다. 뉴스는 정보 제공 목적이며 투자 판단의 근거로 삼는 책임은 사용자에게 있습니다.
+  </div>
+</section>
+
+<div id="toasts"></div>
+<script type="module" src="./app.js"></script>
+<script type="module" src="./news.js"></script>
+</body>
+</html>

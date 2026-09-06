@@ -1,0 +1,44 @@
+name: Build news & deploy to GitHub Pages
+
+on:
+  push:
+    branches: [main]
+  schedule:
+    - cron: "*/15 * * * *"   # 15분마다 해외 뉴스 수집·번역 후 재배포
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build-deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Restore translation cache
+        uses: actions/cache@v4
+        with:
+          path: .news-cache.json
+          key: news-cache-${{ github.run_id }}
+          restore-keys: news-cache-
+      - name: Fetch & translate news
+        run: node scripts/fetch-news.mjs
+        continue-on-error: true   # 뉴스 수집이 실패해도 저장소의 마지막 news.json 으로 배포
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: public
+      - id: deployment
+        uses: actions/deploy-pages@v4

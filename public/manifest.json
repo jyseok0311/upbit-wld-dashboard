@@ -1,0 +1,14 @@
+{
+  "name": "WLD 스캘핑 조건 대시보드",
+  "short_name": "WLD 대시보드",
+  "description": "업비트 KRW-WLD 실시간 지표 조건과 수익률·급락 알림",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#0b0f17",
+  "theme_color": "#121826",
+  "lang": "ko",
+  "icons": [
+    { "src": "./icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" }
+  ]
+}
