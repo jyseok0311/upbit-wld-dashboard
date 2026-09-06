@@ -82,7 +82,7 @@ function analyze() {
   const w = state.candles5m, btc = state.basket['KRW-BTC']?.candles5m || [];
   const ai = BASKET.filter(b => b.kind === 'ai').map(b => state.basket[b.code]).filter(s => s.candles5m.length > 20);
   const out = { ready: w.length > 20, corr: [], beta4h: null, beta12h: null, events: [], baseline30: null, reactionRatio: null, aiVsBtc: null };
-  if (!out.ready) return out;
+  if (!out.ready) { out.events = events.map(e => ({ ...e, outOfRange: true })); return out; }
 
   // 상관계수·베타
   const rows = [{ label: '비트코인 (시장 요인)', candles: btc, kind: 'market' }, ...ai.map(s => ({ label: s.label, candles: s.candles5m, kind: 'ai' }))];
@@ -154,6 +154,8 @@ function ensureChart() {
     grid: { vertLines: { color: '#1b2336' }, horzLines: { color: '#1b2336' } },
     timeScale: { timeVisible: true, secondsVisible: false, borderColor: '#232c42', rightOffset: 3 },
     rightPriceScale: { borderColor: '#232c42' }, crosshair: { mode: 0 }, localization: { locale: 'ko-KR', priceFormatter: v => v.toFixed(1) + '%' },
+    handleScroll: { vertTouchDrag: false, mouseWheel: true, pressedMouseMove: true, horzTouchDrag: true },
+    handleScale: { axisPressedMouseMove: true, mouseWheel: true, pinch: true },
   });
   series.wld = chart.addLineSeries({ color: '#7c9cff', lineWidth: 2, title: BASE, priceLineVisible: false });
   series.btc = chart.addLineSeries({ color: '#f59e0b', lineWidth: 1, title: 'BTC', priceLineVisible: false, lastValueVisible: true });
@@ -221,7 +223,7 @@ function render() {
   $('rel-events').innerHTML = evs.length ? evs.map(e => {
     const when = new Date(e.ts * 1000).toLocaleString('ko-KR', { timeZone: 'Asia/Seoul', month: 'numeric', day: 'numeric', hour: '2-digit', minute: '2-digit', hour12: false });
     let react;
-    if (e.outOfRange) react = '<span class="hold-empty">5분봉 범위 밖</span>';
+    if (e.outOfRange) react = `<span class="hold-empty">${a.ready ? '5분봉 범위 밖' : 'WLD 캔들 수신 대기'}</span>`;
     else react = `<span>30분 <b class="${cls(e.r30)}">${e.r30pending ? '진행 중' : pct(e.r30)}</b>${e.r30x !== null && e.r30x !== undefined ? ` <small>(BTC 대비 ${pct(e.r30x)}p)</small>` : ''}</span>
                   <span>60분 <b class="${cls(e.r60)}">${e.r60pending ? '진행 중' : pct(e.r60)}</b>${e.r60x !== null && e.r60x !== undefined ? ` <small>(BTC 대비 ${pct(e.r60x)}p)</small>` : ''}</span>
                   ${e.rNow !== undefined ? `<span>현재 <b class="${cls(e.rNow)}">${pct(e.rNow)}</b></span>` : ''}`;

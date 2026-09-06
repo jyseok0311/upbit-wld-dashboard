@@ -17,7 +17,7 @@ const MAX_NEW_TRANSLATIONS = 90;
 const CATEGORIES = [
   {
     key: 'wld', label: '월드코인 · World',
-    query: '(Worldcoin OR "WLD token" OR "Tools for Humanity" OR ("World Network" (crypto OR token OR Altman OR blockchain)) OR ("World ID" (Altman OR crypto OR iris OR Orb))) when:3d',
+    query: '(Worldcoin OR "WLD token" OR "Tools for Humanity" OR ("World Network" (crypto OR token OR Altman OR blockchain)) OR ("World ID" (Altman OR crypto OR iris OR Orb))) when:7d',
     // 제목에 월드코인 관련 단어가 실제로 있어야 함 (Animation World Network 등 오탐 제거)
     mustMatch: /worldcoin|\bwld\b|tools for humanity|world network|world id|world app|\borb\b|altman|iris.?scan|eye.?scan/i,
   },

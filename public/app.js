@@ -287,6 +287,9 @@ const common = {
   grid: { vertLines: { color: '#1b2336' }, horzLines: { color: '#1b2336' } },
   timeScale: { timeVisible: true, secondsVisible: false, borderColor: '#232c42', rightOffset: 4, barSpacing: 7 },
   rightPriceScale: { borderColor: '#232c42' }, crosshair: { mode: 0 }, localization: { locale: 'ko-KR' },
+  // 모바일: 차트 위 세로 스와이프는 페이지 스크롤로, 가로 스와이프·핀치만 차트 조작으로
+  handleScroll: { vertTouchDrag: false, mouseWheel: true, pressedMouseMove: true, horzTouchDrag: true },
+  handleScale: { axisPressedMouseMove: true, mouseWheel: true, pinch: true },
 };
 const chart = LWC.createChart($('chart'), { ...common, autoSize: true });
 const candleSeries = chart.addCandlestickSeries({ upColor: '#ff5b6e', downColor: '#3f8cff', borderVisible: false, wickUpColor: '#ff5b6e', wickDownColor: '#3f8cff' });
@@ -395,6 +398,7 @@ function render(m) {
   }
   if (c && c.tradeStat) {
     const tr = c.tradeStat, p = tr.buyRatio * 100;
+    $('trhead').textContent = `최근 체결 ${tr.count}건 매수/매도 비중${tr.count < 200 ? ' (접속 후 누적 중)' : ''}`;
     $('trbar').style.setProperty('--p', p.toFixed(1) + '%');
     $('trbuy').textContent = `매수 ${p.toFixed(0)}% (${big(tr.buyVol)})`; $('trsell').textContent = `매도 ${(100 - p).toFixed(0)}% (${big(tr.sellVol)})`;
     $('trtable').innerHTML = `<tr><th>시간(KST)</th><th>가격</th><th>수량</th><th>구분</th></tr>` +

@@ -2,7 +2,11 @@
 <html lang="ko">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="WLD 대시보드">
 <title>WLD 스캘핑 조건 대시보드</title>
 <meta name="description" content="업비트 KRW-WLD 1분봉 기술적 지표 조건, 수익률·급락 알림, 월드코인·OpenAI 해외 뉴스 한국어 번역. 투자 조언이 아닙니다.">
 <meta name="theme-color" content="#121826">
@@ -115,6 +119,55 @@
   .news-item .react b { font-weight: 700; }
   .news-item .react small { font-size: 11px; }
   [hidden] { display: none !important; }
+
+  /* ---------- 모바일 (700px 이하) ---------- */
+  @media (max-width: 700px) {
+    body { font-size: 13px; }
+    header { position: static; padding: 10px 12px 8px; padding-top: calc(10px + env(safe-area-inset-top)); gap: 6px 12px; display: grid; grid-template-columns: 1fr auto; align-items: center; }
+    header h1 { font-size: 15px; }
+    header .market { font-size: 11px; }
+    header > div:first-child { grid-column: 1; }
+    .price { font-size: 22px; grid-column: 2; text-align: right; }
+    .chg { grid-column: 1; font-size: 13px; }
+    .meta { grid-column: 2; text-align: right; font-size: 11px; }
+    .status { grid-column: 1 / -1; margin: 2px 0 0; text-align: center; padding: 8px 12px; font-size: 13px; }
+    nav.tabs { padding: 6px 8px 0; gap: 2px; overflow-x: auto; -webkit-overflow-scrolling: touch; scrollbar-width: none; position: sticky; top: 0; z-index: 4; }
+    nav.tabs::-webkit-scrollbar { display: none; }
+    nav.tabs a { padding: 8px 12px; font-size: 12px; white-space: nowrap; }
+    .err { padding: 8px 12px; font-size: 12px; }
+    main, #view-news, #view-relate { padding: 10px 10px 40px; gap: 10px; }
+    .col { gap: 10px; }
+    .card { padding: 12px; border-radius: 10px; }
+    .card h2 { font-size: 12px; }
+    #chart { height: 260px; } #rsi { height: 90px; } #rel-chart { height: 240px !important; }
+    .kpis { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
+    .kpi { padding: 8px 10px; } .kpi .v { font-size: 15px; } .kpi .s { font-size: 10.5px; }
+    ul.cond li { font-size: 12.5px; padding: 8px 0; }
+    li .val { font-size: 11.5px; }
+    table { font-size: 11.5px; } td, th { padding: 4px 4px; }
+    form.settings { grid-template-columns: 1fr 1fr; }
+    form.settings input[type=number] { padding: 10px 10px; font-size: 16px; }   /* iOS 자동 확대 방지 */
+    form.settings .row { gap: 6px; }
+    .btn { padding: 10px 12px; font-size: 13px; min-height: 40px; flex: 1 1 auto; }
+    .btn.primary { flex-basis: 100%; }
+    .perm { font-size: 11.5px; }
+    .log { max-height: 180px; }
+    .log div { flex-wrap: wrap; }
+    .log .t { flex: 0 0 60px; }
+    .news-head { gap: 6px; }
+    .news-head .chip { padding: 7px 10px; font-size: 11.5px; }
+    .news-head .meta { flex-basis: 100%; margin-left: 0 !important; order: 9; }
+    .news-head .btn { flex: 0 0 auto; }
+    .news-item { padding: 10px; } .news-item .ko { font-size: 13.5px; } .news-item .en { font-size: 11.5px; }
+    .news-item .react { gap: 8px; font-size: 11.5px; }
+    #toasts { left: 10px; right: 10px; bottom: 10px; max-width: none; }
+    .toast { font-size: 12.5px; }
+    .disclaimer { font-size: 11px; }
+  }
+  @media (max-width: 380px) {
+    form.settings { grid-template-columns: 1fr; }
+    .price { font-size: 20px; }
+  }
 </style>
 </head>
 <body>
@@ -131,7 +184,7 @@
 <nav class="tabs">
   <a href="#dash" id="tab-dash" class="active">대시보드</a>
   <a href="#news" id="tab-news">뉴스 · 속보<span class="badge" id="news-badge" hidden>0</span></a>
-  <a href="#relate" id="tab-relate">WLD · OpenAI 연관도</a>
+  <a href="#relate" id="tab-relate">OpenAI 연관도</a>
 </nav>
 <div class="err" id="err" hidden></div>
 
@@ -155,7 +208,7 @@
         <table id="obtable" style="margin-top:8px"></table>
       </div>
       <div>
-        <h2>최근 체결 200건 매수/매도 비중</h2>
+        <h2 id="trhead">최근 체결 매수/매도 비중</h2>
         <div class="bar" id="trbar" style="--p:50%"></div>
         <div class="bar-lbl"><span id="trbuy">매수 –</span><span id="trsell">매도 –</span></div>
         <table id="trtable" style="margin-top:8px"></table>
@@ -167,11 +220,11 @@
       <h2>내 포지션 · 알림 설정</h2>
       <div id="position" class="hold-empty" style="margin-bottom:12px">시세 수신 대기 중…</div>
       <form class="settings" id="settings-form">
-        <label>보유 수량 (WLD)<input type="number" id="in-qty" min="0" step="any" placeholder="예: 150"></label>
-        <label>평균 매수가 (원)<input type="number" id="in-avg" min="0" step="any" placeholder="예: 480"></label>
-        <label>매도 알림 · 수익률 단계 (%)<input type="number" id="in-tp" min="1" step="1" value="20"></label>
-        <label>매수 알림 · 급락 기준 (%)<input type="number" id="in-drop" min="1" step="1" value="20"></label>
-        <label>급락 판정 기간 (분, 최대 600)<input type="number" id="in-win" min="5" max="600" step="5" value="180"></label>
+        <label>보유 수량 (WLD)<input type="number" inputmode="decimal" id="in-qty" min="0" step="any" placeholder="예: 150"></label>
+        <label>평균 매수가 (원)<input type="number" inputmode="decimal" id="in-avg" min="0" step="any" placeholder="예: 480"></label>
+        <label>매도 알림 · 수익률 단계 (%)<input type="number" inputmode="numeric" id="in-tp" min="1" step="1" value="20"></label>
+        <label>매수 알림 · 급락 기준 (%)<input type="number" inputmode="numeric" id="in-drop" min="1" step="1" value="20"></label>
+        <label>급락 판정 기간 (분, 최대 600)<input type="number" inputmode="numeric" id="in-win" min="5" max="600" step="5" value="180"></label>
         <div class="row">
           <label class="chk"><input type="checkbox" id="in-notify" checked> 브라우저 알림</label>
           <label class="chk"><input type="checkbox" id="in-sound" checked> 소리</label>
