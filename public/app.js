@@ -25,12 +25,16 @@ const state = {
   error: null, updatedAt: null, conn: 'connecting', log: [], alertLog: [], computed: null,
   basket: Object.fromEntries(BASKET.map(b => [b.code, { ...b, ticker: null, candles5m: [], loaded: false }])),
   bootstrapFailed: false, loadedAt: Date.now(),
+  // 타이밍 신호: 강한 신호가 뜨면 최소 HOLD 동안 유지해 깜빡임을 막고, 발생 시점·가격·계획을 기억한다
+  signal: null, signalMarks: [],
 };
+const SIGNAL_HOLD_MS = 3 * 60 * 1000;      // 강한 신호 표시 유지 시간
+const SIGNAL_COOLDOWN_MS = 5 * 60 * 1000;  // 같은 방향 타이밍 알림 재발송 간격
 let dirty = false, lastStatus = null, firstDraw = true, swReg = null;
 const listeners = new Set();
 
 // ---------- 설정 (localStorage) ----------
-const DEFAULTS = { qty: 0, avgPrice: 0, takeProfitPct: 20, dropPct: 20, dropWindowMin: 180, notify: true, sound: true };
+const DEFAULTS = { qty: 0, avgPrice: 0, takeProfitPct: 20, dropPct: 20, dropWindowMin: 180, notify: true, sound: true, signalAlerts: true };
 const settings = { ...DEFAULTS };
 const alertState = { lastSellLevel: 0, dropFired: false };
 function loadLocal() {
@@ -283,7 +287,7 @@ const ema9S = chart.addLineSeries({ color: '#facc15', lineWidth: 1, priceLineVis
 const ema21S = chart.addLineSeries({ color: '#a78bfa', lineWidth: 1, priceLineVisible: false, lastValueVisible: false, title: 'EMA21' });
 const bbU = chart.addLineSeries({ color: 'rgba(124,156,255,.55)', lineWidth: 1, lineStyle: 2, priceLineVisible: false, lastValueVisible: false });
 const bbL = chart.addLineSeries({ color: 'rgba(124,156,255,.55)', lineWidth: 1, lineStyle: 2, priceLineVisible: false, lastValueVisible: false });
-let avgLine = null, targetLine = null, dropLine = null;
+let avgLine = null, targetLine = null, dropLine = null, planLines = [];
 const rsiChart = LWC.createChart($('rsi'), { ...common, autoSize: true, rightPriceScale: { ...common.rightPriceScale, scaleMargins: { top: .1, bottom: .1 } } });
 const rsiS = rsiChart.addLineSeries({ color: '#7c9cff', lineWidth: 1.5, priceLineVisible: false });
 rsiS.createPriceLine({ price: 70, color: 'rgba(245,158,11,.6)', lineStyle: 2, lineWidth: 1, title: '70' });
@@ -298,16 +302,81 @@ function updatePriceLines(m) {
   }
   if (m.dropTriggerPrice) dropLine = candleSeries.createPriceLine({ price: m.dropTriggerPrice, color: '#f59e0b', lineWidth: 1, lineStyle: 2, title: `급락 알림 -${settings.dropPct}%` });
 }
+// 활성 타이밍 신호의 목표가·손절가를 차트에 표시
+function updatePlanLines(sig) {
+  planLines.forEach(l => candleSeries.removePriceLine(l)); planLines = [];
+  if (!sig || !sig.plan) return;
+  const p = sig.plan, col = p.side === 'buy' ? '#22c55e' : '#f59e0b';
+  planLines.push(candleSeries.createPriceLine({ price: p.entry, color: col, lineWidth: 1, lineStyle: 0, title: p.side === 'buy' ? '매수 신호가' : '매도 신호가' }));
+  planLines.push(candleSeries.createPriceLine({ price: p.target1, color: col, lineWidth: 1, lineStyle: 2, title: '목표 1' }));
+  planLines.push(candleSeries.createPriceLine({ price: p.target2, color: col, lineWidth: 1, lineStyle: 3, title: '목표 2' }));
+  planLines.push(candleSeries.createPriceLine({ price: p.stop, color: '#ef4444', lineWidth: 1, lineStyle: 2, title: '손절' }));
+}
+function updateMarkers() {
+  candleSeries.setMarkers(state.signalMarks.map(mk => ({
+    time: mk.time + KST, position: mk.kind === 'buy' ? 'belowBar' : 'aboveBar', color: mk.kind === 'buy' ? '#22c55e' : '#f59e0b',
+    shape: mk.kind === 'buy' ? 'arrowUp' : 'arrowDown', text: `${mk.kind === 'buy' ? '매수' : '매도'} ${mk.score}`, size: 1.5,
+  })));
+}
 
 // ---------- 렌더 ----------
-function renderList(id, items, kind) {
-  $(id).innerHTML = items.map(c =>
-    `<li class="${c.ok ? 'on' : ''}"><span class="dot ${kind} ${c.ok ? 'on' : ''}"></span><span>${c.label}</span><span class="val">${c.value ?? '–'}</span></li>`).join('');
+const GROUPS = [['setup', '셋업 · 어디에 있나', 35], ['trigger', '트리거 · 지금 도는가', 40], ['confirm', '확인 · 수급이 따르나', 25], ['regime', '추세 · 배수로 반영', 0]];
+function renderList(id, items, kind, parts) {
+  $(id).innerHTML = GROUPS.map(([g, title, cap]) => {
+    const rows = items.filter(c => c.group === g);
+    if (!rows.length) return '';
+    const got = parts ? parts[g] : null;
+    const head = g === 'regime' ? `×${parts ? parts.mult.toFixed(2) : '–'}` : `${got ?? 0} / ${cap}점`;
+    return `<li class="grp"><span>${title}</span><span class="val">${head}</span></li>` + rows.map(c =>
+      `<li class="${c.ok ? 'on' : ''} ${c.group}"><span class="dot ${kind} ${c.ok ? 'on' : ''}"></span><span>${c.label}</span>
+       <span class="pts">${c.max ? (c.ok ? `+${c.pts}` : `0/${c.max}`) : ''}</span><span class="val">${c.value ?? '–'}</span></li>`).join('');
+  }).join('');
+}
+const pctStr = (a, b) => `${a >= b ? '+' : ''}${((a / b - 1) * 100).toFixed(2)}%`;
+const ago = ms => { const s = Math.round((Date.now() - ms) / 1000); return s < 60 ? `${s}초 전` : `${Math.floor(s / 60)}분 ${s % 60}초 전`; };
+// 상단 타이밍 배너: 활성 신호가 있으면 그것을, 없으면 현재 점수·상태를 크게 보여준다
+function renderTiming(c) {
+  const el = $('timing');
+  if (!c) { el.className = 'timing neutral'; el.innerHTML = '<div class="tl"><div class="big">데이터 대기</div><div class="sub">1분봉 60개가 쌓이면 판정을 시작합니다</div></div>'; return; }
+  const sg = c.signals, sig = state.signal;
+  const status = sig ? `${sig.kind}_strong` : sg.status;
+  const side = status.startsWith('buy') ? 'buy' : status.startsWith('sell') ? 'sell' : null;
+  const score = side === 'buy' ? sg.buyScore : side === 'sell' ? sg.sellScore : null;
+  const parts = side === 'buy' ? sg.buyParts : side === 'sell' ? sg.sellParts : null;
+  const plan = sig ? sig.plan : sg.plan;
+  const price = state.ticker ? state.ticker.price : c.indicators.price;
+  const trendTxt = c.trend5m ? `5분봉 ${({ strong_up: '강한 상승', up: '상승', down: '하락·횡보', strong_down: '강한 하락' })[c.trend5m.strength]} 추세` : '5분봉 대기';
+
+  let big, sub;
+  if (status === 'buy_strong') { big = '▲ 지금 매수 타이밍'; sub = sig ? `${ago(sig.since)} 발생 · 신호가 ${fmtKRW(sig.price)} · 현재 ${fmtKRW(price)} (${pctStr(price, sig.price)}) · ${trendTxt}` : trendTxt; }
+  else if (status === 'sell_strong') { big = '▼ 지금 매도 타이밍'; sub = sig ? `${ago(sig.since)} 발생 · 신호가 ${fmtKRW(sig.price)} · 현재 ${fmtKRW(price)} (${pctStr(price, sig.price)}) · ${trendTxt}` : trendTxt; }
+  else if (status === 'buy_watch') { big = '매수 준비 · 트리거 대기'; sub = `셋업은 갖춰지는 중입니다. RSI 반등·밴드 복귀·반전 캔들 같은 전환 신호가 뜨면 타이밍으로 바뀝니다 · ${trendTxt}`; }
+  else if (status === 'sell_watch') { big = '매도 준비 · 트리거 대기'; sub = `과열 구간입니다. RSI 꺾임·밴드 복귀·VWAP 이탈 같은 전환 신호가 뜨면 타이밍으로 바뀝니다 · ${trendTxt}`; }
+  else { big = '관망 · 타이밍 아님'; sub = `매수·매도 어느 쪽도 점수 ${sg.thresholds.watch} 미만입니다 · ${trendTxt}`; }
+
+  const gauge = `<div class="gauge">
+      <div class="g buy"><span>매수 ${sg.buyScore}</span><i style="width:${sg.buyScore}%"></i><b style="left:${sg.thresholds.strong}%"></b></div>
+      <div class="g sell"><span>매도 ${sg.sellScore}</span><i style="width:${sg.sellScore}%"></i><b style="left:${sg.thresholds.strong}%"></b></div>
+      <div class="g-note">${sg.thresholds.strong}점 이상 + 트리거 1개 이상 + 반대 점수보다 ${sg.thresholds.gap}점 이상 높으면 타이밍</div></div>`;
+
+  let why = '';
+  if (parts) {
+    const trig = parts.triggers.map(t => t.label.split(' (')[0]).join(', ');
+    const conf = (side === 'buy' ? sg.buy : sg.sell).filter(x => x.group === 'confirm' && x.ok).map(x => x.label.split(' (')[0]).join(', ');
+    why = `<div class="why"><span><b>셋업</b> ${parts.setup}/35</span><span><b>트리거</b> ${parts.trigger}/40${trig ? ` · ${trig}` : ' · 없음'}</span><span><b>확인</b> ${parts.confirm}/25${conf ? ` · ${conf}` : ''}</span><span><b>추세 배수</b> ×${parts.mult.toFixed(2)}</span>${sg.penalties.length ? `<span class="pen">감점 ${sg.penalties.map(p => `${p.label} −${p.pts}`).join(', ')}</span>` : ''}</div>`;
+  }
+  let planHtml = '';
+  if (plan && side) {
+    const d = v => `${fmtKRW(v)} (${pctStr(v, plan.entry)})`;
+    planHtml = `<div class="plan"><span><b>${plan.side === 'buy' ? '진입' : '신호'}</b> ${fmtKRW(plan.entry)}</span><span><b>목표 1</b> ${d(plan.target1)}</span><span><b>목표 2</b> ${d(plan.target2)}</span><span class="stop"><b>손절</b> ${d(plan.stop)}</span><span><b>손익비</b> ${plan.rr.toFixed(1)}</span></div>`;
+  }
+  el.className = `timing ${status}`;
+  el.innerHTML = `<div class="tl"><div class="big">${big}</div><div class="sub">${sub}</div>${why}${planHtml}</div>${gauge}`;
 }
 function renderSettings() {
   $('in-qty').value = settings.qty || ''; $('in-avg').value = settings.avgPrice || '';
   $('in-tp').value = settings.takeProfitPct; $('in-drop').value = settings.dropPct; $('in-win').value = settings.dropWindowMin;
-  $('in-notify').checked = settings.notify; $('in-sound').checked = settings.sound;
+  $('in-notify').checked = settings.notify; $('in-sound').checked = settings.sound; $('in-sig').checked = settings.signalAlerts;
   $('perm').textContent = permissionLabel();
   $('perm').className = 'perm ' + (('Notification' in window) ? Notification.permission : 'denied');
 }
@@ -344,17 +413,21 @@ function render(m) {
     el.className = 'chg ' + (t.changeRate >= 0 ? 'up' : 'down');
   }
   renderPosition(m);
+  renderTiming(c);
   if (c) {
-    const st = $('status'); st.textContent = c.signals.statusLabel; st.className = 'status ' + c.signals.status;
-    renderList('buylist', c.signals.buy, 'buy'); renderList('selllist', c.signals.sell, 'sell');
-    $('buycount').textContent = `${c.signals.buyCount} / ${c.signals.buy.length}`;
-    $('sellcount').textContent = `${c.signals.sellCount} / ${c.signals.sell.length}`;
+    const st = $('status');
+    const shown = s.signal ? `${s.signal.kind === 'buy' ? '▲ 매수' : '▼ 매도'} 타이밍 · ${s.signal.kind === 'buy' ? c.signals.buyScore : c.signals.sellScore}점` : c.signals.statusLabel;
+    st.textContent = shown; st.className = 'status ' + (s.signal ? `${s.signal.kind}_strong` : c.signals.status);
+    renderList('buylist', c.signals.buy, 'buy', c.signals.buyParts); renderList('selllist', c.signals.sell, 'sell', c.signals.sellParts);
+    $('buycount').textContent = `${c.signals.buyScore}점`; $('buycount').className = 'count ' + (c.signals.buyScore >= c.signals.thresholds.strong ? 'hot' : '');
+    $('sellcount').textContent = `${c.signals.sellScore}점`; $('sellcount').className = 'count ' + (c.signals.sellScore >= c.signals.thresholds.strong ? 'hot' : '');
 
     candleSeries.setData(shift(s.candles1m));
     ema9S.setData(shift(c.indicators.series.ema9)); ema21S.setData(shift(c.indicators.series.ema21));
     bbU.setData(shift(c.indicators.series.bbUpper)); bbL.setData(shift(c.indicators.series.bbLower));
     rsiS.setData(shift(c.indicators.series.rsi));
     if (m) updatePriceLines(m);
+    updatePlanLines(s.signal); updateMarkers();
     if (firstDraw) { chart.timeScale().scrollToRealTime(); firstDraw = false; }
 
     const i = c.indicators, t5 = c.trend5m, ob = s.orderbook, tk = s.ticker;
@@ -364,7 +437,7 @@ function render(m) {
       ['볼린저 상단 / 하단', `${fmt(i.bbUpper, 1)} / ${fmt(i.bbLower, 1)}`, `밴드폭 ${((i.bbUpper - i.bbLower) / i.bbMid * 100).toFixed(2)}%`],
       ['VWAP(120봉)', fmt(i.vwap, 1), i.price >= i.vwap ? '가격이 VWAP 위' : '가격이 VWAP 아래'],
       ['ATR(14)', `${fmt(i.atr, 2)}원`, i.atrPct !== null ? `가격의 ${i.atrPct.toFixed(2)}% · 변동성` : ''],
-      ['거래량 / 20봉 평균', i.volRatio ? `${i.volRatio.toFixed(2)}배` : '–', `${big(i.volume)} / ${big(i.volAvg20)}`],
+      ['거래량 / 20봉 평균', i.volRatio ? `${i.volRatio.toFixed(2)}배` : '–', i.volRatioPrev !== null ? `직전 봉 ${i.volRatioPrev.toFixed(2)}배 · 진행 봉 환산 ${i.volRatioNow.toFixed(2)}배` : `${big(i.volume)} / ${big(i.volAvg20)}`],
       ['5분봉 EMA20 / 50', t5 ? `${fmt(t5.ema20, 1)} / ${fmt(t5.ema50, 1)}` : '–', t5 ? (t5.up ? '상위 추세 상승' : '상위 추세 하락·횡보') : '5분봉 대기'],
       ['스프레드', ob ? `${fmt(ob.spread)}원` : '–', ob ? `${ob.spreadPct.toFixed(3)}%` : ''],
       ['24h 고가 / 저가', tk ? `${fmt(tk.high24)} / ${fmt(tk.low24)}` : '–', tk ? `24h 거래대금 ${big(tk.accTradePrice24h)}원` : ''],
@@ -394,20 +467,50 @@ function render(m) {
     `<div><span class="t">${kstTime(a.time)}</span><span class="pill ${a.kind === 'sell' ? 'buy_strong' : 'sell_strong'}">${a.kind === 'sell' ? '매도' : '매수'}</span><span>${a.title} · ${a.body}</span></div>`).join('')
     : '<div style="color:var(--muted)">아직 알림 없음</div>';
   $('log').innerHTML = s.log.length ? s.log.map(l =>
-    `<div><span class="t">${kstTime(l.time)}</span><span class="pill ${l.status}">${l.statusLabel}</span><span style="margin-left:auto;color:var(--muted)">${fmtKRW(l.price)} · 매수 ${l.buyCount} / 매도 ${l.sellCount}</span></div>`).join('')
+    `<div><span class="t">${kstTime(l.time)}</span><span class="pill ${l.status}">${l.statusLabel}</span><span style="margin-left:auto;color:var(--muted)">${fmtKRW(l.price)} · 매수 ${l.buyCount}점 / 매도 ${l.sellCount}점</span></div>`).join('')
     : '<div style="color:var(--muted)">아직 상태 변화 없음</div>';
+}
+
+// 강한 신호 관리: 새로 뜨면 기록·마커·알림, 이후 HOLD 동안 유지, 반대 신호가 뜨거나 점수가 준비 기준 아래로 떨어지면 해제
+let lastSignalNotify = { buy: 0, sell: 0 };
+function updateSignal(c) {
+  const sg = c.signals, now = Date.now();
+  const strong = sg.status === 'buy_strong' ? 'buy' : sg.status === 'sell_strong' ? 'sell' : null;
+  const sig = state.signal;
+  if (strong && (!sig || sig.kind !== strong)) {
+    const score = strong === 'buy' ? sg.buyScore : sg.sellScore;
+    const barTime = state.candles1m[state.candles1m.length - 1].time;
+    state.signal = { kind: strong, since: now, price: c.indicators.price, score, plan: sg.plan, triggers: (strong === 'buy' ? sg.buyParts : sg.sellParts).triggers.map(t => t.label) };
+    if (!state.signalMarks.some(mk => mk.time === barTime && mk.kind === strong)) {
+      state.signalMarks.push({ time: barTime, kind: strong, score }); state.signalMarks = state.signalMarks.slice(-40);
+    }
+    if (settings.signalAlerts && now - lastSignalNotify[strong] > SIGNAL_COOLDOWN_MS) {
+      lastSignalNotify[strong] = now;
+      const p = sg.plan, trig = state.signal.triggers.map(t => t.split(' (')[0]).join(', ');
+      notify(strong, `${strong === 'buy' ? '▲ 매수' : '▼ 매도'} 타이밍 · ${score}점`,
+        `${MARKET} ${fmtKRW(c.indicators.price)} · ${trig}${p ? ` · 목표 ${fmtKRW(p.target1)} / 손절 ${fmtKRW(p.stop)}` : ''}`);
+    }
+    return;
+  }
+  if (sig) {
+    const score = sig.kind === 'buy' ? sg.buyScore : sg.sellScore;
+    const opposite = strong && strong !== sig.kind;
+    const expired = now - sig.since > SIGNAL_HOLD_MS && sg.status !== `${sig.kind}_strong`;
+    if (opposite || expired || score < sg.thresholds.watch) state.signal = null;
+  }
 }
 
 function tick() {
   if (!dirty) return;
   dirty = false;
-  const c = computeAll(state);
+  const c = computeAll({ ...state, now: Date.now() });
   if (c) {
     state.computed = c;
     if (c.signals.status !== lastStatus) {
-      state.log.unshift({ time: Date.now(), status: c.signals.status, statusLabel: c.signals.statusLabel, price: c.indicators.price, buyCount: c.signals.buyCount, sellCount: c.signals.sellCount });
+      state.log.unshift({ time: Date.now(), status: c.signals.status, statusLabel: c.signals.statusLabel, price: c.indicators.price, buyCount: c.signals.buyScore, sellCount: c.signals.sellScore });
       state.log = state.log.slice(0, 60); lastStatus = c.signals.status;
     }
+    updateSignal(c);
   }
   const m = state.ticker ? checkAlerts(state.ticker.price) : null;
   render(m);
@@ -428,7 +531,7 @@ function bindSettings() {
     e.preventDefault();
     settings.qty = num('in-qty'); settings.avgPrice = num('in-avg');
     settings.takeProfitPct = num('in-tp', 1); settings.dropPct = num('in-drop', 1); settings.dropWindowMin = Math.min(600, num('in-win', 5));
-    settings.notify = $('in-notify').checked; settings.sound = $('in-sound').checked;
+    settings.notify = $('in-notify').checked; settings.sound = $('in-sound').checked; settings.signalAlerts = $('in-sig').checked;
     // 기준이 바뀌었으니 알림 단계는 현재 수익률 기준으로 재설정 (이미 넘은 단계는 다시 알리지 않음)
     if (state.ticker && settings.qty > 0 && settings.avgPrice > 0) {
       const pnlPct = (state.ticker.price - settings.avgPrice) / settings.avgPrice * 100;
@@ -439,7 +542,7 @@ function bindSettings() {
   });
   $('btn-perm').addEventListener('click', requestPermission);
   $('btn-test').addEventListener('click', () => notify('sell', '테스트 알림', `${MARKET} 알림이 이렇게 표시됩니다.`));
-  $('btn-reset').addEventListener('click', () => { alertState.lastSellLevel = 0; alertState.dropFired = false; state.alertLog = []; saveLocal(); dirty = true; toast('알림 기록과 단계를 초기화했습니다.'); });
+  $('btn-reset').addEventListener('click', () => { alertState.lastSellLevel = 0; alertState.dropFired = false; state.alertLog = []; state.signalMarks = []; state.signal = null; saveLocal(); dirty = true; toast('알림 기록과 단계를 초기화했습니다.'); });
 }
 
 // ---------- 시작 ----------

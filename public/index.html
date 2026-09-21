@@ -34,6 +34,42 @@
   .status.buy_strong { color: #052e16; background: var(--green); border-color: var(--green); }
   .status.sell_watch { color: var(--amber); border-color: rgba(245,158,11,.4); }
   .status.sell_strong { color: #1c0a00; background: var(--amber); border-color: var(--amber); }
+  .status.buy_strong, .status.sell_strong { animation: pulse 1.4s ease-in-out infinite; }
+  @keyframes pulse { 0%, 100% { box-shadow: 0 0 0 0 rgba(255,255,255,.0); } 50% { box-shadow: 0 0 0 6px rgba(255,255,255,.12); } }
+  @keyframes glow-buy { 0%, 100% { box-shadow: 0 0 0 0 rgba(34,197,94,.0); } 50% { box-shadow: 0 0 28px 4px rgba(34,197,94,.35); } }
+  @keyframes glow-sell { 0%, 100% { box-shadow: 0 0 0 0 rgba(245,158,11,.0); } 50% { box-shadow: 0 0 28px 4px rgba(245,158,11,.35); } }
+  /* ---------- 타이밍 배너 ---------- */
+  .timing { grid-column: 1 / -1; display: grid; grid-template-columns: 1fr minmax(240px, 320px); gap: 16px 24px; align-items: center;
+    padding: 16px 20px; border-radius: 14px; border: 1px solid var(--line); background: var(--panel); }
+  .timing .big { font-size: 26px; font-weight: 900; letter-spacing: -0.4px; line-height: 1.2; }
+  .timing .sub { color: var(--muted); font-size: 12.5px; margin-top: 4px; }
+  .timing.neutral .big { color: var(--muted); }
+  .timing.buy_watch { border-color: rgba(34,197,94,.45); } .timing.buy_watch .big { color: var(--green); }
+  .timing.sell_watch { border-color: rgba(245,158,11,.5); } .timing.sell_watch .big { color: var(--amber); }
+  .timing.buy_strong { border-color: var(--green); background: linear-gradient(135deg, rgba(34,197,94,.22), var(--panel) 60%); animation: glow-buy 1.6s ease-in-out infinite; }
+  .timing.buy_strong .big { color: #4ade80; font-size: 32px; }
+  .timing.sell_strong { border-color: var(--amber); background: linear-gradient(135deg, rgba(245,158,11,.24), var(--panel) 60%); animation: glow-sell 1.6s ease-in-out infinite; }
+  .timing.sell_strong .big { color: #fbbf24; font-size: 32px; }
+  .timing .why, .timing .plan { display: flex; flex-wrap: wrap; gap: 6px 14px; margin-top: 10px; font-size: 12.5px; color: var(--text); font-variant-numeric: tabular-nums; }
+  .timing .why b, .timing .plan b { color: var(--muted); font-weight: 600; margin-right: 4px; }
+  .timing .why .pen { color: var(--red); }
+  .timing .plan { padding: 8px 12px; border-radius: 10px; background: var(--panel2); font-weight: 700; }
+  .timing .plan .stop { color: #f87171; }
+  .gauge { display: flex; flex-direction: column; gap: 8px; }
+  .gauge .g { position: relative; height: 22px; border-radius: 6px; background: var(--panel2); overflow: hidden; }
+  .gauge .g i { position: absolute; left: 0; top: 0; bottom: 0; border-radius: 6px; transition: width .4s; opacity: .85; }
+  .gauge .g.buy i { background: var(--green); } .gauge .g.sell i { background: var(--amber); }
+  .gauge .g b { position: absolute; top: 0; bottom: 0; width: 2px; background: rgba(255,255,255,.55); }
+  .gauge .g span { position: absolute; left: 10px; top: 0; line-height: 22px; font-size: 12px; font-weight: 800; z-index: 1; color: var(--text); text-shadow: 0 0 4px rgba(0,0,0,.6); }
+  .gauge .g-note { font-size: 10.5px; color: var(--muted); line-height: 1.4; }
+  .count.hot { color: var(--green); }
+  ul.cond li.grp { color: var(--muted); font-size: 11px; text-transform: uppercase; letter-spacing: .5px; padding-top: 10px; border-bottom: 1px solid var(--line); }
+  ul.cond li.grp .val { color: var(--muted); font-weight: 700; }
+  ul.cond li.trigger.on span:nth-child(2) { color: var(--text); font-weight: 700; }
+  li .pts { margin-left: auto; color: var(--muted); font-variant-numeric: tabular-nums; font-size: 11.5px; min-width: 34px; text-align: right; }
+  li.on .pts { color: var(--green); font-weight: 700; }
+  #selllist li.on .pts { color: var(--amber); }
+  li .pts + .val { margin-left: 0; min-width: 96px; text-align: right; }
   .meta { color: var(--muted); font-size: 12px; }
   nav.tabs { display: flex; gap: 4px; padding: 8px 22px 0; background: var(--panel); border-bottom: 1px solid var(--line); }
   nav.tabs a { padding: 8px 16px; border-radius: 10px 10px 0 0; color: var(--muted); text-decoration: none; font-weight: 700; font-size: 13px; border: 1px solid transparent; border-bottom: 0; }
@@ -141,6 +177,10 @@
     .card h2 { font-size: 12px; }
     #chart { height: 260px; } #rsi { height: 90px; } #rel-chart { height: 240px !important; }
     .kpis { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
+    .timing { grid-template-columns: 1fr; gap: 12px; padding: 14px; border-radius: 12px; }
+    .timing .big { font-size: 22px; } .timing.buy_strong .big, .timing.sell_strong .big { font-size: 26px; }
+    .timing .why, .timing .plan { font-size: 12px; gap: 4px 10px; }
+    li .pts + .val { min-width: 0; }
     .kpi { padding: 8px 10px; } .kpi .v { font-size: 15px; } .kpi .s { font-size: 10.5px; }
     ul.cond li { font-size: 12.5px; padding: 8px 0; }
     li .val { font-size: 11.5px; }
@@ -189,6 +229,9 @@
 <div class="err" id="err" hidden></div>
 
 <main id="view-dash">
+  <div class="timing neutral" id="timing">
+    <div class="tl"><div class="big">데이터 대기</div><div class="sub">1분봉 60개가 쌓이면 판정을 시작합니다</div></div>
+  </div>
   <div class="col">
     <div class="card">
       <h2>1분봉 · EMA 9/21 · 볼린저(20,2)</h2>
@@ -228,6 +271,7 @@
         <div class="row">
           <label class="chk"><input type="checkbox" id="in-notify" checked> 브라우저 알림</label>
           <label class="chk"><input type="checkbox" id="in-sound" checked> 소리</label>
+          <label class="chk"><input type="checkbox" id="in-sig" checked> 매수·매도 타이밍 알림</label>
         </div>
         <div class="row">
           <button type="submit" class="btn primary">저장</button>
@@ -239,6 +283,7 @@
       <div class="perm" id="perm">알림 권한 확인 중…</div>
       <div class="disclaimer" style="margin-top:8px">
         매도 알림은 수익률이 단계(20%, 40%, 60%…)를 새로 넘을 때마다, 매수 알림은 최근 고점 또는 전일 종가 대비 기준 이상 급락했을 때 1회 발송됩니다.
+        타이밍 알림은 매수·매도 점수가 65점 이상이고 전환 트리거가 있을 때 방향별 5분 간격으로 발송됩니다.
         알림은 이 페이지가 열려 있을 때(백그라운드 탭 포함) 도착합니다. 휴대폰에서는 브라우저 메뉴의 "홈 화면에 추가"로 설치해 두면 편합니다.
       </div>
     </div>
@@ -247,11 +292,11 @@
       <div class="log" id="alertlog"></div>
     </div>
     <div class="card">
-      <h2>매수 관심 조건 <span class="count" id="buycount">0 / 7</span></h2>
+      <h2>매수 점수 <span class="count" id="buycount">0점</span></h2>
       <ul class="cond" id="buylist"></ul>
     </div>
     <div class="card">
-      <h2>매도 · 이탈 조건 <span class="count" id="sellcount">0 / 7</span></h2>
+      <h2>매도 · 이탈 점수 <span class="count" id="sellcount">0점</span></h2>
       <ul class="cond" id="selllist"></ul>
     </div>
     <div class="card">
@@ -259,7 +304,8 @@
       <div class="log" id="log"></div>
     </div>
     <div class="card disclaimer">
-      이 화면은 업비트 공개 시세를 바탕으로 사전에 정한 기술적 지표 조건의 충족 여부와 사용자가 정한 수익률·낙폭 기준 도달을 표시하는 도구입니다.
+      이 화면은 업비트 공개 시세를 바탕으로 사전에 정한 기술적 지표를 셋업·트리거·확인·추세 가중 점수(0~100)로 합산해 표시하고, 사용자가 정한 수익률·낙폭 기준 도달을 알리는 도구입니다.
+      목표가·손절가는 ATR과 최근 10봉 고저를 기준으로 계산한 참고값입니다.
       매수·매도 권유나 투자 조언이 아니며, 조건 충족이 수익을 보장하지 않습니다. 모든 거래 판단과 결과의 책임은 사용자에게 있습니다.
       데이터는 업비트 WebSocket으로 실시간 수신되며 지연이나 오류가 있을 수 있습니다.
       주소 뒤에 <code>?market=KRW-BTC</code> 처럼 붙이면 다른 종목을 볼 수 있습니다.
