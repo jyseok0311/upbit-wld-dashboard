@@ -71,6 +71,7 @@
   #selllist li.on .pts { color: var(--amber); }
   li .pts + .val { margin-left: 0; min-width: 96px; text-align: right; }
   .meta { color: var(--muted); font-size: 12px; }
+  .minibar { display: none; }
   nav.tabs { display: flex; gap: 4px; padding: 8px 22px 0; background: var(--panel); border-bottom: 1px solid var(--line); }
   nav.tabs a { padding: 8px 16px; border-radius: 10px 10px 0 0; color: var(--muted); text-decoration: none; font-weight: 700; font-size: 13px; border: 1px solid transparent; border-bottom: 0; }
   nav.tabs a.active { color: var(--text); background: var(--bg); border-color: var(--line); }
@@ -158,29 +159,52 @@
 
   /* ---------- 모바일 (700px 이하) ---------- */
   @media (max-width: 700px) {
-    body { font-size: 13px; }
-    header { position: static; padding: 10px 12px 8px; padding-top: calc(10px + env(safe-area-inset-top)); gap: 6px 12px; display: grid; grid-template-columns: 1fr auto; align-items: center; }
-    header h1 { font-size: 15px; }
-    header .market { font-size: 11px; }
-    header > div:first-child { grid-column: 1; }
-    .price { font-size: 22px; grid-column: 2; text-align: right; }
-    .chg { grid-column: 1; font-size: 13px; }
-    .meta { grid-column: 2; text-align: right; font-size: 11px; }
-    .status { grid-column: 1 / -1; margin: 2px 0 0; text-align: center; padding: 8px 12px; font-size: 13px; }
-    nav.tabs { padding: 6px 8px 0; gap: 2px; overflow-x: auto; -webkit-overflow-scrolling: touch; scrollbar-width: none; position: sticky; top: 0; z-index: 4; }
+    body { font-size: 13px; touch-action: manipulation; }
+    /* 헤더: 두 줄로 압축. 상태 알약은 아래 고정 미니바로 옮긴다 */
+    header { position: static; padding: 8px 12px 8px; padding-top: calc(8px + env(safe-area-inset-top)); gap: 2px 10px; display: grid; grid-template-columns: 1fr auto; align-items: center; }
+    header h1 { font-size: 14px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; word-break: keep-all; }
+    header .market { font-size: 11px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    header > div:first-child { grid-column: 1; min-width: 0; }
+    .price { font-size: 22px; grid-column: 2; grid-row: 1; text-align: right; line-height: 1.1; }
+    .chg { grid-column: 1; font-size: 12.5px; }
+    .meta { grid-column: 2; text-align: right; font-size: 10.5px; white-space: nowrap; }
+    header .status { display: none; }
+    /* 탭 + 미니바를 한 덩어리로 상단 고정 */
+    .topbar { position: sticky; top: 0; z-index: 4; background: var(--panel); box-shadow: 0 4px 14px rgba(0,0,0,.35); }
+    nav.tabs { padding: 6px 8px 0; gap: 2px; overflow-x: auto; -webkit-overflow-scrolling: touch; scrollbar-width: none; }
     nav.tabs::-webkit-scrollbar { display: none; }
     nav.tabs a { padding: 8px 12px; font-size: 12px; white-space: nowrap; }
+    .minibar { display: flex; align-items: center; gap: 10px; padding: 6px 12px; padding-left: max(12px, env(safe-area-inset-left)); padding-right: max(12px, env(safe-area-inset-right));
+      background: var(--bg); border-bottom: 1px solid var(--line); text-decoration: none; color: var(--text); font-size: 12.5px; font-variant-numeric: tabular-nums; }
+    .minibar .mp { font-weight: 800; white-space: nowrap; }
+    .minibar .ms { margin-left: auto; padding: 3px 10px; border-radius: 999px; font-weight: 800; font-size: 12px; border: 1px solid var(--line); background: var(--panel2); color: var(--muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 62%; }
+    .minibar.buy_watch .ms { color: var(--green); border-color: rgba(34,197,94,.4); }
+    .minibar.sell_watch .ms { color: var(--amber); border-color: rgba(245,158,11,.45); }
+    .minibar.buy_strong .ms { color: #052e16; background: var(--green); border-color: var(--green); animation: pulse 1.4s ease-in-out infinite; }
+    .minibar.sell_strong .ms { color: #1c0a00; background: var(--amber); border-color: var(--amber); animation: pulse 1.4s ease-in-out infinite; }
+    .minibar.buy_strong { background: rgba(34,197,94,.12); } .minibar.sell_strong { background: rgba(245,158,11,.12); }
     .err { padding: 8px 12px; font-size: 12px; }
-    main, #view-news, #view-relate { padding: 10px 10px 40px; gap: 10px; }
-    .col { gap: 10px; }
+    main, #view-news, #view-relate { padding: 10px 10px calc(30px + env(safe-area-inset-bottom)); gap: 10px; }
+    /* 카드 순서: 배너 → 차트 → 매수·매도 점수 → 포지션·알림 → 지표 → 호가·체결 → 기록 */
+    main { display: flex; flex-direction: column; }
+    .col { display: contents; }
+    .timing { order: 0; } .c-chart { order: 1; } .c-buy { order: 2; } .c-sell { order: 3; } .c-position { order: 4; }
+    .c-kpis { order: 5; } .c-flow { order: 6; } .c-alertlog { order: 7; } .c-log { order: 8; } .c-disc { order: 9; }
+    /* 조건 행: 라벨 한 줄, 그 아래 점수·현재값 */
+    ul.cond li:not(.grp) { display: grid; grid-template-columns: 10px 1fr auto; column-gap: 8px; row-gap: 1px; align-items: center; padding: 7px 0; }
+    ul.cond li:not(.grp) .pts { grid-column: 3; grid-row: 1; margin-left: 0; min-width: 0; }
+    ul.cond li:not(.grp) .val { grid-column: 2 / 4; grid-row: 2; margin-left: 0; text-align: left; min-width: 0; font-size: 11.5px; }
+    ul.cond li.grp { padding-top: 12px; }
     .card { padding: 12px; border-radius: 10px; }
     .card h2 { font-size: 12px; }
-    #chart { height: 260px; } #rsi { height: 90px; } #rel-chart { height: 240px !important; }
+    #chart { height: 280px; } #rsi { height: 90px; } #rel-chart { height: 240px !important; }
+    .two > div + div { padding-top: 6px; border-top: 1px dashed var(--line); }
+    td, th { padding: 3px 3px; }
+    #obtable td:first-child, #obtable td:last-child { width: 26%; }
     .kpis { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
     .timing { grid-template-columns: 1fr; gap: 12px; padding: 14px; border-radius: 12px; }
     .timing .big { font-size: 22px; } .timing.buy_strong .big, .timing.sell_strong .big { font-size: 26px; }
     .timing .why, .timing .plan { font-size: 12px; gap: 4px 10px; }
-    li .pts + .val { min-width: 0; }
     .kpi { padding: 8px 10px; } .kpi .v { font-size: 15px; } .kpi .s { font-size: 10.5px; }
     ul.cond li { font-size: 12.5px; padding: 8px 0; }
     li .val { font-size: 11.5px; }
@@ -221,11 +245,15 @@
   <div class="meta" id="meta">연결 중…</div>
   <div class="status neutral" id="status">데이터 대기</div>
 </header>
-<nav class="tabs">
-  <a href="#dash" id="tab-dash" class="active">대시보드</a>
-  <a href="#news" id="tab-news">뉴스 · 속보<span class="badge" id="news-badge" hidden>0</span></a>
-  <a href="#relate" id="tab-relate">OpenAI 연관도</a>
-</nav>
+<div class="topbar">
+  <nav class="tabs">
+    <a href="#dash" id="tab-dash" class="active">대시보드</a>
+    <a href="#news" id="tab-news">뉴스 · 속보<span class="badge" id="news-badge" hidden>0</span></a>
+    <a href="#relate" id="tab-relate">OpenAI 연관도</a>
+  </nav>
+  <!-- 모바일 전용: 스크롤해도 따라오는 현재가·타이밍 상태 줄. 누르면 맨 위 배너로 이동 -->
+  <a class="minibar neutral" id="minibar" href="#dash"><span class="mp" id="mb-price">–</span><span class="ms" id="mb-status">데이터 대기</span></a>
+</div>
 <div class="err" id="err" hidden></div>
 
 <main id="view-dash">
@@ -233,17 +261,17 @@
     <div class="tl"><div class="big">데이터 대기</div><div class="sub">1분봉 60개가 쌓이면 판정을 시작합니다</div></div>
   </div>
   <div class="col">
-    <div class="card">
+    <div class="card c-chart">
       <h2>1분봉 · EMA 9/21 · 볼린저(20,2)</h2>
       <div id="chart"></div>
       <h2 style="margin-top:10px">RSI(14)</h2>
       <div id="rsi"></div>
     </div>
-    <div class="card">
+    <div class="card c-kpis">
       <h2>지표 요약</h2>
       <div class="kpis" id="kpis"></div>
     </div>
-    <div class="card two">
+    <div class="card two c-flow">
       <div>
         <h2>호가 잔량 (상위 10호가)</h2>
         <div class="bar" id="obbar" style="--p:50%"></div>
@@ -259,7 +287,7 @@
     </div>
   </div>
   <div class="col">
-    <div class="card">
+    <div class="card c-position">
       <h2>내 포지션 · 알림 설정</h2>
       <div id="position" class="hold-empty" style="margin-bottom:12px">시세 수신 대기 중…</div>
       <form class="settings" id="settings-form">
@@ -287,23 +315,23 @@
         알림은 이 페이지가 열려 있을 때(백그라운드 탭 포함) 도착합니다. 휴대폰에서는 브라우저 메뉴의 "홈 화면에 추가"로 설치해 두면 편합니다.
       </div>
     </div>
-    <div class="card">
+    <div class="card c-alertlog">
       <h2>알림 기록</h2>
       <div class="log" id="alertlog"></div>
     </div>
-    <div class="card">
+    <div class="card c-buy">
       <h2>매수 점수 <span class="count" id="buycount">0점</span></h2>
       <ul class="cond" id="buylist"></ul>
     </div>
-    <div class="card">
+    <div class="card c-sell">
       <h2>매도 · 이탈 점수 <span class="count" id="sellcount">0점</span></h2>
       <ul class="cond" id="selllist"></ul>
     </div>
-    <div class="card">
+    <div class="card c-log">
       <h2>상태 변화 로그</h2>
       <div class="log" id="log"></div>
     </div>
-    <div class="card disclaimer">
+    <div class="card disclaimer c-disc">
       이 화면은 업비트 공개 시세를 바탕으로 사전에 정한 기술적 지표를 셋업·트리거·확인·추세 가중 점수(0~100)로 합산해 표시하고, 사용자가 정한 수익률·낙폭 기준 도달을 알리는 도구입니다.
       목표가·손절가는 ATR과 최근 10봉 고저를 기준으로 계산한 참고값입니다.
       매수·매도 권유나 투자 조언이 아니며, 조건 충족이 수익을 보장하지 않습니다. 모든 거래 판단과 결과의 책임은 사용자에게 있습니다.

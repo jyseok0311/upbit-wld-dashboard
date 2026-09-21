@@ -275,7 +275,8 @@ const LWC = window.LightweightCharts;
 const common = {
   layout: { background: { color: '#121826' }, textColor: '#8b95ad', fontSize: 11 },
   grid: { vertLines: { color: '#1b2336' }, horzLines: { color: '#1b2336' } },
-  timeScale: { timeVisible: true, secondsVisible: false, borderColor: '#232c42', rightOffset: 4, barSpacing: 7 },
+  // 좁은 화면에서는 봉 간격을 줄여 같은 폭에 더 긴 구간(약 1시간)이 보이게 한다
+  timeScale: { timeVisible: true, secondsVisible: false, borderColor: '#232c42', rightOffset: 4, barSpacing: window.innerWidth <= 700 ? 4.5 : 7 },
   rightPriceScale: { borderColor: '#232c42' }, crosshair: { mode: 0 }, localization: { locale: 'ko-KR' },
   // 모바일: 차트 위 세로 스와이프는 페이지 스크롤로, 가로 스와이프·핀치만 차트 조작으로
   handleScroll: { vertTouchDrag: false, mouseWheel: true, pressedMouseMove: true, horzTouchDrag: true },
@@ -414,10 +415,14 @@ function render(m) {
   }
   renderPosition(m);
   renderTiming(c);
+  // 모바일 고정 미니바 (현재가 · 상태)
+  if (s.ticker) $('mb-price').innerHTML = `${fmtKRW(s.ticker.price)} <span class="chg ${s.ticker.changeRate >= 0 ? 'up' : 'down'}">${s.ticker.changeRate >= 0 ? '▲' : '▼'}${(Math.abs(s.ticker.changeRate) * 100).toFixed(2)}%</span>`;
   if (c) {
     const st = $('status');
     const shown = s.signal ? `${s.signal.kind === 'buy' ? '▲ 매수' : '▼ 매도'} 타이밍 · ${s.signal.kind === 'buy' ? c.signals.buyScore : c.signals.sellScore}점` : c.signals.statusLabel;
-    st.textContent = shown; st.className = 'status ' + (s.signal ? `${s.signal.kind}_strong` : c.signals.status);
+    const cls = s.signal ? `${s.signal.kind}_strong` : c.signals.status;
+    st.textContent = shown; st.className = 'status ' + cls;
+    $('mb-status').textContent = shown; $('minibar').className = 'minibar ' + cls;
     renderList('buylist', c.signals.buy, 'buy', c.signals.buyParts); renderList('selllist', c.signals.sell, 'sell', c.signals.sellParts);
     $('buycount').textContent = `${c.signals.buyScore}점`; $('buycount').className = 'count ' + (c.signals.buyScore >= c.signals.thresholds.strong ? 'hot' : '');
     $('sellcount').textContent = `${c.signals.sellScore}점`; $('sellcount').className = 'count ' + (c.signals.sellScore >= c.signals.thresholds.strong ? 'hot' : '');
@@ -437,7 +442,7 @@ function render(m) {
       ['볼린저 상단 / 하단', `${fmt(i.bbUpper, 1)} / ${fmt(i.bbLower, 1)}`, `밴드폭 ${((i.bbUpper - i.bbLower) / i.bbMid * 100).toFixed(2)}%`],
       ['VWAP(120봉)', fmt(i.vwap, 1), i.price >= i.vwap ? '가격이 VWAP 위' : '가격이 VWAP 아래'],
       ['ATR(14)', `${fmt(i.atr, 2)}원`, i.atrPct !== null ? `가격의 ${i.atrPct.toFixed(2)}% · 변동성` : ''],
-      ['거래량 / 20봉 평균', i.volRatio ? `${i.volRatio.toFixed(2)}배` : '–', i.volRatioPrev !== null ? `직전 봉 ${i.volRatioPrev.toFixed(2)}배 · 진행 봉 환산 ${i.volRatioNow.toFixed(2)}배` : `${big(i.volume)} / ${big(i.volAvg20)}`],
+      ['거래량 / 20봉 평균', i.volRatio ? `${i.volRatio.toFixed(2)}배` : '–', i.volRatioPrev !== null ? `직전 봉 ${i.volRatioPrev.toFixed(2)}배 · 진행 봉 환산 ${i.volRatioNow !== null ? i.volRatioNow.toFixed(2) + '배' : '20초 후'}` : `${big(i.volume)} / ${big(i.volAvg20)}`],
       ['5분봉 EMA20 / 50', t5 ? `${fmt(t5.ema20, 1)} / ${fmt(t5.ema50, 1)}` : '–', t5 ? (t5.up ? '상위 추세 상승' : '상위 추세 하락·횡보') : '5분봉 대기'],
       ['스프레드', ob ? `${fmt(ob.spread)}원` : '–', ob ? `${ob.spreadPct.toFixed(3)}%` : ''],
       ['24h 고가 / 저가', tk ? `${fmt(tk.high24)} / ${fmt(tk.low24)}` : '–', tk ? `24h 거래대금 ${big(tk.accTradePrice24h)}원` : ''],
@@ -513,7 +518,8 @@ function tick() {
     updateSignal(c);
   }
   const m = state.ticker ? checkAlerts(state.ticker.price) : null;
-  render(m);
+  // 렌더 중 예외가 나도 다음 틱과 구독자(연관도 탭)는 계속 돌게 한다
+  try { render(m); } catch (e) { console.error('render', e); }
   for (const fn of listeners) { try { fn(state); } catch { /* 구독자 오류는 대시보드에 영향 주지 않음 */ } }
 }
 
@@ -540,6 +546,7 @@ function bindSettings() {
     alertState.dropFired = false;
     saveLocal(); renderSettings(); dirty = true; toast('알림 설정을 저장했습니다.');
   });
+  $('minibar').addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
   $('btn-perm').addEventListener('click', requestPermission);
   $('btn-test').addEventListener('click', () => notify('sell', '테스트 알림', `${MARKET} 알림이 이렇게 표시됩니다.`));
   $('btn-reset').addEventListener('click', () => { alertState.lastSellLevel = 0; alertState.dropFired = false; state.alertLog = []; state.signalMarks = []; state.signal = null; saveLocal(); dirty = true; toast('알림 기록과 단계를 초기화했습니다.'); });
