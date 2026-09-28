@@ -59,6 +59,12 @@ document.querySelectorAll('.news-head .chip').forEach(ch => ch.addEventListener(
 }));
 $('news-refresh').addEventListener('click', load);
 window.addEventListener('hashchange', () => showView(location.hash.slice(1)));
+// 숫자 키 1~4 로 메뉴 이동 (입력란에 포커스가 있을 때는 무시)
+window.addEventListener('keydown', e => {
+  if (e.ctrlKey || e.metaKey || e.altKey || /^(INPUT|TEXTAREA|SELECT)$/.test(document.activeElement?.tagName)) return;
+  const i = ['1', '2', '3', '4'].indexOf(e.key);
+  if (i >= 0) location.hash = '#' + VIEWS[i];
+});
 showView(location.hash.slice(1));
 load();
 setInterval(load, 5 * 60 * 1000);

@@ -85,19 +85,49 @@
   table.watch .wl { color: var(--muted); font-size: 12px; }
   table.watch .now { margin-left: 6px; padding: 1px 7px; border-radius: 999px; background: rgba(124,156,255,.2); color: var(--accent); font-size: 10.5px; font-weight: 700; }
   .minibar { display: none; }
-  .brand { display: none; }
+  .brand, .sbstatus, .sbfoot { display: none; }
   nav.tabs { display: flex; gap: 4px; padding: 8px 22px 0; background: var(--panel); border-bottom: 1px solid var(--line); }
+  nav.tabs a { display: inline-flex; align-items: center; gap: 7px; }
+  nav.tabs a svg { width: 15px; height: 15px; flex: 0 0 15px; opacity: .75; }
+  nav.tabs a.active svg { opacity: 1; color: var(--accent); }
+  nav.tabs a .tl small { display: none; }
+  /* 화면 전환: 표시되는 순간 살짝 떠오르는 효과 */
+  @keyframes viewin { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+  main:not([hidden]), section:not([hidden]) { animation: viewin .22s ease-out; }
+  .view-title { display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap; margin: 2px 0 12px; }
+  .view-title h1 { margin: 0; font-size: 19px; font-weight: 800; letter-spacing: -0.3px; }
+  .view-title span { color: var(--muted); font-size: 12.5px; }
   /* ---------- 넓은 화면(1101px 이상): 메뉴를 왼쪽 사이드바로 ---------- */
   @media (min-width: 1101px) {
-    body { padding-left: 200px; }
-    .topbar { position: fixed; left: 0; top: 0; bottom: 0; width: 200px; z-index: 6; display: flex; flex-direction: column; gap: 6px; padding: 18px 10px; background: var(--panel); border-right: 1px solid var(--line); }
-    .brand { display: flex; flex-direction: column; gap: 2px; padding: 4px 12px 14px; border-bottom: 1px solid var(--line); margin-bottom: 6px; }
+    body { padding-left: 220px; }
+    .topbar { position: fixed; left: 0; top: 0; bottom: 0; width: 220px; z-index: 6; display: flex; flex-direction: column; gap: 6px; padding: 18px 12px 12px; background: var(--panel); border-right: 1px solid var(--line); overflow-y: auto; }
+    .brand { display: flex; flex-direction: column; gap: 2px; padding: 2px 10px 12px; }
     .brand b { font-size: 15px; font-weight: 800; letter-spacing: -0.2px; } .brand span { font-size: 11px; color: var(--muted); }
+    .sbstatus { display: block; margin: 0 0 10px; padding: 10px 12px; border-radius: 12px; background: var(--bg); border: 1px solid var(--line); text-decoration: none; color: var(--text); transition: border-color .2s; }
+    .sbstatus:hover { border-color: var(--accent); }
+    .sbstatus .sbrow { display: flex; justify-content: space-between; align-items: baseline; gap: 8px; font-size: 12px; }
+    .sbstatus .sbrow b { color: var(--muted); font-weight: 700; letter-spacing: .3px; }
+    .sbstatus .sbrow span { font-weight: 800; font-size: 14px; font-variant-numeric: tabular-nums; white-space: nowrap; }
+    .sbstatus .sbrow span .chg { font-size: 11px; margin-left: 4px; }
+    .sbpill { margin-top: 7px; padding: 5px 10px; border-radius: 999px; text-align: center; font-size: 12px; font-weight: 800; background: var(--panel2); color: var(--muted); border: 1px solid var(--line); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .sbstatus.buy_watch .sbpill { color: var(--green); border-color: rgba(34,197,94,.4); }
+    .sbstatus.sell_watch .sbpill { color: var(--amber); border-color: rgba(245,158,11,.45); }
+    .sbstatus.buy_strong .sbpill { color: #052e16; background: var(--green); border-color: var(--green); animation: pulse 1.4s ease-in-out infinite; }
+    .sbstatus.sell_strong .sbpill { color: #1c0a00; background: var(--amber); border-color: var(--amber); animation: pulse 1.4s ease-in-out infinite; }
+    .sbstatus.buy_strong { border-color: rgba(34,197,94,.5); } .sbstatus.sell_strong { border-color: rgba(245,158,11,.55); }
     nav.tabs { flex-direction: column; gap: 4px; padding: 0; background: transparent; border-bottom: 0; }
-    nav.tabs a { padding: 11px 14px; border-radius: 10px; border: 1px solid transparent; font-size: 14px; display: flex; align-items: center; }
-    nav.tabs a.active { background: var(--panel2); border-color: var(--line); color: var(--text); box-shadow: inset 3px 0 0 var(--accent); }
-    nav.tabs a:hover:not(.active) { color: var(--text); background: rgba(255,255,255,.03); }
+    nav.tabs a { display: flex; align-items: center; gap: 11px; padding: 10px 12px; border-radius: 11px; border: 1px solid transparent; font-size: 14px; transition: background .15s, border-color .15s, color .15s; }
+    nav.tabs a svg { width: 19px; height: 19px; flex: 0 0 19px; opacity: .65; transition: opacity .15s, transform .15s; }
+    nav.tabs a .tl { display: flex; flex-direction: column; line-height: 1.2; min-width: 0; }
+    nav.tabs a .tl small { display: block; font-size: 10.5px; color: var(--muted); font-weight: 500; margin-top: 3px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    nav.tabs a:hover:not(.active) { color: var(--text); background: rgba(255,255,255,.035); }
+    nav.tabs a:hover:not(.active) svg { opacity: .9; transform: translateX(1px); }
+    nav.tabs a.active { color: var(--text); background: linear-gradient(90deg, rgba(124,156,255,.2), rgba(124,156,255,.05)); border-color: rgba(124,156,255,.35); box-shadow: inset 3px 0 0 var(--accent); }
+    nav.tabs a.active svg { opacity: 1; color: var(--accent); }
+    nav.tabs a.active .tl small { color: #c7d2fe; }
     nav.tabs a .badge { margin-left: auto; }
+    .sbfoot { display: block; margin-top: auto; padding: 10px 10px 0; border-top: 1px solid var(--line); font-size: 11px; color: var(--muted); line-height: 1.5; }
+    .sbfoot kbd { display: inline-block; padding: 0 5px; border-radius: 4px; border: 1px solid var(--line); background: var(--bg); font: 10px/16px inherit; color: var(--muted); margin-right: 2px; }
   }
   nav.tabs a { padding: 8px 16px; border-radius: 10px 10px 0 0; color: var(--muted); text-decoration: none; font-weight: 700; font-size: 13px; border: 1px solid transparent; border-bottom: 0; }
   nav.tabs a.active { color: var(--text); background: var(--bg); border-color: var(--line); }
@@ -239,7 +269,9 @@
     .topbar { position: sticky; top: 0; z-index: 4; background: var(--panel); box-shadow: 0 4px 14px rgba(0,0,0,.35); }
     nav.tabs { padding: 6px 8px 0; gap: 2px; overflow-x: auto; -webkit-overflow-scrolling: touch; scrollbar-width: none; }
     nav.tabs::-webkit-scrollbar { display: none; }
-    nav.tabs a { padding: 8px 12px; font-size: 12px; white-space: nowrap; }
+    nav.tabs a { padding: 8px 10px; font-size: 12px; white-space: nowrap; gap: 5px; }
+    nav.tabs a svg { width: 13px; height: 13px; flex-basis: 13px; }
+    .view-title { margin: 0 0 8px; } .view-title h1 { font-size: 16px; } .view-title span { font-size: 11.5px; }
     .minibar { display: flex; align-items: center; gap: 10px; padding: 6px 12px; padding-left: max(12px, env(safe-area-inset-left)); padding-right: max(12px, env(safe-area-inset-right));
       background: var(--bg); border-bottom: 1px solid var(--line); text-decoration: none; color: var(--text); font-size: 12.5px; font-variant-numeric: tabular-nums; }
     .minibar .mp { font-weight: 800; white-space: nowrap; }
@@ -317,12 +349,26 @@
 </header>
 <div class="topbar">
   <div class="brand"><b>스캘핑 대시보드</b><span>업비트 · 실시간 조건 판정</span></div>
+  <!-- 사이드바 전용: 현재 종목 시세와 타이밍 상태 (누르면 대시보드로) -->
+  <a class="sbstatus neutral" id="sbstatus" href="#dash">
+    <div class="sbrow"><b id="sb-market">KRW-WLD</b><span id="sb-price">–</span></div>
+    <div class="sbpill" id="sb-pill">데이터 대기</div>
+  </a>
   <nav class="tabs">
-    <a href="#dash" id="tab-dash" class="active">대시보드</a>
-    <a href="#multi" id="tab-multi">4종목 한눈에</a>
-    <a href="#news" id="tab-news">뉴스 · 속보<span class="badge" id="news-badge" hidden>0</span></a>
-    <a href="#relate" id="tab-relate">OpenAI 연관도</a>
+    <a href="#dash" id="tab-dash" class="active" title="단축키 1">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="9" rx="1.5"/><rect x="14" y="3" width="7" height="5" rx="1.5"/><rect x="14" y="12" width="7" height="9" rx="1.5"/><rect x="3" y="16" width="7" height="5" rx="1.5"/></svg>
+      <span class="tl">대시보드<small>현재 종목 지표 · 타이밍</small></span></a>
+    <a href="#multi" id="tab-multi" title="단축키 2">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="8" height="8" rx="1.5"/><rect x="13" y="3" width="8" height="8" rx="1.5"/><rect x="3" y="13" width="8" height="8" rx="1.5"/><rect x="13" y="13" width="8" height="8" rx="1.5"/></svg>
+      <span class="tl">4종목 한눈에<small>WLD · BTC · ETH · SOL 판정</small></span></a>
+    <a href="#news" id="tab-news" title="단축키 3">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h13a2 2 0 0 1 2 2v10a2 2 0 0 0 2 2H6a2 2 0 0 1-2-2z"/><path d="M19 19V9"/><path d="M8 9h5M8 13h5M8 17h5"/></svg>
+      <span class="tl">뉴스 · 속보<small>해외 기사 한국어 번역</small></span><span class="badge" id="news-badge" hidden>0</span></a>
+    <a href="#relate" id="tab-relate" title="단축키 4">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l5-6 4 3 4-7 5 5"/><circle cx="8" cy="11" r="1.5"/><circle cx="12" cy="14" r="1.5"/><circle cx="16" cy="7" r="1.5"/></svg>
+      <span class="tl">OpenAI 연관도<small>뉴스 반응 · 상관 · 베타</small></span></a>
   </nav>
+  <div class="sbfoot" id="sb-foot">연결 중…</div>
   <!-- 모바일 전용: 스크롤해도 따라오는 현재가·타이밍 상태 줄. 누르면 맨 위 배너로 이동 -->
   <a class="minibar neutral" id="minibar" href="#dash"><span class="mp" id="mb-price">–</span><span class="ms" id="mb-status">데이터 대기</span></a>
 </div>
@@ -418,6 +464,7 @@
 </main>
 
 <section id="view-multi" hidden>
+  <div class="view-title"><h1>4종목 한눈에</h1><span>월드코인 · 비트코인 · 이더리움 · 솔라나를 같은 점수제로 판정</span></div>
   <div class="news-head">
     <span class="meta" id="multi-meta">데이터 대기…</span>
     <span class="meta" style="margin-left:auto">카드의 "열기"를 누르면 그 종목 대시보드로 이동 · 타이밍 알림은 네 종목 모두 발송</span>
@@ -430,6 +477,7 @@
 </section>
 
 <section id="view-news" hidden>
+  <div class="view-title"><h1>뉴스 · 속보</h1><span>월드코인 · OpenAI 해외 기사를 한국어로 번역</span></div>
   <div class="news-head">
     <span class="chip active" data-cat="all">전체</span>
     <span class="chip" data-cat="wld">월드코인 · World</span>
@@ -445,6 +493,7 @@
 </section>
 
 <section id="view-relate" hidden>
+  <div class="view-title"><h1>WLD · OpenAI 연관도</h1><span>헤드라인 이후 가격 반응 · 비트코인·AI 코인과의 상관 · 베타</span></div>
   <div class="news-head">
     <span class="meta" id="rel-meta">데이터 대기…</span>
   </div>

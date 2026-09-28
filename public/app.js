@@ -468,6 +468,10 @@ function render(m) {
   renderWatch();
   const connLabel = { connecting: '연결 중…', live: 'WebSocket 실시간', reconnect: '재연결 대기 중 (요청 제한 회피를 위해 간격을 늘림)' }[s.conn];
   $('meta').textContent = `${connLabel}${s.updatedAt ? ' · 갱신 ' + kstTime(s.updatedAt) : ''}`;
+  // 사이드바(넓은 화면) 상태 카드·바닥글
+  $('sb-market').textContent = s.market;
+  if (s.ticker) $('sb-price').innerHTML = `${fmtKRW(s.ticker.price)}<span class="chg ${s.ticker.changeRate >= 0 ? 'up' : 'down'}">${s.ticker.changeRate >= 0 ? '▲' : '▼'}${(Math.abs(s.ticker.changeRate) * 100).toFixed(2)}%</span>`;
+  $('sb-foot').innerHTML = `${connLabel}${s.updatedAt ? '<br>갱신 ' + kstTime(s.updatedAt) : ''}<br><kbd>1</kbd><kbd>2</kbd><kbd>3</kbd><kbd>4</kbd> 메뉴 이동`;
   $('market').textContent = `${s.market} · 업비트 · 1분봉`;
   $('title').textContent = `${BASE} 스캘핑 조건 대시보드`;
 
@@ -488,6 +492,7 @@ function render(m) {
     const cls = s.signal ? `${s.signal.kind}_strong` : c.signals.status;
     st.textContent = shown; st.className = 'status ' + cls;
     $('mb-status').textContent = shown; $('minibar').className = 'minibar ' + cls;
+    $('sb-pill').textContent = shown; $('sbstatus').className = 'sbstatus ' + cls;
     renderList('buylist', c.signals.buy, 'buy', c.signals.buyParts); renderList('selllist', c.signals.sell, 'sell', c.signals.sellParts);
     $('buycount').textContent = `${c.signals.buyScore}점`; $('buycount').className = 'count ' + (c.signals.buyScore >= c.signals.thresholds.strong ? 'hot' : '');
     $('sellcount').textContent = `${c.signals.sellScore}점`; $('sellcount').className = 'count ' + (c.signals.sellScore >= c.signals.thresholds.strong ? 'hot' : '');
