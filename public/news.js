@@ -1,8 +1,11 @@
-// 뉴스 탭: scripts/fetch-news.mjs 가 만든 news.json(해외 기사 + 한국어 번역)을 읽어 표시한다.
-// 탭 전환(#dash / #news), 카테고리 필터, 새 기사 배지, 5분 간격 자동 갱신을 담당한다.
+// 뉴스 탭: scripts/fetch-news.mjs 가 만든 news.json(해외 기사 + 한국어 번역)에서 현재 종목의 분류만 골라 표시한다.
+// 탭 전환(#dash / #multi / #news / #relate), 카테고리 필터, 새 기사 배지, 5분 간격 자동 갱신을 담당한다.
 
 const $ = id => document.getElementById(id);
-const LS_SEEN = 'scalp-dash:news-seen';
+const D = window.dash;
+const PROFILE = D.PROFILE;
+const MY_CATS = PROFILE.news.map(c => c.key);           // 이 종목이 보는 뉴스 분류
+const LS_SEEN = `scalp-dash:news-seen:${D.MARKET}`;
 let data = null, cat = 'all', seenAt = 0;
 try { seenAt = Number(localStorage.getItem(LS_SEEN) || 0); } catch { /* 무시 */ }
 
@@ -20,11 +23,21 @@ function showView(name) {
   if (name === 'news') { seenAt = Date.now(); try { localStorage.setItem(LS_SEEN, String(seenAt)); } catch { /* 무시 */ } $('news-badge').hidden = true; }
 }
 
+// 분류 칩: 전체 + 이 종목의 분류들
+function renderChips() {
+  const box = $('news-chips');
+  box.innerHTML = [`<span class="chip ${cat === 'all' ? 'active' : ''}" data-cat="all">전체</span>`,
+    ...PROFILE.news.map(c => `<span class="chip ${cat === c.key ? 'active' : ''}" data-cat="${c.key}">${c.label}</span>`)].join('');
+  box.querySelectorAll('.chip').forEach(ch => ch.addEventListener('click', () => { cat = ch.dataset.cat; renderChips(); render(); }));
+}
+
 function render() {
   const grid = $('news-grid');
-  if (!data) { grid.innerHTML = '<div class="hold-empty">뉴스 데이터가 아직 없습니다. GitHub Actions 첫 실행(약 15분) 후 표시됩니다.</div>'; return; }
-  $('news-meta').textContent = `갱신 ${new Date(data.updatedAt).toLocaleString('ko-KR', { timeZone: 'Asia/Seoul', hour12: false })} · 15분 간격 자동 수집`;
-  const cats = data.categories.filter(c => cat === 'all' || c.key === cat);
+  if (!MY_CATS.length) { grid.innerHTML = `<div class="hold-empty">${PROFILE.name} 종목은 뉴스 분류가 설정되지 않았습니다. WLD · BTC · ETH · SOL 에서 지원합니다.</div>`; $('news-meta').textContent = ''; return; }
+  if (!data) { grid.innerHTML = '<div class="hold-empty">뉴스 데이터가 아직 없습니다. GitHub Actions 첫 실행 후 표시됩니다.</div>'; return; }
+  $('news-meta').textContent = `갱신 ${new Date(data.updatedAt).toLocaleString('ko-KR', { timeZone: 'Asia/Seoul', hour12: false })} · 자동 수집`;
+  const mine = MY_CATS.map(k => data.categories.find(c => c.key === k)).filter(Boolean);
+  const cats = mine.filter(c => cat === 'all' || c.key === cat);
   grid.style.gridTemplateColumns = cats.length > 1 ? '' : '1fr';
   grid.innerHTML = cats.map(c => `
     <div class="card">
@@ -37,9 +50,9 @@ function render() {
             <div class="src"><b>${it.source || '출처 미상'}</b><span>${ago(it.publishedAt)}</span><span>${new Date(it.publishedAt).toLocaleString('ko-KR', { timeZone: 'Asia/Seoul', month: 'numeric', day: 'numeric', hour: '2-digit', minute: '2-digit', hour12: false })}</span></div>
           </a>`).join('') || '<div class="hold-empty">기사가 없습니다.</div>'}
       </div>
-    </div>`).join('');
+    </div>`).join('') || '<div class="hold-empty">이 종목의 뉴스가 아직 수집되지 않았습니다. 다음 자동 수집 후 표시됩니다.</div>';
   // 새 기사 배지 (뉴스 탭이 닫혀 있을 때)
-  const fresh = data.categories.flatMap(c => c.items).filter(it => Date.parse(it.publishedAt) > seenAt).length;
+  const fresh = mine.flatMap(c => c.items).filter(it => Date.parse(it.publishedAt) > seenAt).length;
   const badge = $('news-badge');
   if (fresh > 0 && $('view-news').hidden) { badge.textContent = fresh > 99 ? '99+' : String(fresh); badge.hidden = false; } else badge.hidden = true;
 }
@@ -53,10 +66,8 @@ async function load() {
   render();
 }
 
-document.querySelectorAll('.news-head .chip').forEach(ch => ch.addEventListener('click', () => {
-  document.querySelectorAll('.news-head .chip').forEach(x => x.classList.toggle('active', x === ch));
-  cat = ch.dataset.cat; render();
-}));
+$('news-title-sub').textContent = MY_CATS.length ? `${PROFILE.news.map(c => c.label).join(' · ')} 해외 기사를 한국어로 번역` : '이 종목은 뉴스 분류가 없습니다';
+renderChips();
 $('news-refresh').addEventListener('click', load);
 window.addEventListener('hashchange', () => showView(location.hash.slice(1)));
 // 숫자 키 1~4 로 메뉴 이동 (입력란에 포커스가 있을 때는 무시)

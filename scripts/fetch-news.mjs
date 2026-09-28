@@ -1,5 +1,5 @@
 // 해외(영문) 뉴스 수집 + 한국어 번역 → public/news.json
-// 구글 뉴스 RSS(미국판)에서 월드코인·OpenAI 관련 기사를 모아 제목을 한국어로 번역한다.
+// 구글 뉴스 RSS(미국판)에서 종목별(월드코인·비트코인·이더리움·솔라나) 기사와 주요 인물·기관 기사를 모아 제목을 한국어로 번역한다.
 // 번역 결과는 .news-cache.json 에 캐시해 다음 실행에서 재사용한다 (GitHub Actions 에서는 actions/cache 로 보존).
 //
 // 실행: node scripts/fetch-news.mjs
@@ -8,21 +8,16 @@ import { readFile, writeFile, mkdir } from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
+import { allNewsCategories } from '../public/markets.js';
+
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const OUT = path.join(ROOT, 'public', 'news.json');
 const CACHE = path.join(ROOT, '.news-cache.json');
 const MAX_PER_CAT = 40;
-const MAX_NEW_TRANSLATIONS = 90;
+const MAX_NEW_TRANSLATIONS = 200;
 
-const CATEGORIES = [
-  {
-    key: 'wld', label: '월드코인 · World',
-    query: '(Worldcoin OR "WLD token" OR "Tools for Humanity" OR ("World Network" (crypto OR token OR Altman OR blockchain)) OR ("World ID" (Altman OR crypto OR iris OR Orb))) when:7d',
-    // 제목에 월드코인 관련 단어가 실제로 있어야 함 (Animation World Network 등 오탐 제거)
-    mustMatch: /worldcoin|\bwld\b|tools for humanity|world network|world id|world app|\borb\b|altman|iris.?scan|eye.?scan/i,
-  },
-  { key: 'openai', label: 'OpenAI · 샘 올트먼', query: '(OpenAI OR "Sam Altman" OR ChatGPT) when:1d', mustMatch: /openai|altman|chatgpt|gpt/i },
-];
+// 종목별 뉴스 분류는 public/markets.js 에서 관리한다 (월드코인·OpenAI, 비트코인·주요 인물, 이더리움·주요 인물, 솔라나·주요 인물)
+const CATEGORIES = allNewsCategories();
 
 const sleep = ms => new Promise(r => setTimeout(r, ms));
 const decode = s => s
@@ -92,7 +87,7 @@ async function main() {
     catch (e) { console.error(`[news] ${cat.key} RSS 실패:`, e.message); items = prev?.categories?.find(c => c.key === cat.key)?.items || []; }
     // 해외 기사 위주: 한글 제목 제외, 중복 제거, 최신순
     const seen = new Set();
-    items = items.filter(it => !hasHangul(it.title)).filter(it => !cat.mustMatch || cat.mustMatch.test(it.title))
+    items = items.filter(it => !hasHangul(it.title)).filter(it => !cat.mustMatch || cat.mustMatch.test(it.title)).filter(it => !cat.exclude || !cat.exclude.test(it.title))
       .filter(it => { const k = norm(it.title); if (seen.has(k)) return false; seen.add(k); return true; })
       .sort((a, b) => Date.parse(b.publishedAt) - Date.parse(a.publishedAt)).slice(0, MAX_PER_CAT);
     for (const it of items) {

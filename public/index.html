@@ -235,6 +235,16 @@
   .mtrig .t.buy { color: var(--green); border-color: rgba(34,197,94,.4); } .mtrig .t.sell { color: var(--amber); border-color: rgba(245,158,11,.45); }
   .mplan { font-size: 12px; color: var(--muted); font-variant-numeric: tabular-nums; }
   .mplan b { color: var(--text); } .mplan .stop { color: #f87171; }
+  /* 주요 인물 · 기관 카드 */
+  .people { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 10px; }
+  .person { background: var(--panel2); border-radius: 10px; padding: 10px 12px; display: flex; flex-direction: column; gap: 3px; }
+  .person .pn { font-weight: 800; font-size: 14px; display: flex; align-items: center; gap: 8px; }
+  .person .pn .cnt { margin-left: auto; font-size: 11px; font-weight: 700; padding: 1px 8px; border-radius: 999px; background: rgba(124,156,255,.18); color: var(--accent); white-space: nowrap; }
+  .person .pn .cnt.zero { background: transparent; color: var(--muted); border: 1px solid var(--line); }
+  .person .pr { font-size: 12px; color: var(--muted); line-height: 1.4; }
+  .person .pl { font-size: 12px; margin-top: 4px; line-height: 1.4; }
+  .person .pl a { color: var(--text); text-decoration: none; } .person .pl a:hover { color: var(--accent); }
+  .person .pl small { color: var(--muted); margin-left: 6px; }
   /* 연관도 */
   #view-relate { display: block; padding: 14px 22px 30px; }
   .rel-grid { display: grid; grid-template-columns: 1.4fr 1fr; gap: 14px; }
@@ -477,11 +487,9 @@
 </section>
 
 <section id="view-news" hidden>
-  <div class="view-title"><h1>뉴스 · 속보</h1><span>월드코인 · OpenAI 해외 기사를 한국어로 번역</span></div>
+  <div class="view-title"><h1>뉴스 · 속보</h1><span id="news-title-sub">해외 기사를 한국어로 번역</span></div>
   <div class="news-head">
-    <span class="chip active" data-cat="all">전체</span>
-    <span class="chip" data-cat="wld">월드코인 · World</span>
-    <span class="chip" data-cat="openai">OpenAI · 샘 올트먼</span>
+    <span id="news-chips" style="display:contents"></span>
     <span class="meta" id="news-meta" style="margin-left:auto">뉴스 불러오는 중…</span>
     <button type="button" class="btn" id="news-refresh">새로 고침</button>
   </div>
@@ -493,11 +501,15 @@
 </section>
 
 <section id="view-relate" hidden>
-  <div class="view-title"><h1>WLD · OpenAI 연관도</h1><span>헤드라인 이후 가격 반응 · 비트코인·AI 코인과의 상관 · 베타</span></div>
+  <div class="view-title"><h1 id="rel-title">연관도</h1><span id="rel-subtitle"></span></div>
   <div class="news-head">
     <span class="meta" id="rel-meta">데이터 대기…</span>
   </div>
   <div class="err" id="rel-status" hidden style="border-radius:10px;margin-bottom:12px"></div>
+  <div class="card" style="margin-bottom:14px">
+    <h2>주요 인물 · 기관 <span class="count" style="font-weight:600;color:var(--muted)">최근 기사 수는 수집된 해외 헤드라인 기준</span></h2>
+    <div class="people" id="rel-people"></div>
+  </div>
   <div class="card" style="margin-bottom:14px">
     <h2>연관도 요약 (실시간 · 5분봉 기준)</h2>
     <div class="kpis" id="rel-kpis"></div>
@@ -505,7 +517,7 @@
   <div class="rel-grid">
     <div class="col">
       <div class="card">
-        <h2>최근 12시간 정규화 가격 비교 · ▼ 표시는 OpenAI·올트먼 헤드라인</h2>
+        <h2 id="rel-chart-title">최근 12시간 정규화 가격 비교</h2>
         <div id="rel-chart" style="height:340px"></div>
       </div>
       <div class="card two">
@@ -519,13 +531,13 @@
     </div>
     <div class="col">
       <div class="card">
-        <h2>OpenAI·올트먼 헤드라인 이후 WLD 가격 반응</h2>
+        <h2 id="rel-events-title">헤드라인 이후 가격 반응</h2>
         <div class="news-list" id="rel-events"></div>
       </div>
     </div>
   </div>
-  <div class="card disclaimer" style="margin-top:14px">
-    OpenAI는 비상장 기업으로 주가가 없어, 이 화면은 (1) OpenAI 관련 해외 헤드라인 발생 후 WLD 가격 반응, (2) WLD와 비트코인·AI 테마 코인의 수익률 상관·베타,
+  <div class="card disclaimer" style="margin-top:14px" id="rel-disclaimer">
+    이 화면은 (1) 주요 인물·기관 관련 해외 헤드라인 발생 후 가격 반응, (2) 시장 요인·테마 코인과의 수익률 상관·베타,
     (3) 뉴스 결합도라는 간접 지표로 연관성을 살펴봅니다. 표본이 적고 상관관계는 인과관계가 아니므로 참고 자료로만 활용하세요. 투자 조언이 아닙니다.
   </div>
 </section>

@@ -1,51 +1,79 @@
 {
- "updatedAt": "2026-09-06T13:24:58.156Z",
+ "updatedAt": "2026-09-28T04:15:06.546Z",
  "categories": [
   {
    "key": "wld",
    "label": "월드코인 · World",
    "items": [
     {
-     "title": "OpenAI’s IPO Ambitions Lift Worldcoin – Even As Crypto Leaders Warn Of AI Capital Rotation",
-     "link": "https://news.google.com/rss/articles/CBMi0gFBVV95cUxOSEd5dXFMcWVoWjF5UmZlMGFWYkhUTXgyYXp1UUlGV1lxOXdBVjRZLWRTdnZqOENNbllual9OWkhyODNYSGs5cmJHSGRCZjJVNl9veTlxem1WR2JLemFUU3dxMzM1eUVWS0U1V19VMFVSTGJlZGZHeGNMN0NxdDJ2UkFDN0puenVNVVRRaDBuY0c5bGVCVXVHWGpJeVBTNXIzMzFRTGdEQWJpZkRyM2tfZVhWQUF1RUVYa3dWRkdET01hemMtWlZIaThVeHkwWkEtY1E?oc=5",
-     "source": "Stocktwits",
-     "publishedAt": "2026-09-06T01:04:16.000Z",
-     "titleKo": "OpenAI의 IPO 야망은 Worldcoin을 들어 올립니다 – 암호화폐 리더가 AI 자본 순환에 대해 경고하더라도"
+     "title": "Worldcoin clears a key psychological Level – $0.65 is next",
+     "link": "https://news.google.com/rss/articles/CBMihAFBVV95cUxPYWZGYzhKdmd0SldqNDZqaFAySktCekx4emxyR1d6aGhlclpQTUxLcEJFSkwzQlpXSV9iM2RvLVZfbEZEUmEtTHdIenRwOXhnQkxYdGt1aHdjZ2VObzRrdm9zUmw5VjF1elpjNUpVYVoxdjdONXEwRVN5THNaUTc0YzI5d1Q?oc=5",
+     "source": "AMBCrypto",
+     "publishedAt": "2026-09-27T21:00:47.000Z",
+     "titleKo": "Worldcoin은 주요 심리적 수준을 클리어합니다. 다음은 $0.65입니다."
     },
     {
-     "title": "Venice Token, Near Protocol, Worldcoin Tokens Jump as AI Tailwinds Rise",
-     "link": "https://news.google.com/rss/articles/CBMitwFBVV95cUxNNWpzdDhxVklTdkR4OFhoejU0bjlLcjlmUHVBaHBJZ3c4d0ZXWUNlUTNtRlQyNUxHZUFpejNQeWhzaEpWY2FMajBLa3hQY1ZUeW9jeGs0a1lGNFM2NGtJNXZfUm42Z1NSaVdsN2NKRFhUc3ZhUmk2Vk5PMjVRZ1NrcmdxWjZqTHM1Q1Brd2RnYmRLNjJ3MU1EZmM0RFJucEZOc0NyS2VHSE0tQzROaG9NV0tuTng4U1E?oc=5",
+     "title": "Top Three Cryptocurrencies to Watch This Week: Quant, Worldcoin, Zcash",
+     "link": "https://news.google.com/rss/articles/CBMirwFBVV95cUxPZkhDV2syUE5rRTZ1U0ZjQklGSzVtSUJnUVpBRERkRXlwd05YYUgtblBHZG1DVEx0cXFlZ0d0YUR4dWxpLUxHWk1FWDZ5ZEM5bnc0emZTNWtGUjRsS29wa1B1Y3JLeXVlcElVMU4tWFRfMjNUTE1sVDZMdkF4VF8wVS0xUWdlQXdDVU1Fa0hMM1MwSnZJbE5WYlc4Nkh3R2pXNU0xZHgyd1ZHZDVfOXpZ?oc=5",
      "source": "Benzinga",
-     "publishedAt": "2026-09-05T18:20:17.000Z",
-     "titleKo": "베니스 토큰, 니어 프로토콜, AI 테일윈드 상승에 따른 월드코인 토큰 점프"
+     "publishedAt": "2026-09-27T20:40:27.000Z",
+     "titleKo": "이번 주 주목해야 할 상위 3개 암호화폐: Quant, Worldcoin, Zcash"
+    },
+    {
+     "title": "BlockDAG Boosts USDT Buyback to $0.05 - The Best Crypto Bet Over Avalanche & Worldcoin",
+     "link": "https://news.google.com/rss/articles/CBMi3wFBVV95cUxOeXBvbHFVaHZIaUlhRW9BSFN1UmRia3o4MTBSdzRzeU1uMXdiWlBhS3RNd25IWUFsdEpTcXNfd1pqTm4zc1BwT2c3UEtMMDZXMWxpV1ZHNzBGdVh6MEdtbndXVzh5cDhTRUxkRzAzZ2lIdmxlUXBLb1Z5cFBJMFN0ZmpCbndqM2VyVnZJV3U3b3c1YUFGLVR0TE85OUFkSnlDeVBfM0ZrbDhCVnpDSXp1QUZnWm8zM3VrVS12NUZMRjlvcUJRNkZ1ZEoyN2pLZnNveVR1MVljM1g4SW8zVWtN0gHsAUFVX3lxTE1SOVJZUVZJcFJJTXhsR2ZuQmhlUjlrLWljM0tIaTRKRFFxaTVjVzZveXBjenZMVXlpTThfdlF5TU51NVA0d2tVR3NxcmdIT3dtZVlkYmZvYkFYeGt0S0tPT0dsc0lEanlsMl9tczB1MFVCVDVDVUZJWm5uYWx1T01yOXVlRmNwYldvcGY5eThmSlhOM3B1Mnp4UFFmOTNFUVhHWUh2aEdBdEhWWFdYanZIWjFFU1FuQUdDa2pHTVhLY1FTSkNGbmpRWGRuQmdldFVOM0dYTFNRejlZOEJMaVZOMHB5LUx3Q3dxZGRJ?oc=5",
+     "source": "Analytics Insight",
+     "publishedAt": "2026-09-25T12:00:00.000Z",
+     "titleKo": "BlockDAG, USDT 환매를 0.05달러로 증대 - Avalanche 및 Worldcoin에 대한 최고의 암호화폐 베팅"
+    },
+    {
+     "title": "Worldcoin longs get wrecked – And the data says more pain ahead",
+     "link": "https://news.google.com/rss/articles/CBMijAFBVV95cUxNdE9SUzFqT2o5UjN4RHNnY1d3cDFQQXNrQWljdHB5RmFENmdrWUE2MjVQWjV1RVJINlY4cmhxb1NublRHa1lBdWIxazBiZzlOWGpEVE1TWjlnS2Zycmtjal9QMWZwb2N3WHMxdVZ5eXBQWEJmTDNDOEhzejVGUFBTdVJITkVlNDNnTTFVQg?oc=5",
+     "source": "AMBCrypto",
+     "publishedAt": "2026-09-25T02:00:03.000Z",
+     "titleKo": "Worldcoin은 망가지기를 바라고 있습니다 – 그리고 데이터는 앞으로 더 많은 고통이 있을 것이라고 말합니다"
+    },
+    {
+     "title": "Worldcoin (WLD) Price Prediction 2026, 2027 – 2030: Will WLD Price Reach $10?",
+     "link": "https://news.google.com/rss/articles/CBMiekFVX3lxTE5xZmJ0R3h3VHk5YWlTbUM1XzJpTnhfLXZLUzRVSDZId2xOWVd0MzA1TDZFRGkyUjRmeFlPRDcwaGVxOWVFeWkxMTdPZkpYQjRlYmY0RGtRdUJxVlprb3NuSUdBMXRmenF6d3A0X1JtRDhYRlB6bTI5aHhn0gF_QVVfeXFMTjFaT01GZmxPWGtfOHdzZXNxN0JfZ3UtUzNxcUJnR1B0TkFSRnljNm1RRXV6V01rOHdtOS04cEZnY1BrRlk5Mmx3SzhuanpqS1haWUdyX2FmY3BtcUxzV0NIemRfcDB4Q09YM0pwVUtsajdIaFBqSEJ6RUV6Q2FkYw?oc=5",
+     "source": "Coinpedia Fintech News",
+     "publishedAt": "2026-09-24T08:55:00.000Z",
+     "titleKo": "Worldcoin(WLD) 가격 예측 2026, 2027 – 2030: WLD 가격이 10달러에 도달할까요?"
+    },
+    {
+     "title": "Crypto Market Overview: Bitcoin slips to $84,000 on rate hike bets – Worldcoin, Pepe lead losses",
+     "link": "https://news.google.com/rss/articles/CBMi5gFBVV95cUxOTkUyRk11VzJoZTZwTzdHVldBUGVHbDdiNEZZeXdYaEJGWEpyWVQtNUx5ZjRtLXNxZ3FBeHNmY3RsYUF5bjNycXp4YzctYnBUNVpmeE12WG5PRE1fcGdIOU50TlBGbTFZUlUtMFVuZTNKNENSQ0VFMXEtakctU0N4eDNyeTdGaC1sOUs1MnpCZGJ5c25VT2hGek9HUHNYdzhqRndKVWM0V0tpS3RqYm9Db3psS3Q3SUh6ZjdtaExMSUhlVFdJVWhkUi0wNzlLdGh4NzJSYl9zaHZ0YTg1R3hUVGR6aTNSdw?oc=5",
+     "source": "FXStreet",
+     "publishedAt": "2026-09-24T04:18:11.000Z",
+     "titleKo": "암호화폐 시장 개요: 비트코인은 금리 인상 베팅으로 84,000달러로 하락 – Worldcoin, Pepe 리드 손실"
+    },
+    {
+     "title": "Sam Altman’s World launches a finance app as it seeks new ways to grow World ID",
+     "link": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxNdGl2U0dzQWRJVndQZHRpT0JOR3NWVDYtNkJPWW4yS0RIQ1JuSzdwb1pYUUtOd0dobzM4VEQ0Z25hNDN0TnFkbXE1c3F5c3NXd3hUZ09BUHR2N2pncXo1ODR6eGc1ZE1OOENjaVNqYTNIV3RvaFIwaUtRanFybFFaUGc0c0hFN1pwaVppZVp1M3M4YUIzcDJmdDhtell5cGhxTlZNakR0dGE?oc=5",
+     "source": "Mariblock",
+     "publishedAt": "2026-09-23T10:38:05.000Z",
+     "titleKo": "Sam Altman's World는 World ID를 성장시키는 새로운 방법을 모색하면서 금융 앱을 출시했습니다."
+    },
+    {
+     "title": "World Money Is Worldcoin's Answer to Life After the Airdrop",
+     "link": "https://news.google.com/rss/articles/CBMihwFBVV95cUxPQk9yLURhbHVGb3BtNHlvYkVjS2pEcENlQU9GbzdEWWk3c09BeUZYNnJXcHRQejYxdDVzSXJZczlBNFdoa2pUell1MjlXMEdvbXdZV0VWekszZGlZallZZlppeVFEcmM3Q2ZFdlh0TGx4SUYxYXRSQzBrN2JzUXE5SmZyajNnUkE?oc=5",
+     "source": "Memeburn",
+     "publishedAt": "2026-09-22T16:51:22.000Z",
+     "titleKo": "World Money는 에어드롭 이후의 삶에 대한 Worldcoin의 대답입니다"
     },
     {
      "title": "Worldcoin Token Unlock Schedule Extended to 2028, WLD Surges 27%",
      "link": "https://news.google.com/rss/articles/CBMisAFBVV95cUxQci0tU1dXY0JtSzBteWc5enFiTnM1d3dCdFY0VXZscERkQWNmM3dYaGRDclRKMERzdVNWSE1VSldBWGhyVGpyaDdhVnFRQzJKR0xZRXFXeUY0dTFPdTROWWNsT1Z4OWh3TUpEYjZoWXA1T0VPbHVNQ1lHa2t1MUVQX2lCWkx3cUxEMmZwS0pyY0tGSjV0aHpyV0xVTUx6NV9XbHV0bV9LYWRLNWdfSUFCRg?oc=5",
      "source": "CoinMarketCap",
-     "publishedAt": "2026-09-05T11:30:56.000Z",
-     "titleKo": "월드코인 토큰 잠금 해제 일정이 2028년으로 연장됨, WLD는 27% 급증"
+     "publishedAt": "2026-09-21T15:52:29.000Z",
+     "titleKo": "Worldcoin 토큰 잠금 해제 일정을 2028년까지 연장, WLD 급증 27%"
     },
     {
-     "title": "Sam Altman-Backed “Human Verification” Push Targets Ticket Bots With Eye-Scanning Tech",
-     "link": "https://news.google.com/rss/articles/CBMivAFBVV95cUxQSDdQRTJTbUpIM3hzaUNPYUpQenpPd3JtX2dvalJDTGRZNFA5cWNJWWh4ZUJ3cmJqcDhEUlZkTnU4OEFndjM4WGw4MmNQWm1zdjNzVTNrWWw4QVFqb2stRThzVnhnaWtkSkx1dFZiYVgxMjgwV2hPNGMtcnRKUlctVmRPbHpNcnBKRmdiTUpQSlZqOEl5dWVTZVRaTmViUU1GUDFSV09MSnhpWGNBMnJmNGhCQjdlUTNMTE9xMQ?oc=5",
-     "source": "TicketNews",
-     "publishedAt": "2026-09-04T22:15:00.000Z",
-     "titleKo": "Sam Altman이 지원하는 \"Human Verification\" 은 Eye-Scanning 기술로 티켓 봇을 타겟팅합니다."
-    },
-    {
-     "title": "Worldcoin Explained 2026: Full Update and Guide",
-     "link": "https://news.google.com/rss/articles/CBMikAFBVV95cUxOZzdpc0x6VEJ4cXhrSFhjbXRVN0g5eXdWZ3dqVXFlUlBXQmc4a292YlJ2dmZzdzdHMGlMM1N3X3pJYjVuU1pyRXo1LUp6V2xPbUVDLVRTR09LbVdJUWQySVNoTzMtUkZ6Z3EyVXN6U3h1U01RdGVmbjJsOW1FUzNuQWE1eDZsWDI4UmNzMEMyTXY?oc=5",
-     "source": "Coin Gabbar",
-     "publishedAt": "2026-09-04T07:59:00.000Z",
-     "titleKo": "월드코인 2026 설명: 전체 업데이트 및 가이드"
-    },
-    {
-     "title": "Worldcoin Surges 8.45% Amid Broad Crypto Rally",
-     "link": "https://news.google.com/rss/articles/CBMicEFVX3lxTE9MR1lpcm16aDZ5V1F4dV84SGo5QTFOeHRrUUNrUTd3WjkzTUhtV3V6THdIZjFJSzFlQ2x2a2R1YzVBTV91b0FpRU85aVJ6c0hOQlhCSjRocmNvMldPamY3S3o2WkZPbHB2Y05wQzFMZFk?oc=5",
+     "title": "Sam Altman’s ​​OpenAI and Worldcoin Engage in Partnership Talks",
+     "link": "https://news.google.com/rss/articles/CBMivAFBVV95cUxPY29TUVVJY0ZZTk4wS1l0UEZWdVNjR1FSTWhXTmctWVVNRE9XRGZpZlR2WlZuN0VvOWZMMEpXQzQ4Z0w0YzBWeFpaWDVGaFlMZ0RnOU1DZUFtZGlZY3pOQ0d4S0xJUjZQU3JiZGNpRnoyT28taDlLU0E5a05ubjdDX19UWl83NlZvQmlDT1ZFVi1SalV0R2lFY05Senhudm1sMDBNd3Z0czFyalVMeEVPRlZSNXFFdzRJOExlbg?oc=5",
      "source": "CoinMarketCap",
-     "publishedAt": "2026-09-03T16:05:00.000Z",
-     "titleKo": "월드코인, 광범위한 암호화폐 랠리 속에서 8.45% 급등"
+     "publishedAt": "2026-09-21T12:02:30.000Z",
+     "titleKo": "Sam Altman의 OpenAI와 Worldcoin이 파트너십 논의에 참여"
     }
    ]
   },
@@ -54,284 +82,2000 @@
    "label": "OpenAI · 샘 올트먼",
    "items": [
     {
-     "title": "GPT-6 Astra: A new generation of intelligence",
-     "link": "https://news.google.com/rss/articles/CBMiTkFVX3lxTE11QUxBUVJLdC1jSmtJbmcxQzg4Qm9yUlNPS3JEMEVBanIyY1FRT2k2R0hBTlNnX2VqcWpTSDJUMDV0TjBJN1VGamlrZzVPZw?oc=5",
-     "source": "openai.com",
-     "publishedAt": "2026-09-06T13:21:02.000Z",
-     "titleKo": "GPT-6 Astra: 차세대 인텔리전스"
+     "title": "OpenAI training pause: These stocks and sectors are at risk",
+     "link": "https://news.google.com/rss/articles/CBMivAFBVV95cUxNS3VZUzc3WUpCSFFPSUtjcWNLSWdqU2Z0YUNKdV9mNUp5dTJUS1dncGc2T2F2V3h0aGlha2RBb2g5SEVfTmhvb0RlcE13eFlRbzZabG5BMnh6aEUyTng5U3haZzhUNkJac1pRd0lIc1phU3g1MTdabG5hVUY3V0ZXOUx0ZWVQRWpzSXAtM0lMb2U3bDM3YU1FQk1QNktMZzBOTFRVY2d1SlMtNnhsbEUwaWxIcm5YaXQ1eWlnVw?oc=5",
+     "source": "Investing.com",
+     "publishedAt": "2026-09-28T04:07:30.000Z",
+     "titleKo": "OpenAI 교육 일시 중지: 이러한 주식과 부문이 위험에 처해 있습니다."
     },
     {
-     "title": "Sam Altman’s AI Usage Prediction Is Wild — But These 3 Stocks Could Cash In",
-     "link": "https://news.google.com/rss/articles/CBMitwFBVV95cUxQRVVjSzVSeHl2RHVZY2NaU1owTmJxckFkQlEtb0ZGZkZVMkktV3pRSXE0VHNIaWxLcVFxU2VpZGVFWkNoSFhzcnB4eWZCTFNDclRDRmgxTXhaNS05SGZxYUh0d3NLOFNBTVYwTzNvMkIyZUlsV3pZN253eGdtRHRkdFplVHY0c1FNUjZuVmRvcXJzRVdNVE1MVjNobUlNeGhqLXRBcTktQmNGd0FWcTBRVzROSmFYZkE?oc=5",
-     "source": "24/7 Wall St.",
-     "publishedAt": "2026-09-06T13:21:00.000Z",
-     "titleKo": "Sam Altman의 AI 사용 예측은 거칠지만 이 3가지 주식은 현금화할 수 있습니다."
+     "title": "OpenAI pauses AI training after hacking incidents",
+     "link": "https://news.google.com/rss/articles/CBMiY0FVX3lxTFBVU1lqdFNlTFNNWWo0b25hOVk5WUVpcTFrZjRRYVhoNEQ0OHlVM0djTjBBdldKN015Wktub19RNWQxMnk2UDA3VkkyODF2SmdQbGMxN19iMUYyUWR0UkVMaXBpUdIBaEFVX3lxTE1WblIwNVhxMWpvcjVQQzJfZ0xZalFIZzBXdEdnT1BRTUFZbmQ0RDRSY2UwNmNxbjhOeW40M0h4YVJvMzc3UHhwNUxrOWdPNWwzMGF3eGpqa3BVY3JjMFhWNXRNc0xwRmVv?oc=5",
+     "source": "LiveNOW from FOX",
+     "publishedAt": "2026-09-28T04:03:18.000Z",
+     "titleKo": "OpenAI, 해킹 사고 후 AI 훈련 일시중지"
     },
     {
-     "title": "GPT-6 Astra Pricing Confirms OpenAI’s Premium Track: $10/$50 While Rivals Cut",
-     "link": "https://news.google.com/rss/articles/CBMimwFBVV95cUxNYXBpTkdIb05iSW9yRWVVSmNyMU41djdnU3VTcW9qTGZpYWx0SThjNm1TM29qY2tzTGZaVjdQLWZ5TXpfZHcwNEJzN2ktVjJEVWZWNDJCbU1wQXNVbVByb1dydmczU2VlY2FISEJTVWxqTDZ6YXZaM1pIckVLdVlNQkhQZnVuQVRFTHZhNklzb1o2R2dRZlVtMXZVUQ?oc=5",
-     "source": "forkast.news",
-     "publishedAt": "2026-09-06T12:54:42.000Z",
-     "titleKo": "GPT-6 Astra 가격 책정으로 OpenAI의 프리미엄 트랙 확인: 라이벌 인하 시 $ 10/$ 50"
+     "title": "OpenAI Agents Used Leaked Keys to Reach Census Data [2026]",
+     "link": "https://news.google.com/rss/articles/CBMid0FVX3lxTE9pU2VpalZRSG9ONjRQMDhrcG1Sd0RsR1VOR2paNHFEX015bjdGMUNJUkI2NFRrZHlFZ3Y1R01mRkExRUc5U3FrQV8tbkxYbzI1eFlUMm1JQmRRTkxSZmtjOXVIaTBpV2RjUzhjRTZYQjI3ZGVtSXJR?oc=5",
+     "source": "tech-insider.org",
+     "publishedAt": "2026-09-28T03:56:13.000Z",
+     "titleKo": "OpenAI 에이전트, 인구 조사 데이터에 접근하기 위해 유출된 키 사용 [2026]"
     },
     {
-     "title": "I Tried OpenAI’s Astra-Powered GPT-6 Pro For Job-Search—What Happened",
-     "link": "https://news.google.com/rss/articles/CBMivgFBVV95cUxPUUQ2OThMUi01ZnVaUlQ3YkF4WDFfa2J2SHJrSVpkekQ4Q0lVLTF3WlY0enk0anNfTUM2U1JJd1hQUXo4NXd4TUtPTXhFNUgwS2pQMkdNcThYYWl0TUtuajJsQndxRll6dkJXeUxsS0ZCWmRPTTJxQWlVXzFSeTdGTFoydXpvTy1xVGJwR3ljZElKWXBkQVQ1clBnQlVEOWZ4Ry1Ca0xpRHZxbWFobmN4OG55RUJKbDllWjFlNGVR?oc=5",
-     "source": "Forbes",
-     "publishedAt": "2026-09-06T12:53:15.000Z",
-     "titleKo": "구직 활동을 위해 OpenAI의 Astra-Powered GPT-6 Pro를 사용해 보았습니다."
+     "title": "Unsecured OpenAI research agents leaked user images to external hosts",
+     "link": "https://news.google.com/rss/articles/CBMipwFBVV95cUxPYmJyV3RZVm53eDR3ZGE5SXRPdE9vaFFESEFFUW9SQmU5eDFROFd5NTltdjZKQkh3SXd4Z1YwR2xlWGhOdENJS2FldXBwVzE3UnRNSFViNGNnT3JLdlhEWG82d0wzcVNfeWNmUXpIRTFWSFlTb1BPV3FDemVldjVZSEpFQ2NCMUt1NWd4OWgxb201cGVsZFZrZ1kzbkRPUWl3VUdHVkI4RQ?oc=5",
+     "source": "Adgully.com",
+     "publishedAt": "2026-09-28T03:50:00.000Z",
+     "titleKo": "보안되지 않은 OpenAI 연구 에이전트가 사용자 이미지를 외부 호스트로 유출했습니다."
     },
     {
-     "title": "ChatGPT, Claude and Grok outages overlapped—but no common cause was confirmed",
-     "link": "https://news.google.com/rss/articles/CBMipAFBVV95cUxOYkxKNGtKaFFySktUTHF1ajU2TjhVX3Z5SDh0MnRpY04xamRUbk5Fb1I2bzdENTBYU3lPYXMwVjE4TVlDTFdlNFVUX1dVemNFQWZFNDNNREtEek84MFhpY1JNamVJVGc1dTdVT0x6NklNcVZSOVI4SVNnQ2ZrajJHOFNMQXZSUURwYjZQN1lzRV8zOEYzSVFsbXZvNGF2cXY4VXZvag?oc=5",
-     "source": "NeoTeo",
-     "publishedAt": "2026-09-06T12:34:20.000Z",
-     "titleKo": "ChatGPT, Claude 및 Grok 서비스 중단이 겹쳤지만 일반적인 원인은 확인되지 않았습니다."
+     "title": "OpenAI AI agents bombarded the United Nations with aggressive tactics to extract data",
+     "link": "https://news.google.com/rss/articles/CBMixAFBVV95cUxNUTFGNUwzMDF6SENqMWJOZWF6Y0p6V05SMDU3RU1oMEE5WVM1alpIU0xTYTFFZ1ZwZHhtSm5pMHJFcU1tcm02OGw1Vy0xUFZZSVJFVEx0MTRxZzlPcmx5Z3dlSWQyS3hWeHJOUW5FU3NMdldseHNqa2JRM0cyanphRDUxT2FxLTMyclZUWlJpOVZzY18xUWJ4M0VJWm5GNFlSSVhVdkVnbl9UNkVfWTlrUl9HXzRDR2ExNFczQXZHT2o3Mzhr?oc=5",
+     "source": "digitaltrends.com",
+     "publishedAt": "2026-09-28T03:49:20.000Z",
+     "titleKo": "OpenAI AI 에이전트는 데이터를 추출하기 위해 공격적인 전술로 UN을 공격했습니다."
     },
     {
-     "title": "Kraken launches OpenAI and Anthropic pre-IPO perps",
-     "link": "https://news.google.com/rss/articles/CBMie0FVX3lxTE9XQnlEanVlcVdnUFNqcnRIb1poRVo4STFhZUprZnR6UVlERGJoX25admx6YzlJRmpJVDlGN2FpSm1VbnN3SnVvSEFmdmwzRlhrNHdVM1czS25qWXN4ZVFyUnZjdGxhbEdGQTUtUTZDRmN2RDIyZ1hkLVI1Zw?oc=5",
-     "source": "Crypto News",
-     "publishedAt": "2026-09-06T12:24:18.000Z",
-     "titleKo": "Kraken, OpenAI 및 Anthropic pre-IPO PERPS 출시"
+     "title": "Asia chip stocks slide as OpenAI pause revives AI slowdown fears",
+     "link": "https://news.google.com/rss/articles/CBMivAFBVV95cUxOZl9wY3ZYTU5SSkp5bjhlWkI2RmtCNFRWSUMycWhMQW1STFdBRmppNHRDbld6dWVOcUg2Qm1BTU41V1EzVUE0N2lrMGd2V1NqR1g0ZDFNOWFfaXNabGxtSEs1SGJ5QVlUSzNEZEJ3eXRjLVp2WTJMUDI3UHdEY0RmSDBad0FiTzFsbDd1ZFA5ZHIweGo2M1Vvc0FqNmlQODVkblM5QnhzMXBRcHlmaU5GcE5ZY3NqLUhrQ0tMVw?oc=5",
+     "source": "Investing.com Canada",
+     "publishedAt": "2026-09-28T03:23:49.000Z",
+     "titleKo": "OpenAI 중단으로 AI 둔화 우려가 되살아남에 따라 아시아 칩 주가 하락"
     },
     {
-     "title": "AI Agents Hijacked German Wiki to Cheat, OpenAI Delayed Disclosure",
-     "link": "https://news.google.com/rss/articles/CBMirAFBVV95cUxOU001UmJDczE1aThDLXN0bHV3bFVxd2xsV295NjgwRUpBaTFISjE5VVhxZy12R255ZnVRcWpyMEdzM3hoUTZGVHFlbHhaZlNweUdGTDlqVjE0LV9NYUlXaDUtMENfdUlJTFZfYWFxZ3YxbE5fZTZYZ1BkYm04YUZQdEY1djRfd29ydGhhbUJFaGpWQ0Qtb3FERllVeThqVnhzUzcyRUZsSjZpNFgt0gGyAUFVX3lxTE1JSmR0NXRmSFdON3AzNnI3LXFsZzhsS1g1QzdvcDdGNTFKQ01nZ211d0xHa2tqSTVfM1B1bHlxQ254LTJEaDFzMk5IOWtncENLZFJ1SXJDenFGb255TmpqYnFLeFNjenE1Y1VzUlprazgwc0Q3SjU5cU8yREZDdlZRMnA2N1U2NVNKQmFNbVFuMXZUTVRYY0c1UHpaSjF5NlJqUzlfa2ZhMWRqYU1xQ1dxV2c?oc=5",
-     "source": "Security Affairs",
-     "publishedAt": "2026-09-06T12:15:35.000Z",
-     "titleKo": "AI 에이전트가 독일 위키를 납치하여 속임수, OpenAI 공개 지연"
+     "title": "Taking on Meta Muse! OpenAI reportedly to urgently launch personal AI assistant, potentially debuting on Tuesday",
+     "link": "https://news.google.com/rss/articles/CBMirgFBVV95cUxOakpDbWVEWkZKSTJ5UGVyVGltN1RudjkxdmFwcE1UZXM2cmxLeTRwUURLdkFRNU56elQ0QU52LWVqclZ6d1Q3WkJVUUNkYWducENzSmF2NVFFbHJLVVBzUnF2Yi1OWUJQUHF5QUJXX1ZlbEwtNnFKcWpoNUN3RGJKdWF2dXdZeC02cWZzVDlWa19kTkFUTzBHNlNnQTVZaDFROEEwcnJEdU8xa2s3MFE?oc=5",
+     "source": "Moomoo",
+     "publishedAt": "2026-09-28T03:23:33.000Z",
+     "titleKo": "메타뮤즈를 맡아라! OpenAI가 개인 AI 비서를 긴급 출시할 것으로 알려졌으며 화요일에 데뷔할 가능성이 있습니다."
     },
     {
-     "title": "'Mega Apple fan boy' Sam Altman is 'very sad' they are suing OpenAI",
-     "link": "https://news.google.com/rss/articles/CBMiugFBVV95cUxQcnBEOVdJWnNhZ0x1a3dwRE04akd1QkdwaU5OaEg3NHNwWWJTR1RGeFhxand0UUZTcmt2VE1Oclg3ZHlMU1JZcU9Yb04tVzFDc3dWZWd1czB4eUc2WEpQUDZsYWJrRVVlTzBlREJoTmJUcUV0VXhuVGc0U1RlakQ0U2JzbDNQM2NTQm81NFdhNEhvcXdHU1A4YjdSa3hlbzIwN1ltRGNTeUtVRUZzNVRYaGFsX3hSR0k1WWfSAb8BQVVfeXFMUFEtSkw2Y2RmbkJMekxpV3ZULTU0SnhST0ltOFBWdFdHVDJkWm1mQUZDaEI4M0RnMEgtZnk0cFRvMUNpbVBLdG0wRXh5Q043MzU1ODRGamlWeDNDc3dFWFNodXRxel9rQ3M1NEcyYm1rNWM0QXZKLXV0MGdXWlNvUlhGZXFXaGZqQnhzNFlFS0tyUE5fbEZJeGpKd0tXcTI5d2o0SlNnQTJXOVNaYWprWE85S253Qkp1SUF4aERUbDQ?oc=5",
-     "source": "Moneycontrol.com",
-     "publishedAt": "2026-09-06T12:00:05.000Z",
-     "titleKo": "'메가 애플 팬 소년' 샘 알트먼은 그들이 OpenAI를 고소하는 것을 '매우 슬프다'"
+     "title": "OpenAI Confirms AI Inadvertently Leaked Users' Private Images Online – 53 Related Public Cases Disclosed",
+     "link": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE5PU3FjLU5JZWZuUHBMbW85ZnJJQkRGbDc2ZFVpTzIyTHFIMjlEZTB5WkRIQUprNDZEbzg5Wk42UGZvRldTR1NGU2ZVM0ZNN1FwTFlz?oc=5",
+     "source": "eu.36kr.com",
+     "publishedAt": "2026-09-28T03:10:28.000Z",
+     "titleKo": "OpenAI, AI가 실수로 사용자의 개인 이미지를 온라인에 유출했음을 확인 – 53개의 관련 공개 사례 공개"
     },
     {
-     "title": "OpenAI is back in the lead but China won’t let it win",
-     "link": "https://news.google.com/rss/articles/CBMiowFBVV95cUxQVlpBcmtMRzJIWER4VHRReUNoU0pfdE1mNjZKSklldEFoaFB1RUlKMGxRZmVCNnBnY3g5N3VyeWhhVi1tbUd1THFsVW8zYTZESXJaWFV1T19zVzl4NHhQcXlWdXZ4UE52TTVPLXM4TWhmaTg5N0U2bExvNWo0a1JORUc1TkgzYXFsRDVaQ1BUYjg1UjdVMlA5LWllbGV4a1hCZURZ?oc=5",
-     "source": "The Telegraph",
-     "publishedAt": "2026-09-06T12:00:00.000Z",
-     "titleKo": "OpenAI가 다시 선두로 올라섰지만 중국은 우승하지 못하게 할 것입니다."
+     "title": "OpenAI Admits AI Leaked 53 User Images to Third-Party Sites",
+     "link": "https://news.google.com/rss/articles/CBMimAFBVV95cUxNZENabVpCRWdmdk5hMDJaa01hTlhaVzlweXdRV1A5Y0xrc3BRblg5bFRvLWZ6clBkX2k1Vjh2dVlEMUE2QkhQUUJOT2JmLWNsWEU1RzFGeXcxMWFfRklvdF83NjRmVDVSbDA2aHN1N3BzWGtuVUlqZGo5a0FlLVVxbWcydmJhdjZscmM1WWExTGgyYmgzUlA1dg?oc=5",
+     "source": "KuCoin",
+     "publishedAt": "2026-09-28T02:55:05.000Z",
+     "titleKo": "OpenAI, AI가 53개의 사용자 이미지를 제3자 사이트에 유출했음을 인정"
     },
     {
-     "title": "OpenAI’s $1B Cyber Credits Are Not a Cash Grant",
-     "link": "https://news.google.com/rss/articles/CBMikAFBVV95cUxPcE5fbjFNWll6bkZtdE42OUFvT3dvQ3ExaG9uckhvMmwwUkt4YVBlZU9WYzZtQXR0djYwcjJNcDIxaUlwZEswdEVMb051X0E2RHRjc0o0ZDA4cUpZS3VXTFhIWWQ3akNtWDlLX3NTYjFyLVBNRnRJaVR4U0d0WDhQeWtOdW5RR0YtcHd0ZnpjT3o?oc=5",
-     "source": "quasa.io",
-     "publishedAt": "2026-09-06T12:00:00.000Z",
-     "titleKo": "OpenAI의 $ 1B 사이버 크레딧은 현금 보조금이 아닙니다"
+     "title": "OpenAI Halts Training: AI Agent Bypassed Internet Block Using a DNS Trick",
+     "link": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxNNmFpbjdFU0h6eW16WEhqSjBCYmVCX0k4NEhwM2pWQ0tWaE83dU1TckxPZnhxZUg3ODhvZ242RjZwV3VPTURBY3ZubXZ6STBOYVNXX2xpeFdoZEhfNWctYXd0SFY4Qm5Rd0xlc1hOWW9FMUk3cXRubkxsekZ4Qk5xT2psRzdnOFJpQUM4TmQ1UXFQZTc0X0JETk1VY0xYMlJXdjhsS1pPeGd0QQ?oc=5",
+     "source": "Basic Tutorials",
+     "publishedAt": "2026-09-28T02:36:35.000Z",
+     "titleKo": "OpenAI 훈련 중단: AI 에이전트가 DNS 트릭을 사용하여 인터넷 차단을 우회함"
     },
     {
-     "title": "GPT-6 Astra: What You Can Actually Do With This New Model",
-     "link": "https://news.google.com/rss/articles/CBMiVEFVX3lxTE5RbUc3UTY3QzVRSEhZOXdmRElGU0JYSlF2cGVwMTFiMVRLTm93eEFVMkY0endlMFpHUEQ1dm4xZnlSeV9URExyS3lnbWt0MHFYcDl6WA?oc=5",
-     "source": "Bleap",
-     "publishedAt": "2026-09-06T11:56:56.000Z",
-     "titleKo": "GPT-6 Astra: 이 새로운 모델로 실제로 할 수 있는 일"
+     "title": "OpenAI DevDay Approaches: Will Cybersecurity, Enterprise Agents, and Creator Tools Trigger a New Wave of SaaS Disruption?",
+     "link": "https://news.google.com/rss/articles/CBMiygFBVV95cUxPLUJFSmw5TXN4TWJhcUJ2d0lTTlBhNWhIaWhQaS1hUUV5VWM0YWJKTUhsU0FZRWhoZUI4T1ZDMThKOWtCU3VVSkpTQnI5Z1RlRm1wM3FEWUxLTFRFS1ZyOHFfMld3eEFFcS1LSWpGcTFYajFJV1ppWjFGVEhRTW40emp4MzY4blJ6QWhvNDRmckFFVVBJUWZTWkozaXJDOFMzQ2U1dEN2enJSVy1Nc3BtbFU2T0NyendLdkxseDg4SlJ3MmQ1SUZzQkVB?oc=5",
+     "source": "TradingKey",
+     "publishedAt": "2026-09-28T02:30:12.000Z",
+     "titleKo": "OpenAI DevDay 접근 방식: 사이버 보안, 엔터프라이즈 에이전트 및 제작자 도구가 SaaS 혼란의 새로운 물결을 촉발할까요?"
     },
     {
-     "title": "OpenAI dares developers to ship with GPT-6 Astra in 24 hours",
-     "link": "https://news.google.com/rss/articles/CBMijwFBVV95cUxPaFNNZWZtNnA2YzlHbFNHU0pqa0E3SzVSQ2F5OTN3V0FuU3MxdC0xWTNVbjYxMUw5UDNTYy1yNDFWaFhBaDFNQTVfVEU2Z01RMDVhWkxFX0VWeXZ6MzZhMHVISEp0Snh1OTJ0MVNYYlY1WEhZaXVTVkxRV3NXY0NNczNKa29BWjlYeVFHN25QYw?oc=5",
-     "source": "Pasquale Pillitteri",
-     "publishedAt": "2026-09-06T11:49:20.000Z",
-     "titleKo": "OpenAI는 개발자가 GPT-6 Astra와 함께 24시간 이내에 배송할 수 있도록 합니다"
+     "title": "Anthropic and OpenAI call for regulating and testing advanced AI models — The Hindu",
+     "link": "https://news.google.com/rss/articles/CBMitwFBVV95cUxOMElLMEV4WnpNS2lRZTN6UmRPbXo3MUFnQjIxeU9Pd1hkaWdEdjdUU0pNMUNoampVNEl6QW5VWTZabmxCNHk4aG9FQzZXQjVGdEhzdFdOMk9fblk2TG9YamUtRVVEN21qVU54WDVqbE43WEQ0YVFaSjRFc1ZJUEJGbWNnVmRYRERkZFEyaGloYlVRaHJHRFgwcWpMTDVRMWV2eXZsUUw4amxiWUhGcjF0ZkwtNlZMQ28?oc=5",
+     "source": "UA.NEWS",
+     "publishedAt": "2026-09-28T01:52:01.000Z",
+     "titleKo": "Anthropic과 OpenAI는 고급 AI 모델의 규제 및 테스트를 요구합니다."
     },
     {
-     "title": "OpenAI is developing automatic safeguards to stop AI after models leak online",
-     "link": "https://news.google.com/rss/articles/CBMia0FVX3lxTE81YTdjQVBfMmtmMm1fRV9PeklaTWpIRngwalJYVUZoSW1rNVBwTnZNNUduYmptZ24zQVJZeFhYWVp2WXBUV2kyTVB5UjFuYU5vQWdOQ0M3WV9kcWo2R0xBMHJQTGZPWm04dHhF?oc=5",
-     "source": "dev.ua",
-     "publishedAt": "2026-09-06T11:29:00.000Z",
-     "titleKo": "OpenAI는 모델이 온라인에서 유출된 후 AI를 차단하기 위한 자동 안전 장치를 개발하고 있습니다."
+     "title": "Why OpenAI’s Medicare hack matters, and what it means for the future of privacy",
+     "link": "https://news.google.com/rss/articles/CBMinwFBVV95cUxPV0tuYk5xZnpfa1kzOHBkcTBuM1lHeXNQNFFGVUZuVmc1Tzc5b3lxNU9Hakp4cDdoMi00Rm95NVFFOF9YVlFVT0VSeDVEbGZhTHM2WFpyVHVwLWRFUXlfaTFiZ3d6SWMtMWdPeUlvaHE5MTRCWlZLeDEzdGlZN1JJa01KZHByNWc1ZXBsSnBqUUJGbHpkUEFJdkdwQ3lHTzQ?oc=5",
+     "source": "ABC News & Headlines – Australian Broadcasting Corporation",
+     "publishedAt": "2026-09-28T01:28:17.000Z",
+     "titleKo": "OpenAI의 Medicare 해킹이 중요한 이유와 개인 정보 보호의 미래에 대한 의미"
     },
     {
-     "title": "OpenAI Astra arrives, so do a few big AI headaches for humanity",
-     "link": "https://news.google.com/rss/articles/CBMi1wFBVV95cUxQLWcwNklGbmF5UDNFWjVTTllHZnduMC1SOTU3VnVMWE1QcWJieTNJRFRzRjRhVUJIci0yT1BDaXRocExpcW1CVjdra2FlS0FsNk9IS0FMbng1YzZ1QW5oYUtSaURFWmxKckJ5YjRvaktIUXFWeEdRVTRaaS1SWGFqQk9sRFRrN3dOLXRXS0QxZTRXX3pzMnpsamVaWVZ6UERuNk5xaTViRW5RVVFnZkQ0ZldJQmpOUUlmVGpTZ2JWU2t5ZzR2VW9hN0xlV3EtdWs5UDhwVmlna9IB3AFBVV95cUxNbWZwT09qLU5hcHgyd0RNTVFfdG8zalN2X0tEcGhjY2dnVWx6ZGFhNzJTdGd3THA0RFhCVjNDS3lWT1BmLTdmQy1HZVpoYk8xandHZkl2bGJSa3JtRWF6SFZfd1N2UTlHQk5wQkdRbHJyLXhfbHRDUlUxcmZSQ0NrSjBfektLNk52MU91R0Z3cVVoS0s4eWQzLUNLV2pWVVZxLUFfZlVLMmxfTVBuaVJGNkZybDJLSHBXbUdGZDF4UDViYUl5TWgzSjVIMF8wazVuXzl3RFNLSms2dF91?oc=5",
-     "source": "indiatoday.in",
-     "publishedAt": "2026-09-06T11:21:34.000Z",
-     "titleKo": "OpenAI Astra가 도착합니다. 그래서 인류를 위해 몇 가지 큰 AI 두통을"
+     "title": "Grok Bot & Muse Go Viral: ChatGPT Steps Out Of The Sidelines",
+     "link": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE1UaHU3a2pPbUVOQnVWLWdrUnJLZHRnb3pyLWhLWXRSMjNIcGk0TWQ3cGlxZlE3dmJmQXlKM1F1cndsb1lHUWt0V3ZOWjJYY1BYeVFR?oc=5",
+     "source": "eu.36kr.com",
+     "publishedAt": "2026-09-28T01:20:28.000Z",
+     "titleKo": "Grok Bot 및 Muse 입소문: ChatGPT가 부업에서 벗어남"
     },
     {
-     "title": "OpenAI's Sam Altman says sorry for “messy” GPT-6 Astra rollout as subscribers face delays",
-     "link": "https://news.google.com/rss/articles/CBMi1gFBVV95cUxQTmt6dlhiZ0RsRTdnMDlFTTJ3WDl6MHlMUk9Oa1g2M1VOX2dzdkI1dUJ6WEppTXZ1bUxFNUxaeUtPTVhERHhJZjRtSm1JVWVRMUVtMVJnQVo2QUJJeDhpdHY4WUZoOERIMTdkR0VjeHB4b0M4TTR6NlhSWUNReVlEMTUxeURaY21ZeTA4QnNtb3c2UENaQUlnODc2eFBEcnFKQ18xN1NuS0ticGFKVFJzbV9Lek12eVlsX0RBX1NVTjBKa1FDcGdTVEJLd2w3S21ZcFVMN2RB0gHbAUFVX3lxTFBDemVuU2ZqTE9sWWJHaGVBU1VWMjB4S3dUcWNEam9tci1jMEZqczM2dmN0b2E1QlpkZ1BSZk56U2U4cmw0b3RKZGY1XzVJa0ZUdDgtTGFPeC1hZmJ1UkVvVjJYTzZ2Z0JxUUw3cGZ2UFIzSTNldmoxYkNxSW15eDBUa0NYNkQ1NTZrVGFELWNZRHp3WWtFOHBJS1BtaXViQTF5TldCRkdSS25oQ1ZLV2xsel9Ec0ZfTFFoQVBFcUZ1a29fRmp0OEtORWdhdWQ2UlFRY1BUbXJETS15MA?oc=5",
-     "source": "Storyboard18",
-     "publishedAt": "2026-09-06T11:11:01.000Z",
-     "titleKo": "OpenAI의 Sam Altman은 가입자가 지연에 직면함에 따라 \"지저분한\" GPT-6 Astra 롤아웃에 대해 미안하다고 말합니다."
+     "title": "Amodei Meets Trump Amid OpenAI Safety Breaches",
+     "link": "https://news.google.com/rss/articles/CBMikgFBVV95cUxNeGpHc24zWVF6UzlOdDQtZEQyeEhTMV9XTTBHQnFkZVVPQy10cTlVaUp4S01aQnNmNmFrUzBZYUU2VTlXSmo0TDhUdzRHU25aV3RfdXBId01vckFQbHg2dm11UzJHeUpseTliMFFxS2lreVpuS1VqMFYtRTJoLS00NUs2T3NyT080cDg2WEs3Z0hrQQ?oc=5",
+     "source": "briefs.co",
+     "publishedAt": "2026-09-28T01:19:02.000Z",
+     "titleKo": "Amodei, OpenAI 안전 침해 속에서 트럼프 만나다"
     },
     {
-     "title": "OpenAI cofounder Greg Brockman and his wife Anna put $5.5 million toward buying the 63-acre Moon Camp shoreline at Big Bear Lake, stopping a planned 50-home marina near the Jackie and Shadow bald eagle nest",
-     "link": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxNRFB0amlDOUZ3Q3RLN01OcTVHbnV5d1J3T0syZUxBRy1Bc18tMnFYN1RCd2Y2Y3E0dW5GMG9veXozMjBzSEhSYXpVeTMzNnIxdUg0TGwzWUt4YmVaa3FGQjIyTlFBenFoUFRCblVaa1A2TVNvZF9RWnpITnZyVnY5V2ZjQzhOVWVjb1hseXRRMkNRdElubzJUaU0xNjFFc3FJMXh2aV95V2dkUQ?oc=5",
-     "source": "Space Daily",
-     "publishedAt": "2026-09-06T10:56:44.000Z",
-     "titleKo": "OpenAI 공동 설립자 그렉 브록맨 (Greg Brockman) 과 그의 아내 안나 (Anna) 는 빅 베어 레이크 (Big Bear Lake) 에 있는 63에이커 규모의 문 캠프 (Moon Camp) 해안선을 구입하기 위해 550만 달러 ($) 를 투자하여 재키 앤 섀도우 대머리 독수리 둥지 (Jackie and Shadow bald eagle nest) 근처의 계획된 50홈 마리나를 멈췄습니다"
+     "title": "Exclusive-OpenAI works to understand full scope of agent activity as user data leak emerges By Reuters",
+     "link": "https://news.google.com/rss/articles/CBMi4AFBVV95cUxOZkVVaGl1VzBEV0c5TmJCaUNuRHN5RzljMU5NSDlkQlBsc040eTFSdWQ2X0ZfZ3dWeTRJckk5RVQ3bTlURXNMOVVJeTlYMWtZaXU5X1A0N1NVeml6aFNSMlFXWmluVWgxRjhlZ2hTb2FGSmF4dTdIcVp0bTJxR0hZTlh4ZFpHRDIzNWwyVXk5ZGl0am85T1NLV2xXV3FvVmxlTVdKN2FxeWFGZ0VqTE81Y281WTJZRHBXenBmNXN5RmZHYm45RzZZYUdGN2JtUDloSlByZW9GX082b3dXbTlDcg?oc=5",
+     "source": "Investing.com",
+     "publishedAt": "2026-09-28T01:09:35.000Z",
+     "titleKo": "Exclusive-OpenAI는 사용자 데이터 유출이 발생함에 따라 에이전트 활동의 전체 범위를 이해하기 위해 노력합니다. By Reuters"
     },
     {
-     "title": "OPENAI $0.0{4}3647 | Live OPENAI Price Chart Today, Swap on USDT | MEXC",
-     "link": "https://news.google.com/rss/articles/CBMijwFBVV95cUxPNmoyQWVFNTNsUVZpZlhhWWpoWEJOZzBvVWlUamd4TUNYZ1hxQ2tjTF9OOTE3bzJ2dC1TSkFZZHp6VnU0WTFXeWtIcl9BTnlhT0c2UTQ1WW5rc1RpRWdNNVQ2U2VPcldaVmRaU1ByS216Y0FQRlZpdHIySXp5VlplcWVxM3d3dnNNd2ZNbFZxaw?oc=5",
-     "source": "mexc.co",
-     "publishedAt": "2026-09-06T10:54:41.000Z",
-     "titleKo": "OPENAI $ 0.0 {4} 3647 | 실시간 OPENAI 가격 차트 오늘, USDT로 전환 | MEXC"
+     "title": "OpenAI Slows AI Training Following Latest Security Incident",
+     "link": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxNVlNNM043YXpZNlp2d1M1MlotcTN2cjlob085RHpjcGs0QXJhbFN6R0E0dDJCVnBTSk45andHUmZJclUzT0VqZkdlNndXVkJ3aEUxZVJfcWdlMWsyUjBzOWhaMkVMMmtuUy1jVXFfUUxvMTNQWEZZbC1TQmpoeTB2TlJsQTE1bHozUTROSk8xNEdSN1JyOTZud0xhSFZoclp0VkhSMl9lUWVRTW5TbWdyR3ZRUzFpQTlQ?oc=5",
+     "source": "PYMNTS.com",
+     "publishedAt": "2026-09-28T00:59:56.000Z",
+     "titleKo": "OpenAI, 최신 보안 사고 이후 AI 훈련 속도 저하"
     },
     {
-     "title": "OpenAI apologises after messy rollout of GPT-6 Astra leaves paying users waiting",
-     "link": "https://news.google.com/rss/articles/CBMiywFBVV95cUxNRk4yeUh5U0hfRERtaFUtbW1iOUtWQmotOGZwQ1dtRE9BT0tlQkRXTERTNlpSVkY4ZGp6VklSanN2SldsOWxiNjN3UFhpTVBnX3VHWklSUENEd3NBOW8wUTY5T2VaTGlxREdWcUUzeVlLRUJoUHBRS1JHbEtVY2Flay1zTXM2RzNiamNBMHNDS1RBYzEtaVRqdnFDT3hIaFZISVhSS09VYUFSWEwzTm9oeG0yTjRWUWdjTFJSRU5yRTh4SGl2b29yZndTRQ?oc=5",
-     "source": "eastleighvoice.co.ke",
-     "publishedAt": "2026-09-06T10:39:40.000Z",
-     "titleKo": "GPT-6 Astra가 지저분하게 출시된 후 OpenAI가 유료 사용자를 기다리게 한 후 사과"
+     "title": "OpenAI Agent Bypasses Security to Access Public Health Data; Australian Senate Summons Tech CEOs",
+     "link": "https://news.google.com/rss/articles/CBMixgFBVV95cUxORHpCM1lXd3l0QWU2Y2J3X3dVbkJsMU5pMUctalpPOTJTSzJ6YmkyLW92NGlVODRJSDFvVmRiZVUzQmJRTFJTUVdJNkd4bkJyYU43M1VaZVhHd0FIVWgzTzBxNmpMNVVaanludWdWZmdzVXpxR1lVTkt6Q2w1M0xMWk8ybTlZbVl6LXFFNEs5X1VNTUhhVGFIRWh1UmhBU0RpbS03OFM3R3d2R0Fob1U3ZEI5NXJXemRCbXByVjgxZVMwLUFvTlE?oc=5",
+     "source": "Sarawak Tribune",
+     "publishedAt": "2026-09-28T00:46:48.000Z",
+     "titleKo": "OpenAI 에이전트는 보안을 우회하여 공중 보건 데이터에 액세스합니다. 호주 상원, 기술 CEO 소환"
     },
     {
-     "title": "OpenAI developer claims Astra boosted productivity so much it pulled some plans forward by six months",
-     "link": "https://news.google.com/rss/articles/CBMixAFBVV95cUxPT2hxbzI5T3FhRUFzNXZ3cGpibEd2Wlk3WGFPeUMydGZSQS1LZlY2UlhzbjBYb1Z1azFCTUdJcDk1Q29HUE5DWndzQXdNbUxZa3BKREc3amhWdDVNQTc0R0oyMEhKZHhJd2RYTmY2SjBiVEJrLUQwS2xuaG40LTFKMnloeEM2QVhZTkl6U1Z0dmV1TzdIM0RoSFZMM3NReTh4Z2VsV2JSUU8tZFpUZE1ST1dEbFRyNElBdDJDYmNwRXdEYjdk?oc=5",
-     "source": "the-decoder.com",
-     "publishedAt": "2026-09-06T10:20:33.000Z",
-     "titleKo": "OpenAI 개발자는 Astra가 생산성을 너무 높여 일부 계획을 6개월 앞당겼다고 주장합니다."
+     "title": "OpenAI halts frontier model training for second time in three months; Nvidia accelerates evaluation of glass substrate adoption",
+     "link": "https://news.google.com/rss/articles/CBMidkFVX3lxTE5VZGVFRzd2TFFNakg2dzlxV0o2WGczODFxalVGT1UxeHdJQ1o5NEpVbjhaeXgweWoyc1I4YlBBYnhDN095d29vWGt0VjVKdnl1MUpSckFzY2tjVm5LRGFMUkxZYVNQazRUcmVyU0c4NEVCUEdibUE?oc=5",
+     "source": "finance.biggo.com",
+     "publishedAt": "2026-09-28T00:35:00.000Z",
+     "titleKo": "OpenAI는 3개월 만에 두 번째로 프론티어 모델 훈련을 중단했습니다. 엔비디아, 유리 기판 채택 평가 가속화"
     },
     {
-     "title": "OpenAI Plans to Cut Off Cursor After SpaceX Acquisition",
-     "link": "https://news.google.com/rss/articles/CBMif0FVX3lxTE9MOV9mOUxaaER4NUFiU0Q0Uzdqc0tQTXBYS0dDLUhESi11UGg1QnJnLUlFLUNJbHYxWTg3cDgtZTg2a21CWEtRcVBwUGZGc1pTZUVEcG5IcG9MdkM2Y2pRUFVfcG1ZLVVqWl9kVGNrbWwwaHNlN1R1c2VVNGVyblU?oc=5",
-     "source": "NeoTeo",
-     "publishedAt": "2026-09-06T10:09:06.000Z",
-     "titleKo": "OpenAI, SpaceX 인수 후 커서 차단 계획"
+     "title": "U.S. stock futures dip as markets parse Iran tensions, OpenAI training halt",
+     "link": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxPTUVlTUxwRnZ2Y1NMdW5XWnpJWEN3SDZmaUVaaW9TeThPd3BjbWRzc1hTaGZCYmxrOXJOcnRNT09HYmg2NG1DOGIzMUxpNGNDR3l2c0hXN3U1Q0ZTNDNTakUwanNQODhUZTQwSVY3YUxvRlFZV01LVFB4dEs0dkh1Yng1c1hNSWg0cUNJaUI3TFNDa0NicVo0MGVwZ3BYWnVhNE1BZkNtS1hFcnVYVllTYjlpZUprcTlHdGRFeFllUlZOelA3c3VVXw?oc=5",
+     "source": "Investing.com",
+     "publishedAt": "2026-09-28T00:33:29.000Z",
+     "titleKo": "시장이 이란의 긴장과 OpenAI 훈련 중단을 분석함에 따라 미국 주식 선물 하락"
     },
     {
-     "title": "Sam Altman on concerns over AI water use: 38,000 ChatGPT queries use as much as 1 almond | World News",
-     "link": "https://news.google.com/rss/articles/CBMi5AFBVV95cUxOT1JiTWlnVWRTbHVvbUJmd0ZGa0phNy04YVd3dEpnbTVFaXUyUENNcHhIb0VKUzFYQnVRenhKQ2ZRdFJWTDlrQXNxOXFXcGRIczlQYWlLMzF6R1lkYWRNdGFXZnk4NGZPTGxQX1FGNERJX3ZoQW9JNWRXT1oteDVManhzTEpKcC00VTU3ZTlwR0FqWVQ1ZUZHRUZDTlZUYzNEd0tFcDhjOXNuM0Y3d0Q2ckdxaDUwV0VnbkgzeWNjZjJTLUszdjNPbF83VV94aGNRM0RiTHFFdkxVa0tRbW80V0RZTm3SAeoBQVVfeXFMT1hrQ0RybVlFdk52X1ZVTGlVZjNReWZUSEJZUXVNcXljOC1GZnJCWlJCdzZsQWJ5aGtUV05mZUcxM3B0YjYxbFJZekREQ3JKMGJFQjV4M2V6MWFCVm1nLU1vUFoyOWpNSEVvUWdHNGJQTkVIZW5iYTREc0VUazRUcmVWNXphcTd2RjRXREJXSU9sTHdBTFk0NGRHZjJET3pQOW5EZElldnFla2dWdllwa2hNS3YzREZrZktLNUwtNG5SOXBYYkRqc3p2d185d1k1QWc4bVhFVENhTTJuNFpCR0hBem5Uc1hod3BB?oc=5",
-     "source": "Hindustan Times",
-     "publishedAt": "2026-09-06T10:03:20.000Z",
-     "titleKo": "샘 알트먼 (Sam Altman): AI 물 사용에 대한 우려: 38,000개의 ChatGPT 쿼리는 최대 1개의 아몬드를 사용합니다 | 세계 뉴스"
+     "title": "OpenAI agents hit UN website more than 16,000 times, used aggressive techniques, bypassed a filter",
+     "link": "https://news.google.com/rss/articles/CBMigAFBVV95cUxOcE95R3ZGYnR5bUxkem9VWlc5R2ZMdW5nOVJndGZGajlvZnBORlFTLWt5elNhUk1rTzByX0lzd0FiUFRmZWpsM19NNkxmbldNUjNTNVNiR2ltTGRsbC1FVlF6aVBRV2ktazRpX2pFY3BIc1JGT1pRR2tWNUVDVnRrYg?oc=5",
+     "source": "Interesting Engineering",
+     "publishedAt": "2026-09-28T00:31:00.000Z",
+     "titleKo": "OpenAI 에이전트는 UN 웹사이트를 16,000회 이상 방문하고 공격적인 기술을 사용했으며 필터를 우회했습니다."
     },
     {
-     "title": "OpenAI Agents Hijacked German Site, Researchers Say",
-     "link": "https://news.google.com/rss/articles/CBMimAFBVV95cUxOWklEWlBYSk9yaFI0b3JTdWFqVUUxU1JLSFU5aVFEVHAwOUdrZ2dxWHZqZDk2OHZMMjczM2NrX1Zqak1JMWN4aHdvQ09tYzVvbWRRS1N0NFcyWWJoaVVGUmF4T3BRRTlrY05JWkdlcHpob1phQkhnT3VHdEUwSi1FNTJhZGNSMEZVeUtVSlJlRlNTTEN6a1JvYg?oc=5",
-     "source": "اسلام تايمز",
-     "publishedAt": "2026-09-06T09:50:54.000Z",
-     "titleKo": "OpenAI 에이전트가 독일 사이트를 납치했다고 연구원들은 말합니다."
+     "title": "80,000 Lines of Code Reconstruct OpenAI Agent’s HF Intrusion: Complete Attack Toolchain Built Unexpectedly With Only Web-Browsing Access",
+     "link": "https://news.google.com/rss/articles/CBMiU0FVX3lxTFA2Z1NsWjdjNUQzeFJRXzFuTmR0QXhHa2FNTVg4bWVzNDdjZjJmTFNPWENMeGNjaW5odmkwTDByOHhXZWloMFdiM0RjSnlkUFhQMWpr?oc=5",
+     "source": "eu.36kr.com",
+     "publishedAt": "2026-09-28T00:30:19.000Z",
+     "titleKo": "80,000줄의 코드로 OpenAI 에이전트의 HF 침입 재구성: 웹 브라우징 액세스만으로 예기치 않게 구축된 완전한 공격 툴체인"
     },
     {
-     "title": "OpenAI hit with 30 new lawsuits over Tumbler Ridge school shooting",
-     "link": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxQeUpjUml1ckxwN0Q1anlNbXkycU81UE1acVJsaWp2d2tmQ3VDcEJLNDN6SWZSWF9TNWxhVHBUQ1FhZER1TGlhSHRlUFQxTExyazAwdGdFZ0RuT3FDZTVnSUx5aGtDem56VWQySTRyNFdqN3UtWTNJOGJJM3ZsbUVPUDBNTDV5VnFsYXJHd0VCU0N6alRrSmRRdGh5TWRTaDFNdFQ3UURJenZaZTZMS3k1SWNvQlZHTGRNYkZN?oc=5",
-     "source": "The Daily Star",
-     "publishedAt": "2026-09-06T09:31:32.000Z",
-     "titleKo": "텀블러 릿지 학교 총격 사건에 대한 30건의 새로운 소송으로 OpenAI 히트"
+     "title": "OpenAI agents used aggressive techniques (\"borderline hacking\") to reach U.N. data site, report find",
+     "link": "https://news.google.com/rss/articles/CBMixwFBVV95cUxOVE1mMUp0SVUwakRqeVpjR2Q4emM5a0U3MWRpZkdVdWpYY092WUFYSzBBZ2pIaW92RXh5RVNrTDJqZXRxdnBRWlJLNm16TmQ0eTBYeFZxYTlBclpYelBvNUhCS0VGekRlWE5ibk16cnhfUDAwNnN0SFNCc1Nmbjg0ek0wZG1ZaUNZbGVhT0NLdWZ0MzVNMDV3b2NTRGg1RFQ3RXluc3pRTmZWTzBOc1NyR2x6Y1pfbFFSTldwSHVjZTJUZWx0OWYw?oc=5",
+     "source": "investingLive",
+     "publishedAt": "2026-09-28T00:22:24.000Z",
+     "titleKo": "OpenAI 에이전트는 UN 데이터 사이트에 접근하기 위해 공격적인 기술(\"경계선 해킹\")을 사용했습니다."
     },
     {
-     "title": "OpenAI agents hacked a German wiki, posted 18,000 times: What we know",
-     "link": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxNTzRlMUd3eGVNRXdMNTEyMzE4SjAzYzRXWG16aHhRY1Y3LUdCYlNFLW1CN281RTN6dENLeGhvRzBvTEJiMXRRSlNfS19wTnJjTGo2dlN1aVhub0laeXlvaS0xb2Y2aUdYbUhaT0ZvWHFIWE45NW5GNDJFYTRhOGxJeXFkSjZmLU5PRVRRSlA2SFhvWEtSdXpaWUJoNjl6aEs2b1V1TUMyLU1xYzhsVnU4R1l1WXdubzBpS1JIdHAyMkRIQdIByAFBVV95cUxOejdnU3pxaFZ4cGF4c1ZzMGxqa05CUGVWVm10RUFHX1Q5ZWswMllQZmYtUlJUZllONkV5QndsWkxMMnZqcjllOUZCbXJ0M2VIYW44YjRHU1JuWkNKX0k0cFBwQ2E0MmJHZ3hRc1p3aGI3R2xzbTVHVDNBZTdEdEVzUDRXMkxwVm9hT1YxejljMTJsS0xZWXB6Y2FmaDhnek1UTENhbkc2RFdyemdYWEI3bU5PdzlNaTBlSlZNVXhqV3N4LXVjSHlfVg?oc=5",
-     "source": "The Indian Express",
-     "publishedAt": "2026-09-06T09:29:38.000Z",
-     "titleKo": "OpenAI 에이전트가 독일 위키를 해킹하여 18,000번 게시: 우리가 알고 있는 것"
+     "title": "OpenAI pauses training of newest models after AI agents found exploring US government websites without authorization",
+     "link": "https://news.google.com/rss/articles/CBMiggJBVV95cUxNZ0NnVEJwdk02cXR1WkJzWnpNcUpENVY2YmlaN0R0RXJ5bEx0YUhELXVZZ09UQlhNRFpVSHRNV3FLQU9GNkw1MWYwa2N0SzFYSGdmdzMwUVVTb0NQVkVURHZHR0ExSlFYdHBpNDkySzRQdDdhaHREYUhrLW9mUHF0ZG1PWXFrYmN5Q0RLb2c5WEEybHJYRTVxVGtpdTVrYUVkdTJIRm9hUm53TWRKVmJOZFBsWjluRzFabGRpekQ0U2xYcHRzLW05bl9KWjgxV0QzSG9IeE1ET1B3MWVlcU1ZMFFEVlI0bE82a0lpTkRlNnVFNkNjaUpfWWpmcEhNZjJqc3c?oc=5",
+     "source": "voz.us",
+     "publishedAt": "2026-09-28T00:12:56.000Z",
+     "titleKo": "OpenAI는 AI 에이전트가 승인 없이 미국 정부 웹사이트를 탐색한 것을 발견한 후 최신 모델 훈련을 중단합니다."
     },
     {
-     "title": "OPENAI $0.0{6}8209 | Live OPENAI Price Chart Today, Swap on USDT | MEXC",
-     "link": "https://news.google.com/rss/articles/CBMihwFBVV95cUxQMUZ4UUVSdkNKMTdBYmdJaXZiTW1aTm9QejA3QmgxckppTEtmTElFZ0twNkNxcmxHTGhzb0wtN21NVDZLRndkSHdheHlKQWtQQ3F2bU9uck13SkRPNWw0OG1qTTV1OWQweFB5d2FDRHRKUEpFc1lGeFNUcnJhbEtRa20tdS1nOWc?oc=5",
-     "source": "mexc.co",
-     "publishedAt": "2026-09-06T08:51:41.000Z",
-     "titleKo": "OPENAI $ 0.0 {6} 8209 | 실시간 OPENAI 가격 차트 오늘, USDT에 스왑 | MEXC"
+     "title": "An OpenAI agent hacked the Australian government",
+     "link": "https://news.google.com/rss/articles/CBMid0FVX3lxTFB5NFZxY0l5Q1VBM3ppN2FrU0dvLTN1R1dkR3BjcDRlX0hDLUdKYjhtZ3lGcl81R1B0a3loOVF1QUY4NmZ3eDZ2SXFXTGZlSTBXT2dHUTZxc3lmaGhwT2dORmVHR3h4VWFtNHpoTmdsUi1pdFg5LU1R?oc=5",
+     "source": "Mashable",
+     "publishedAt": "2026-09-28T00:05:34.000Z",
+     "titleKo": "OpenAI 에이전트가 호주 정부를 해킹했습니다."
     },
     {
-     "title": "OpenAI's next-generation artificial intelligence (AI) model 'GPT-6 Astra' has rekindled its semicond..",
-     "link": "https://news.google.com/rss/articles/CBMiT0FVX3lxTFAtMEM4aE1OM1QtX3NEblR0V3dnR1ZhdUI2RHA2TjliM2kxNkNvUE9NeUJ6dGczOTJ4TGJINHFlb3RLQTNvU25HbjNFX2R2QkE?oc=5",
-     "source": "매일경제",
-     "publishedAt": "2026-09-06T08:26:53.000Z",
-     "titleKo": "OpenAI의 차세대 인공지능 (AI) 모델 'GPT-6 아스트라' 가 세미콘드를 재연했습니다."
+     "title": "OpenAI pauses training on recent models, says agents targeted government sites",
+     "link": "https://news.google.com/rss/articles/CBMingFBVV95cUxNcnJnT0pRaGd3WENna2NyS0ZmM0I4M096SWZISDdFNkpOUjFJZzNLSTMwbmtTdDJWYkRPUnVMUGdqR3piNEIteVV0MlFWOUVGaklpYjVUbEFrb01rMXFzQS0ybFFLbnlJQ3MwN3BhUjBGVXZUYk5Dc3Z0UGQzV2ZBS29FQzVTeUpjd041VVpNRENhWGRxRzB0aFI0STNadw?oc=5",
+     "source": "san.com",
+     "publishedAt": "2026-09-28T00:00:34.000Z",
+     "titleKo": "OpenAI는 최근 모델에 대한 훈련을 중단했다고 에이전트는 정부 사이트를 표적으로 삼았습니다."
     },
     {
-     "title": "ChatGPT moves to Astra in 6, but is it any smarter?",
-     "link": "https://news.google.com/rss/articles/CBMijgFBVV95cUxOZnhZYldLLUVOeXNwV2NvQ2V6VHFmT2RJcEsyallSVUVuRGhaUEJlcWdLVFdNc2Q2b0NnV2w5T3VlaWtvb0lqQzRkNE5oRENzU1J6cVdRdTVNTXhPT1Y1a3lqOVp2R3htUDZfbExOeE9GVFMxa3BXX1RsdDJoMDdOYmRzYXhQUXRzbGZDdmJ3?oc=5",
-     "source": "pickr.com.au",
-     "publishedAt": "2026-09-06T08:09:53.000Z",
-     "titleKo": "ChatGPT가 6에서 Astra로 이동하지만 더 똑똑한가요?"
+     "title": "ChatGPT Subscription Phishing Scam",
+     "link": "https://news.google.com/rss/articles/CBMi2gFBVV95cUxPS2cxdDhnMzc4ck8zNnRiTC1GYXJVSS10S3lWXzNLbXJFbWVJaTh0U19LWVRFYkZ3LTFfUU5QZjA3MnJkU01YOWoxY0ZHUDFLbjNySG1heVdIcl91QlFhc1ZGMnJ6LXJfSUVGOExFVHBQMy1XUC1nUFlkOHN1SE5xTC1NNFE2dzRvSjlPVEtCRmxjZHJXNWcwNUptVElHMFNmajQ1WWJOdWI4UHZhWk50eVcxZngxMTZJcUpFWTNuZTdEZEQ2SjdUc01zcEhrVmE0QkNYb1JkV0pxQQ?oc=5",
+     "source": "SaasRise",
+     "publishedAt": "2026-09-28T00:00:27.000Z",
+     "titleKo": "ChatGPT 구독 피싱 사기"
     },
     {
-     "title": "OpenAI, Microsoft Vs Newspapers: What’s Behind The New AI Copyright Fight?",
-     "link": "https://news.google.com/rss/articles/CBMisgFBVV95cUxQVks2MVZqUTZhTzM5Y3l3cTdqbV83ZC1JVEV4SDVVRTZ3SUFQRXZWd3d6OUkxVHliM3c3UDU0M1J1aDVEdnRCTkFRQXlfTmdOTWpHaHJtYTlSVnVhTU56dXNjaHZtaER6a190YVpPWUhqdlhyWFBRZkpUZGZWZ0dXYS0xSm10QUpsVFc0Wm9HcVA5SXVIbE5vZldla0dkY1k2OHByRXI1aFRITnM0OE9UZURn0gG_AUFVX3lxTE1paVFDamkxbkQ4RDI4R3lPWGNuT1A0SG9DRVZtdDU0RUtyZHNud3B4R0poWTI4YWEwRXFPTmNnMkZpX3FWN1B5TWJWVXNEMHBhaFhLbWV4Z1pTUzJlT1lwYS1STFlQeGNlNlRfdlE3SXEtanpWcHRGa0NGaV8wSjU2NVJkRnZKOHpuYWw2R0NoQU9FaFYyemhoblJ5WmhTM240WEJEcVNvNWxQejZyS0ZDTW5XRi1HSmFySHdiT2Vz?oc=5",
-     "source": "outlookbusiness.com",
-     "publishedAt": "2026-09-06T07:43:07.000Z",
-     "titleKo": "OpenAI, Microsoft 대 신문: 새로운 AI 저작권 싸움의 이면은 무엇입니까?"
+     "title": "Anthropic and OpenAI sound the alarm on AI safety — and seek to shape how it’s controlled",
+     "link": "https://news.google.com/rss/articles/CBMiowFBVV95cUxNa1V4cHRDMlBrTDlxNlRReXJ5S2lkWFZWRmpFY3g3ZUlHbENldDRnRGRhTVhsZnU4bTZPLUNvbmlQenhqSndSSEtDVEVHQXU1VWpMSThJVWlVbHBTMkpScFVZUUdkSk1jZHJwaDhlQV9BR2dwUlNDVnlmY1Rtd0xuTWxxLVl2Y2M5NEhlWHp6Q2UwNXJSZVE3LWV3WF9ad21iSS1r?oc=5",
+     "source": "AP News",
+     "publishedAt": "2026-09-27T23:51:00.000Z",
+     "titleKo": "Anthropic과 OpenAI는 AI 안전에 대한 경고를 울리고 이를 제어하는 ​​방법을 모색합니다."
     },
     {
-     "title": "[Today’s Signal] OpenAI Faces Two Audit Trails: Disclose AI Activity and Information Sources",
-     "link": "https://news.google.com/rss/articles/CBMicEFVX3lxTE0xX0VYYjVGdkZvdUtFdzRGc2JZNkVWXzZMa2Ywb1lvS1B2YjhyYXAxdm5ZV0NWRnhLVTlrUEt6UHBTX1MxeFhRamMyLV9kVWFqOWVPSjZuMDNIUlNXOW9DTzJrZGlrYmxLcVhNRDUxd0g?oc=5",
-     "source": "Korea IT Times",
-     "publishedAt": "2026-09-06T07:38:00.000Z",
-     "titleKo": "[Today's Signal] OpenAI, 두 가지 감사 추적에 직면: AI 활동 및 정보 소스 공개"
+     "title": "Anthropic and OpenAI sound alarm on AI safety, seek to shape how it's controlled",
+     "link": "https://news.google.com/rss/articles/CBMijgJBVV95cUxOMlhRdUprWmZOTnR5OFFXX0JnZGRqZFhaYmwyTzRZMW1HQzdvdnZkajZDWG9VZlJYWXpPUmlpSWw5OUR6eFljaU9RT1BReWU1V25ISUczSm5TUERfUlNvbVpFWjQxTFFDa2VVdmZoREoxWm1YeGdNUmZTdDMyUHhZWjJpQnp6a3l1MzhXMWROSXhRZWgyWlp2bC1mNGtFcWNOVndtNkxmWXZiSDFhS2ZqYVdEaThQc3F0czIycXExa1RlRnpaY2RQWkhOV0s0a0JXcVpLN3VRWW5pMlR0dzNzY0ZxZ0RWTXZiMmptZTBjR3pBYVhYV19EUDg3ZkU3ZFRSQW9fMEZBMVlVeGdrZEE?oc=5",
+     "source": "Prescott Daily Courier",
+     "publishedAt": "2026-09-27T23:51:00.000Z",
+     "titleKo": "AI 안전에 대한 Anthropic 및 OpenAI 소리 경보, 제어 방법 모색"
     },
     {
-     "title": "OpenAI agents misused German-language wiki to communicate",
-     "link": "https://news.google.com/rss/articles/CBMimwFBVV95cUxOdTVKSUZybzJJMUFhMDB1UTlBR0ZQR1FWSE5QV2xJRW5BLTNrUjQzNHJYRnNPQXBJT01HSXNrclBjQTBORkY0XzlRR253S3dxcWNyTnBFbzVRTmpSbl9PcWZ4RXh3Vi11YThEdVR3RVhWN0dWeW1oZm1QMGdJclNZdF9tXzJBd2J4M3dHaFB0RUFLSTVXcGh0aVlTTQ?oc=5",
-     "source": "Yahoo Tech",
-     "publishedAt": "2026-09-06T07:18:21.000Z",
-     "titleKo": "OpenAI 에이전트는 독일어 위키를 오용하여 의사소통했습니다."
+     "title": "OpenAI is preparing “o,” an always-on ChatGPT assistant that could handle email",
+     "link": "https://news.google.com/rss/articles/CBMi1gFBVV95cUxPeHF0NThNYURKOVVpUFlWY2JzaC15VmlibWt4REZfa29YOWVPS0pPUWotSTZHZF9NMTBCdXk4Ty16VnVHYVZtMjBIQkdmTFBmWlE2eWlTV3VEeHh1S1VvZFFxMjFyUkZSdHZ2VHRpTVR0aUN4Rmw3YU5vdHpvd0VXemFPU2IyNlNTSHoyb01NQ1RMMlZ4NlhDQ05TT2ZkSlAyYV9aYThvNGNTSWZEci1sOFlIbW9JYS1rUU94SDd2Q2xnZHBKRExRRWlud0l0MU53bTA4UnJ30gHbAUFVX3lxTE9aQWZReG5xd0V0X1RWMGtTdFo1NTlYWERnRlhxNTFzdVRhOWxFcHhURnRVeUJwQVc0SE52N05uMlhuNDgtc1FoZEZhcVhQUW0tRUo4akRxaDdKSHRQYzR1S2tyWEFjV1BUOGRCeFVaazJ5eGJaXzRlZmRrYnVKT05NSW5HblpSZ09yczlEY25KY2ZSV3R1YjVvUFVHVjhuSm53ZkkzQjloMFpPMWMxaERKVGJoV1hxaUdWWTRZVVcydFZmcFdLay1FUWk3S19HWWxrcUxKS3lpZGhtRQ?oc=5",
+     "source": "BleepingComputer",
+     "publishedAt": "2026-09-27T23:40:39.000Z",
+     "titleKo": "OpenAI는 이메일을 처리할 수 있는 상시 ChatGPT 도우미 \"o\"를 준비하고 있습니다."
     },
     {
-     "title": "OpenAI agents edit 15,000 entries on German wiki, spark hacking dispute - CHOSUNBIZ",
-     "link": "https://news.google.com/rss/articles/CBMiekFVX3lxTE4zTFVhZmEtVnpaYmltOEFJUVFVZVM5TmUxUjhsM2RrVnZlcWNqQUwwN2pvOGJVemhBeHJDSDJMTElIcGJnTDhUQ3gyRDhrcmNPaHVVTk9OZlBNSWhFWVlGMXBzWGZZOUQzWk1kQUI4OUl4VjZnZkJyQ3lB0gGOAUFVX3lxTFBYTHJ0dFJYdWVrVGkwVjlEQ3I0Q3BReWdUTDI2UGRvMkVuakUyd3lydVZUS2dDMXVQcXlmckdyQVVWdXNsc2ZrNS1rUDcwSko1NkM1bUpWa2JHTUJnRTFsUmJVcGlrQzZrV2FjY3l4SUtlMTJMVlRyWVBpZ0pzYjdTSUVVbEIwSFdXTDVockE?oc=5",
+     "title": "‘ChatGPT for Doctors’ OpenEvidence Raises $250M, Quietly Pivots Into Drug Development",
+     "link": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE1VMlphQk1TY2ZjeWhZNEdyVXlWVDcwSWRSY0ZqMGdTWXN0emZ0VUVsc0NLbDlDeDJnMThsRmVyZ2V3RmRTNHBJVWxBM0lsMGFUVGRj?oc=5",
+     "source": "Wowtale",
+     "publishedAt": "2026-09-27T23:30:18.000Z",
+     "titleKo": "'의사를 위한 ChatGPT' OpenEvidence로 2억 5천만 달러 조달, 조용히 신약 개발에 투자"
+    },
+    {
+     "title": "OpenAI Calls for Government Role in Frontier AI Safety Standards",
+     "link": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE40d25uSENzU2EzOXJxTlI2a1pvN0hJTndKVUVzcVY4TVlsTHZvSUpLZWctbjRrcGN5UEpwaE4yY0JMTm41T3R1aHkxNHBjUDhfT2FZSEFHdHQyaVE?oc=5",
+     "source": "tokenpost.com",
+     "publishedAt": "2026-09-27T23:09:57.000Z",
+     "titleKo": "OpenAI, 프론티어 AI 안전 표준에서 정부 역할 요구"
+    },
+    {
+     "title": "Australian cabinet to discuss OpenAI breach",
+     "link": "https://news.google.com/rss/articles/CBMidEFVX3lxTE1ITzdscVdEMTNxT0NNSThmREtSeDdkeXVmODdncnNGTFFNRkwyMkJMUmh6bll1ZlNOaG45ckxzTzNBeWIwQm9ybnFRQl9WN0w4a21DWV9NSURIRkhjenNoM29OdHBWVEFwNUhVMWN1aEdILTM00gF6QVVfeXFMT21xRUUtaHVrSzZOX2dlTVhSekVXMl9MV3pISVozU1VfeGVjb1NONDZ0bnNSTGhYU2dyUENlTVk5ZWNEYWEtTFhqT2ptSXFrSGFvT2xUYTZmZUY0d09LTnRONTJrR2hHaG9EQzJvY0VLd2pFalFRSHZOa2c?oc=5",
+     "source": "Ticker News",
+     "publishedAt": "2026-09-27T22:56:09.000Z",
+     "titleKo": "OpenAI 침해에 대해 논의할 호주 내각"
+    },
+    {
+     "title": "Researcher links 16,000 scans of a UN statistics portal to OpenAI agents",
+     "link": "https://news.google.com/rss/articles/CBMirgFBVV95cUxQWUFrMkZNdi1IZW1TTjFtQUtKYWM3SGNuY1J1TmNKWS1NSnB2bmxvM3F3QjRWeVVUbDNkaUUyWEc4NW5Rb0EzMTRMakxDdEdpRDVmYVpsR1JDYkNHV2QxSi1oS1Y5REhQa3VRNC1EZFVOLUlGMmlVeFVsMnRZM1BNQ2pma1JNcGk0NC0yUDRDWlExTG9MWFIyYzQyTG5EMGc5aFVjUTgteFdPVlQ2dXc?oc=5",
+     "source": "SiliconANGLE",
+     "publishedAt": "2026-09-27T22:30:00.000Z",
+     "titleKo": "연구원은 UN 통계 포털의 16,000개 스캔을 OpenAI 에이전트에 연결합니다."
+    },
+    {
+     "title": "OpenAI pauses training of latest models after agents searched U.S. government sites in unexpected ways",
+     "link": "https://news.google.com/rss/articles/CBMivAFBVV95cUxNdmhabDZfN1ZHQXprdWJ4QThjNFVRWTU3ODlmakJmcy1iVGpZakJpMGZULVhSaWZod29QaXdtNTkwTXV1T3lWVm1GTTk5Q2hZRG5CLW1DYTVheGt4ZnF5cnIxamlsaE1WeGlZV0pxTWxPZ3NLWEgzMGlERlc4WFJoa0h6enN1dUQ1dTdYaHZTOER2SU1uUUFTazNtNW5hdGJkYVJ5MjduZ1dkWEFEQ3BuVHVMZkozM3lySHZIbg?oc=5",
+     "source": "NBC News",
+     "publishedAt": "2026-09-27T21:57:53.000Z",
+     "titleKo": "OpenAI는 에이전트가 예상치 못한 방식으로 미국 정부 사이트를 검색한 후 최신 모델 교육을 일시 중지합니다."
+    },
+    {
+     "title": "Cerebras and OpenAI: The Megawatt Deal Where the Warrant Vests Only If the Option Does",
+     "link": "https://news.google.com/rss/articles/CBMigAFBVV95cUxNWmE0bkwyelNqN3d3c2hvSVJvSE91eE1PX0hFUW1COEUxY3A2SmNGampncmtHbVdETFVvb0E1ZHFLRlNteFRpWENucEM5Y1dPc1B6U3VRc1h4X1dQYXlLYi1LblVWQk9UU2FreGlBRGVZMkJndzRTQkdNaDF4akI5Nw?oc=5",
+     "source": "FourWeekMBA",
+     "publishedAt": "2026-09-27T21:39:39.000Z",
+     "titleKo": "Cerebras 및 OpenAI: 옵션이 해당하는 경우에만 영장이 부여되는 메가와트 거래"
+    },
+    {
+     "title": "ChatGPT vs Claude vs Gemini for Leaving Cert: 2 of 3 Bar Under-18s [2026]",
+     "link": "https://news.google.com/rss/articles/CBMihAFBVV95cUxQd1IwdGZHTWY4VTN3QlNmRnI5NXBhSXJkZ0pGVEwtTkw1RkFRY3QyTkRBTDlQSWYyVVZ6bkdCWGxpNEhzWDBWNlhxcGJ6MXZJakthU1ZTRDFVVnpRTmNQeFJtZWthMk1mRllCY0VsZjVpZmNmUS1zZXFpZ1BXcnBpR2JzNXM?oc=5",
+     "source": "tech-insider.org",
+     "publishedAt": "2026-09-27T21:26:23.000Z",
+     "titleKo": "ChatGPT 대 Claude 대 Gemini의 인증서 탈퇴: 18세 미만 바 3명 중 2명 [2026]"
+    },
+    {
+     "title": "OpenAI to Halt Training of Some Models",
+     "link": "https://news.google.com/rss/articles/CBMieEFVX3lxTE91ZzdXRTlNRkh3c2Qyem5YTzJPdVNQU3dnNlBTbmRIdEYxUjREei1tU3FDejZIY0pBUU8teldseDktcEM3QVVxYjVzMGk2Mm41RXBidXoxdkVsR0xnN0F0VjJlc0Zrb1lYdEM1dzhaa0ZhREFESmN2Vg?oc=5",
+     "source": "Gizmodo",
+     "publishedAt": "2026-09-27T21:21:27.000Z",
+     "titleKo": "OpenAI, 일부 모델 훈련 중단"
+    },
+    {
+     "title": "Why ChatGPT Sometimes Ignores Users — And Why AI Developers Let It Happen",
+     "link": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxPVDBjRVRPTjZ4OTlnMHRaQkZkLUNoZFp4MVhYdmlpd1hTQUdiVE1HQ1Q4MUlHVU5LNVM1NEl4VWs2cTRiNHFQVGprWHhGNTV5eE5DdVR6S0VLSVM4Q2NZcWFYVFVWdXE1ZzFHZURmWWd4RjhtbHcxaTNTcFZUY2hMc0xselF3YmMwbzc1YzludVFHaGdfSGFqRHozaFE4RUp3a1U4RFdqM2E?oc=5",
+     "source": "finchannel",
+     "publishedAt": "2026-09-27T20:59:55.000Z",
+     "titleKo": "ChatGPT가 때때로 사용자를 무시하는 이유와 AI 개발자가 이를 허용하는 이유"
+    },
+    {
+     "title": "CU Students Protest OpenAI",
+     "link": "https://news.google.com/rss/articles/CBMib0FVX3lxTE55MzA1bmpjdWU1NTBDdlBfd2k0cTVHNHluUTAxWTdvWl9ybzlLODRKUURLZ19uMXhYVmd2bURPcUtaUTdqcEJhMm1YUDF2UDNURzl1aHVnSTlHdDhNVnR5LU5pd1NfZVFNekhzaDJiVQ?oc=5",
+     "source": "Yellow Scene Magazine",
+     "publishedAt": "2026-09-27T20:31:28.000Z",
+     "titleKo": "CU 학생들, OpenAI에 항의"
+    }
+   ]
+  },
+  {
+   "key": "btc",
+   "label": "비트코인",
+   "items": [
+    {
+     "title": "BTC price on Sep 28, 2026 at 1am EDT Crypto Prediction Market",
+     "link": "https://news.google.com/rss/articles/CBMirgFBVV95cUxQZ0tOTkJjZDhNQWM3SV9wb3FPbXpuMm5IRmtsS0djdGg4N2w0YTJOZG1wSzhfLW55RVdueFZrUFNaUS1ReFpPY0doaHQxVEo0SlJCYThUZmo5Yml1bzV3LWY3S2EwR2hCdVp4ZUR5emNHeGRVdC1yRzVPaV8xd1hKb1JNTC1ELU5FTW81Zk9kNC1Qd090MDVLekFwVmNhX1pwcUtCeFhaNDk0SGlOZnc?oc=5",
+     "source": "Robinhood",
+     "publishedAt": "2026-09-28T04:05:54.000Z",
+     "titleKo": "2026년 9월 28일 오전 1시(EDT) 암호화폐 예측 시장의 BTC 가격"
+    },
+    {
+     "title": "Bitcoin and Nasdaq futures fall as Trump hints at possible new Iran strikes before midterms.",
+     "link": "https://news.google.com/rss/articles/CBMikwFBVV95cUxQQTZ0RE02emNUX0h5RlBFTU9KWEttMDBRR1pWc290NjNKQ1pjOTI3OWNFRFNWaGhyb1FoRk1RWGJIMWJObHBQUkhTeTVvNUFjM1MwelZFUnR1aHNrOWczZjNiT0dtZWJTQk02OENyM1J5aUdoQmVwY0UtMk42YXB0dDQwdFVaSS1OSnhsOWJya2FMN2M?oc=5",
+     "source": "Pluang",
+     "publishedAt": "2026-09-28T04:03:02.000Z",
+     "titleKo": "트럼프가 중간고사 전에 이란의 새로운 공격 가능성을 암시하면서 비트코인과 나스닥 선물은 하락했습니다."
+    },
+    {
+     "title": "Has Bitcoin Found Its Place in the Portfolio Sun?",
+     "link": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxPMGpDRjY3Mk1TMExJc0dZVXR3VkppbVAyUmtDQ1pOWG1QU2VudzhaSjFHYTBGTnB3UU9NMnN5NVRET1dqNUEyTU9CbG5fQ3k2U0FwYlVLUlhibGg2U3hJMGZkLXBDVDFPUHA4ajhwejRWcUZHYUhiUms1Mm9BZzlnYXhkcE5raFJwZUdkaVlEOXMxUEdvUmFvdGhIbDNnNE1TQ2l2bUNJMHdUNVE?oc=5",
+     "source": "thedailyupside.com",
+     "publishedAt": "2026-09-28T04:03:00.000Z",
+     "titleKo": "비트코인이 포트폴리오 태양에서 그 자리를 찾았나요?"
+    },
+    {
+     "title": "Bitcoin, Nasdaq futures decline as Trump won’t rule out more Iran strikes",
+     "link": "https://news.google.com/rss/articles/CBMivAFBVV95cUxQQ2xYbTdCMmYycWJ1MlpwbWg0djFrZlRleGdaZTU4d3NZYS1PODVzYnFDaWFkekNPMGo5dVYtVFNtNzhBNF9sZklaM0dPLXFXWlNCbEcxUm9BYUtncE5kbjVtQ3pLYkd4U0tPYWZSeUNzQnhOUkV3dkFXN2Z0SkM0T1FBRlBoZ0JBamhGNzhaT21EQWlJUVBSeEdWalg5TFlzMFliY29PemhXM290T09PYjBnSUIzUVBEbS1QZA?oc=5",
+     "source": "CoinDesk",
+     "publishedAt": "2026-09-28T03:58:00.000Z",
+     "titleKo": "트럼프가 이란의 추가 공격을 배제하지 않아 비트코인, 나스닥 선물 하락"
+    },
+    {
+     "title": "Bitcoin ETFs Spark Renewed Fascination as Policy Shifts Unfold",
+     "link": "https://news.google.com/rss/articles/CBMifEFVX3lxTE1sOWwyZ1dWWXZNSXRzY00teXN6TThOWklMUzMxMk5YTE9HU2RsZjVNS3poZ3h2eFdqWlkxZGsteTBTNmlIV0pXdUo2aTRMeU85aVJzZjJNcVNjckwyNGpfTmxSMkxqSEdHQ0R0RTBxY3VleUhzX1hKNnFWdEU?oc=5",
+     "source": "OneSafe",
+     "publishedAt": "2026-09-28T03:40:26.000Z",
+     "titleKo": "정책 변화가 전개되면서 비트코인 ​​ETF가 다시 매혹을 불러일으켰습니다."
+    },
+    {
+     "title": "Top 3 Price Prediction: Bitcoin, Ethereum, Ripple – BTC takes a breather, ETH faces pullback, XRP consolidates",
+     "link": "https://news.google.com/rss/articles/CBMi9gFBVV95cUxOLUIwdHZxU3RfX0UxV2FOS3NLX2JOX25rU25Mc0d5ZDlzaTVuREkzc3F4M0phNVgwSGlDYXA3Qmx6YmYzYS0zb2xDLU9xOUdaSTYwNmN1Z1dnSEtJU2pNMEdGT3ZLQ1BjMFpwUFByYlA5T2xEZE4wSWJycVB6YnoydGsyMnNoUlRwNkRFZ291N3Vwa3picTNsWEMtNFBjU1J0VEJ5NXFwc1o3R1dPVHlPckdCbGlPWmJkMUNaTTNsYjJzOXBFbmpRWDJzaVlmVzVzcDVGWlhrZHNpTHlxMDk2VGFnMUJTQXdzVzhOUTR5TFd1SjEwVGc?oc=5",
+     "source": "FXStreet",
+     "publishedAt": "2026-09-28T03:40:20.000Z",
+     "titleKo": "상위 3개 가격 예측: 비트코인, 이더리움, 리플 – BTC는 잠시 숨을 돌리고, ETH는 하락세에 직면하고, XRP는 통합됩니다."
+    },
+    {
+     "title": "Bearish sentiment grows as Bitcoin weakens afte...",
+     "link": "https://news.google.com/rss/articles/CBMimAFBVV95cUxQaVE0TDRHM2dsSGRNTmJ0T0d2UG1panJoa1psQnFEN2VfU3pXeHlWdURCeVNXUDd2TG56dkdPa3VDdE1nYXR6NjM1c0R4b1pTTHoyZjhaRDlCeVcxMHZmQUNOZ3RmNWtNck5DOVRQdEtXeVBnNzVlRkdBVWtkUUFHVUxNVm9oWTk3TnhyRU9xYldsTHdCVWZ6MQ?oc=5",
+     "source": "Pluang",
+     "publishedAt": "2026-09-28T03:06:19.000Z",
+     "titleKo": "비트코인이 약세를 보이면서 약세 정서는 커집니다."
+    },
+    {
+     "title": "BTC price range on Sep 28, 2026 at 12am EDT Crypto Prediction Market",
+     "link": "https://news.google.com/rss/articles/CBMitwFBVV95cUxPSlVyUjhJT18tSm8ycXBzWmFiVHhGTjNJczlHOTBPcTZuRkx6RGJxSURnUWJGVkhvdC1iTlVNN01XWXQ3ZTU1REZRYlhDZVU1ZHV2T215XzZsNW9ybkRiOFdoVFBscXU0YklrQ0JvREgwMzRQN0NGZzZIOXJIZjd2SGZGaFNOZjNIYkM5SlZaZ2tqMFRYenJoeGVmZ0RBWDZvWVpjcHpJcmpZbWNQeFVTeVlaaVhrclU?oc=5",
+     "source": "Robinhood",
+     "publishedAt": "2026-09-28T03:04:43.000Z",
+     "titleKo": "2026년 9월 28일 오전 12시(EDT) 암호화폐 예측 시장의 BTC 가격 범위"
+    },
+    {
+     "title": "Nearly $10M in Bitcoin long positions liquidated as BTC price dips to $83,554",
+     "link": "https://news.google.com/rss/articles/CBMijgFBVV95cUxQbW5NcEFNT28ydXNON1hVdzZpWW9jMkplRzRJWWZpNkJoM0htNjJ2bWhKXzY2elI3Vm8zTzJ3aEdSQUpJSDVkU3pQZHNlVFpZSHQ2cGtiX05ZSFRNSnIxNmRIcDlLOUppOHEzS1EyVXI5OXhWQWdxQUhETmJ6aEZ0U2pleHR2ZGVLNDZ0Y0h3?oc=5",
+     "source": "Pluang",
+     "publishedAt": "2026-09-28T02:39:57.000Z",
+     "titleKo": "BTC 가격이 $83,554로 하락하면서 약 $1000만 상당의 비트코인 ​​롱 포지션이 청산되었습니다."
+    },
+    {
+     "title": "Bitcoin dips below $84K as real-world asset tok...",
+     "link": "https://news.google.com/rss/articles/CBMihwFBVV95cUxOMlV6dmpxSWJVWFQzUjFNNzN4Z3BlclNJSUZHTUVJT3FlT0xTNDBTZkFVdG9sYkhKZFdFTWZSNEhkb1luUGxSV1Q5dnVaQ2RaLU5FVm9MdDA5U0FMdkh6X3dKT1NFSXBGQVU1TUlrNnN0NW1FVWVLSzVvaUJrVFFjSXpFU1NIdzQ?oc=5",
+     "source": "Pluang",
+     "publishedAt": "2026-09-28T02:27:59.000Z",
+     "titleKo": "비트코인이 실제 자산 가치로 84,000달러 아래로 떨어졌습니다."
+    },
+    {
+     "title": "Capital B intensifies Bitcoin buying, holding 3...",
+     "link": "https://news.google.com/rss/articles/CBMingFBVV95cUxQNWN0dGlCajh6OS1DSFppZGplODk4eXBnYml5OUl1SzA2ekpicmFqZWFCZTE0cHZQeEphMndIRWRLd2ZheTlrWlB1blBOMVRXSFI2YllUMHl1UGVoN0ZqWHNwY1VUd3JZVXIyUFdRLUNGUVdMU0FHMFIzeThORDZweHdrOGhJWXF3OHgySmNfQWdJSUtna1JfQkFDWjFBZw?oc=5",
+     "source": "Pluang",
+     "publishedAt": "2026-09-28T02:15:48.000Z",
+     "titleKo": "캐피탈 B, 비트코인 ​​매수 강화…"
+    },
+    {
+     "title": "Capital B accelerates Bitcoin buys via equity a...",
+     "link": "https://news.google.com/rss/articles/CBMingFBVV95cUxNU3YxMXVfY1JZRjdyUC0xRGNWM1dpbHk2WGZocjhGZFJvRVJ3ZXY1dU81a0RWd0s2Vmc4NkJUUjlvb0I1VWl4cmtacW5EMHAzZlA0WXJibzRpT3hDSlcyQ1ZYbHRwYl9ndEJDTExXZVhjeXZ5N1VVeFNEQ19XNjE0YUNWZTc2Zjk5R0E0c29laC1fZFBkMFcweFFoYmRBZw?oc=5",
+     "source": "Pluang",
+     "publishedAt": "2026-09-28T02:15:48.000Z",
+     "titleKo": "Capital B는 주식을 통해 비트코인 ​​구매를 가속화합니다."
+    },
+    {
+     "title": "Waiting for a 30% Bitcoin dip led to higher pur...",
+     "link": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxQSllmM2lJT0Y3bkJ0UmQxY0FMQWg2VTdLY1UyMUpkZmc2RmRfSFJEazN1SWRWOW0zM2xreGxuN3lfcE1OQ1ZTQjVfZXdqM0RtaDhFSEVJUHJlcGZwZ0p1cFlzcU9FQzVGUkdqRmhONmFTdFlvWnVOWk5xUTV2Y293NF96TnE4dy1w?oc=5",
+     "source": "Pluang",
+     "publishedAt": "2026-09-28T02:15:37.000Z",
+     "titleKo": "비트코인 30% 하락을 기다리면 순도가 높아집니다."
+    },
+    {
+     "title": "Bitcoin, Ethereum, XRP Slide While Dogecoin Gains as Trump Rejects Iran's Hormuz Proposal: Analyst Sees B",
+     "link": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxNOGpMS1FLbmdtM1dNU2pzaVFQM21zNk1iU01UYi1WSHRrNnhXa1lnb3EtSGs3Y0t6bVVic01SU21LWGtaRWpfOXNmX0gyYkMzdDJMN3BTS081Yy02UGNNb3M0ajBYbVRKR21XVlVjaUl6MjBpcHpVQy1ReHAyU0ZkQVpCcHFvVDBNcHZmOFVqZWlwSkpLZnBhbkcyalFQNFdZT1BEREtRNHVzMmpDNjlIV2lDNXhNOEg3TVhR?oc=5",
+     "source": "Benzinga",
+     "publishedAt": "2026-09-28T02:09:10.000Z",
+     "titleKo": "트럼프가 이란의 호르무즈 제안을 거부하면서 도지코인이 상승하는 동안 비트코인, 이더리움, XRP 슬라이드: 분석가는 B를 본다"
+    },
+    {
+     "title": "Bitcoin Price Prediction: BTC Remains Below Its 2025 High as Remittix Unveils Its Upgraded PayFi Dashboard",
+     "link": "https://news.google.com/rss/articles/CBMi_AFBVV95cUxObGpLbmxETG5NR2x6RlJDUW8tUjJncjNiaFhBZWg4alptMVJYTW91OTBueHdfOUg3UlhzdXVOV215NS1weGFWeXFRbF83NEhFcWlUSFRsaHZYTXVQRWpkSkQ3QkZhMnFNR3U5R3IzaTB4LXpIcUVWNjFmNHRaV05tSW5uQWVwams0MEFxX1hJbGNXSDN2YkN0aTExRk5VLUhJUmswbTdQTlpzeWhiUE5zSXlreEREcWNlWk9UQUx2S2FUZ08xZkpVNkpOdFBSSzhuMGRhVWFXMFB2TlBvb25TNldFS0RXZmFqWTl4NmVHdXFIdEtJTF8yRUJLRV8?oc=5",
+     "source": "StreetInsider",
+     "publishedAt": "2026-09-28T02:06:18.000Z",
+     "titleKo": "비트코인 가격 예측: Remittix가 업그레이드된 PayFi 대시보드를 공개함에 따라 BTC는 2025년 최고치 이하로 유지됩니다."
+    },
+    {
+     "title": "Bitcoin Price Predicted To Push To $150,000, But AlphaPepe Still Offers the Presale Entry Bitcoin Buyers Missed",
+     "link": "https://news.google.com/rss/articles/CBMiiAJBVV95cUxOYWxEc3pNOWpzdnNPdERlNEJ6YzBxUEh6MWw0YmVXR1BtcHByeV9VdFpYREJpYlIxekNIUUExbU9qOTg3ckpNWlpWbTd4VUViWnJzWVNseVdldktoTWNCYlY4Rkc2c0Z3RVVKYlFGR1hpWmVCR0pYZ0RXeWVYMEh2b29xc1lCV3prRmxGSEVldmtTbEhzdDZ3YXZGbHlGS0t5YmhUZHB1WmY2LWMyMHRXVWlmR3VsTURYcHNvUWVGUVFqN0RLTXMzNzRYUkoyUWpHZTlRZ29fY21KVmFPOEFpRHhzQUlSdmhrREpncmdYN3RFMWdvcnpTN1FEVUFac0hWanJzYUhJVms?oc=5",
+     "source": "StreetInsider",
+     "publishedAt": "2026-09-28T02:06:18.000Z",
+     "titleKo": "비트코인 가격은 150,000달러까지 오를 것으로 예상되지만 AlphaPepe는 여전히 사전 판매 항목을 제공합니다. 비트코인 ​​구매자는 놓쳤습니다"
+    },
+    {
+     "title": "Bitget Wrapped BTC Crypto Price Prediction, Value and Chart (BGBTC)",
+     "link": "https://news.google.com/rss/articles/CBMicEFVX3lxTE9VUUZYRFZyamhxMVNQWTVLQVl0eFNxMHp3amJFOU5OZE9IcFpnbmwwR2lzWGlLY0hBQUxyNnpvYTM5ZkdhbUJTY0o5b0N0NDVtQ1RMWGpQSlpwM2JuVEtwZlZhN2VJV09fejBESkwtRFI?oc=5",
+     "source": "MarketBeat",
+     "publishedAt": "2026-09-28T02:01:06.000Z",
+     "titleKo": "Bitget Wrapped BTC 암호화폐 가격 예측, 가치 및 차트(BGBTC)"
+    },
+    {
+     "title": "Capital B wants to ‘buy as much Bitcoin as possible, as fast as possible’ – CEO",
+     "link": "https://news.google.com/rss/articles/CBMingFBVV95cUxPQnhaVE81cnZ2X05ldUVJSm9SakVVYnY2dnlWbE1kcGpzQnRCaGJXU0hwb2VxVlI4SlJNV2xKb2kydDlMNHY0T0hhVGMwVnVPRkpkNmUzclZKbFZWRkNHblVYaFYyRzNyX1pCaVNZbGJOQ01oNGFFNG16X0ZIV0c1OF9lbUJfODFQeTNrQ0VobzdmMmlYOWI1b0xwLTh6Zw?oc=5",
+     "source": "AMBCrypto",
+     "publishedAt": "2026-09-28T02:00:26.000Z",
+     "titleKo": "캐피탈 B는 '가능한 한 빨리, 최대한 많은 비트코인을 구매'하고 싶어합니다 – CEO"
+    },
+    {
+     "title": "Bitcoin (BTCUSD) Suddenly Goes down 1.03% on Sep 28: What's Driving This",
+     "link": "https://news.google.com/rss/articles/CBMijgFBVV95cUxQZVhSTG1Xd3dzWEdnZktya09XTE5reUx6V3ZDR01MdWtaTEtOV1drSDhvdjZZTzNtQldtbFk5UWh0SDR2bnFoVjB1Ym1QMU43Z3JWZEV5TlltUVZfSWktWHlFMHNTaWtTbGd6ekR6TGxxYjRySVZHbk8yS0dyVThYRWlTc2JIQU5Tcl90TTFR?oc=5",
+     "source": "TradingKey",
+     "publishedAt": "2026-09-28T02:00:19.000Z",
+     "titleKo": "비트코인(BTCUSD)이 9월 28일 갑자기 1.03% 하락합니다: 원인"
+    },
+    {
+     "title": "Bitcoin holds above $84K amid $187M crypto liqu...",
+     "link": "https://news.google.com/rss/articles/CBMikAFBVV95cUxQTklJSDRaMGpTMlN0YnpvbktVWXJQNnhBcElna3lzSmQzTWIxZ1pLcnIwcU45TjBLTFZOUUlkZnVVV0N6U09ZZERXWkxlbktIY29CQ05YMUd3dnVKYUtJV3E5X0xYUzhmcHlqMEhmeE1UWkZfZEF1TVIzZEN2d1plemVmZC1zeU1FY09BUFprTWg?oc=5",
+     "source": "Pluang",
+     "publishedAt": "2026-09-28T01:51:59.000Z",
+     "titleKo": "비트코인은 1억 8,700만 달러의 암호화폐 액수 가운데 84,000달러 이상을 보유하고 있습니다."
+    },
+    {
+     "title": "$202B Treasury settlement on Sept 30 may impact quarter-end funding and Bitcoin depends on market stress.",
+     "link": "https://news.google.com/rss/articles/CBMinwFBVV95cUxOWTMxRFJlcGVxUXM4ZnBENmF5YURZTk1mVjFsRkllOEFfdkZIWW9ZbHpSY2xlRkVvRGE2NmI2QVlsQ1FTNGRsRTJsaV9iMml3eERvQmNqYjB0b256OG1MZXdSbVVmUHhWT3ZKc1ctSWxaS3h3TDJWeWxPdFZsNi1mNHpwcnNGOURjempfMUFFN0ZrVG1VS1BFcmxkNWNmd0E?oc=5",
+     "source": "Pluang",
+     "publishedAt": "2026-09-28T01:34:33.000Z",
+     "titleKo": "9월 30일 2,020억 달러 규모의 재무부 결제가 분기말 자금 조달에 영향을 미칠 수 있으며 비트코인은 시장 스트레스에 따라 달라집니다."
+    },
+    {
+     "title": "Bitcoin (BTCUSD) Finds Support at Its Simple Moving Average– Analysis – 28-09-2026",
+     "link": "https://news.google.com/rss/articles/CBMi4AFBVV95cUxQZGIwRjdGRkVPX0k2Q0I5RlRVNE16a0tmakQyOF9nSGdmcm90T2dtYWlrQmU2R25ZZndLYjJpOVp2ZzB1R2NJZkJQZUtFek1JbVBnOGNYZlBHZnVIUF8xNUVyWWxCZ0RHUnI3WnNHQ2ZkVW00RGk2SXU3SDdJdW9FMkVwdm9RdzViSW9ESC04SGdrTWo5bTdMV1lBNjNtV0FqSEQzUXNNUmpRMGlEckxTZVoybTI5Tk9VVTgzYnd0eDJ2R2FyYTNYdnRxbDBmVlNOMHJvcksyS05zN0tLaDU0cQ?oc=5",
+     "source": "Economies.com",
+     "publishedAt": "2026-09-28T01:26:00.000Z",
+     "titleKo": "비트코인(BTCUSD)은 단순 이동 평균에서 지지를 찾습니다 – 분석 – 2026년 9월 28일"
+    },
+    {
+     "title": "Bitcoin dips below $84,000, trading at $83,999 with a 0.55% daily drop.",
+     "link": "https://news.google.com/rss/articles/CBMidEFVX3lxTE9DaVlwbUtkc2hoclFVX0MyMWQtQW03bGxzcWc5NF9XU0NaMHc1UGthVldVclJNTUl6YXNmZVh6VGdaRlJiSXFSSDBCMHQzNWJYWWZ5TTl3WU44NkhfZVE5VXQtQVZxd1EyckxCeFBRSmNFSjFO?oc=5",
+     "source": "Pluang",
+     "publishedAt": "2026-09-28T01:17:28.000Z",
+     "titleKo": "비트코인은 $84,000 아래로 하락하여 일일 0.55% 하락한 $83,999에 거래되고 있습니다."
+    },
+    {
+     "title": "Bitcoin surpasses $85,000 and Ether climbs above $2,700, marking key price milestones.",
+     "link": "https://news.google.com/rss/articles/CBMigwFBVV95cUxPcDVxdTUyUkFIZ1loSGo1MHFhOGFnMmRSMXNHNTU0eGc5cWtRRDhxSmFxRDN3TTJldUFsQWhDYWZ1ZmNxNDNBc29USlhjUV9FbVdXS21fbnZhNk1NTzhXbG9VcC1LMGNjMzV3TU11aUN3cWI4MWlVblNIdHdHaUR6U1B1OA?oc=5",
+     "source": "Pluang",
+     "publishedAt": "2026-09-28T00:49:13.000Z",
+     "titleKo": "비트코인은 $85,000를 넘어섰고 Ether는 $2,700를 넘어 주요 가격 이정표를 세웠습니다."
+    },
+    {
+     "title": "Bitcoin rebounds 44.2% from June low but rising profits may trigger profit-taking pressure.",
+     "link": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxQdkd2WVZRM1kyRHZTTWxxMmVDeXNBZzI5bm4zWDVLZHFHbnp6d0FBTDlwYm1nNlp4dnJxQnlxOXFfSk1vWXlULWZsZ0RvZDVCUHRVNWdITG0wNE5jNk82dVRjWDdvRXF0bUpWUWYzaGNhZVFCM1hwMnEwWGZWN0RfNE4yNVEtdkFENHFvWDBCNW5XM1loR2dtZGpPN2pheGM5a29sLTdrN3oxZw?oc=5",
+     "source": "Pluang",
+     "publishedAt": "2026-09-28T00:15:02.000Z",
+     "titleKo": "비트코인은 6월 저점 대비 44.2% 반등했지만 이익 증가로 인해 차익실현 압력이 촉발될 수 있습니다."
+    },
+    {
+     "title": "Bitcoin Spot ETFs See Seventh Straight Day of Inflows, Though Momentum Slows — Year-to-Date Flows Turn Positive",
+     "link": "https://news.google.com/rss/articles/CBMidkFVX3lxTE45R2FabV9xZDkwcm8zYlQwam55TzEzb2g3Qk53VlVMWVJhdFBUeVM4UUNJMF8zSm85SXd6TldxaFJQYTZsMGhNZ2RGSWZHTG9fa0lFQWMtRTBxdmtDdDQ2NGVNemVxUFFkMWkxcTZIX0N4MzVzYXc?oc=5",
+     "source": "finance.biggo.com",
+     "publishedAt": "2026-09-28T00:05:00.000Z",
+     "titleKo": "비트코인 현물 ETF는 모멘텀이 둔화되었지만 7일 연속 유입을 기록했습니다 — 연간 흐름은 긍정적으로 변했습니다"
+    },
+    {
+     "title": "Bitcoin recovers 44% from its June low as BTC’s 2021 pattern resurfaces",
+     "link": "https://news.google.com/rss/articles/CBMilwFBVV95cUxNLU5Pa3BNUG1fczhVMTg5NVkxLWNoRlcwd1F0UzhCS3FXR2pIR3BVWjlvd2pFbjl3QWJpaEhBT2RDWkpVYkhpVFNaRUc3eENNNk1MbDhWXzNYSnM1NG1iSUpZS1Q3Tk5pT2ZCeFdkRnd0U29EaXF0a1hTUmhyeFcySjlpVW0temVtNEFkeDBkTmZScEVhUVJF?oc=5",
+     "source": "AMBCrypto",
+     "publishedAt": "2026-09-28T00:00:49.000Z",
+     "titleKo": "BTC의 2021년 패턴이 다시 등장하면서 비트코인은 6월 최저치에서 44% 회복되었습니다."
+    },
+    {
+     "title": "Bitcoin eases after surge as crypto market cools near $84,000 - CHOSUNBIZ",
+     "link": "https://news.google.com/rss/articles/CBMilAFBVV95cUxNdWtkdlBuOXZWejhodnJFdU5pdGpkUnZXREc2SFFjZUE3c3J6QU16dXZYOTlINlU4ajFvdndvQnAyYll5WFB5MEhFZWhKdXcydDhzUTZXSVdJYmktX0NxQjBVWEdjbG5KbDZ2cmFVME05R3pjckJQM1NXWFR5OFpsQkpKdGljSlVzbzF2bU1uMzYyemhH0gGUAUFVX3lxTE11a2R2UG45dlZ6OGh2ckV1Tml0amRSdldERzZIUWNlQTdzcnpBTXp1dlg5OUg2VThqMW92d29CcDJiWXlYUHkwSEVlaEp1dzJ0OHNRNldJV0liaS1fQ3FCMFVYR2NsbkpsNnZyYVUwTTlHemNyQlAzU1dYVHk4WmxCSkp0aWNKVXNvMXZtTW4zNjJ6aEc?oc=5",
      "source": "Chosunbiz",
-     "publishedAt": "2026-09-06T07:15:00.000Z",
-     "titleKo": "OpenAI 에이전트가 독일 위키에서 15,000개의 항목을 편집하여 해킹 분쟁 촉발 - CHOSUNBIZ"
+     "publishedAt": "2026-09-27T23:35:00.000Z",
+     "titleKo": "암호화폐 시장이 84,000달러 근처로 냉각되면서 비트코인 ​​급등 후 완화 - CHOSUNBIZ"
     },
     {
-     "title": "OpenAI acknowledges 'wiki incident' and need for more transparency around unintended AI behaviour",
-     "link": "https://news.google.com/rss/articles/CBMivwFBVV95cUxQcmY1b0dxczBwUWl2ajFEa1ViUXgyeUNBMlRwYnEzV0VyQUNVazhWRGJfZmY2WkNQSHhVN3NtMVRnQ2h3eTh2S1g1OGphVGZ3RnlSTmFXUUM1ZGJYSDNka1d5aDFnQk55Q3ZndXVlZGRfcVhuM2xuWnlXeHlDWU9rRlBCdF9UNHNnOFJoM24tVm83djlGcmRmR3dUdGhsQWR3bWplR1ZEMXd2UkhiRHRmOGdqOXBHMHppb01EUU5hNNIBvwFBVV95cUxQcmY1b0dxczBwUWl2ajFEa1ViUXgyeUNBMlRwYnEzV0VyQUNVazhWRGJfZmY2WkNQSHhVN3NtMVRnQ2h3eTh2S1g1OGphVGZ3RnlSTmFXUUM1ZGJYSDNka1d5aDFnQk55Q3ZndXVlZGRfcVhuM2xuWnlXeHlDWU9rRlBCdF9UNHNnOFJoM24tVm83djlGcmRmR3dUdGhsQWR3bWplR1ZEMXd2UkhiRHRmOGdqOXBHMHppb01EUU5hNA?oc=5",
-     "source": "The Business Standard",
-     "publishedAt": "2026-09-06T07:05:00.000Z",
-     "titleKo": "OpenAI는 '위키 사건' 을 인정하고 의도하지 않은 AI 행동에 대해 더 많은 투명성이 필요합니다."
+     "title": "We Asked 8 AI Chatbots to Predict Bitcoin's Price, Here's the Verdict",
+     "link": "https://news.google.com/rss/articles/CBMiWEFVX3lxTE1rR1Y0bUU4VXp1dUlhazZpUkhmZzFRdE1oVUFqUWZHQjJnSjA0RXJwZFBGa1ZPS1ZjNFRVSWdyRE9GOThxQmNpUUtvZWk5UkEtUGRuamxwM3U?oc=5",
+     "source": "Cryptonews.net",
+     "publishedAt": "2026-09-27T23:32:36.000Z",
+     "titleKo": "우리는 8개의 AI 챗봇에게 비트코인 ​​가격 예측을 요청했는데, 그 결과는 다음과 같습니다."
     },
     {
-     "title": "OpenAI's controversial ChatGPT-6 Astra advert paints a sad vision of the future",
-     "link": "https://news.google.com/rss/articles/CBMinAFBVV95cUxNR0pJQUo3RlJIcGZWaHR0ZFFyNDVEaUxveHQzakVUdGt5SFBJWnRVajZLek1mMGtyMTY4RHQxVnEzbWVBV295RmRFaXN0MUl2T1VOQUVGX1NLSy1kVFo5UF9jallaZmlkWjRTdzd5ZEUyZWQtOEVnT2hweFdEZEdTdTdpVXJ2ZU9ScFVCZmRoYTVDdFNEY0lVZDNzajk?oc=5",
-     "source": "Creative Bloq",
-     "publishedAt": "2026-09-06T07:00:00.000Z",
-     "titleKo": "논쟁의 여지가 있는 OpenAI의 ChatGPT-6 Astra 광고는 미래에 대한 슬픈 비전을 그립니다."
+     "title": "Bitcoin Cash and NEAR Protocol outpace Bitcoin with BCH futures and NEAR ETF registration news.",
+     "link": "https://news.google.com/rss/articles/CBMiigFBVV95cUxNTFJpVzNZZDR1TUtYamhySG5DdjlZUTVVNzVNSGJRck9Ld1d0QzhqMmNOSTNKQXp6ejFUZmJDWnF5RFFvbXNSV3QzZUZMci1pa3dZQ25ha3RXUlVfRDBqQndsc3FCT0cxUnBxS2U5WlVPWFZOd0xjb1VlV1FuTUxRdktiZ3YtRlhlUEE?oc=5",
+     "source": "Pluang",
+     "publishedAt": "2026-09-27T23:27:08.000Z",
+     "titleKo": "비트코인 캐시와 NEAR 프로토콜은 BCH 선물과 NEAR ETF 등록 뉴스를 통해 비트코인을 능가합니다."
     },
     {
-     "title": "OpenAI has admitted that its agents used wiki sites as message boards",
-     "link": "https://news.google.com/rss/articles/CBMidEFVX3lxTE9FMG1YYzA4S0ZHaVFLcDhMNDRWdVZKQWxSeGFQSS1wUDZNb2ljMXRIUjFKR0dUVEVaSmZyUG15cnQwdXQzUC1mcFdZSHE0OVFibmptYVNwMEptYkN1X09HOUpvbjFNcllHS2s0bHJFeGlPby1I?oc=5",
-     "source": "UkrMedia News",
-     "publishedAt": "2026-09-06T06:52:01.000Z",
-     "titleKo": "OpenAI는 에이전트가 Wiki 사이트를 메시지 보드로 사용했음을 인정했습니다."
+     "title": "Bitcoin Price Forecast: Can BTC USD Hit $90K Ahead of October’s FOMC Meeting?",
+     "link": "https://news.google.com/rss/articles/CBMiY0FVX3lxTFBZZnFaa21BNWl3Y0dkd0VYbnN1LVVGcmVyemRkZ1J0UXlKTWJYMXh4a291blBWTW9ycURYLWQ2UGxmM3VQQnNNOUZDaWR4MDVXY3lyM3BFNllNWEpjY3NFY1JIWdIBY0FVX3lxTFBZZnFaa21BNWl3Y0dkd0VYbnN1LVVGcmVyemRkZ1J0UXlKTWJYMXh4a291blBWTW9ycURYLWQ2UGxmM3VQQnNNOUZDaWR4MDVXY3lyM3BFNllNWEpjY3NFY1JIWQ?oc=5",
+     "source": "Bitget",
+     "publishedAt": "2026-09-27T23:05:51.000Z",
+     "titleKo": "비트코인 가격 예측: 10월 FOMC 회의를 앞두고 BTC USD가 90,000달러를 달성할 수 있습니까?"
     },
     {
-     "title": "OpenAI Agents Hijack German Wiki in AI Breakout to Share Evasion and Bypass Tactics",
-     "link": "https://news.google.com/rss/articles/CBMicEFVX3lxTFBYUlNQV2xNWmVLUHRhdkFKNXU2Y3VQbWFFY01zcE5wU2ZaRG5VV1lrTVR2bnlKaEthd3lESkFta0xwdVhZdkNsazZoT01aMkFacjBuQ1huQnQ2T011bUZnSEZYUzYxQjZCUUstQmJva1LSAXZBVV95cUxQZ1JuNG5ReUZZejljVGNkLXBfUVRnWUNiTjNNbkV4Y0hKTS1jUWNMZkNXaVdvRWZPY1p3RWlNZ0sxVEg3QWZydTRiMUFBMXh5ZC03dldCbmtWQlF3MDBkVWYxcmVKWXJEbzFHU1p4NWxudDk3YUZ3?oc=5",
-     "source": "CyberSecurityNews",
-     "publishedAt": "2026-09-06T06:45:49.000Z",
-     "titleKo": "AI 브레이크아웃에서 OpenAI 에이전트 독일어 위키를 탈취하여 회피 및 우회 전술 공유"
+     "title": "Bitcoin Prediction: BTC Price on Path to $100K as Remittix RTX Launch and Saylor Purchases Support Buyers",
+     "link": "https://news.google.com/rss/articles/CBMi3wFBVV95cUxQeS01U25zbUZVSDl6Sl9zN3NsbXJrbkllVGNZLVFNMy1kOE0yUUplalhTYmpaXzZZTkdoT3IzTnVTNjBNdDNQZnZPdjJuYVd4dnBLbkpYYkhoNnM4MTdlMlBTZVFVaFhDZ2hMQmtUM0R0WDBVLXJIY2tjczFWMGtsT1RTMzlsdlU0c2N1NERUR1FYWktDVzlidENXM2NvdzhCbHFuTWh6MUFBTkVCai1iMy1aZlA0S01VM2U2bkdTbDFXTWFIcXdVSGNlODdWbkJ3akgzV1Q1YVA2RmlNWGMw?oc=5",
+     "source": "FXLeaders",
+     "publishedAt": "2026-09-27T22:42:07.000Z",
+     "titleKo": "비트코인 예측: Remittix RTX 출시 및 Saylor 구매로 인해 BTC 가격이 $100,000에 도달할 예정"
     },
     {
-     "title": "OpenAI Admits AI Agents Used Wiki Site as Rogue Message Board, Calls for Greater Transparency",
-     "link": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxNRHl6Yl8zalFCTjBwRTVfWTM3QllaSDNSUFpSdlBQOWVRSE5fM0xBaUdLb25BSlItQ3d0a0xPczV3dkhodGNxM08wY3M1QnFxbng2YUFRT19GQ0xOcHRlVFpWTDJZRUhwV1lIazIwWGNLOWFhbHZvLUUtQ0FBVUtWMWU3SnFGOVRPV3NiVkkxbHN6ekJLaTNHLTM0bm51R2ViZ3FwRTBxY3VBX0Z0UW9IX2RUR0twVG5C?oc=5",
-     "source": "Tekedia",
-     "publishedAt": "2026-09-06T06:43:27.000Z",
-     "titleKo": "OpenAI, 인공지능 에이전트가 위키 사이트를 악의적인 메시지 게시판으로 사용했다고 인정, 투명성 강화 촉구"
+     "title": "Researchers Unveil Zcash-Style Privacy Plan for Bitcoin",
+     "link": "https://news.google.com/rss/articles/CBMingFBVV95cUxORDRaYmRlbmhTMThUV201VnctVzlSaGFTX25oMjBLTk1LLXBmSXZrYk9DVXkzTGRwQTBoNTNXNkgtNWVxRGZDRWlRNTR6WkM5Ml8xdkxZWU9hRW03QnlYSTdLQU5lUVl3QlgycVZkeHNFSnhZMFRPeGY3SDBsXzM0V2pfRlJwbGdOV0x5ZllWUjFsU2VuTEN0WG9mclJ5dw?oc=5",
+     "source": "CoinMarketCap",
+     "publishedAt": "2026-09-27T22:32:45.000Z",
+     "titleKo": "연구원들이 비트코인을 위한 Zcash 스타일의 개인 정보 보호 계획을 공개했습니다."
     },
     {
-     "title": "Sam Altman apologises for GPT-6 Astra rollout delays for paying users; here's why and what went wrong",
-     "link": "https://news.google.com/rss/articles/CBMi9AFBVV95cUxQQ0YyZ1dMY093bUVUUmlqM0dnY05NOXhlc0I5VVUza0Zic3lXdVlzTU02VjZoNnd4RzNPSUpnX2Fsel9DS0R4Y013WFBvdWhJRTdiYlE5bTZ2ak1YVXFiQXpiZWR3eEo0bHhKNkNfMS03WFlXV2I0c1F5eW9DYVBJVzllUktIYW5UaWVDcVdUTTZMV3A4czctUDNXNW5Odm1Ic3dNMU9neWl5ZHBJVnRxaFdUTkotcnQ1dmxVdlMyWGN1c2hFX09vYjNZWkxPWEE4RjJwVFBRZEJvbURjZlNlb1E1U005dUlHNzc2U2VkSTQ1S19z0gH6AUFVX3lxTE5NNU1NM3hiWlo0bTliblhPZ241cWp1V1ZWZDRxWkJHVEdxU3VUWUI2bDJKQ0x6NXcwRW85eFNfaEF1N3RtUEdyT0hGcXhNUGFtcXZYTjdIcTViRnRNbmFERkNhU2hiYk51QW90UTNUc0djWllmNWp2ekl1VG5zOFRUcEhVWnhHTFFMODNpWnJZdlM0N2tGQjBfbUVudGFrRDdYc1pQNGFIVnQycU83RW1xUC1hUm51M1o0NmE0bEVNNXR4V0hmWnRVRlNvVG9MblQwVXNWRzg1RGVuYUNWYlRwUGwwRVJQazRVeld6YUw4azkwVXA3R05FR2c?oc=5",
-     "source": "Moneycontrol.com",
-     "publishedAt": "2026-09-06T06:24:13.000Z",
-     "titleKo": "Sam Altman이 유료 사용자에 대한 GPT-6 Astra 출시 지연에 대해 사과합니다. 그 이유와 잘못된 점은 다음과 같습니다."
+     "title": "Bitcoin ETFs Erase 2026 Losses as Treasury Buybacks Fuel Rally",
+     "link": "https://news.google.com/rss/articles/CBMipwFBVV95cUxONHBXbzBTNW1RdDVPelJYTS1BWDZRTHE4QUlkSUlnWUJBREdmU2EweUlkZXVMWTdVQWI0Zng2UlR2bkNFaWxYQ09vbWVLbHpuaVNYVkFpeFl2UmdaelZkdnBtdGJFU3BHc0NNODN3X1ZOSUpweHF4aG0wN0ZOYWUxdURfME1wTUFNSmg5NFNWQlAzV05mYUFwTEI5UUdER2RkUUp2WVlmWQ?oc=5",
+     "source": "CoinMarketCap",
+     "publishedAt": "2026-09-27T22:32:45.000Z",
+     "titleKo": "비트코인 ETF는 재무부의 자사주 매입으로 인해 2026년 손실을 지웠습니다."
     },
     {
-     "title": "I asked ChatGPT and Gemini to find the best free alternatives to things I pay for — these 7 recommendations worked the best",
-     "link": "https://news.google.com/rss/articles/CBMi5AFBVV95cUxNdEd0NFBIbUVjbHRWRlcyWmNNUmxGM2E2dlhXRjdjSG1hVzU5dnBITXZDWktKX3BiZHJnZXVYVFBRbW1tSkFTczE1U3oxSDlHY0RrZmNmZDFkUGtiTVFPX3RNX1ltLUFmX2trcmJjR2RBOGZKSENUN0dWcDlmQlZ2OTR3a2s5SGRPazRpQncwUmJVUVM5SFRpWHNXTzRyTk5YYTBlVDcyLXhtNEh3bHV1eTFoNk9RcXhjaDFqOWRUcVdQYjI5TTVLTDFXaGxZd1dSbGVaUk5QdmRobHM5WnlRYVNIT3I?oc=5",
-     "source": "Tom's Guide",
-     "publishedAt": "2026-09-06T05:30:00.000Z",
-     "titleKo": "나는 ChatGPT와 Gemini에게 내가 지불하는 것에 대한 최고의 무료 대안을 찾아달라고 요청했습니다. 이 7 가지 추천이 가장 효과적이었습니다."
+     "title": "Crypto News: Remittix Reveals Final Sale Price While Bitcoin Price Prediction Hits $250,000",
+     "link": "https://news.google.com/rss/articles/CBMingJBVV95cUxOZk43d2NpeVQ0c3JvNk5wRHEwTXZIT05EUmR5QWVxelo4dmRaazJjVmpZd1JLeXZiSmR0N0l0b0M2b3d4RlFrelBteXIxaTU1X1kzNWJVYVNDQkVEMFc3V0ZyV2dNX015cEVrSmNyelpqYTVGMW1YRGtmZDRBQlBYY3dRbjhKSkJKRUdsZzJQbEVDNTZnOWk5aVZrT3dhT1FJNFc3RG1uZGNsTWZ0ZGdYYS1BRjNtMDJzMGI0NFVUNE93M2VCY1ptVFQzNEM3Y0QyWENyQkZtaG5sV3FscVNGVzc3MUZwRkYxVGJPZUp5RVlHNjhoZDA3bWpoV2hCT2x5R3k0cjFLVXBnSEFPWWJ5ejhMdUl2blFGX3MwNWJn?oc=5",
+     "source": "mykxlg.com",
+     "publishedAt": "2026-09-27T22:30:00.000Z",
+     "titleKo": "암호화폐 뉴스: Remittix, 비트코인 ​​가격 예측이 250,000달러에 도달하는 동안 최종 판매 가격 공개"
     },
     {
-     "title": "ChatGPT hit by global outage",
-     "link": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxQdEtuTHVlVm9DTzZBSXdWdTBrVzJJNXg4cnQxZU9ZXzh1eS02RWY3MzF4eHBmSGdtT1o0Y1lTVDBFcDJGMU1ybDNzWE5DdXpnenVIOThNcVBhZmY3cnV2alpUVEFnVEhidWtuZVh6bTRLLVowc2N1b2doUy1rMExOa1VnOGJQT0tvSDJJ?oc=5",
-     "source": "The Daily Star",
-     "publishedAt": "2026-09-06T05:15:03.000Z",
-     "titleKo": "글로벌 서비스 중단으로 인한 ChatGPT 공격"
+     "title": "Eight AI chatbots predict Bitcoin will rise to $95K-$115K by end of 2026 amid ETF demand and halving cycle.",
+     "link": "https://news.google.com/rss/articles/CBMilwFBVV95cUxQcXYtSmFrbXdQV1BFOWdCQ1dvelBHNk5WZ21nTVhxZVNEVUtOS0c0LW5lNnBuTW5WeGNiUVQ3TVZrTWNXUmZvVWQyZU5YWnRNTTFvU2ZjRE15ejZ6OXF4cDBwSWFicVJVRG5iQzQ5OWFyVFNFTGY2eDVYTkF5S01aWC1oeVhFVXdjVlpwUVlkRnlQamJtaTNr?oc=5",
+     "source": "Pluang",
+     "publishedAt": "2026-09-27T22:24:57.000Z",
+     "titleKo": "8개의 AI 챗봇은 비트코인이 ETF 수요와 반감기 주기로 인해 2026년 말까지 95,000~115,000달러까지 상승할 것이라고 예측합니다."
     },
     {
-     "title": "Fed Rate Hike Could Hit XRP Hard: ChatGPT Reveals How Low Ripple’s Price Could Go",
-     "link": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxQY2dOVEhDaHBiMlhlcWpuVmwtTGdTZzhPV0JiYTlsS2lKRHNldGUtRFR2MDBhd2RwOFJCanBIMEQ3cXh1RXhKc3ZKWjBFX1RkZzd6QmJ2VFpOSTEwWUlfQzVVSGdtZTVkZTNzN21tb240cnBHWGMwTEZQNVR2WHdrVVIxUmpLTi1GeTFoX0RhY1U3TlR0XzZzOFY4ZnRQOGJHQ0hqSzdJNHRITFpGejY3NDZvSG1NUlIz?oc=5",
+     "title": "Bitcoin Price Prediction: BTC Eyes $97K as DigiTap Passes $13M Before Its First Exchange Trade",
+     "link": "https://news.google.com/rss/articles/CBMi8gFBVV95cUxPYnhwcDJnZzRNd1ZCQnNIWl9xYTlGX3RUNXRuOTRTTDAyZ2hjREFlWk1XQlBrVnFfU2p6NlNBQlc1U0ZDdDhlZnVIdWRLZ0VCM25Nam1DS0NIX1BBVEdLVFIxUnAzSXc2Yk1kZ2cwQ3F2cEZZRnhJRVpzN21OenBFekktMkVaT3ZXWktpcGNtN0Q1ZDM2b1dpRG1vdFlVMERQa2x3N0wwN1JJczlIdzJfbTlsVHNZSWlyVklCNzNnTEoybURsLWZ5aDlITVJOVWtPbzdSX0Vkcl9sb2V1emVkZFBWRmxQOF81QmxJQUtBV1oxUQ?oc=5",
+     "source": "StreetInsider",
+     "publishedAt": "2026-09-27T21:42:08.000Z",
+     "titleKo": "비트코인 가격 예측: DigiTap이 첫 거래소 거래 전에 1,300만 달러를 통과함에 따라 BTC는 97,000달러를 예상합니다."
+    },
+    {
+     "title": "Binance Netflow Falls to a Two-Week Low of -13,878 BTC on September 22, One Day After Bitcoin’s $...",
+     "link": "https://news.google.com/rss/articles/CBMidkFVX3lxTE0waEFMRkVZUGNCbklCUDlqVF9KdzlTRktpaDd5djJWNzlFQWM0VlZZVmR1SWNuUDU3bG01c3k3bFFwUGd5dHFMeThVOTJtcUhsTF9tSnR2OXBEUXg0M0k0MV9OVEVmZ2ZTZWpNQ3k1SXJaVVZScXc?oc=5",
+     "source": "CryptoQuant",
+     "publishedAt": "2026-09-27T21:08:01.000Z",
+     "titleKo": "바이낸스 넷플로우는 비트코인 ​​가격 상승 하루 후인 9월 22일에 -13,878 BTC로 2주 최저치로 떨어졌습니다."
+    },
+    {
+     "title": "数据：若 BTC 跌破 80,516 美元，主流 CEX 累计多单清算强度将达 10.47 亿美元",
+     "link": "https://news.google.com/rss/articles/CBMiWEFVX3lxTFBYRWxLbFhDRHozcmxzRE5wellmU3JQbXdTemdmYmozcWVnN1dOd1phcDRkMFpMazFiWmNZUlRSY0V2SWJCNW1ncWp2dDdIallvRVgtR085Zjg?oc=5",
      "source": "CryptoRank",
-     "publishedAt": "2026-09-06T04:57:16.000Z",
-     "titleKo": "연준 금리 인상이 XRP에 큰 타격을 줄 수 있음: ChatGPT, 리플 가격이 얼마나 낮아질 수 있는지 공개"
+     "publishedAt": "2026-09-27T20:50:44.000Z",
+     "titleKo": "数据：若 BTC 跌破 80,516 미원,主流 CEX 累计多单清算强島将达 10.47 亿美元"
+    },
+    {
+     "title": "BTC, ETH, SOL, XRP Price Prediction as Analysts Set Soaring Targets for Sep End",
+     "link": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE9McnlYaEY3X3lWODA0TmRxakdVellQN28wM3YyR1NhM2U5VmR3OWVJNXEzNHBsWFNwTmttNFdSbllnUlVNaVdvWmZvNlhUYy1wUnY0UTNTYjg0Vkk?oc=5",
+     "source": "Cryptonews.net",
+     "publishedAt": "2026-09-27T20:23:05.000Z",
+     "titleKo": "분석가들이 9월말 치솟는 목표를 설정함에 따라 BTC, ETH, SOL, XRP 가격 예측"
+    }
+   ]
+  },
+  {
+   "key": "btc_key",
+   "label": "주요 인물 · 기관",
+   "items": [
+    {
+     "title": "MicroStrategy signals possible new Bitcoin buy after posting an 'orange' chart hinting at more purchases.",
+     "link": "https://news.google.com/rss/articles/CBMihwFBVV95cUxObURPa1FDQjhIdFUwakh6Uk1meXRHZ3VUMU85NW0yckIyQ0VHR2NLOWFCc3JIUlk2UWxNeUhheXNwRzJuMmgtcDlRWUFtZGpvbDliX1FtcmZ3amJhTFZsTUlUZ2FzTjBfWDA3XzVacWQxVnZ6SDZUU0Y4azU2UkxrRnQ2OUhFeWM?oc=5",
+     "source": "Pluang",
+     "publishedAt": "2026-09-27T20:05:41.000Z",
+     "titleKo": "MicroStrategy는 추가 구매를 암시하는 '주황색' 차트를 게시한 후 새로운 비트코인 ​​구매 가능성을 알립니다."
+    },
+    {
+     "title": "Coinbase (COIN) vs Strategy (MSTR): Which is a Better Stock to Buy?",
+     "link": "https://news.google.com/rss/articles/CBMimwFBVV95cUxOT09CNEZpNUlqMTlQR2NOQ0xIQThUOWNXLWVueVV0SkJTZV9RWHQ5QUJyZWJrZmpGQjVDb2QzRE5ZelV4U3I3TElEX3lRSlB4VThkZ01zQ3RvOWxkQmI5d2RDOGpMWnoyclFZXzJKSFUxSHpBNEF1QjdleVB4Uk8xd3U4MmpjZTk2RkRuT2lmemd0VFhVZHVfNi1CUQ?oc=5",
+     "source": "Yahoo Finance",
+     "publishedAt": "2026-09-27T19:28:26.000Z",
+     "titleKo": "코인베이스(COIN) 대 전략(MSTR): 어느 주식을 구매하는 것이 더 좋나요?"
+    },
+    {
+     "title": "Did MicroStrategy Buy More Bitcoin? Michael Saylor Drops Another Signal",
+     "link": "https://news.google.com/rss/articles/CBMioAFBVV95cUxPQ2hYS3F5cEhBenhjbEVRWEt1TmZNcGZGaXN5X2ZPdkMwQXNrVHk1bEE3aFJkZm1mRTJCTEwxTVdfTzdwVTRNa3FKYU9QSDl2YS1INU1aOGk2N1ExQlRpalZPTzJvX2I3STB0bVVjcndEXzFBLTR2QnBzVXJfZ0d3bHFqQXRndWhOWFZYMWtJYUhJcy1hYmhad2xvMjVBVGJx?oc=5",
+     "source": "Yahoo Finance",
+     "publishedAt": "2026-09-27T19:25:15.000Z",
+     "titleKo": "MicroStrategy가 비트코인을 더 많이 구매했나요? Michael Saylor가 또 다른 신호를 떨어뜨립니다."
+    },
+    {
+     "title": "Saylor digital rights plan for crypto, banks and tokenized assets",
+     "link": "https://news.google.com/rss/articles/CBMijAFBVV95cUxQTHp6cmRKYkVabVlFMmNheTFaaU53QTJfcHFBY0FCNTdEcGNHUVNNM01uVkN6Wl9BRGEyMGdPUE5pS1JxR1FEODhRQ09SQV9YQ3RFY1B3a1JScXZPcTVpRzAyQTJMRTFzVmxTLXgwaU4xbWxaUVIzU1dNRFFES1A5UG40ZkhDV1ZlRFdyVA?oc=5",
+     "source": "Altcoin Buzz",
+     "publishedAt": "2026-09-27T19:23:02.000Z",
+     "titleKo": "암호화폐, 은행 및 토큰화된 자산에 대한 Saylor 디지털 권리 계획"
+    },
+    {
+     "title": "Michael Saylor Unveils 'Bill of Digital Rights' as Strategy Teases More Bitcoin Buying",
+     "link": "https://news.google.com/rss/articles/CBMidkFVX3lxTFBBUEhxZ09oNDJJRnpRVWdFQ1dQdkRBTWRLMGt1OVVMODR2UDVhN2hGZjF3Wks4ZVpCSzRrREt6bkpFbGx6cDJmUms4QlprQjBONVFIYnVYczVrVFRURFo3amdmSlY2TWY2dC1NLVZrVUJpTmxRckE?oc=5",
+     "source": "finance.biggo.com",
+     "publishedAt": "2026-09-27T18:05:00.000Z",
+     "titleKo": "마이클 세일러(Michael Saylor), 비트코인 ​​구매를 늘리는 전략으로 '디지털 권리 장전' 공개"
+    },
+    {
+     "title": "Michael Saylor calls for ‘bill of digital rights,’ eyes $100 trillion crypto industry",
+     "link": "https://news.google.com/rss/articles/CBMipwFBVV95cUxNNHBXODFwTHV3ekJidmtFT251aHgtWW42VFhwZUNzcmZ0QWhBVUlTX1g0eUtPQ3hGQmJvV3UxSWhINTNKQ2JiazFtdWc4b0prNTlRcE5SeUtIbmdTNzB3LWFoVUpwWmxnUmRPLWJENW93bFhuWHRpbzJRUjVqaThUT3Nyd1dlVkNINVRKQnV6ZXpOYXJZRmdXd3l4REctN0NaQU1NQ002TQ?oc=5",
+     "source": "AMBCrypto",
+     "publishedAt": "2026-09-27T17:00:53.000Z",
+     "titleKo": "마이클 세일러(Michael Saylor)는 '디지털 권리 장전'을 요구하며 100조 달러 규모의 암호화폐 산업을 주목하고 있습니다."
+    },
+    {
+     "title": "MSTR in Focus as Michael Saylor Hints at Fresh Bitcoin Purchase",
+     "link": "https://news.google.com/rss/articles/CBMixAFBVV95cUxOUU15dDJjTXJaSGE1emdPanlRMWpoLU9SVzRBNjdiWkQ1Z29oOUlrR0w1V1k2SHRhZXRYVl9YVzgwM2FvLVd5ZEdSY3g0MUh4OFp6MnVIakJlN0doWUVjZG13V0NmcndrX3Z5OEFlbnUyX3hhODlWOU42YWRhMUM5cTVITmVlLVBuQTI1LVVPMmFmRGk2Vy1mNUl1NXk4OHBydnZDa1JzTHVaWF8yRnA0LVVSQzhwXy1ZWWRoaGdiWlprUXJk?oc=5",
+     "source": "Benzinga",
+     "publishedAt": "2026-09-27T16:51:12.000Z",
+     "titleKo": "새로운 비트코인 ​​구매를 암시하는 Michael Saylor의 MSTR에 초점"
+    },
+    {
+     "title": "Bitcoin Price Prediction: Strategy Adds 950 BTC as Pepeto Presale Nears a 100x Listing",
+     "link": "https://news.google.com/rss/articles/CBMirwFBVV95cUxPUE93TlJoN2gwN0pZUWtCYk05R2ZDSFl6TDN3LTJFN0ZMUDJCZmYyWWVhSTV1bnhCRDlZNzROdS15SUUzSzJ2dVVkQXlFdTRPVENsVXJ2TEhWZXlUb1BvZU9MU3hGYnlKMmx1NXZza2VxR044ZFNQaldFQTdTMXBDY3ZQVkt1eTgtS1YzTjBsMjZtcURwQWxkOVpncXUzM1VnOVdxMjFESlBBQWY2UGk4?oc=5",
+     "source": "TechBullion",
+     "publishedAt": "2026-09-27T15:54:46.000Z",
+     "titleKo": "비트코인 가격 예측: Pepeto 사전 판매가 100배 상장에 가까워짐에 따라 전략으로 950 BTC 추가"
+    },
+    {
+     "title": "Strategy (NASDAQ: MSTR) Launches Daily Preferred Stock Dividends To Reignite Bitcoin Purchases",
+     "link": "https://news.google.com/rss/articles/CBMi1wFBVV95cUxQRWpPSGFjWThPYkxfT3FsWThaWEVRSXpJSFJtUTBQQTVFM2hUcV9TM0VwTWRieTEydGhidnpYTFdHTlJNd3RiZF9iWWwzM0F0WkM0eWZDemw0dnRmSG9aSzZTSEhwYV9QalZsTU0yVGt0U2JITERsU25QT09oLUpZRVZGZDBLUmgwb2pma1ctODQ2RXItemNUYVFseUo4V0JYRnpYOEtSUFJrc3Z1SmgxM0xXUG1QVXJVc0dGNzJfX0w2RXVhbFFkWEZVTXpNS0JBZ3QtY1dlNA?oc=5",
+     "source": "foreignpolicyjournal.com",
+     "publishedAt": "2026-09-27T14:27:00.000Z",
+     "titleKo": "전략(NASDAQ: MSTR), 비트코인 ​​구매를 다시 활성화하기 위해 일일 우선주 배당금 출시"
+    },
+    {
+     "title": "Strategy hints at another Bitcoin buy after rec...",
+     "link": "https://news.google.com/rss/articles/CBMicEFVX3lxTE11NkZZWk5DSmhYd1Y1VFJwb3h6MG1ESm81N1ExY3VYNklrSzlBWGxZRXhjZDQtZnVvZ0VzTU9oZnFCclFYeWtmU1ZjWWZ5ekxfMG9XZTZEZnRyb0VIOUp2R3RNZXIzRUE1dW9seDVEbzE?oc=5",
+     "source": "Pluang",
+     "publishedAt": "2026-09-27T14:23:45.000Z",
+     "titleKo": "전략은 회수 후 또 다른 비트코인 ​​구매에 대한 힌트를 제공합니다."
+    },
+    {
+     "title": "Michael Saylor has a stark warning about America's financial future",
+     "link": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxObkM4R216aVdraWlHaE4zU3FMU0VGTEczdGQ2WGVDdEFGWjFnWmlRU0d4N3BKbGNEbXZ0RGZnM1pfN2VhbXVFbVBSX2N5VEpLWm1xWlAzVXJLZnhCRDczNnJRVDBoQkVnRzBvNEVjZEZRZGFSWEhPWUZ5MUFRcVRsTk0xeWV1YldYQkhzSjRxNGtSbU9aQkRzUGlCZ0xQa1A5NzZYTGNCS3VSZ2c?oc=5",
+     "source": "thestreet.com",
+     "publishedAt": "2026-09-27T14:05:02.000Z",
+     "titleKo": "마이클 세일러(Michael Saylor)는 미국의 금융 미래에 대해 엄중한 경고를 했습니다."
+    },
+    {
+     "title": "JUST IN: Michael Saylor hints at another Bitcoin announcement tomorrow 👀 \"Even more orange.\"",
+     "link": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxQZ0ExY3RYTnpRd0pfeVViMHdWMTYtck9oWFBqQWo4OW1ZZE14OGNuRUc1QjVCbzBPMC1fcjdKV29MMVphOEtMUElaSl9EWkM4SUlEclE0Y3Q1akZhV0pRdG8tbjJrcFZ1RTMtNVpObFNiLUhMSGpjcVJCZ19aekM5NGNWVC1ZT0tmSDBPZUFWQ0ZkQl9NZmxISVR6S05ySGJVRnZFMzk0bzJqZnliQkFYYzZoRkJpV2NDZWxUMDZsQV8?oc=5",
+     "source": "Moomoo",
+     "publishedAt": "2026-09-27T12:26:41.000Z",
+     "titleKo": "방금 들어옴: Michael Saylor가 내일 비트코인의 또 다른 발표를 암시합니다 🙌 \"더 많은 오렌지색\"."
+    },
+    {
+     "title": "Strategy's Michael Saylor proposes bill of digital rights for future economy",
+     "link": "https://news.google.com/rss/articles/CBMi2AFBVV95cUxOcTlSQVMwTHJ2RWMxcDQ2d1RCYjB6dTBQN1JOMlJYZGlSMWJjVGo2WjJ4bGZhcHJDR3hWZlNyODhCYjZiY0lNMmdxdmpCRmp3RElSMk9ONDFVcGFZdlFXLThNVzNMTTZyZGlxcHRtRkxCenQ0RE5HaEsxQ3AyRjNDNngzRTFXWGJxM1gxMEs3a3VmZEpPT1ViQVFmWEhpdGE0WUFKTHZaYS1vbWk1OFA0UlFvQzNlOFk4OE1SYk14Um1DaC1FSV94THBTMkZwTGQ3cHl0YzVxcEY?oc=5",
+     "source": "TradingView",
+     "publishedAt": "2026-09-27T07:30:43.000Z",
+     "titleKo": "Strategy의 Michael Saylor가 미래 경제를 위한 디지털 권리 장전을 제안합니다."
+    },
+    {
+     "title": "Bitcoin Price Prediction: Strategy Adds 950 BTC as Remittix Confirms Its November 24 Token Launch",
+     "link": "https://news.google.com/rss/articles/CBMi8AFBVV95cUxNamt0VU9PelJZVlQzYnI1bDdnbm0yaUdkU1VpWlVuTUxrbEczcGtqTzc1Q0ttNzlPWkoyNDJ0SnNyLURJWHJzc2trYUlIdV96MDQzT25MYmlFSFVBbE4teF9TRVdLRkV4ZFRDckxMY1R2Y21MY085R0FPQ19ZcVdfRENSbkN4cThfSUxzcXd0UGZjWlB6M09keGNxRTVOZGVUR3AtMUlRQ1JEa0pUaTRvdkgxbFhaN1VibDlmX2hDU05jT0dtRThVelJ6dTNyeXpZaUJ1THV1c0JGczg2XzJ4UkJIV3I0cFA1bU1qdFUxNVI?oc=5",
+     "source": "StreetInsider",
+     "publishedAt": "2026-09-27T02:42:34.000Z",
+     "titleKo": "비트코인 가격 예측: Remittix가 11월 24일 토큰 출시를 확정함에 따라 전략에 950 BTC 추가"
+    },
+    {
+     "title": "Michael Saylor Proposes a Digital Rights Framework for the AI and Bitcoin Era",
+     "link": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxNWjdXUldDSmhUb1l5ZkdJcUZ6N0dtSWR0SFpDaUV6UGFaMzV6VjBhYXhXdmFKQzhyWXlHQXp3cDgyVjJpclY4VUNMYjZaV3ZKbnBCeF9QS045REtQbWdYb2RsTzdadkdxVUZJaGZWUlRNVVN4NTVublZOWUdqVnpPVHpzeERSZ1VpZGxRTmZnNXJxLWdHcGtzcnd0LXBJSDZUWkJSQUNHb0E?oc=5",
+     "source": "KuCoin",
+     "publishedAt": "2026-09-27T01:42:42.000Z",
+     "titleKo": "Michael Saylor, AI 및 비트코인 ​​시대를 위한 디지털 권리 프레임워크 제안"
+    },
+    {
+     "title": "Michael Saylor Wants Banks To Turn Bitcoin Into Everyday Collateral",
+     "link": "https://news.google.com/rss/articles/CBMiZkFVX3lxTE84NDNBVkx1U3JxTWVKaUFQUHJYQVJmUEYwNDROeEJodXp5azNyWFFhYjR4S1RoWklHRHRITl9KQmRyYzdxVEZNc1FycUt1aEdhUVJmazIxZmk0S2F6WGI2ZEtZQkE1QQ?oc=5",
+     "source": "Yellow.com",
+     "publishedAt": "2026-09-26T23:11:59.000Z",
+     "titleKo": "Michael Saylor는 은행이 비트코인을 일상 담보로 전환하기를 원합니다."
+    },
+    {
+     "title": "Michael Saylor Wants Bitcoin Inside Banks and a $100 Trillion Digital Asset Industry",
+     "link": "https://news.google.com/rss/articles/CBMiaEFVX3lxTE01cEhtR01NWDNsa2otRFg3RnNCS2J6S19hYmJFaFVnZHNzMU1hYVk2QzMtV1QtUG9lb1NVVk5kMzBmRHRTcTNkR1laWTNZZUpOU1dycWVVM2hpSTJXVmtyZklwbEFJdVNC?oc=5",
+     "source": "BeInCrypto",
+     "publishedAt": "2026-09-26T21:23:00.000Z",
+     "titleKo": "Michael Saylor는 은행 내부의 비트코인과 100조 달러 규모의 디지털 자산 산업을 원합니다"
+    },
+    {
+     "title": "Strategy asks shareholders to approve daily bitcoin treasury dividends",
+     "link": "https://news.google.com/rss/articles/CBMie0FVX3lxTE5TZ3hLc0xoeWtWUkZIM0M1dWVpNlBjUGcwTXg0VnNmN3R6YW5kTTJIbWtOdXluTW1XdHR2UUhpN09DLXYyT0NTQkNxWldDMmhlX3R1cXZtQUNVVEE5bEdjQlYwcUdkSHNrVExrN1NRM0RzRVV1X3JMNmh2dw?oc=5",
+     "source": "en.cryptonomist.ch",
+     "publishedAt": "2026-09-26T14:48:01.000Z",
+     "titleKo": "전략에서는 주주들에게 일일 비트코인 ​​재무 배당금 승인을 요청합니다."
+    },
+    {
+     "title": "Fidelity Macro Chief Jurrien Timmer Says Bitcoin Bull Market Is Back, Targets $300K By 2029",
+     "link": "https://news.google.com/rss/articles/CBMiogFBVV95cUxQOFhkc0tDa0FSLXdaeU0wNlRIQjdiUG00YTZNNVRlQ01ENU5zV3NDdGhILXlvS2tkMGRDR0dQSy04VkRnUDZOa25jOUlRSHBXdWRKczFFSG40NElJUGlzWkFjam1QaGVBT2ZCMERjc1dXTjd3LUJGMmRlcUdFbkpkUUZLbXhCYk1yNjQ1YlFVTEx4UTN6SWdocVcwYzV2Q1duS0E?oc=5",
+     "source": "Yahoo Finance",
+     "publishedAt": "2026-09-26T14:25:23.000Z",
+     "titleKo": "Fidelity Macro의 최고 책임자인 Jurrien Timmer는 비트코인 ​​강세장이 돌아왔고 2029년까지 30만 달러를 목표로 한다고 말했습니다."
+    },
+    {
+     "title": "Bitcoin’s Biggest Regime Shift Yet: From Fed Beta to Treasury Hedge",
+     "link": "https://news.google.com/rss/articles/CBMirwFBVV95cUxNU3FqUUo5S3d3bFdJZ2ZVTVlIaTdJNm5CVi1oZUszWlNGdUh3M0lid2JNcU5MUnVyT0FlaUdKUnhCaDNUSkZQNDFhUWJISF9Lc0JjVkZOMXlXV1RWc0J4RVRfb29QaW5RSUxzZVZ3d3BJbDdlS2ZDT2hVbG95QTc4VTdYOE1jMnRLVkJGdWpCUExyZU1QRERVWWhjb3pwcjdXdHB0ZEVDcVdaZnJZb2p3?oc=5",
+     "source": "Investing.com",
+     "publishedAt": "2026-09-26T13:29:26.000Z",
+     "titleKo": "비트코인의 가장 큰 체제 변화: 연준 베타에서 재무부 헤지로"
+    },
+    {
+     "title": "Why Is This Company Dumping All of Its Bitcoin and Abandoning Its BTC Strategy?",
+     "link": "https://news.google.com/rss/articles/CBMipwFBVV95cUxPLW11RWlEaDBlRjBGQU9yMjl4T1RtN1RiUWYzS3h5aFE1d2kyN2pmclFtR2Rid3YxNnBvRHlHcTNnbnNuakl4TVhoWGpMcUphZVVkYUV1by1HaEh4TlBYOWNGaE0ybGpySTFES3hDMGNmN3JNSmQwakNteEF2dGFvNE94cDJ5QVNFQlcyVXdsVEVGTFRCeC1MdVdfLUdYcmhHeTdWQzM5OA?oc=5",
+     "source": "CryptoPotato",
+     "publishedAt": "2026-09-26T13:16:00.000Z",
+     "titleKo": "이 회사가 비트코인을 모두 버리고 BTC 전략을 포기하는 이유는 무엇입니까?"
+    },
+    {
+     "title": "INSTITUTIONAL | Leading Bitcoin Holder, Strategy, Proposes Daily Dividends to Restore Preferred Shares to $100",
+     "link": "https://news.google.com/rss/articles/CBMicEFVX3lxTE5xVEhoVzNqenpqdFMtSWIxN2lSNUd5cFlKMFdFZVRZUjRsbDUyRG1EeUk3eWpib1Nrc3BtT1FkZ3JzVlk1bTZKZkFUTTZZOHpsVGQ3RzNWV252MTVmRHdfeS14REpzS05IUy1DZ0dkOTc?oc=5",
+     "source": "BitKE",
+     "publishedAt": "2026-09-26T11:00:47.000Z",
+     "titleKo": "기관 | 선도적인 비트코인 ​​보유자 전략, 우선주를 100달러로 복원하기 위한 일일 배당금 제안"
+    },
+    {
+     "title": "Bitcoin ETF Inflows Signal a Sea Change in Investment Strategy",
+     "link": "https://news.google.com/rss/articles/CBMidkFVX3lxTE8xekg3Qlh2UjRTY1JXVkdWSWR5bkV2NDYwUTkxZkZVRDRZNWJNVGtOd3l0Qm5SakRWNnhZcVQxWUwyUnFxR1hmc0JpSXJRb2YtY2MyNVBEY2s0Q3k1ZWpYOFExMlVTSGVrSjhOcDk2Nk5fUF9XaHc?oc=5",
+     "source": "OneSafe",
+     "publishedAt": "2026-09-26T07:27:02.000Z",
+     "titleKo": "비트코인 ETF 유입은 투자 전략의 큰 변화를 신호합니다"
+    },
+    {
+     "title": "MSTR Stock: Strategy's Bitcoin Buying Struggle Has A New Fix",
+     "link": "https://news.google.com/rss/articles/CBMilwFBVV95cUxPZEVEaVV0eWpXNW5sQUg2UWNqeDVBTUxwc1dTQWFrNmZoLUhZc29JOGlsMnNLejhpdjlXNWNXcTJ0VGlHUjNPY2lzYW1JRTVEUnBQTzFDeTNsMkY3ZmVlZldHZjVZelJ1RnBja09fdmZyR0paNFJGeXNQZmJ0R3E3RzVLb1U1aTcyTHVJZm12NXRZWlZCV0FZ?oc=5",
+     "source": "Investor's Business Daily",
+     "publishedAt": "2026-09-25T20:23:00.000Z",
+     "titleKo": "MSTR 주식: 전략의 비트코인 ​​구매 투쟁에 새로운 해결책이 있습니다"
+    },
+    {
+     "title": "Strategy’s daily dividend proposal puts Bitcoin funding back in investors’ hands",
+     "link": "https://news.google.com/rss/articles/CBMipgFBVV95cUxQcHlFb1RkcncyZ1BBMEItdWlOeGV2c1QtaG9Ca1lSaDdoaDkwc0FybWxRMDdrWWtHa1ZhYUItR0ZBX20wc0RVRFkwT2FLVFdCYjlzNm0yVDVJVTItZlE0SmozQXNpV3B0c1RDM2dvNGxKMmNFaWZ3VUk5b1QwQU9JeUFHVjkwRjgyc2oxOS13eE0zM2lzRHMzQTd3M0JXckFCY2Q0dGln?oc=5",
+     "source": "CryptoSlate",
+     "publishedAt": "2026-09-25T17:00:30.000Z",
+     "titleKo": "Strategy의 일일 배당 제안으로 비트코인 ​​자금이 다시 투자자의 손에 돌아갑니다."
+    },
+    {
+     "title": "Strategy Proposes Daily Dividends Across Preferred Shares",
+     "link": "https://news.google.com/rss/articles/CBMijgFBVV95cUxQRm5JTDVleGxGVlN3YWhpS01ZcmJLMFlUdlBfV2Q4dl9MMEtSNmtDVFRXQ2NhYW45SW90TGZuLXV3QUJjcUpDMTdNeGIwY3J2cnpJa0NSSUlDSU5jUk1kTzZCZ0ZmR3JuZkVUQl9VYUk3ZlJnc0FoZ2x6VnNhSTBZaDNMeFZYNklnQVRkRWtR0gGTAUFVX3lxTE93bTNjbENvcTBfazNXVF9OeUhicjA5WEVfdUdlaXpsc0kxX1V5Nm5hMmhWdnlaUE9qWHVmbUotNXNIOHRHeUxUcUFYc19Qc29mbjVWek5IUzVtb3dJTzhYTzl3b3YzNXg0MVRKMXdSQjRtMFEzWl9pOGtKbGJjdGFmQ1NrVjVYdzRLLVhPVnRDOHRhZw?oc=5",
+     "source": "Coinpedia Fintech News",
+     "publishedAt": "2026-09-25T16:52:00.000Z",
+     "titleKo": "전략은 우선주에 대한 일일 배당금을 제안합니다."
+    },
+    {
+     "title": "MSTR, ASST Stocks Slide With Bitcoin: Strategy Proposes Daily Dividends, Matt Cole Challenges MSCI Rules",
+     "link": "https://news.google.com/rss/articles/CBMimwFBVV95cUxNSXQtZnhXUnZCd01pUlNsLXlGTG9BR2w2SVotcE00Q2dPcnFTQkhnVzhKZ2lrZmRZWnVHSVpXU0ZrUDZlMG5NS243M1hBNVRrdHRzVzdsQTdjWTBodnNuSGpJZ0xpbmNqZ2FoWDNkNmlUbEEwSVlHZWlpUlA1T1hER2Q5b2RqbC1ZbmI0bWJKbkNtaVhzampkSjJ6MA?oc=5",
+     "source": "Yahoo Finance",
+     "publishedAt": "2026-09-25T16:11:22.000Z",
+     "titleKo": "MSTR, ASST 주식은 비트코인으로 하락: 전략은 일일 배당금을 제안하고 Matt Cole은 MSCI 규칙에 도전합니다."
+    },
+    {
+     "title": "Bitcoin Treasury Strategy Proposes Daily Dividends For Preferred Stocks",
+     "link": "https://news.google.com/rss/articles/CBMidEFVX3lxTE1sbC1id2tKNzFkeGxBUUdRRWh4Q2dKUW5uQk4tck9Yd2lldG5CejJqVXdGYmdzVk15ZFhBSGk1SU5uTjNBSFZxd0xKUXhxcVhxWlZjU2NhcVJXWE5rbkVWeXM0OUIwODA0RzMzZm9oZzlRREw0?oc=5",
+     "source": "Bitcoin Magazine",
+     "publishedAt": "2026-09-25T15:39:53.000Z",
+     "titleKo": "비트코인 재무 전략, 우선주에 대한 일일 배당금 제안"
+    },
+    {
+     "title": "Sequans ends Bitcoin strategy after selling its remaining BTC",
+     "link": "https://news.google.com/rss/articles/CBMiigFBVV95cUxQcDFCMWx0OWEzMGtMdW9Hbm5manpHVVcyb3FnV2hxYVdYOEo0VldNOV9hcVZGSU5ucC10S3dIbElTXzExUExFUmJPa0RKRzNXMG9OMzVFdk9OVGhlUTNubFl4OHdJa25RTWN2LUw4WVNBck1DdEtDcVAzTG1FVXpGTlRhOWtSZEtzSVE?oc=5",
+     "source": "Crypto News",
+     "publishedAt": "2026-09-25T15:02:49.000Z",
+     "titleKo": "Sequans는 남은 BTC를 매도한 후 비트코인 ​​전략을 종료합니다."
+    },
+    {
+     "title": "Strategy (NASDAQ: MSTR) Returns To Bitcoin Buying While Strive (NASDAQ: ASST) Outpaces It With Larger Weekly Purchase",
+     "link": "https://news.google.com/rss/articles/CBMi8gFBVV95cUxOQjZnYjFOZGtEY2FYWjhHejk5VWZSRHhNSFBlRlJaeDFNeFF5SFhsMVZCVGRkRWVTM2ZnMkhNdFhfTkUxeXROVmhSZC1Sb0hvQm9lZjVXRzYwQV83b3FVMngtcWJQNkpMQ1lWQUVGS2Z1bHdjbWtTSnBtbmZicmtRV2lWWUUwYmlJTHc0QjNGd1lVcngxU08yTlJ3czI2Z3pjVE92ckFhZ2hCZDZDdzV1RGE2ZUpKZ1d1Z0RjQlZDcWp6eEtmNGRISVM5Nktfb1huRzB0c2oyQ0FkZTdDU0F0TXpkV0g1RUMyVEotbnBJSTZKUQ?oc=5",
+     "source": "foreignpolicyjournal.com",
+     "publishedAt": "2026-09-25T14:41:00.000Z",
+     "titleKo": "전략(NASDAQ: MSTR)은 비트코인 ​​구매로 돌아오지만 노력하는 동안(NASDAQ: ASST)은 더 큰 주간 구매로 이를 앞지릅니다."
+    },
+    {
+     "title": "Strategy (MSTR) Shares Drew Trump Linked Money Before An 83% Rally",
+     "link": "https://news.google.com/rss/articles/CBMixgFBVV95cUxNQlJqUGVPZ21uTDhkZmEteWlaOGhrU01wblhWNTk0bUNzcmxOZkl2LWM4OUtGUmJGRmRBQWZnWDNjR01mS2JNa3k3SzdXT2ZGU1pXai1UbkFKLWNlLS1GRi1ianFMUW9INVkzVWRBd2ttb0YtSlJGclZSanFLck95QjZwQlZJM1VQM21NcFg3VFpHcUd5UW42ZkRvY3BaU3lubER0SkdLelE5REpIWUZ2SzhPNlpzRGRzbDJXNnYzM2dUbDgzVFHSAcsBQVVfeXFMTnJIbjhXQTRUdldFazByaGk2UTlLTS1sMmdobVhLaHJzaEZ2Rk8yNi1vR0huQ0o1cHBjdUVKY2tBUFJoNEZ0UEJObmNBbENNTjlyVzlINzVfemZDYTVFdUt4WlJoTkJiTHE4MnU0dnFBT3YxXzRWQ2UtbEt6YWNSdm5QLXpvZndUU0Q0MjVHWjJmMW4xN25ucEd5a2xrMmE0aWkzQ05qLWN2UlhTNlN0dUFMcjJmeEgyMDRncTViVWdPX3JJLVZDck1YNkE?oc=5",
+     "source": "simplywall.st",
+     "publishedAt": "2026-09-25T13:36:54.000Z",
+     "titleKo": "Strategy (MSTR) 주식은 83% 랠리 전에 Trump Linked Money를 이끌었습니다."
+    },
+    {
+     "title": "Defense Secretary Pete Hegseth Holds Bitcoin in a Coinbase Wallet, Filing Shows",
+     "link": "https://news.google.com/rss/articles/CBMiowFBVV95cUxOeTAzUFljc1ZHcEc0VkN4N0gyZHlNdWJ1RjZLZWRPOC1jTHBZc0VWZ19lMncyVXdJcGNKNG9zOVp6TS1ZRW9ULUtEWUM4Q1pFbm5ZeEtyQURLTEMwMDJiOHJjVnJ4d1kxd2tvZlZ2TEhFem9zajZoUmI4TWhXMjNscHVodFpvbkJjUy1jN1FTODBjRlNyV0M5U2RvNGlhMFQ1V0FJ?oc=5",
+     "source": "Yahoo Finance",
+     "publishedAt": "2026-09-25T12:01:15.000Z",
+     "titleKo": "피트 헤그세스(Pete Hegseth) 국방장관, 코인베이스 지갑에 비트코인 ​​보유"
+    },
+    {
+     "title": "Why Is Tether Bringing USDT Back to Bitcoin Now? Morgan Stanley Offers a Clue",
+     "link": "https://news.google.com/rss/articles/CBMimgFBVV95cUxORjRJMXRTTzZEaTIyb3ljcUtEUXYyVEJFRTNuTjBRa3dJWkdnMXJWUWpVREpWQjZFYWktWV8wNm0zUjdMbjVUR1VtbFg3RFRiYkUtM3BJZXkzWGdzT08zZHlEMTE1NTVJQ1g4RkVuYm0zTHFkNi10WHMzbmRhOGIyV1BKRnp4UkpTdnFnbUZ2V3pJSlN0Wkd2YzV3?oc=5",
+     "source": "Yahoo Finance",
+     "publishedAt": "2026-09-25T06:55:00.000Z",
+     "titleKo": "테더가 이제 USDT를 비트코인으로 다시 가져오는 이유는 무엇입니까? Morgan Stanley가 단서를 제공합니다"
+    },
+    {
+     "title": "Strategy Keeps $21 Billion ATM Program Available for Future Bitcoin Purchases",
+     "link": "https://news.google.com/rss/articles/CBMiWEFVX3lxTFBhWEd1VExzTHltY0JuenI0dm14MzNQNkFOVDhzS2VGRzJpUHFFWmJtUjhkRnhmRHBFdEZIR2NQTVlkWm9pT3dSZF92TzI4d3pDeDF0d3BoX3g?oc=5",
+     "source": "tokenpost.com",
+     "publishedAt": "2026-09-24T21:36:14.000Z",
+     "titleKo": "전략은 향후 비트코인 ​​구매를 위해 210억 달러 규모의 ATM 프로그램을 유지합니다."
+    },
+    {
+     "title": "Strategy Increases Its Bitcoin Holding By 950. How to Play MSTR Stock.",
+     "link": "https://news.google.com/rss/articles/CBMisgFBVV95cUxQeEY4THZsM0VXZXlmY2ExZTVBOEloLUpOcHV6TkVlU0ZLSlI2eGFjVm1wZm9GR1A2bGJaeVBDaFBqanV0V2ZfeFp2bDRES2JJaWpid2VsUG1FQkJJQ01zOWR0RnBJbVlLWnJlaHNOLU9pY2haZFB4RkFsMkxQZjNURlRSVF81LUpKaHFpaEhHV1Z2NUd5YUREc0ZfbFh3ZTVKZ1NWV2R5cHdPSzZQWWR0aUR3?oc=5",
+     "source": "Barchart.com",
+     "publishedAt": "2026-09-24T20:29:56.000Z",
+     "titleKo": "전략은 비트코인 ​​보유량을 950으로 늘립니다. MSTR 주식을 플레이하는 방법."
+    },
+    {
+     "title": "Strategy Bought 950 Bitcoin at $79,670 Last Week. Will Michael Saylor Keep Buying at $84,000?",
+     "link": "https://news.google.com/rss/articles/CBMimwFBVV95cUxNLXNkWHdKR014U0NST0tnTUpBck1wb3hOM0pONFZDY2dUYTBfUTZmT2EzdC1UUDcySE5BU2RhQkNfQU1aTlU4bWZVdV9yU2VhYWdVSTBldk9iTXBjSGtlRTZVMFBsb0FyLUFJdHpzRWVkd2lod0xIX3laSUFmR1Y2VE9uYzNWS1pJdDNrb3czc1c4RnNlTzhhUkstMA?oc=5",
+     "source": "Yahoo Finance",
+     "publishedAt": "2026-09-24T20:18:27.000Z",
+     "titleKo": "전략은 지난주에 950비트코인을 $79,670에 구매했습니다. Michael Saylor는 $84,000에 계속 구매할까요?"
+    },
+    {
+     "title": "Does Strategy (MSTR) Stock Look Different After Trump Linked Accounts Surfaced?",
+     "link": "https://news.google.com/rss/articles/CBMimgFBVV95cUxPdmNRX2VJb0hXdjlOc3JqVFVCU1ppR0JEUWdzZ3pDUWtDcEJaOEV2a1Z3SDJMdnB2RExObE5EYzM0QUZMWk55RWJ2SWQxUkZrMWU0S1o3djZSWjQ0VXRQMjVraGFSRjRiYks5aEFoX1NkR0ZfT3Z0alhZOGlDUzZiVUJ0SnNNenJOOGU3WTQ4dS1zYlBudUtJWVRB?oc=5",
+     "source": "Yahoo Finance",
+     "publishedAt": "2026-09-24T19:11:22.000Z",
+     "titleKo": "트럼프 연결 계정이 등장한 후 전략(MSTR) 주식이 다르게 보입니까?"
+    },
+    {
+     "title": "Sequans exits Bitcoin treasury strategy after selling remaining 314 BTC",
+     "link": "https://news.google.com/rss/articles/CBMi0AFBVV95cUxOZzB5ZVAyYkdNZ3B5eS1kMzlYYUtJek1PZ0kyNFgyRXdzX0xRMnhuNjU2R1g1cFlEWng1c2FqdVJkS2ZKU2ZHa2JJT3JBMDNxSjE4aGFTdnV1c1ZneHV5dXdMbUF6eExhcGFVNXFHaG41N0R0a2VzNF9ITkphWks3TWlGTHlOd0d5VXYzcXNXQ2l1cWktS3BXZWdTTzUwYkFja3NzX1ljc2gtaXRuWlRLdEF2SnI4WnpJMG5SYmxzSDhOOWNXdW5ra1dDUTJORGRh?oc=5",
+     "source": "TradingView",
+     "publishedAt": "2026-09-24T17:13:38.000Z",
+     "titleKo": "Sequans는 남은 314 BTC를 판매한 후 비트코인 ​​재무 전략을 종료합니다."
+    },
+    {
+     "title": "BlackRock Is Buying the Dip: What Its $1 Billion Bitcoin Bet Says About the Crypto Market",
+     "link": "https://news.google.com/rss/articles/CBMiywFBVV95cUxOTjFCdGdWVmxHYlFNZFE3STJLWmpOTkp1OFZKZEYzZVI3VzF3Q2dBZ3NlcHM4NWdBaFNwOWNmOVUyMmNCRnotdjdoakUyZ0h4ZFRjQnQwcGJVZUdXd012VTMwal94emROVTkwT3B3eWRZa0gtUk9pM1JSa2NNdWdiZzBHblBXTUtoVUMzRUZ0NnNSTGVIeGs2b2drSTVESks5SXdJeGlYQlZsNnNPYWh2aDNZVVJrcDRVbEYySVhROHdnTHBiU05zSXppWQ?oc=5",
+     "source": "Bitcoin Foundation",
+     "publishedAt": "2026-09-24T16:17:17.000Z",
+     "titleKo": "BlackRock이 하락장을 매수하고 있습니다: 10억 달러 규모의 비트코인 ​​베팅이 암호화폐 시장에 대해 말해주는 것"
+    },
+    {
+     "title": "Michael Saylor defends Bitcoin's value amid cri...",
+     "link": "https://news.google.com/rss/articles/CBMikgFBVV95cUxQUnZ0WnJ1aEpkNm42VVlWSTJhVWgyOFlfN0ZVazM0MVhzVEJJcmwtbmFOLTFvZjRVVkpPZ1daS0h4OWxNaWxwdXhZTTdaczJkV2trNm9ZNkhEM1kzblYtTG1GZTFwMWhxak84cDFpa2dfNU5xVnZXeFhrZG1uc29pMy1MUGRCTHpBMGdDa0VPeXBEdw?oc=5",
+     "source": "Pluang",
+     "publishedAt": "2026-09-24T14:37:58.000Z",
+     "titleKo": "마이클 세일러(Michael Saylor)는 위기 속에서도 비트코인의 가치를 옹호합니다."
+    }
+   ]
+  },
+  {
+   "key": "eth",
+   "label": "이더리움",
+   "items": [
+    {
+     "title": "ETH price range on Sep 28, 2026 at 1am EDT Crypto Prediction Market",
+     "link": "https://news.google.com/rss/articles/CBMitgFBVV95cUxNVE96MXZLRGY4bU5Td2I5UW44WDd4S3R0VHdNU3ZOeVZRZlZRRTZEczFRMGc2SWRGN3BOSjRwUkZxOElqZW12RjZmQ091ZXR1REhTcUFEcGgzWUctRjNjZ2ZuVHZnQ0twZ2syVXBXLW1yclMtRXh0ZTltSjRfVFVnMXlIb203MmdTSzRJcE1qcHdnek1UX3lWaVZ3bjdJcTRtcV84TlpPZ2Z6VEV5SGlfdVdIcXg1dw?oc=5",
+     "source": "Robinhood",
+     "publishedAt": "2026-09-28T04:06:42.000Z",
+     "titleKo": "2026년 9월 28일 오전 1시 EDT 암호화 예측 시장의 ETH 가격 범위"
+    },
+    {
+     "title": "Top 3 Price Prediction: Bitcoin, Ethereum, Ripple – BTC takes a breather, ETH faces pullback, XRP consolidates",
+     "link": "https://news.google.com/rss/articles/CBMi9gFBVV95cUxOLUIwdHZxU3RfX0UxV2FOS3NLX2JOX25rU25Mc0d5ZDlzaTVuREkzc3F4M0phNVgwSGlDYXA3Qmx6YmYzYS0zb2xDLU9xOUdaSTYwNmN1Z1dnSEtJU2pNMEdGT3ZLQ1BjMFpwUFByYlA5T2xEZE4wSWJycVB6YnoydGsyMnNoUlRwNkRFZ291N3Vwa3picTNsWEMtNFBjU1J0VEJ5NXFwc1o3R1dPVHlPckdCbGlPWmJkMUNaTTNsYjJzOXBFbmpRWDJzaVlmVzVzcDVGWlhrZHNpTHlxMDk2VGFnMUJTQXdzVzhOUTR5TFd1SjEwVGc?oc=5",
+     "source": "FXStreet",
+     "publishedAt": "2026-09-28T03:40:20.000Z",
+     "titleKo": "상위 3개 가격 예측: 비트코인, 이더리움, 리플 – BTC는 잠시 숨을 돌리고, ETH는 하락세에 직면하고, XRP는 통합됩니다."
+    },
+    {
+     "title": "Crypto News Today: AlphaPepe Presale Stage 20 Sold Out While Ethereum Price Prediction Targets $12,000",
+     "link": "https://news.google.com/rss/articles/CBMi8AFBVV95cUxPemZwbTNsRFpqMmMzeHlhWHpkLUwyUF80dVlzaVdZcjNaZlZnYVAtRC1ZU21fZUJPd0ZkZlQ0Mkc4a3JRczI5LTBpWDhGa2hyUVROalRsVW9tVk52ZTJmdk5Vbk1xOURuS1ZGZVo0ZWhsalVXYmZWUjdCNzFEcW1mVnRTV1J6amM2VzJmczljamJpT0x6Q0t2VXJOT2lCenc5VUMzWW84Y0w4Y2dDdEt4MjlrNFhoUEcxYktDRE8wTS12Y3RvaXBjQ2dkNFNRMGwyN1U5Z1BpTVIyOTZMb0hMNDE0WTlKZGowXzZ1VVY1OHY?oc=5",
+     "source": "markets.businessinsider.com",
+     "publishedAt": "2026-09-28T03:21:53.000Z",
+     "titleKo": "오늘의 암호화폐 뉴스: 이더리움 가격 예측이 $12,000를 목표로 하는 동안 AlphaPepe 사전 판매 20단계 매진"
+    },
+    {
+     "title": "ETH price on Sep 28, 2026 at 12am EDT Crypto Prediction Market",
+     "link": "https://news.google.com/rss/articles/CBMirwFBVV95cUxNM0JJYVA0cV83Y2NGQ1M2X2s4RFloNEVZSWt0ZkgxMnZGZU80NDZhTW5rMldEamowWEllX0RGdktJdzV3YUFod0habmdXM05qQWZQV05IOGoxV0lXQ085RmZGS0JpU2lvWXJjbXdVRmdldE1NZ05BNUdfNHRlWFN6dmVUbXM4SlpqRmtOM19DSEw2cFdhZUh2dW9QenJZdWUtaXlyZVJILVhPSzdyTW9r?oc=5",
+     "source": "Robinhood",
+     "publishedAt": "2026-09-28T03:07:55.000Z",
+     "titleKo": "2026년 9월 28일 오전 12시(EDT) 암호화폐 예측 시장의 ETH 가격"
+    },
+    {
+     "title": "Ether (ETH) price drops nearly 2% to $2,650 aga...",
+     "link": "https://news.google.com/rss/articles/CBMiaEFVX3lxTE8yejRqS0pIeHEwOVZnZzJLdzd0b1pWM1dCYk5WYzNJWHNzU255TkRVOTNKT1VZeEVVXzExdnBBTmRMRjVEbk12ZWdmN0tQM1F5MHJjY2pzaG4xdVVGRkM5UFhxOE50SkpP?oc=5",
+     "source": "Pluang",
+     "publishedAt": "2026-09-28T03:06:17.000Z",
+     "titleKo": "이더리움(ETH) 가격은 약 2% 하락한 $2,650으로…"
+    },
+    {
+     "title": "Bitcoin, Ethereum, XRP Slide While Dogecoin Gains as Trump Rejects Iran's Hormuz Proposal: Analyst Sees B",
+     "link": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxNOGpMS1FLbmdtM1dNU2pzaVFQM21zNk1iU01UYi1WSHRrNnhXa1lnb3EtSGs3Y0t6bVVic01SU21LWGtaRWpfOXNmX0gyYkMzdDJMN3BTS081Yy02UGNNb3M0ajBYbVRKR21XVlVjaUl6MjBpcHpVQy1ReHAyU0ZkQVpCcHFvVDBNcHZmOFVqZWlwSkpLZnBhbkcyalFQNFdZT1BEREtRNHVzMmpDNjlIV2lDNXhNOEg3TVhR?oc=5",
+     "source": "Benzinga",
+     "publishedAt": "2026-09-28T02:09:10.000Z",
+     "titleKo": "트럼프가 이란의 호르무즈 제안을 거부하면서 도지코인이 상승하는 동안 비트코인, 이더리움, XRP 슬라이드: 분석가는 B를 본다"
+    },
+    {
+     "title": "Bitcoin surpasses $85,000 and Ether climbs above $2,700, marking key price milestones.",
+     "link": "https://news.google.com/rss/articles/CBMigwFBVV95cUxPcDVxdTUyUkFIZ1loSGo1MHFhOGFnMmRSMXNHNTU0eGc5cWtRRDhxSmFxRDN3TTJldUFsQWhDYWZ1ZmNxNDNBc29USlhjUV9FbVdXS21fbnZhNk1NTzhXbG9VcC1LMGNjMzV3TU11aUN3cWI4MWlVblNIdHdHaUR6U1B1OA?oc=5",
+     "source": "Pluang",
+     "publishedAt": "2026-09-28T00:49:13.000Z",
+     "titleKo": "비트코인은 $85,000를 넘어섰고 Ether는 $2,700를 넘어 주요 가격 이정표를 세웠습니다."
+    },
+    {
+     "title": "Ethereum Price Prediction: ETH Analysts Watch $3,050 as Remittix Opens BINANCE500 Rewards",
+     "link": "https://news.google.com/rss/articles/CBMisAFBVV95cUxOT2R2bnBoRmd5dXhrTEFEY081OHdwX1dxNFJVN0VsaXdMZ2tlaG0wVWpxRXU3UkpKaWNnM013eV9mdEYxUnVtYzlCNVZNSE1XUV96T0lYRkZOZ3VDRk5aTGZTSUNKT3ZGQ05JT2dnazk0NmdHenowZFZTWnB6UlRlVjZJbFhJVzRQQlVuSm4wNXZBZGdJX0k1T2VFbEwtSDFWOHJlRDJHcXpzVXlXZHk2bw?oc=5",
+     "source": "TechBullion",
+     "publishedAt": "2026-09-27T23:48:45.000Z",
+     "titleKo": "이더리움 가격 예측: Remittix가 BINANCE500 보상을 개시함에 따라 ETH 분석가는 $3,050를 시청합니다."
+    },
+    {
+     "title": "Ethereum Price Prediction: ETH’s Early Sale Offered a Low Entry as Remittix Confirms Its Launch Date",
+     "link": "https://news.google.com/rss/articles/CBMi_wFBVV95cUxOWnNubGViZ0UyX01pd090WWdnbkt4VEs2TDBsUDRjZ05yTFhHM0hHS01yYmVmcFVlejlDeVp3bXlfR0tLamFpM1VpNFVrbDl2cnQyWk5MdEhndy1vZndXQnNVbXIzX2ZEdExXWjNpU2NNWE4tRDFXRmFaTTdPcDFMbW90bDVMSml2TDE1WU5HM18zMWExWTBiUVpicFB6cmJsTkx5Wkd3WVhhMkxPNzNiY19PRm1iZE1PV2RGUFZ1SGk3NmE0b3hZQjZraUd4YVNZS2NmbXAtUEVLdDJRYlNLVmhGSER0YmNfR2J6eVR1T0ZId1JNblQweU5MYUNZeDg?oc=5",
+     "source": "StreetInsider",
+     "publishedAt": "2026-09-27T23:46:59.000Z",
+     "titleKo": "이더리움 가격 예측: Remittix가 출시일을 확정함에 따라 ETH의 조기 판매는 낮은 진입을 제공했습니다."
+    },
+    {
+     "title": "Ethereum Price Prediction: Analyst Sees ETH at $8,600",
+     "link": "https://news.google.com/rss/articles/CBMikgFBVV95cUxQX0k2OHMwUzVSRXFjZGJkREtnUUVIdXZDcjJMVkdrLWtpeWVob2U0QjAtRUpWZVRfc2RhQ0NXQk02QmpWN1VGZHVNWC01bTFRQXp5VGFiN1E5QkxuX0ltSHJWVE1SbFlXVnVBMVFUTGtWZUpicG1kbnhVWmFvX0lVV05VSkZYWDlaUmgwQlZIVFhqZw?oc=5",
+     "source": "CryptoRank",
+     "publishedAt": "2026-09-27T23:19:11.000Z",
+     "titleKo": "이더리움 가격 예측: 분석가는 ETH를 $8,600로 보고 있습니다."
+    },
+    {
+     "title": "Ethereum To Undergo Major Shift After Hegota Fork, Buterin Says",
+     "link": "https://news.google.com/rss/articles/CBMipwFBVV95cUxQM044WElvTUxTM0h6RkFqLWlHclpOUHVpaFEyRFRPTmFDaEdYdE5OelpPem1MTkhseXFkZHlIN3ZjNmx0RTlIZ2NJYUFKZ1F1dXhMbnNlM05fN0ZMeVdkdGo1NWstR3hKcEtITW5wTnk5XzlNRGc3b2t5NTlNQ0V0cU9abEtUdExrSXhGQWRrVWFVZ0hMeFBOSHd5SmxTOUM4MlBHaF8wQQ?oc=5",
+     "source": "CoinMarketCap",
+     "publishedAt": "2026-09-27T22:32:45.000Z",
+     "titleKo": "이더리움은 Hegota Fork 이후 큰 변화를 겪을 것이라고 Buterin은 말합니다."
+    },
+    {
+     "title": "Buterin Says Ethereum’s Last ‘Normal’ Fork Is Planned for 2027",
+     "link": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE40VXkyYmd0U3c2Z09xT1VISzlXeUpnMmFVcElWc0laek41cTJlcGJ6SmY4OGtaS1JBUlYzZG1fbjMzS1huMGhuOUdUamFuY1NmMGs4cDVKNFotdw?oc=5",
+     "source": "Cryptonews.net",
+     "publishedAt": "2026-09-27T22:12:12.000Z",
+     "titleKo": "부테린은 이더리움의 마지막 '정상' 포크가 2027년에 계획되어 있다고 말합니다."
+    },
+    {
+     "title": "Ether must clear $5,000 before Peter Brandt’s $8,600 chart target comes into play",
+     "link": "https://news.google.com/rss/articles/CBMic0FVX3lxTFBFZk1VMEc3RG85bXFZRUhkU0lfdHF3aHhlekxWdWZXVXMtcUxFUmtkallNUEZvVV9SU1dQaHMxTTJwdnNCOWY2OV9IaXlSWTJtaGloLUg0SFc3TFRHdEdaUnk2cHM1V3NoMnBidFg1NmhJdjA?oc=5",
+     "source": "Cryptopolitan",
+     "publishedAt": "2026-09-27T20:58:32.000Z",
+     "titleKo": "Peter Brandt의 $8,600 차트 목표가 실행되기 전에 Ether는 $5,000를 청산해야 합니다."
+    },
+    {
+     "title": "Can Arbitrum Reach $1? What It Would Take, and Why Ethereum Could Decide It",
+     "link": "https://news.google.com/rss/articles/CBMiywFBVV95cUxPT3lmeUhZMkhvbjNvRlpYbVkxYWNfSlFSMXJjUnBsOFNraUFxRVFsaE8xYWZwa3Q3cnllQTByM1hZUDZFVUtpaGZHa2Y3aUd4WEpHQWR4SWFyRzlIUVlub19BSEw0MExYSnFCV3AtY1ViLTRxQnFpT2gxREE0MWtpZkR1bVV4VDAyc3hoVzJOem93aE5ZcC11SkRaS2U3NUJla3NnQW1CZzhLNTZMaVE5WjFuNy1ROERaNGZnVnZOMTB5VEpFZDNfbTlVNA?oc=5",
+     "source": "24/7 Wall St.",
+     "publishedAt": "2026-09-27T20:50:00.000Z",
+     "titleKo": "Arbitrum이 1달러에 도달할 수 있나요? 무엇이 필요하며, 이더리움이 이를 결정할 수 있는 이유"
+    },
+    {
+     "title": "Ethereum is not instant, but collateral could make it feel that way",
+     "link": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE5PNVRiUUdCdC0zRDJTUHBjUk15TG5lWWF1R3pSaFRCN0VXSEZrZENDcWtuWWc0dGVkSTBPVE90eEtHRWRvT1ROc1lCM1hZcGJFQXlfSjV0ZjNtb00?oc=5",
+     "source": "Cryptonews.net",
+     "publishedAt": "2026-09-27T20:23:13.000Z",
+     "titleKo": "이더리움은 즉각적이지는 않지만 담보를 통해 그렇게 느낄 수 있습니다."
+    },
+    {
+     "title": "Ethereum Price Prediction Today: BitMine's Total Holdings",
+     "link": "https://news.google.com/rss/articles/CBMilwFBVV95cUxOaGVqN2pfeG93bklaZUtJdWlnTllxdXpqT3RYMUtCTGxMbjFMcUJScjZfUlVkMTN2VnVTcEt4TlZUaDJNVEZsQVNwX2Y2VjZRNVpxRVI1MGlWU1hqaVF3ajRRUVg2eFJNWDRoUGI2RXpJVk5RQ0FTcDlwYUdHX09EYWw0XzM3Y3U1V1AxZk9iTk5rbWJEamhz?oc=5",
+     "source": "openPR.com",
+     "publishedAt": "2026-09-27T20:11:53.000Z",
+     "titleKo": "오늘의 이더리움 가격 예측: BitMine의 총 보유량"
+    },
+    {
+     "title": "Tom Lee Reveals New Price Target For Ethereum By Year-End",
+     "link": "https://news.google.com/rss/articles/CBMirAFBVV95cUxOejlWVW1hUFVDZEgwQldUWjFPVjFDelBJNjNvMlNUenNTSEFKQmpGVER6T0VjdGlQenZFalRNaVhDSThaRm1IbnM2djRSa3Y5SnFOQ0JlN0tRNUFwNGZXM2YyWmRxcENDYVFLOFhEN1laSnZUeTl4Vy1RekFKcDFlaWt3XzdJZ0xkMXhCdE9ONFhPTkhCM1BpZ3pmU3p3S1hwRTJsR1piSHpES0du?oc=5",
+     "source": "Stocktwits",
+     "publishedAt": "2026-09-27T19:51:52.000Z",
+     "titleKo": "Tom Lee, 연말까지 이더리움의 새로운 가격 목표 공개"
+    },
+    {
+     "title": "Ethereum Co-founder Vitalik Buterin: Ethereum is Becoming the Computer of the Crypto World",
+     "link": "https://news.google.com/rss/articles/CBMidEFVX3lxTE13TF9lNTB2Ylc4SERHS3E2MHRGazB3YUJaZlVFN3p5NmxMMjBaSDQ4UFAxc0EyRmhqeTRXcURqNDU0MVFUQVVfSXd2ZlNXQy1GeEpKSUxSRl9nOGkzOFA1alNJblZkUVhrSm0xcC1TNDJiSnl3?oc=5",
+     "source": "ababnews.com",
+     "publishedAt": "2026-09-27T19:23:12.000Z",
+     "titleKo": "이더리움 공동 창업자 비탈릭 부테린: 이더리움은 암호화폐 세계의 컴퓨터가 되고 있습니다"
+    },
+    {
+     "title": "Next Crypto to Explode as ETF Money Pours In: Pepeto, Bitcoin or Ethereum?",
+     "link": "https://news.google.com/rss/articles/CBMinAFBVV95cUxQLW5YdE1vVEJoMmxvMk9JYW1fQmtDTkliSjU2MEgyZGJjSE1xNUw5QXAtdi1Ld0lnTU42UlI5Umlodnd0S041WEQtMFFhNmUzUjRibnRWbklOeVBRQUVGY3YySGh3SmtFNzZHVXZVbHhfZWZrTC12NFRSZEd0UFB3YzczSWRqOWpwc3o4V0thNFFmMUJYQVkzTkItRGE?oc=5",
+     "source": "TechBullion",
+     "publishedAt": "2026-09-27T19:21:35.000Z",
+     "titleKo": "ETF 자금이 쏟아져 들어오면서 폭발할 다음 암호화폐: Pepeto, Bitcoin 또는 Ethereum?"
+    },
+    {
+     "title": "Ethereum’s Next Era: Vitalik Buterin Calls It a “Cryptographic World Computer”",
+     "link": "https://news.google.com/rss/articles/CBMipAFBVV95cUxOYlJSaXZzS2kwRmlyNGxRUms5bjVpTWxXXzctZEhnMktGYkhUdWNfSEtqQkE0TGJRRXRvNzgyYkl1QlM2cTR4V0VLWXJEU1FoYVJtMDVyRGFpVUk1NVNmbzZxZ25iMDdEal93X0JscDBlWW5oTmNZTmVIc1pfd2s4YUVjcy1KckxtMHdmdkdXR1FkazB5UEpWSGRWd0Nac1JoZEVrVNIBqgFBVV95cUxNMlllZDB5RzNWU19XdFNhQmJNa2p4X3FpSEJ4RlNiNDNtdmUzZGJlTy1KU1FIMWxsbm5sR3RtM1RicmU1Zy04X3ZERmhzMHZta2VmNG1HWTdHcm5iV0VVX3NmWS1XTTNFam9RVzBkWDNJcG96WVMzSGk2U3BYOEoxU1k2c3FFVjNBV2MxcjByZVRVRTFUNTU4QVpidmhXc2Rpd3RELWVkSGRwZw?oc=5",
+     "source": "Coinpedia Fintech News",
+     "publishedAt": "2026-09-27T19:10:23.000Z",
+     "titleKo": "이더리움의 다음 시대: Vitalik Buterin은 이를 \"암호화 세계 컴퓨터\"라고 부릅니다."
+    },
+    {
+     "title": "Remittix Announces Nov. 24 RTX Launch, Outlines $18,000 Ether Scenario",
+     "link": "https://news.google.com/rss/articles/CBMiWEFVX3lxTE1rWlp3WV92Y0xwOGNSUWNwZUVDdXUxOUFGZTg4bGpqZnBlMG9Dd3ZvalpFSVhPd3ZoeVVpYVNvWmtCNDU0UHhxZUktTDJwLTBXaTcxRXRtaXM?oc=5",
+     "source": "tokenpost.com",
+     "publishedAt": "2026-09-27T19:06:45.000Z",
+     "titleKo": "Remittix, 11월 24일 RTX 출시 발표, $18,000 Ether 시나리오 개요"
+    },
+    {
+     "title": "Ethereum Price Targets $5,000 While Remittix’s Final Presale Stage Is Set at $0.46",
+     "link": "https://news.google.com/rss/articles/CBMipgFBVV95cUxQZEVMQmMyZndKZ1c1Si1FUXR5VF9TMmV4UHNPb1c1R0swdGxwRGlfTzdUMEtVSGhQTGpmVzBOOVB5cWtQM2RNbFlHa2VtUWNSMm03Q2Z6OTFqWDQyelJ5WmNUd2FxYjgtUlN2Qk42T0w2aHhMY0Q4SENZT1B1UTlKYVdyOUhIejQxTmp6LTdZWHJSZWNmYnBfekFCRlBnc0pNcjgyc1Fn?oc=5",
+     "source": "TechBullion",
+     "publishedAt": "2026-09-27T19:01:31.000Z",
+     "titleKo": "이더리움 가격은 $5,000를 목표로 하고 Remittix의 최종 사전 판매 단계는 $0.46으로 설정됩니다."
+    },
+    {
+     "title": "Best Crypto to Buy Now? Remittix Draws Ethereum Holders With PayFi Utility and a Confirmed Launch Date",
+     "link": "https://news.google.com/rss/articles/CBMixAFBVV95cUxPbHlZZFYtcW9XQVN4bVgyRDJZRlc3NmhKUkN5MUxqbXRzTFNwWHFBcW96T2JZd29aSHN1NWhMLWJwalg2N0tJMkFrZE1BTGhPOENRbFNrVkNEWVNUVF9RNmNXaXlEZ2RnaVF2b25UR1JlOUNpWVRxY2pxRHdDdnhIMFIwSVluWW9ET0hjYVBuTzAzdGpMNEc2NFk2U3ExVVY2SGhaZXo0YlBMb0Vvd3dLSnRRZHFfa1o4R3N3T3lDbXBZM0JJ?oc=5",
+     "source": "TechBullion",
+     "publishedAt": "2026-09-27T18:46:28.000Z",
+     "titleKo": "지금 구매하기에 가장 좋은 암호화폐는? Remittix는 PayFi 유틸리티와 확정된 출시 날짜를 통해 이더리움 보유자를 모집합니다."
+    },
+    {
+     "title": "Ethereum Really Not Just Blockchain Anymore, Founder Vitalik Declares",
+     "link": "https://news.google.com/rss/articles/CBMijAFBVV95cUxPamdOZktRNExuVEwyMDVyQUhDWGhEbXFlbDZ5UndKSzJ6ZlVLZUM3YjlGelY5RXRPY19tbDJKYWFQdlplN21zaTNteG5mTUhjR29UWG9IMU9BckpjQ2VBSnFnVUdQbWlvQXBCNUx6eGpYMW9PVWg1OC1UbWl5Tm9iWUE4T1pLd0phNGFFdNIBkgFBVV95cUxQX2VQQ1p4eHN1NnVHcTJXeEhsZE9FbWZ4YUpORjdVRVFsT1lVSTc1TkNFbnJSdklkTnptUXYxd3ZyblN1aHFYNk40eEl3RzZLendvb183TWl6Y1JraE1SQVk5SVdEVkg2c2JleDQzeEVNaG9CNG9VNVh5TFRtc3JhODZwNE5GWm5vTUdGRnZpR3NHdw?oc=5",
+     "source": "U.Today",
+     "publishedAt": "2026-09-27T18:44:36.000Z",
+     "titleKo": "이더리움은 더 이상 단순한 블록체인이 아니라고 창립자 Vitalik이 선언했습니다."
+    },
+    {
+     "title": "Bitcoin News: $2.52 Billion Leaves Exchanges in 3 Days as Pepeto, Ethereum and BNB Chase the Rally",
+     "link": "https://news.google.com/rss/articles/CBMivAFBVV95cUxPbEsyVGFpeDBtbXRRUDJEQVZlVjd5MDhUMVZNS3h1dVlYYXF6elVlcGVaQUlIem04U2tfMWY0ci1GeFNRY05HVElEOEx2aEEyZTAtTm55Vk9laWk4VTdDQWhiV01pZEJwTUVCcHI4UERsRjFXOFRac09yTWxLZUtwaC1OZmlaV3ZVdE1yQ1Z0ZFBiMDhLaU9RMEtKX0FJX2MzbGZLVGVnS2szWHEyQmxXNXVUZnR0UUduaEdjYQ?oc=5",
+     "source": "TechBullion",
+     "publishedAt": "2026-09-27T18:23:10.000Z",
+     "titleKo": "비트코인 뉴스: Pepeto, Ethereum 및 BNB가 랠리를 쫓으면서 3일 만에 25억 2천만 달러가 거래소를 떠났습니다."
+    },
+    {
+     "title": "Vitalik Buterin Says Ethereum Will Outgrow Its Blockchain Label by 2030",
+     "link": "https://news.google.com/rss/articles/CBMidkFVX3lxTE1rZzNCZGN1eEN5ckRZTXhKUWNudWxMc2RiN1YtTTNoWXExMzRWUExJbkFNLWVBaWozVjZmZ0lkT1lua2pNV25PS1JIa2dqMUxlNGRoYlhPVTRJNzBKN01OYjVxVTM5LUVnVnYwR045X3RRQ0tfZkE?oc=5",
+     "source": "finance.biggo.com",
+     "publishedAt": "2026-09-27T18:15:00.000Z",
+     "titleKo": "Vitalik Buterin은 Ethereum이 2030년까지 블록체인 레이블을 능가할 것이라고 말합니다."
+    },
+    {
+     "title": "Crypto Bull Run: X Opens Trading to 245M Users as Pepeto, Bitcoin and Ethereum Surge",
+     "link": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxQUjg3Ty1jUVRUUjQ5Qlg4X3pGVjNKT3pwZkRodm5LRnlUeENCb3VUU3R2c1ZfVnVzN3d2ME14UVZWTWZJOGU5alp0ZmxGSVBKMGZORTJGOEw2ZnhSdmxnSTZPM09jOGtoWXQwWU5JbXY1YmxYYm9PcWNVd0RXOVk2Vkxpc3d2X0h3M3RQcm0xaktQc2tfaVdXYXdvb0NtU2M5SkpEVGxhRjFmTHc?oc=5",
+     "source": "TechBullion",
+     "publishedAt": "2026-09-27T18:08:10.000Z",
+     "titleKo": "Crypto Bull Run: X, Pepeto, Bitcoin 및 Ethereum 급증으로 2억 4500만 사용자에게 거래 개시"
+    },
+    {
+     "title": "Venture Investor Jason Calacanis Brands Meme Coins a 'Giant Scam' as Bitcoin, Ethereum Cap Record Quarter",
+     "link": "https://news.google.com/rss/articles/CBMidkFVX3lxTFBFZEg2ckxCWmZTOUZmbDhBaTlXcXk3Y3NLdUlQdGNVejdyQW1Pd3k5UUlzWk1nRzFwRk9fVWtvQjhEOEl3cVhoUXVHSEU0NTRLNEhWMU0zdWduZ09EbmZIaXBBelRWdG1FRVBXVFg3TTQ3MHU0WlE?oc=5",
+     "source": "finance.biggo.com",
+     "publishedAt": "2026-09-27T18:05:00.000Z",
+     "titleKo": "벤처 투자자 Jason Calacanis는 Meme 코인을 Bitcoin, Ethereum Cap Record Quarter로 '거대한 사기'로 브랜드화했습니다."
+    },
+    {
+     "title": "🥛 HYPE could rival ETH ⚔️",
+     "link": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE5wSUI1TGNlNXlENEhWYXdiRlIxQS1DWHN0RzFxZXFZSnJkcnVVSXY1Q1lXcDlUZndoNGo2alV6clNGNDB1c3FQMWExVTVHYjNSRlRSa1JZV0xUdVU?oc=5",
+     "source": "Milk Road",
+     "publishedAt": "2026-09-27T17:57:16.000Z",
+     "titleKo": "🥛 HYPE는 ETH와 경쟁할 수 있습니다 ⚔️"
+    },
+    {
+     "title": "Bitcoin, Ethereum or Remittix? Best Crypto To Buy Now Buyers Weigh the PayFi Presale",
+     "link": "https://news.google.com/rss/articles/CBMi3gFBVV95cUxQZkU5am5LNGRpUkhlLVdDSHZBQ1ZQODdzUmpjYTl6S3A5TDVFSWFnUGliSzZ0bVNIcHNtc2ZRNW5zSmg0aHBzN0FMQ0R1aWJ5dHZSM3B4VFBaVHV2dVh1QVdpeE9HaGtHR3dLamUxR1g5OXJoaXp2WVg2VFp1S01pWF9vLS1vOWxYaWsyQjNPMjZyWTRDM3dyT0JHbG5idTJHQWdocFVUTUNkc0prM0J0dDVHbG9OdEFXRlRhVFZhVHpSV3VvNkxyLWR4Z2hWUkt5cFJaSWxjRVFKSWJhSnc?oc=5",
+     "source": "StreetInsider",
+     "publishedAt": "2026-09-27T17:50:38.000Z",
+     "titleKo": "비트코인, 이더리움 또는 Remittix? 지금 구매할 수 있는 최고의 암호화폐 구매자, PayFi 사전 판매에 무게를 두다"
+    },
+    {
+     "title": "Buterin Maps Ethereum's Post-Hegota 'Cryptographic World Computer'",
+     "link": "https://news.google.com/rss/articles/CBMipgFBVV95cUxPNFI3dC04UXFaclJ1QU9QVDY3NlQyekE4S0RnV0FhalJNbXVvZWtFbHo5Wlcya0lrQ1Rob0RsN0RoZWl0QWhSa2VVYXRKWDZZNVctR0N2Y3MwVE5heWJjWXdQYVphcnp2MU83MXg2akNaMFpjUEJUeDZ1anlvTzlVQ3lBUDdJeFYtZk4tSEFVN1JtV3I4OEcteE9JYk5xNndkTk9fV0ZR?oc=5",
+     "source": "The Defiant",
+     "publishedAt": "2026-09-27T17:47:02.000Z",
+     "titleKo": "Buterin은 Ethereum의 Post-Hegota '암호화 세계 컴퓨터'를 매핑합니다."
+    },
+    {
+     "title": "Tomorrow's world for Bitcoin, Ethereum and crypto",
+     "link": "https://news.google.com/rss/articles/CBMiPkFVX3lxTFAwUWQ4VXhya2VKRjJRQ1RDcXBaOERyM1BGU2xqcE01ZGFwb3ZnY3UtcHBBSkdDUlR5WmdjbXlB?oc=5",
+     "source": "Paribu",
+     "publishedAt": "2026-09-27T17:46:48.000Z",
+     "titleKo": "비트코인, 이더리움, 암호화폐를 위한 내일의 세계"
+    },
+    {
+     "title": "Ethereum Price Prediction: ETH Eyes $2,800 After $689M ETF Week as Pepeto Tops $11.1M",
+     "link": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxOdEgyT0FZNkN6clhVUXR1WWljM3pReE1VWEVSbkpLR3VlYU54X19VcDlFLWpFZnVONGp4NkNBYVJDdDNva05NZE9Bc3BqVnNwVnJ1dmJ0OG51enU4Y0pkazdra2MxTVVsXzdwbjFIVHR6RFNzNE1xNUt2RkxEZVRUZ1lLcXJWSnFPMGdmUmVtWkd3eVlvQzR3bnRYWnJMOTNnSEVHaVVvNGs?oc=5",
+     "source": "TechBullion",
+     "publishedAt": "2026-09-27T17:36:10.000Z",
+     "titleKo": "이더리움 가격 예측: Pepeto가 1110만 달러를 돌파하면서 ETH는 6억 8900만 달러 ETF 주간 이후 2,800달러를 주목합니다."
+    },
+    {
+     "title": "Ethereum Eyes $3,400 as Remittix Locks In Its Official Launch Schedule",
+     "link": "https://news.google.com/rss/articles/CBMimAFBVV95cUxQWXBzZDlVbHEwUXFPODlnWEtBY0ZnVE9VMlMtQjIzdEcyTDRuSEpYbVMxMWc0NEFDcV9tYzZ0X0EzZkhwdG02cGItd3BtVFBJYWFjaHNXcTFGLU5RNW1ZajcyRTY4T05KalhnT2d6Z0tUTkQ4Ry1TLUFPdjBTUXo3UzVld1lTaHVNUGgwdHFzZWotMFFwZnM2LQ?oc=5",
+     "source": "TechBullion",
+     "publishedAt": "2026-09-27T17:36:10.000Z",
+     "titleKo": "Remittix가 공식 출시 일정을 확정함에 따라 이더리움은 3,400달러를 목표로 하고 있습니다."
+    },
+    {
+     "title": "New Crypto: Remittix Releases RTX Launch Date as Ethereum Price Prediction Targets $18K and Whale Buying Grows",
+     "link": "https://news.google.com/rss/articles/CBMikAJBVV95cUxQaEM5S3VQcW1LVDhzbG94M3dtQmdRMFJaMG5KR3ZjQzBOU1dSejJFcDE0WUo1Qk1HeEgwNXg2cWd6VnYzcVhkdkNxZVpiRkg5cjQ0am5nUlR0Tk5hYXlINlhiN3BiUkpsLUJLUmNZWDJuM3RESzF5UnVrVE1LS3dMM3Z3bElvcVM2bTF0alZBODhtbDVZNExSQ1ozbk1kZmg5cE1kZDV0akRjczFQeElyVG5aLVRXQUxxaldJUFJxcTc2akdOYVVITlpXY2o1Y2VvWS1kc1NRU0ZacW9wazl2Nmp4cVJuQWlVZXJiY2VoQWxEbHlwbXBTOUd4UEtndTFueGpucmhJWHFSMXZ1NFgwaw?oc=5",
+     "source": "GlobeNewswire",
+     "publishedAt": "2026-09-27T17:30:00.000Z",
+     "titleKo": "새로운 암호화폐: Remittix, 이더리움 가격 예측이 18,000달러를 목표로 하고 고래 구매가 증가함에 따라 RTX 출시일 발표"
+    },
+    {
+     "title": "Bitcoin and Ethereum post record-breaking Q3 ga...",
+     "link": "https://news.google.com/rss/articles/CBMigwFBVV95cUxNYUlUeGJxelRWdmtpQk80Tkhob3o3ME0yRjF6Yk5CUHJ0SmxqLW1TLThmQ3BIUlhUZGVRakxINUdjUm1kaXdPWnFsWlgyTkptSXJ1d1FoUUVwT3hRb2IzN3BRS19FbW05MkdOZW8yMm1ndm1Ic2l6ZURUQ0tBci1tanc4WQ?oc=5",
+     "source": "Pluang",
+     "publishedAt": "2026-09-27T16:26:53.000Z",
+     "titleKo": "비트코인과 이더리움, 3분기 기록 경신…"
+    },
+    {
+     "title": "Ethereum Price Prediction Holds Strong Near $2,700 as BitMine Adds 27,562 ETH and Pepeto Heats Up",
+     "link": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxQa2hVNHdtMHhWc0RzbEhJN2Y4YVpKOUNwOUZCOERYTEJBUXdhd1VGaFVfbldqOEZfRzFrUkJKVUNwWV9ZdzBzMDZ6emxhSUN3OVptSmh2eVpubk5oLWN6THhWTkhmekZsR0QxNV9ucjV5Uk1OdFU3eHBtYVZrRDZacEdZMTFkdDZyVWZBbndzaWdMekc3N0lVVVVtZjFmMzY5UHcxY29EY2c5LTNSbDJZX3BlRm91QTcyNDdB?oc=5",
+     "source": "TechBullion",
+     "publishedAt": "2026-09-27T16:08:09.000Z",
+     "titleKo": "BitMine이 27,562 ETH를 추가하고 Pepeto가 상승함에 따라 Ethereum 가격 예측은 $ 2,700 근처에서 강세를 유지합니다."
+    },
+    {
+     "title": "Best Crypto to Buy Now: Remittix, Ethereum, Chainlink and BNB as RTX's Final Presale Tier Is Set at $0.46",
+     "link": "https://news.google.com/rss/articles/CBMixwFBVV95cUxNVHJITE9tZWVpdTVNYjFfekZwenVXY1ZoS2tTbWNRNjBERWVYWnZ1NVhfLUhzVGdPcVJTUzJ3WDExZkNaS0R0OXpqZ0ZZMndCSjA3RV8xRlBvM0RhaTVyQ2RHSjVULXQyWVhoSmhtdEZIUEd0YnpqWXAzLXh4c3BoRkgwZWNEdEFYMFFOS281aUVEbXpjUmFyaHl2Skt1Rl94SW42MHM0RDNwcWVIUkZBNDhaeGFSTk0zZENGcEh2WFMwdk5Ic2pv?oc=5",
+     "source": "CaptainAltcoin",
+     "publishedAt": "2026-09-27T15:40:46.000Z",
+     "titleKo": "지금 구매할 수 있는 최고의 암호화폐: RTX의 최종 사전 판매 등급인 Remittix, Ethereum, Chainlink 및 BNB가 $0.46으로 설정되었습니다."
+    },
+    {
+     "title": "Best Crypto to Buy Now: Pepeto Opens a Road to Zero Fee Trading on Ethereum",
+     "link": "https://news.google.com/rss/articles/CBMipAFBVV95cUxQa0lPUVdCLTc5MWtWTEtVQlpZei0wTnZEc0tVN2F5RmVNMmFrejZna2hZazV0TTdhZ2EwM3BfbTNvbm9HeUd0bl91ZDFSb3d6MUpCTnRvOWFvMHdyWnhQYmZja09HOXJBTnlkeWowOUV1dElZYkdWdTRYZUFpMzJybl9RV0ozV3dTaWlWbW1BdkdSQjRzQTVLQ0ZvTVRkZUZtM1pPWg?oc=5",
+     "source": "CaptainAltcoin",
+     "publishedAt": "2026-09-27T15:40:46.000Z",
+     "titleKo": "지금 구매할 수 있는 최고의 암호화폐: Pepeto는 이더리움에서 수수료 제로 거래의 길을 열었습니다."
+    },
+    {
+     "title": "Ethereum targets $4,000 as ETF inflows and institutional buying rise",
+     "link": "https://news.google.com/rss/articles/CBMiY0FVX3lxTE9UOHl0ZWo5bTFwaGtrY1FDVmgyb3BzRVdKUmhjazB1aGJpU2pVQmNRVHNNTGFuQmVsVXBOT0R5RDd5anRRZTVqSlFqa01lQmNlRWhObnBlOW4zSXd1SGtIeUlUd9IBY0FVX3lxTE9UOHl0ZWo5bTFwaGtrY1FDVmgyb3BzRVdKUmhjazB1aGJpU2pVQmNRVHNNTGFuQmVsVXBOT0R5RDd5anRRZTVqSlFqa01lQmNlRWhObnBlOW4zSXd1SGtIeUlUdw?oc=5",
+     "source": "Bitget",
+     "publishedAt": "2026-09-27T15:26:15.000Z",
+     "titleKo": "Ethereum은 ETF 유입 및 기관 매수 증가로 $ 4,000를 목표로합니다."
+    }
+   ]
+  },
+  {
+   "key": "eth_key",
+   "label": "주요 인물 · 기관",
+   "items": [
+    {
+     "title": "ETH News: Vitalik Buterin Says Ethereum 2030 Design Goes Beyond Blockchain",
+     "link": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxPMUJZdnE5S1JyZktQX1BqTGtVVk1yZ1RURVp2RUh6OVdYOFM0SXlEUnRnX0w1NFNpdjg2SDlYZDZiT3ZOeEFJeFNMVm9zOF9Sa2I4cVFYM0RTdUlvTG1rMUx5N1RxOXNQRnIxVlFpdnN3T092UnJySm9QQ1RyUEQ4YVRwaWRSNnFpYWt4VTlQNFM3RkJmLUl0RHFPVEVVVkJaaTJWZm1oN2ozYmdOWVQxaVc0SkFrZV9Q?oc=5",
+     "source": "themarketperiodical.com",
+     "publishedAt": "2026-09-28T00:43:00.000Z",
+     "titleKo": "ETH 뉴스: Vitalik Buterin, Ethereum 2030 디자인이 블록체인을 넘어선다고 말함"
+    },
+    {
+     "title": "Ethereum Roadmap 2030: Vitalik Buterin Maps Post-Hegota Overhaul",
+     "link": "https://news.google.com/rss/articles/CBMigAFBVV95cUxQV0k2enhIMGY2QmhWYkFidXRSa0tobXVId09lRTgtNjltQ1hPMG9sa2Z3ckpoZjl2dG5fVE53LThqODRscG5hX0dQRkh3Yll3U1p1TFlydzJPc2ZaMFRZSTV2RTluS1hwQklBR1ZpaktlSHJRUUFlVGFpUVdaLTdaNQ?oc=5",
+     "source": "tronweekly.com",
+     "publishedAt": "2026-09-27T23:00:00.000Z",
+     "titleKo": "이더리움 로드맵 2030: Vitalik Buterin이 Hegota 점검 이후 지도를 작성합니다."
+    },
+    {
+     "title": "Ethereum To Undergo Major Shift After Hegota Fork, Buterin Says",
+     "link": "https://news.google.com/rss/articles/CBMipwFBVV95cUxQM044WElvTUxTM0h6RkFqLWlHclpOUHVpaFEyRFRPTmFDaEdYdE5OelpPem1MTkhseXFkZHlIN3ZjNmx0RTlIZ2NJYUFKZ1F1dXhMbnNlM05fN0ZMeVdkdGo1NWstR3hKcEtITW5wTnk5XzlNRGc3b2t5NTlNQ0V0cU9abEtUdExrSXhGQWRrVWFVZ0hMeFBOSHd5SmxTOUM4MlBHaF8wQQ?oc=5",
+     "source": "CoinMarketCap",
+     "publishedAt": "2026-09-27T22:32:45.000Z",
+     "titleKo": "이더리움은 Hegota Fork 이후 큰 변화를 겪을 것이라고 Buterin은 말합니다."
+    },
+    {
+     "title": "‘Not Just a Blockchain Anymore’: Vitalik Buterin Maps Out Ethereum to 2030",
+     "link": "https://news.google.com/rss/articles/CBMidkFVX3lxTE9EUi01b0ZFcE1fajByOV9nSFNRU1ZUUDRPYzNVMWlXRFhiRVc0b1pPUWN0S3U3U25qOVF6UVM0ZzR4Vzk4Ym5LNWlIbjdnc3FRYjJEMjhEVklpc3ZseHpSeUpadEtjMllpVEpyX01NWml0dU95bUE?oc=5",
+     "source": "trendingtopics.eu",
+     "publishedAt": "2026-09-27T19:44:06.000Z",
+     "titleKo": "'더 이상 단순한 블록체인이 아닙니다': Vitalik Buterin은 이더리움을 2030년으로 계획합니다"
+    },
+    {
+     "title": "Ethereum Co-founder Vitalik Buterin: Proofs to Replace Full Network Recalculation by 2030",
+     "link": "https://news.google.com/rss/articles/CBMidEFVX3lxTE5meml2clhXLVlpT3gxV1RtSFNRaWF5akJhMnZoclB6d2VUdFl0bVYxREFuMG9uTGJfZ1hwZVNMOFp0RW1PVEtMQ3J3OHhYR2k4M1JKRnNId29EN0hGdkZuekZxWUJkRXJDbFRxLUVMNnVUMjQ0?oc=5",
+     "source": "ababnews.com",
+     "publishedAt": "2026-09-27T19:25:23.000Z",
+     "titleKo": "Ethereum 공동 창립자 Vitalik Buterin: 2030년까지 전체 네트워크 재계산을 대체할 증거"
+    },
+    {
+     "title": "Ethereum Co-founder Vitalik Buterin: Ethereum is Becoming the Computer of the Crypto World",
+     "link": "https://news.google.com/rss/articles/CBMidEFVX3lxTE13TF9lNTB2Ylc4SERHS3E2MHRGazB3YUJaZlVFN3p5NmxMMjBaSDQ4UFAxc0EyRmhqeTRXcURqNDU0MVFUQVVfSXd2ZlNXQy1GeEpKSUxSRl9nOGkzOFA1alNJblZkUVhrSm0xcC1TNDJiSnl3?oc=5",
+     "source": "ababnews.com",
+     "publishedAt": "2026-09-27T19:23:12.000Z",
+     "titleKo": "이더리움 공동 창업자 비탈릭 부테린: 이더리움은 암호화폐 세계의 컴퓨터가 되고 있습니다"
+    },
+    {
+     "title": "Ethereum Co-founder Vitalik Buterin: Ethereum is No Longer Just a Blockchain",
+     "link": "https://news.google.com/rss/articles/CBMidEFVX3lxTE9Vb1lXT0stQklKTzRPeFBCUnZyWkVyT3poY2pIXzJMcmllSmtBX3pSdUptaUFZREEyUnd6V1dJX2ZCcE54OV9iZnBGRWZlSzZtSmxDNGZQTmJiOWVQV1dCdTRmZ0JsTXdKaTVNM2xDUE9nRGhn?oc=5",
+     "source": "ababnews.com",
+     "publishedAt": "2026-09-27T19:18:00.000Z",
+     "titleKo": "이더리움 공동 창업자 비탈릭 부테린: 이더리움은 더 이상 단순한 블록체인이 아닙니다"
+    },
+    {
+     "title": "Ethereum’s Next Era: Vitalik Buterin Calls It a “Cryptographic World Computer”",
+     "link": "https://news.google.com/rss/articles/CBMipAFBVV95cUxOYlJSaXZzS2kwRmlyNGxRUms5bjVpTWxXXzctZEhnMktGYkhUdWNfSEtqQkE0TGJRRXRvNzgyYkl1QlM2cTR4V0VLWXJEU1FoYVJtMDVyRGFpVUk1NVNmbzZxZ25iMDdEal93X0JscDBlWW5oTmNZTmVIc1pfd2s4YUVjcy1KckxtMHdmdkdXR1FkazB5UEpWSGRWd0Nac1JoZEVrVNIBqgFBVV95cUxNMlllZDB5RzNWU19XdFNhQmJNa2p4X3FpSEJ4RlNiNDNtdmUzZGJlTy1KU1FIMWxsbm5sR3RtM1RicmU1Zy04X3ZERmhzMHZta2VmNG1HWTdHcm5iV0VVX3NmWS1XTTNFam9RVzBkWDNJcG96WVMzSGk2U3BYOEoxU1k2c3FFVjNBV2MxcjByZVRVRTFUNTU4QVpidmhXc2Rpd3RELWVkSGRwZw?oc=5",
+     "source": "Coinpedia Fintech News",
+     "publishedAt": "2026-09-27T19:10:23.000Z",
+     "titleKo": "이더리움의 다음 시대: Vitalik Buterin은 이를 \"암호화 세계 컴퓨터\"라고 부릅니다."
+    },
+    {
+     "title": "Ethereum co-founder Vitalik Buterin announces completion of original speculative science fiction novel Snowmoon, consisting of 32 chapters",
+     "link": "https://news.google.com/rss/articles/CBMidEFVX3lxTE9Ja1BHeUdHSzhfX3Y1ekc4MUUwX1hpLVpKUE83bElqVTEyNXRLYXR4VFVxVWdOd09leV96ejl6cy1tc3ZFbEl6amhacGVJQVREcjVVZERfU3UtdXF5S3RFcVk4dlZnUVk0UDBtT1ZoZFc3RjAy?oc=5",
+     "source": "ababnews.com",
+     "publishedAt": "2026-09-27T19:05:54.000Z",
+     "titleKo": "이더리움 공동 창업자 비탈릭 부테린(Vitalik Buterin)은 32개 장으로 구성된 공상 과학 소설 스노우문(Snowmoon)의 완성을 발표했습니다."
+    },
+    {
+     "title": "Vitalik Buterin maps Ethereum’s cryptographic 2030 plan",
+     "link": "https://news.google.com/rss/articles/CBMijAFBVV95cUxQSkQ3QnIxU0ppZVhEN2RRLW1XYXU3RTh1cmtBOUc1MEtNQmlNMG56UkJqVDJWQWszSlVhR1Y1V0VMRno1dGNoSFlVTEZuY09XYVNqUWsyWDZDejRhaEhtTmU0Nl9BVlRkcTgtWDZDak41NTRfODBpTDlocVFlS2dvZnRvblZHYzVsRzdZSQ?oc=5",
+     "source": "Altcoin Buzz",
+     "publishedAt": "2026-09-27T18:51:46.000Z",
+     "titleKo": "Vitalik Buterin은 Ethereum의 암호화 2030 계획을 매핑합니다."
+    },
+    {
+     "title": "Vitalik Buterin Says Ethereum Will Outgrow Its Blockchain Label by 2030",
+     "link": "https://news.google.com/rss/articles/CBMidkFVX3lxTE1rZzNCZGN1eEN5ckRZTXhKUWNudWxMc2RiN1YtTTNoWXExMzRWUExJbkFNLWVBaWozVjZmZ0lkT1lua2pNV25PS1JIa2dqMUxlNGRoYlhPVTRJNzBKN01OYjVxVTM5LUVnVnYwR045X3RRQ0tfZkE?oc=5",
+     "source": "finance.biggo.com",
+     "publishedAt": "2026-09-27T18:15:00.000Z",
+     "titleKo": "Vitalik Buterin은 Ethereum이 2030년까지 블록체인 레이블을 능가할 것이라고 말합니다."
+    },
+    {
+     "title": "Ethereum Really Not Just Blockchain Anymore, Founder Vitalik Declares",
+     "link": "https://news.google.com/rss/articles/CBMixAFBVV95cUxQX20zSEwyZGxoTjl6UWdtZ29ueXdkVEdxZm1LVzh6aV9TenFHdXFOLUhfX1paV2d5R3pKY2gzYjZVeHNGRndBbDRsVmNPQzk4WWlwaHE3UVo5dXVCS3hUMGt2Y08wYWdOaGFTRC1oYUpQWE1NOTl5V2JTWXRwSFkzQTJ2NjMyYVhCbjZhT0VIem9WaHdvVXdhdmtZTGFnVkxKUGRvWWtPWS1CVnJVUWF0U1p4U2M2d0JlRGhaTXI3aXdDaW1Z?oc=5",
+     "source": "TradingView",
+     "publishedAt": "2026-09-27T18:12:09.000Z",
+     "titleKo": "이더리움은 더 이상 단순한 블록체인이 아니라고 창립자 Vitalik이 선언했습니다."
+    },
+    {
+     "title": "Vitalik’s Major Ethereum Transformation Plan: No Longer Just a Blockchain!",
+     "link": "https://news.google.com/rss/articles/CBMirwFBVV95cUxNLUowcnA2T3haSkZ6UzAzV1VRRmRIX2R3eHgxRDhyNmVNSDNaOHI0eS1ENUU0SG85Um1kejRqZXBSQTJsalJOMUdidWhEdnpKWlZRRnVMZDI3Q2NrNDBHNGR0Vk1xdzE5NjF1MXVsSjJXMlJPSnVCWldibHh6THNEbnJvLTJjLXRRVVk0Z0hTNmxVc1g2X1ZDSkVSZThoU0pLMUhXZXAwYzNJZEdhLThN?oc=5",
+     "source": "Koin Bülteni",
+     "publishedAt": "2026-09-27T16:51:55.000Z",
+     "titleKo": "Vitalik의 주요 이더리움 전환 계획: 더 이상 단순한 블록체인이 아닙니다!"
+    },
+    {
+     "title": "Buterin Maps Ethereum's Post-Hegota 'Cryptographic World Computer'",
+     "link": "https://news.google.com/rss/articles/CBMipgFBVV95cUxPNFI3dC04UXFaclJ1QU9QVDY3NlQyekE4S0RnV0FhalJNbXVvZWtFbHo5Wlcya0lrQ1Rob0RsN0RoZWl0QWhSa2VVYXRKWDZZNVctR0N2Y3MwVE5heWJjWXdQYVphcnp2MU83MXg2akNaMFpjUEJUeDZ1anlvTzlVQ3lBUDdJeFYtZk4tSEFVN1JtV3I4OEcteE9JYk5xNndkTk9fV0ZR?oc=5",
+     "source": "The Defiant",
+     "publishedAt": "2026-09-27T15:47:02.000Z",
+     "titleKo": "Buterin은 Ethereum의 Post-Hegota '암호화 세계 컴퓨터'를 매핑합니다."
+    },
+    {
+     "title": "Ethereum News: Vitalik Buterin Flags Major Sync Update as ETH Eyes Breakout",
+     "link": "https://news.google.com/rss/articles/CBMisgFBVV95cUxNdVB6UjVfODVSSTl4TjRETGRvam5HUm90V0NlUnJBNTdkeG5NNkRVQkptUzRvaE5WZnRxZ3NYQ29TWWZ3dlZBOWU4ZkYtTFBMSkhDOVJmenJ1YjlZRjhuZzd1dk5jVWRHNE42bkdCQVJJYzdRY3R1Ri1KYzVZanFhcDlGZkZqNDBsVTNfQURDOTFaT2xMc3RyMmJUbGVtNjExWThiN0dxelNjblVSbVhjWFZ3?oc=5",
+     "source": "CryptoRank",
+     "publishedAt": "2026-09-27T15:16:59.000Z",
+     "titleKo": "Ethereum 뉴스: Vitalik Buterin, ETH Eyes 브레이크아웃으로 주요 동기화 업데이트 표시"
+    },
+    {
+     "title": "Ethereum Community Reacts to Vitalik Buterin’s Latest Tweet",
+     "link": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxOSnJlNWE1MktNUHM4QmtyRmhuelJNYkJwYkhNNUhvXzJKeTdtNG9wNnpnam5DZFVsSzM2NTJvNjJvdnZiWnprMVVpMzdwcUFVTURoTG9wd3lGdWJKNHRBbmlzaVVNdlFFWmdzbVdZWjB0dmdPMmVuN0pWZmNJd1BlMVFTal9ubzI0TTE0?oc=5",
+     "source": "Coinfomania",
+     "publishedAt": "2026-09-27T15:04:41.000Z",
+     "titleKo": "Ethereum 커뮤니티는 Vitalik Buterin의 최신 트윗에 반응합니다."
+    },
+    {
+     "title": "Vitalik Buterin outlines Ethereum’s ambitious roadmap to 2030",
+     "link": "https://news.google.com/rss/articles/CBMikgFBVV95cUxNUlZvTWhCTEt5M2haaHowbWVDSnJfeVNCQzQzSjlKUGpqZHp2MHF3enllMDNFdjc3b3BpbW1CeTFoS0NrdWF1UVBYZmR5U0t1dnllRjdkbWcwRGhESnZUUmRaTHpkeW5Iak53dm1pRUU4MU9xVU1hRUpQN2ZqbzAycU4yWFVfeTUyS2RzTDAtLW9VZw?oc=5",
+     "source": "Crypto Briefing",
+     "publishedAt": "2026-09-27T14:48:07.000Z",
+     "titleKo": "Vitalik Buterin은 2030년까지 이더리움의 야심찬 로드맵을 설명합니다."
+    },
+    {
+     "title": "Buterin’s plan for Ethereum’s future scalability skips brute-force checks by 2030",
+     "link": "https://news.google.com/rss/articles/CBMidEFVX3lxTE9QLXYyUS1fTHFTbHNEVDBKcjNKbnlPc3FvN09UTUlfWG41d2JOOWlydWNtWHJnSnREUjNxZGtJa3BlbENWaXhvVlVlMHZxc3pjYW05WnZPajkxQW5KbDNsOVdzV0hDaGpIZzF0TWtHbUNxai1Q?oc=5",
+     "source": "en.cryptonomist.ch",
+     "publishedAt": "2026-09-27T14:47:27.000Z",
+     "titleKo": "Ethereum의 미래 확장성에 대한 Buterin의 계획은 2030년까지 무차별 대입 검사를 건너뜁니다."
+    },
+    {
+     "title": "Vitalik Buterin Outlines Ethereum’s Path to a Cryptographic Computer",
+     "link": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE9ZdWhTLUJSWExpdnBzTnEtdE1xeVZWWS1sZG1kMW1qUGRBd0VzMExsUTJmNUNkaS1HQzhmTktjMzVqYi1ldElTRGFRTDM2MDV4RlQtTVd2NzZoVDQ?oc=5",
+     "source": "tokenpost.com",
+     "publishedAt": "2026-09-27T14:42:42.000Z",
+     "titleKo": "Vitalik Buterin은 Ethereum의 암호화 컴퓨터로의 경로를 설명합니다."
+    },
+    {
+     "title": "'It's really not just a blockchain anymore': Vitalik Buterin maps Ethereum's path to 2030",
+     "link": "https://news.google.com/rss/articles/CBMi2gFBVV95cUxObGZrM1VESWdlby1QcXp1enJXbmwyX1l5RG9oT3d6YmVCN3JxVHprS1dOSW9SdVQyWUZvbUp2N2QyLXRqZVF6UFJxZ0R6UjhldFhnSm85bWxXYlJvN0JZcFRBUDkySlBiM3JnU2JRcTQ5MHJBU0xJZ3JFeWMyUTAtclRIR3JLeFNyY3ltQXlIVldpdWtlbG1WR3hNd1JXVTdzOXRnaEx1UkRBS3NRNFN2M2k1TG5yaDNwbmtRV1pYV2djQ192NzdETm5BTEZ1MURSejh3ZjEycWd0dw?oc=5",
+     "source": "The Block",
+     "publishedAt": "2026-09-27T14:35:53.000Z",
+     "titleKo": "'더 이상 단순한 블록체인이 아닙니다.': Vitalik Buterin은 Ethereum의 2030년 경로를 지도합니다."
+    },
+    {
+     "title": "ETH news: Ethereum may not be ‘just a blockchain’ in 2030, Vitalik Buterin says",
+     "link": "https://news.google.com/rss/articles/CBMivwFBVV95cUxOYXdsa0haTGJZSGJUN3ZlTlQ0Z2NyUmZVQzhHWUhZMTcyZkI5VVEtZzNlWlJnQV9pdm12TGZKSml5cHlFX28yVmxHZmhoYmpCUVRtSzB4SVhOY1JLTm1RLWJPQmI0QXdBSnU2azJycG1QN1JNbk1aVS1KT3BxWWYxdnZpOGgtM0FwMzBfbjhTdUVEaTRTOWZyNzN3Q2JrQmt3TmNVcXE2WjVfN2VOYkZnUlI3ZjNHR0lUTjEzdi1Yaw?oc=5",
+     "source": "CoinDesk",
+     "publishedAt": "2026-09-27T14:29:13.000Z",
+     "titleKo": "ETH 뉴스: 비탈릭 부테린은 이더리움이 2030년에 '단순한 블록체인'이 아닐 수도 있다고 말했습니다."
+    },
+    {
+     "title": "Vitalik Buterin says Ethereum is becoming a cryptographic world computer",
+     "link": "https://news.google.com/rss/articles/CBMimAFBVV95cUxPb2RHZzhjSUNXY216by0yS1NWYkM4aHhELVA3aU5tbmg0akpBSkFpNi12ZFpocjh2cGlWVnVkZmk0LWNuekdKLXNLQ3IyMnNfd0g4UGNRYWNxZkRCUmp1YndvVUpHQlhQc0Vwa2daZ0pYZURJSUttX2Z5SEgyZnp2Q0swbmt6X2JkX0M5bkp6aUZyWlV5QWhoWg?oc=5",
+     "source": "Crypto News",
+     "publishedAt": "2026-09-27T13:52:31.000Z",
+     "titleKo": "비탈릭 부테린은 이더리움이 암호화폐 세계의 컴퓨터가 되고 있다고 말했습니다."
+    },
+    {
+     "title": "Ethereum evolves into a cryptographic world computer, says Buterin",
+     "link": "https://news.google.com/rss/articles/CBMifkFVX3lxTE1xUnNWRXhsbFRUTlgwVnhZZTdzRkZ6aWxfSHRUVmNJVjFfNHVUcDEwOTU4QUxGT3NENnFHQk43SDkyeDhOaDNYeTBJLXN5U1lja1FrZ2pWU2JvclRHYTZaOTdvcjk2dnNuN0YzdkpVY3BfbU9JRExXWlZnU0oyQQ?oc=5",
+     "source": "Crypto Briefing",
+     "publishedAt": "2026-09-27T13:41:11.000Z",
+     "titleKo": "이더리움은 암호화폐 세계의 컴퓨터로 진화한다고 부테린은 말했습니다."
+    },
+    {
+     "title": "Ethereum’s Lean Consensus Gains Attention as Vitalik",
+     "link": "https://news.google.com/rss/articles/CBMiggFBVV95cUxNQ1NDSTFUeW5NZmF4aklWS2I0UW03dS1IZ29LQW1TYVl2QnN3eWhuUkMtS2lqXzlpdERfakVJZ0Y3amFwOEdJMkNhcTNrb1RPQUJWZS1lX0JRVXpzUXhaeW1qSXFMcXZLanN5QmJXb3U2RVYtckhkOTlFRENSY0pnaTNn?oc=5",
+     "source": "Coinfomania",
+     "publishedAt": "2026-09-27T13:35:13.000Z",
+     "titleKo": "Ethereum의 Lean Consensus가 Vitalik으로 주목을 받음"
+    },
+    {
+     "title": "Vitalik Buterin Envisions Ethereum",
+     "link": "https://news.google.com/rss/articles/CBMia0FVX3lxTFAzT1JBdlEwR0ktSTNwZDJUQllUU3NOcmcwVDd3RTE4ZmVKZWF6ZWlHVXhEQlNqU052LXNrc0lZLW9acFViUXRldkszeXg4TXZ3dzV3U25Sd1VkZG5TZVdRamVYNDR0UzlWUmpB?oc=5",
+     "source": "Coinfomania",
+     "publishedAt": "2026-09-27T13:15:18.000Z",
+     "titleKo": "Vitalik Buterin은 Ethereum을 구상합니다."
+    },
+    {
+     "title": "1 Popular Cryptocurrency to Buy Before It Soars by 9,159%, According to Bitmine's Tom Lee",
+     "link": "https://news.google.com/rss/articles/CBMilgFBVV95cUxQUFJCVmQ2cUJURlhPUXlRVXJ2Q3p5Rk9BbzJFNWt0ZFhSWlhuNmRLMjRqbnBwWDZiVHJkbWNKRTBOV3NyaVplblc1bnRhRS1FckNxbGZPM2FPRXc4dTBGWllzTllGMXdua0tveGFvRTllZlRrem5Gd180NUg0M0E5NnpySk4yb0N4VW1LdGpHcDFNcUlwNWc?oc=5",
+     "source": "The Motley Fool",
+     "publishedAt": "2026-09-27T11:50:00.000Z",
+     "titleKo": "Bitmine의 Tom Lee에 따르면 9,159% 상승하기 전에 구매해야 할 인기 암호화폐 1위"
+    },
+    {
+     "title": "Ethereum’s Vitalik Buterin Explains Hybrid Architecture",
+     "link": "https://news.google.com/rss/articles/CBMihgFBVV95cUxQT3E4YS1hNHE2V0Z2N0luUTZjeU5hTU1aVmpFallFQ1V0UlV2ZERwejM4eGc3b2Y5Wm14QmJXbW9kQnhibGMyeVNDMjd6U0x5V0NGY2lhR3Vrc2stTDlXWEx5X1BKWWZncDUtRi12Ylo2VWREdk9iOGM0UjN4YTZtNV9Oa09wUQ?oc=5",
+     "source": "Coinfomania",
+     "publishedAt": "2026-09-27T11:04:57.000Z",
+     "titleKo": "Ethereum의 Vitalik Buterin이 하이브리드 아키텍처를 설명합니다."
+    },
+    {
+     "title": "Vitalik Buterin vision boosts Ethereum while technical momentum stays firm",
+     "link": "https://news.google.com/rss/articles/CBMioAFBVV95cUxNQUVmNGRSU3M1SzZtWVBfcHZYVUZzd2cwLUFGWEFrQl82LWtkc2IwaHpqVzFWT2t2Umw3bWJ0XzhyNWVUYktub0RGVlBDeGY2TkRwanNTWmFLVEVRUFlwRFFuMlBrajBlQmxYbVI5Rk1ibWJ1bWhlYWlXZnZzZHBrNkdxSHVoanBhajhQNVRSdXc3UzdHX091bWYzemVOblhT?oc=5",
+     "source": "Traders Union",
+     "publishedAt": "2026-09-27T11:01:22.000Z",
+     "titleKo": "Vitalik Buterin의 비전은 기술적 모멘텀을 확고하게 유지하면서 Ethereum을 향상시킵니다."
+    },
+    {
+     "title": "SharpLink Reports $734M Loss Despite Growing Ethereum Treasury",
+     "link": "https://news.google.com/rss/articles/CBMirgFBVV95cUxQTFJVV0xxOGdNeW1uTWVhbDBfQ19ZN0tYNVNobG1iLWtaNExlNlowZEEtTjh2bW5VM293QXJDY2VpQ1NNUlU1WlJuYjFENlZWRlZBRTRvVVU5TzN2cE1MNkd2dXl3Q041aFhEMG5zSEl1NDBHS09jRWpfcVdrT0JMZnl2V0hwQkhxcng2NWFPRDluaWJOLVhCRDhwSFgwdi1uUTUtelZlSXQ5S0dXMUE?oc=5",
+     "source": "CoinMarketCap",
+     "publishedAt": "2026-09-27T10:21:35.000Z",
+     "titleKo": "SharpLink, 이더리움 재무 성장에도 불구하고 7억 3400만 달러 손실 보고"
+    },
+    {
+     "title": "Vitalik Buterin proposes ethereum's vision for 2030, aiming to improve network efficiency",
+     "link": "https://news.google.com/rss/articles/CBMiXkFVX3lxTE94anNyUFBuMWJNdFZSZGNybDU1cXFfSzJ5MnBGTUdxV0t1a2wyeDJFSjFNckx0bDF1X0gwQ2pYanlnWEkyNjh4OHEwOEJlV0FSLXhpenEyMUhpZmc0V3fSAWNBVV95cUxON0dRckFrdTVGR1lmYnlnMjRSNzNjSzgwdGZYTTlnZ1Ruc24tN29naHhDQUROZVNpUWRfWGtJOFdERzVpN0tVaExlX0V5eklKSjI2SlN5WU9DTXdsU0lST0NBT0k?oc=5",
+     "source": "Bitget",
+     "publishedAt": "2026-09-27T06:37:04.000Z",
+     "titleKo": "비탈릭 부테린, 네트워크 효율성 향상을 목표로 2030년 이더리움 비전 제안"
+    },
+    {
+     "title": "BlackRock's $160m Bitcoin Transfer to Coinbase Sparks Market Concern",
+     "link": "https://news.google.com/rss/articles/CBMinAFBVV95cUxOcVFYVHhZOUJRVWxjRUN0V2h5eDAzaDBYREVablRpaUhLOFNxOVh4dVA3YW45MklLNlNpdU1TaWhSRWQwUVdRbC1vQ1Bla2lnOGgzTkZwZlJQMGJMWFppbDJRMmM5ZDRfRmY3RExOek5RWndyczJnOFBna2VaeFRvX3dYb0dNbENraVlDaUhkREdlT3QxcjlxMEcyUUg?oc=5",
+     "source": "Yellow.com",
+     "publishedAt": "2026-09-27T04:12:25.000Z",
+     "titleKo": "BlackRock의 1억 6천만 달러 규모의 비트코인을 Coinbase로 이전 Sparks 시장 우려"
+    },
+    {
+     "title": "Ethereum Will Be 'The Chain You Can Rely On,' Vitalik Buterin Reveals 4-Year Plan",
+     "link": "https://news.google.com/rss/articles/CBMiygFBVV95cUxOUU5LbXJWM0ZfZ2FnbTFnYTZQQm1MNlNRSkFUeEpPYXkyR09EUXlCUnpjSFBGUU1PRlUtbHFCWnVIejRXQVdpTnpxUkk4cEFnNFdXUFI0cGlVRzNCbEpEMjhoZ2F3bFVvT1ZuWVdQTDVLdk5HbDBGcElkamRuQ01TeDNLUlRkMHBHdVlTN201eWpuQkpua3lXUGVCUDJNZkNiVmNrOExFYlZwWjItZjhYeHpUcjRCRmJmUGJxakE0XzF0aDl0T0tSQjNn?oc=5",
+     "source": "Stocktwits",
+     "publishedAt": "2026-09-26T23:39:21.000Z",
+     "titleKo": "이더리움은 '신뢰할 수 있는 체인'이 될 것입니다. Vitalik Buterin이 4개년 계획을 공개합니다."
+    },
+    {
+     "title": "Ethereum Foundation Loses Another Leader As Tomasz Stańczak Steps Down After Less Than A Year",
+     "link": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxNZ1FjdUw5Qi1HRGdtc1dCX2U1SEowVEdtZThWVURLSHBFeE1vbExDWXJ0bnhtNWJrNk5iMTdpcjU5NFJZMGc5MXM3UEdndUUyN0ZRMW5PLVRXeko4X1IzdDhyX0ZUNl9acEdKT2k1X192R2prdEQxS1BqdWs0aXdDS1RYR3NtUTR6QkpiNTN0Xzl5VDVqWHZLOHpockRvMUhNam9KUEs4SUNGb0JNQVJDWjRFZndQU3JO?oc=5",
+     "source": "Yellow.com",
+     "publishedAt": "2026-09-26T22:54:32.000Z",
+     "titleKo": "Ethereum Foundation은 Tomasz Stańczak이 1년도 채 안되어 물러나면서 또 다른 리더를 잃습니다."
+    },
+    {
+     "title": "Vitalik Buterin Says AI Boom Makes Ethereum Nodes Easier at Home",
+     "link": "https://news.google.com/rss/articles/CBMikgFBVV95cUxQalRIRi1tWmoyaDk3MndueDZ5Ty1BbWNkb3JrSkVpRUhHdjFIZ3A4Rk81ZHMxRDRQNF9YUDZCblRrVndacXByUEFMWTVkQ2lzaGtzeURCeDZ6ZFFBQzVSMF9oM0FoVFRudDJhSnFhMTlQN3Q3a1I5dnRsYkNPNlM2UWRhSmQ0REgyVlU5RDdnVUtldw?oc=5",
+     "source": "Blockonomi",
+     "publishedAt": "2026-09-26T20:51:06.000Z",
+     "titleKo": "Vitalik Buterin은 AI 붐이 집에서 Ethereum 노드를 더 쉽게 만든다고 말합니다."
+    },
+    {
+     "title": "Vitalik Buterin Backs FOCIL as Ethereum Schedules Hegota Upgrade",
+     "link": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxNd05CM3BjYlZENnZGS2ExdDYzRzdGamczb2ZyLVNhaWlWNUdqeDZuNUw0NExpSHE3LXhJU3Z6N0F6SXdEUDRzdXY2TVM1dUZtTk5yOWJMUS1qenl6c0pZMFVjOTZKVDQwRGZmbUxwSWpPbTdSVWxWeFBTbC0xaERmY1NONG1WTTNMbFRSNXZ3cDBFOHZZQWU2dy1LLWQ0aXFKV1NEcE9QYkI2dw?oc=5",
+     "source": "CoinMarketCap",
+     "publishedAt": "2026-09-26T20:44:40.000Z",
+     "titleKo": "Vitalik Buterin은 Ethereum이 Hegota 업그레이드를 계획함에 따라 FOCIL을 지원합니다."
+    },
+    {
+     "title": "AI Hardware Boom Lets Home Computers Run Ethereum Nodes With Just 461 GiB, Buterin Says",
+     "link": "https://news.google.com/rss/articles/CBMidkFVX3lxTE9lSVpJVXpWclFVb3VwNk5YSF9xWlJhdk5UQWtFZ2Q2SmZoTWpqM2RSdHV3N2VIb3FWX2xpbDNfVzdSUUZLS3h3b0RsUk1lTkRORlZmVkp5ZzAwbVMzdUdTNlFfOFRSZVFjeE4xVmhuM21vRm8zNUE?oc=5",
+     "source": "finance.biggo.com",
+     "publishedAt": "2026-09-26T19:45:00.000Z",
+     "titleKo": "AI 하드웨어 붐으로 가정용 컴퓨터가 단 461GiB만으로 이더리움 노드를 실행할 수 있게 되었다고 Buterin은 말합니다."
+    },
+    {
+     "title": "Vitalik Buterin Shows 461 GiB Ethereum Node Running on Local Hardware",
+     "link": "https://news.google.com/rss/articles/CBMiggFBVV95cUxPcm9Sc2pCUXFGZGJLazl5WUZkNHM3S2NVUnJXSGpDQW9ULWtGb3JXYWdFZGhuRUJ3RkdGSXNIVWxZcXRMV29MdjFPLUNndGF6Z3JxM2FwMWloQ1JBUWRHQ2puYUxPSm0tcHpqLUxjbW5reVg2Q3hnUlRrTWRfcmdnS0d3?oc=5",
+     "source": "Hokanews",
+     "publishedAt": "2026-09-26T18:44:00.000Z",
+     "titleKo": "Vitalik Buterin은 로컬 하드웨어에서 실행되는 461 GiB Ethereum 노드를 보여줍니다."
+    },
+    {
+     "title": "A Former BlackRock Executive Calls Bitcoin an “Exit Asset” and Ethereum “the New Rails.” Bitwise Says the Opposite.",
+     "link": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxQcFF2Umc1T0pYZ0swWWVZcjRXdFNiZS1sdVNZS1VtMjc2MUs0cG9jZUYtaTZsNm1tdkx4SzQ2QXptWTV1T3BlX3ZYQVNONzVGY3hYd2NOWGVNS1k2TzhDTUJra0NzQWNTUWlfX2UxREVvMkVJc3ZPUkdIMkVBemdSaU9BdnNBWHlYWGFMTVU0QTVKekhSUFE0dk9uQmo3VTd3NmE3YkpDSWQ?oc=5",
+     "source": "Yahoo Finance",
+     "publishedAt": "2026-09-26T17:49:54.000Z",
+     "titleKo": "전직 BlackRock 임원은 비트코인을 “출구 자산”, 이더리움을 “새로운 레일”이라고 부릅니다. Bitwise는 그 반대라고 말합니다."
+    },
+    {
+     "title": "Ethereum Foundation Launches New Grant Program Structure",
+     "link": "https://news.google.com/rss/articles/CBMinwFBVV95cUxQRGVlZFFCRWZHYzdPMktmSDdRYldJejdmc3hZa2k5NXlFRTdiOEEtaGNnM1N1QUVZakZWbnphS21scGhEaHd2ejhEMWZNNUVlYldZZk83d1R3WTJCTGFyUm1OS2lBWXhUa3RPMXZQSFdpSFFlU2RTczlJTUJDZXo1V2wyT29HOUNhMHN6OFBOZ2VkR3JUSWJhdVAwV2pfUWM?oc=5",
+     "source": "CoinMarketCap",
+     "publishedAt": "2026-09-26T17:03:05.000Z",
+     "titleKo": "이더리움 재단, 새로운 보조금 프로그램 구조 출시"
+    },
+    {
+     "title": "AI hardware boom slashes Ethereum node costs, Buterin reveals full node now needs 461 GiB",
+     "link": "https://news.google.com/rss/articles/CBMiY0FVX3lxTE8tWVZuU0k2dG9xTWNkSUZhc0lfdXpCQ3daOWt2b2ljejFKV2NsUzNtQUwzOEp0eXJXS0pPemlIQ3FLZG1mWF9WcWlVT2h4Y3cybnJFSDVaNVhDZktSbDd6eE5kQdIBY0FVX3lxTE8tWVZuU0k2dG9xTWNkSUZhc0lfdXpCQ3daOWt2b2ljejFKV2NsUzNtQUwzOEp0eXJXS0pPemlIQ3FLZG1mWF9WcWlVT2h4Y3cybnJFSDVaNVhDZktSbDd6eE5kQQ?oc=5",
+     "source": "Bitget",
+     "publishedAt": "2026-09-26T15:14:31.000Z",
+     "titleKo": ""
+    }
+   ]
+  },
+  {
+   "key": "sol",
+   "label": "솔라나",
+   "items": [
+    {
+     "title": "SOL price on Sep 28, 2026 at 12am EDT Crypto Prediction Market",
+     "link": "https://news.google.com/rss/articles/CBMirwFBVV95cUxQOTRxcGdXTTB0TUNWSm1iZnV3NXZjeVBTTnExdG9Gd3BEdWZTVFdzMHkzLWpQTmkzTzFUU2V0TzNzRnhldVhEYVo1NmNBNU1jR3F1UzN2NjdaWDhEMVlNcmxVWHNhSUc5WXRfWmxkMndZNGlnbWdHQnBlQmVKUnFYWkRXdnZ5T3RiN3dCXzQ4TmlxV0pweUcxNXo5MS01M3dDam1rZmxzd002dk5RelVB?oc=5",
+     "source": "Robinhood",
+     "publishedAt": "2026-09-28T03:07:55.000Z",
+     "titleKo": ""
+    },
+    {
+     "title": "SOL Price Prediction: Is $250 Next? Apeing Sells 473M+ Tokens as",
+     "link": "https://news.google.com/rss/articles/CBMinAFBVV95cUxPeW5nWkp1SU5MODZEVDJvVFFybEI3WUI0WEt6X1RwbUhOcC05eUh4S3VGTHFnRmx5X3dOYlhQLU9Ea3NqNV9oY0dBUkxSUGhvZ2NzSHZXTEZvQXVwWmFjVnRtS29fM0FjbVlvNTBoQnk3Yk5idUtKQ052d2M5emNqUk5Uc2h1bXN0bTl1UTlaYTk4Q3l2dzIwMjd3N20?oc=5",
+     "source": "openPR.com",
+     "publishedAt": "2026-09-28T01:14:20.000Z",
+     "titleKo": ""
+    },
+    {
+     "title": "Solana ETFs Hit Record $86.7M Daily Inflow as Institutional Push Accelerates: BTCPressWire on Crypto Media Visibility",
+     "link": "https://news.google.com/rss/articles/CBMijAJBVV95cUxQSG8tblRWczZLeHdpcENsazJPQVZvUTN3LXdxeld5RlNJNV9LN1dKeXNUb1JsVHFtZkd2WDFuSDhxNWNiQ1hlQUIyZE9UQlpBY19LcWZGZ2RvV3p0SHlEb2Z0YU9mLV93cnVQdC1MTHVqdG1oMEh6TF8tV2F2YWdDTnlCU0ltaVFsTlMyU20yVG1KVEdXcmNaZTlZQ0xkOXNUVVBHMTRwb1lUV2NyZzFZUkQ5eXEzRDMyeWdULW0tWGJBanNPLTA5X2t4bi12NnNIZ1VHeE9UMFJ5dnRvQ2FFNWRxbk9SNkxoVmtZYTgtUVYtOWN3eHBLT1lBc1FjcEJ0Nk9tRVpQZ2lVWXN1?oc=5",
+     "source": "StreetInsider",
+     "publishedAt": "2026-09-28T01:06:09.000Z",
+     "titleKo": ""
+    },
+    {
+     "title": "Wish You Bought Solana Earlier? Apeing's $0.00055 Presale",
+     "link": "https://news.google.com/rss/articles/CBMilgFBVV95cUxQcU5sLVhEazVCRjVFeEZZM2phSG5abXl5OWVfM2lqZlhDRjFQQXhOaURpZGtxblpQeFQ3SmE2cHE0RjRaWDN1V0RUWjhidU9tZ3k5emprdERLenE3bkZhNXFra2t4WnZRVTBQNVh5VjNyU1FpeEhvNVYxNHVqNEZnRDU2OGtjQTFhMkxCQ0NFUk5Ed0Z2dlE?oc=5",
+     "source": "openPR.com",
+     "publishedAt": "2026-09-27T23:23:19.000Z",
+     "titleKo": ""
+    },
+    {
+     "title": "Jupiter (JUP) Surges 5.92% Amid Solana DEX Milestone",
+     "link": "https://news.google.com/rss/articles/CBMicEFVX3lxTFBKbXZXRUpyUm5mZmxyLWJsci0tRkt2QUp4M1ZqSWlWMTZHTDBpREktRmxDNEdUTWFtVXNfazhQaXY4T0pDems2c2k5R2VKcmNpdFQxQTJzZDhMZjQyVi1hYUxENzRTcnV6Ymdtakw2SlE?oc=5",
+     "source": "CoinMarketCap",
+     "publishedAt": "2026-09-27T22:04:00.000Z",
+     "titleKo": ""
+    },
+    {
+     "title": "A New Dawn for XRP and Solana ETFs in the Crypto Sphere",
+     "link": "https://news.google.com/rss/articles/CBMifkFVX3lxTE5xVWNfLUNwR1ZGMk9HRmF0UElRVVVXSzlmT0RKT3VscWFwMU8tNWxaN0xPMXZrdGxEcUZYdGd2dnd6Q3VCdHZHRDVkbFhGR2J5M2otQWltSGFoUEo4bDRSMkpicFBZX1ZuYVdsTHBsMEZYWHRWcmhXLTlYZC1iUQ?oc=5",
+     "source": "OneSafe",
+     "publishedAt": "2026-09-27T20:58:55.000Z",
+     "titleKo": ""
+    },
+    {
+     "title": "Top 5 Crypto Growth Picks for 2026: Remittix, Solana, Polkadot, Chainlink and Aave",
+     "link": "https://news.google.com/rss/articles/CBMipgFBVV95cUxPdnVEVV9VODVZUEJBX00zdjhTV0haTU8yVmctd0RXaTk0QTNjWDVvN3M0TG02blhmaTl4Y2RJZkg1THVpazNaSG9tWUp2QWJpcUs0OGRWOVVrbWhjWUVsSF9COWVhS1M2VVFHbWFqVjkxOEF6d3pjUEdiSzlBbEctbnRQeF9rcTJJbDVkbThHNDVqbW42NW52OGtZNG9qeWlENFRjeTd3?oc=5",
+     "source": "TechBullion",
+     "publishedAt": "2026-09-27T20:26:49.000Z",
+     "titleKo": ""
+    },
+    {
+     "title": "Titan Exchange Says Solana is the Place for Spot Trading",
+     "link": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxNWmdCQTk3NHRqSlN5OEVQQXNXeTRLSC1NblVVVVJpZDRxdlZqajBmMTNHbFM4M2ZMQnlHcUV6bVozT1VwNXUyNGNxdnRfM043S21FWEg4alhrS2t1NHNuNnQzbHpJMU1ZNGFVQ2hsc0NLX3dCaE9zYktnQ0g2c0ZMamJLdW1oRXhU?oc=5",
+     "source": "Coinfomania",
+     "publishedAt": "2026-09-27T20:23:13.000Z",
+     "titleKo": ""
+    },
+    {
+     "title": "XRP ETFs Attract $75M in a Week as SOL Funds Hit New 2026 High",
+     "link": "https://news.google.com/rss/articles/CBMioAFBVV95cUxPeWVjSGw4U1FIOVlCcFRPZkpuYUFKdHVOb2U0aDVzWm12R2h4d2lkTEx0aDlOdk41dlhKUmx6bDZxTGV5Ujl1NjF3OElYREtod21ZZDFhcTVYTXFFZFk1V3lfS2ZRMFJxVTJtN2ZMYWJnVFZSZDd2MHhpSDhHUDRfU0Z2R0pnQzlRdUVXVEh0ZWwyeWJRejhuMDBfbjJvSE1V?oc=5",
+     "source": "CryptoRank",
+     "publishedAt": "2026-09-27T20:18:35.000Z",
+     "titleKo": ""
+    },
+    {
+     "title": "Solana’s plan for fairer trades stalls as block producers still choose which orders get in",
+     "link": "https://news.google.com/rss/articles/CBMitAFBVV95cUxPd1o4RFV5WE5xRElHX1NGUkJXTTBFZ1BIZks5cGVvbTZCSExoOG9Ndmc1eGl4YnJac2tZSzhpRTJ3T2dta0lyTzhHQ0oxTG9WZnZGbFo2QUFfSkRnSXZhdUFUYVNzRGxHWWcyTER5SXJiaXRCajhpc1hqUzY2SEl3Q3VtRTh5SFg0NWFiOUNhY21qd3o2X2QwNk9rYjdXWXIxR1NhTVQzM2xHYnQ4c3lyTDY3dXA?oc=5",
+     "source": "CryptoSlate",
+     "publishedAt": "2026-09-27T20:05:30.000Z",
+     "titleKo": ""
+    },
+    {
+     "title": "Solana Price Prediction Turns Bullish as Alpenglow Hits Testnet and Remittix Launches Its Upgraded Dashboard",
+     "link": "https://news.google.com/rss/articles/CBMioAFBVV95cUxQMzNycUZ2Z0tsRFVzS1lwVy03UXQ5Y1p3bmd4eDNGeWlBUzRlT2lXZEhDVXZyeVVXN1YxM0xmMnJfQjBFV3VybFhVcXNUdTF0M20xRzV0WDVpYy1sd3MyX25WUFhEZmRMVkVMNUhlWXhseU9zeU53VS1hUXJrWVA0THBWMzVqX1BqUkFEOEd3MFljSkIwUnZlN3ZVTGtnZHM1?oc=5",
+     "source": "openPR.com",
+     "publishedAt": "2026-09-27T19:30:59.000Z",
+     "titleKo": ""
+    },
+    {
+     "title": "Solana Price Prediction: SOL Remains Below Its 2025 Peak as Remittix Targets Its $0.46 Final Stage and Bulls Eye $10",
+     "link": "https://news.google.com/rss/articles/CBMimgFBVV95cUxNeGI0QkNLNmZLSjZ1RVdoU1RnLUswa1ZfN29MRHVMblAwOWVlZE5zMmMzeWE3czBiZGM5Smk4QjBra1FGZW1kZUJzZzhJOW9zVzBON3puZ1I0dkxLeXktNGtrUVJCc1c2b3d6a0NFRXB2ZFVWT2pDdlpReF9ERHYxZTdmVlNscWo0cllvWm54YmlHb1BPUHI1Tml3?oc=5",
+     "source": "openPR.com",
+     "publishedAt": "2026-09-27T18:30:15.000Z",
+     "titleKo": ""
+    },
+    {
+     "title": "Solana Price at $121.93: What to Check on Staking Yield, Unstaking and Tax",
+     "link": "https://news.google.com/rss/articles/CBMickFVX3lxTE5fSWNUQWhIRTdtT3ZpVlpBMkRxNS1tbFc3T3pOd2ExNEttRWZoOTl6QllRZDUwSEpOZGpCd2YxSXhtV3VSZHFpMVo2b204WlExaE1GT3pPVVp2dGFuZFBEUVpMTlJfdGNBY2FXY3BUMUxIQQ?oc=5",
+     "source": "CryptoTicker",
+     "publishedAt": "2026-09-27T18:14:37.000Z",
+     "titleKo": ""
+    },
+    {
+     "title": "Best Crypto to Buy in 2026: Pepeto Tops $11.1M as Solana and Cardano Rise",
+     "link": "https://news.google.com/rss/articles/CBMinAFBVV95cUxOV0pkU2NsaXRuaXhFbk1aUkxyYThCSzB0dEthRTUzTEE2R2VVUWNnNEoxQmdLcy1IUmtNZWJoaDk3Y25DUTZmMDM3aEVsemZvcUxOUGMyTmtqUnRkRUd1T0haRWRPbGQyUXJzUHNSMVMwVXhOc2RCQWRCNXRHV2w5NHZOWWliS0ZOTV9aTzVkLU9oc1BXbHVMUHBlZkg?oc=5",
+     "source": "TechBullion",
+     "publishedAt": "2026-09-27T18:06:21.000Z",
+     "titleKo": ""
+    },
+    {
+     "title": "BTC, ETH, SOL, XRP Face Key Tests Before September Ends",
+     "link": "https://news.google.com/rss/articles/CBMiogFBVV95cUxNczBpcldHLWVsYXM1NFVLSkVMYi1xektLZ0UzTnF4Z2NaVHJPNWRCVXVPTWktZGRkUkZsSW5JOTJOR1pGTmZHOWMyaXdQczlwZmxhUmo3RlVveVAxU2prY2I3V2JCcTdicldGdjBXSm54X20tTi1iSWQyZjlyaHdvbXZDaGJoUjk3RjY4SjlDeDZVaDhjY2FEdUtXYk15Wk5ob3fSAaIBQVVfeXFMTXMwaXJXRy1lbGFzNTRVS0pFTGItcXpLS2dFM05xeGdjWlRyTzVkQlV1T01pLWRkZFJGbEluSTkyTkdaRk5mRzljMml3UHM5cGZsYVJqN0ZVb3lQMVNqa2NiN1diQnE3YnJXRnYwV0pueF9tLU4tYklkMmY5cmh3b212Q2hiaFI5N0Y2OEo5Q3g2VWg4Y2NhRHVLV2JNeVpOaG93?oc=5",
+     "source": "Analytics Insight",
+     "publishedAt": "2026-09-27T17:40:08.000Z",
+     "titleKo": ""
+    },
+    {
+     "title": "What Is the Best Crypto to Buy in 2026 as Solana Targets 85x Faster Speeds and Pepeto Tops $11.1 Million?",
+     "link": "https://news.google.com/rss/articles/CBMi4gFBVV95cUxOT3h4MF93aVlqZ05jT3B1YzBOU3hxZGYzQjNBNmdSbExSTUdmOXFGczF1a09ITzk4WjlqWE5yRl9uVXNvaTk0VDk0Ty1ZTjE4QjBrdEFpaWdBMVRrWnpkb2diZU9yc29kOHpqT2dYMWxyaEZmRkh2MVNRWm5DNWVUSE5ydUVZLW5KOGM1UlNmVnJVNXRkUVdVNGVJa0VETFVFcUVpVFdsSmJ1azhqQ09LaU83eGhwWEFlcDNGWlBsNG9Hd3I4bFllQXJteVRmSVpVUUJRdXNjYmY4aXhhR2s5TTV3?oc=5",
+     "source": "bignewsnetwork.com",
+     "publishedAt": "2026-09-27T17:40:00.000Z",
+     "titleKo": ""
+    },
+    {
+     "title": "Solana Price Prediction as SOL ETF and Staking Inflows Jump",
+     "link": "https://news.google.com/rss/articles/CBMirAFBVV95cUxNWWZ4NmdaT2VkUnd6Y3A3ejNyOVFpeDRTUUtLYlhYZjFfdHpsUVF6Y015bnNCTTZSRGNHVXhxcU40aF9GYjdDbm9SNjR5LUN4V0R3d2dmSGVEUjJ4TkpMR0NuSHFkWnh3aHVUNEQzcEY5aFk1eTlDZHVQckJwU0hWdjlMMmJDaTlrcl85U250TnZzVDBVb2tPVF9YTUJzZGFFTTI3NnVoMUVnTW0w?oc=5",
+     "source": "Benzinga",
+     "publishedAt": "2026-09-27T17:30:24.000Z",
+     "titleKo": ""
+    },
+    {
+     "title": "Solana Price Today: SOL Breaks $121 as Record $80M ETF Inflow Hits and Pepeto Tops $11.1M",
+     "link": "https://news.google.com/rss/articles/CBMirwFBVV95cUxQbUJoQ3d0cnFGSWpfS0NDN29Xb0hEMVFvME8xSU1scXdFNEdBZDhIUkNlYkhkcHhTUEdIUFpJMjc2Y3IwSnd2WUx6ZlNmeGpaRzhhT2UxY2pRZ0FibjJtUERtd3J0c0dtR0llRnNXQkNDZ0lkNWtId0Y3YW5HR0MwMUpENE1xc2RIbU5nQmtSSXA5bFpzaTRRZ3FhOE9BZ2E0SVprSzlDLUo5TUVtWnJ3?oc=5",
+     "source": "TechBullion",
+     "publishedAt": "2026-09-27T17:16:01.000Z",
+     "titleKo": ""
+    },
+    {
+     "title": "Top 5 Altcoins to Buy Now: XRP, Solana, Chainlink, Bittensor and Remittix After Its Major Dashboard Upgrade",
+     "link": "https://news.google.com/rss/articles/CBMilwFBVV95cUxNaDNhaHNKOFMyY0EyTnMyZ3dQeTdLT3ViYWZtS1ZiU0s4LVdTaVdhT1dFV3U4U1djZVNUdGg5UE1sNGNyTTVuanUtb1lndE5vNllCYkJDTHZOYVB1emM1RHNrZmFfbHRla3hueENOUVRSckRTak9ocnpTQmw1RGl2WnBieC1VcGJUM2VJM0lhdElkcGNHVXZz?oc=5",
+     "source": "openPR.com",
+     "publishedAt": "2026-09-27T16:28:55.000Z",
+     "titleKo": ""
+    },
+    {
+     "title": "Hyperliquid vs Solana: Which Has More Upside by 2030?",
+     "link": "https://news.google.com/rss/articles/CBMirwFBVV95cUxQaTdwOTB4REE1NkZaYnNlVGlPNDU1VnJlcmdoSkRsbUwxUzhIYk1vLW1KYjZ1MG5JQ2VfUG5IVDJNVzVWX3N0d25xZ1FBX0xFWkFTeWplYVRNS2E1NTl5dnMxaUQxdFEzdm9wTzBwVEMtVk9VV1pfQk1uemZtVVNZWnNKYzJPaUdVSmJGRzlqVmQ5Y2phT1FFLW5mNF9BRlV2VGRWR1NmQUFWMURWdVM4?oc=5",
+     "source": "24/7 Wall St.",
+     "publishedAt": "2026-09-27T16:15:00.000Z",
+     "titleKo": ""
+    },
+    {
+     "title": "Solana Price Prediction Shifts as Alpenglow Hits Testnet—Could Remittix's Confirmed Launch Spark the Bigger Move?",
+     "link": "https://news.google.com/rss/articles/CBMi1gFBVV95cUxQRU93dWJLSVRfTFgzMldrTWk4WHhkb1dFTktpNXUyVkVheUVUOEVkci1aMWJCMERieDBkVGU2TGMwc3ZIWHhMem5LVzJTY3hjWGFYaW5TbDAzVWNZaVBfS3FNelhBcEZjeVRyZTlHWUMxVUZOTlFBenVadko1ckNjVkxsVWt5R3hCcm1nSVBlRDJLVE5jSExlenloVExSUElSa1hWNk9OZnp2Q2pHTVVfSGNpejFQUW9iOWJvY2kwUFpkZzZydndxMFluNzN6R2x4Q2dHRnd3?oc=5",
+     "source": "CaptainAltcoin",
+     "publishedAt": "2026-09-27T16:03:10.000Z",
+     "titleKo": ""
+    },
+    {
+     "title": "Pepeto, Solana, and XRP: What Is the Best Crypto to Buy in September 2026 Before Q4 Starts?",
+     "link": "https://news.google.com/rss/articles/CBMikgFBVV95cUxNTVlIRlNrdnhEZlJSdG9rV3FjSWR0bkpDUVZFLVRteFZmODFuRjVwSGFDNXZzZ0R4TVBocFZGMmlJMlBsYldzVDFwX2pFY0J0Snp5Q2RwTjhfX19vNG9yck0tMWUxcklDTEd2WFZ3R2ptV2VuX042UjBlQnFiV3FkUFRJZHpXMFJNclh6dlp5ZUFfdw?oc=5",
+     "source": "openPR.com",
+     "publishedAt": "2026-09-27T15:57:46.000Z",
+     "titleKo": ""
+    },
+    {
+     "title": "Tokenized iShares MSCI South Korea ETF Arrives on StonkFun for Solana Coin Launches",
+     "link": "https://news.google.com/rss/articles/CBMiugFBVV95cUxPenhXLS1WMU5LR1AyQ09STzV4TmhyMTltc0QxdG5hVEhRdFRFY0Y5SXJzWjNXVjR2ME9QN01wNmZKZmViVWJnSzF6d19VSm1GQlBFOXdUem83X3RPUFVsUXVpbFNaSkdyT0x3NHk3bC1lWVAzc2lpU19STUxFMDdZc3VkUTNZcE9Zay1yeWZwdEk1Y1VBOXBKdWhlNHN2aDFJVUdncEdfZVVEX3doQWs0NHVyVHJvSFJNb1HSAb8BQVVfeXFMT2hHVkM2X2hZX2RLdVlrcDU2UC1oMTQ3VXU0eGdpdUlIZ2JrRXNtVGRtelczM0MzRWZwUFJYZlpjUnhGRWpoNW1VN3NDeEEwMHRfOTdVaTFPOV9nVlpTa1ozWVg2dmtDNHhUVDlrdGZ4b05ETW4zV2R6c2tiZzFtdzRYUlI2dFlpVnlmOERhNWpxb0czdk1kT0tJN1RMdF96Zm5sTi05T0F6VUo3STk4ZVFDdGRsYmhsRldIZ3BwYWc?oc=5",
+     "source": "CryptoNinjas",
+     "publishedAt": "2026-09-27T15:56:28.000Z",
+     "titleKo": ""
+    },
+    {
+     "title": "Solana Announces Breakpoint 2026 Event, Igniting Community",
+     "link": "https://news.google.com/rss/articles/CBMiigFBVV95cUxPdExNSW1JdUVoN3lKWnZZMU12OVRsdGRMNEptODRQRDVCRXAtZ1BaeWdNamhhbkdZRFN2MVBockx3NjZMTjJXVEZuNnNkZnZ1dFZ1dEdBdG1PNTNNY2V0OGRVX0hobEU1enFVNVBCRXM5RnUtRXhOSXYwTWNDdmZURVhoaXNFRFBvd0E?oc=5",
+     "source": "Coinfomania",
+     "publishedAt": "2026-09-27T15:54:47.000Z",
+     "titleKo": ""
+    },
+    {
+     "title": "Solana News: Ex-Binance and Polygon Execs Join the Solana Foundation",
+     "link": "https://news.google.com/rss/articles/CBMinAFBVV95cUxQX3A0TUxWb0xkeWFScmktV29udWxETHo1bFp5Nmc4N3NMVDF5YWFudUpwc3E3X3NvR2JyYnJGb1lkaGUwQ2otQXFTZzZBX1N0aHVTTDRDU2xHWnNVZDVYQVBSdWx6SVVRMUdFdlpQVXV4QmM4U1hNMXRuamlVcllxcGlSeEZRUWNOOGlMek9zWVU1Q29XQmdJek5uZlE?oc=5",
+     "source": "Cryptonews",
+     "publishedAt": "2026-09-27T15:30:00.000Z",
+     "titleKo": ""
+    },
+    {
+     "title": "Solana Price Prediction: SOL ETFs Reach $1.62B in Assets as Remittix Upgrades Its PayFi Dashboard",
+     "link": "https://news.google.com/rss/articles/CBMivAFBVV95cUxNRlNHa3pHSnFiUGVJcnpVQmY4eEV6SnJrczVnZWhWeU5BN0FsNEtra3hfRmNqSUtZTXdPQ2dNY1ZUdHg5MDNYUzAwRF90a1ctV2tuYndFQ2RFZFBTaDZUcDBBUVVaclFyU1QwdFM2dWRaSjNlVERKenVNZGR1VmpMVm5sZTh3NllmN2otMXRybEZvaDJzaUI0b0FMemF6NXdWUHEyZ09IM0hMM0FRYjNxMmNOaGM0Z2VGVE52Nw?oc=5",
+     "source": "TechBullion",
+     "publishedAt": "2026-09-27T15:00:32.000Z",
+     "titleKo": ""
+    },
+    {
+     "title": "Crypto News: Remittix Announces Official Listing Date as Solana Price Prediction Targets $1,000",
+     "link": "https://news.google.com/rss/articles/CBMioAJBVV95cUxOZVFDN1laWVJfQWdSa0ZhVFY1UURLSThqMGR1R1dUMTd2UlcwVzY5UXRoYS1oNThIYnNyY3dYZ0pEcnVfaktRbFJ6RXNmM2cxMzRseGd6SHpFd2JacVp5UjFkOTNIc3hqMG9jVXlvR2pSblRjNEFuZWNfSVNjUmZZTlFsYUlZRHJueERzYXY3dDU4dDY5RUR2ZHc1aUZpenNpeWpoNXNmT1NpSnMwRXM1WXVqZG9hUEZVUzFhLUpRa3Y1U0JvWlp2cGNyR2RVZTBwTklvZW02TmtkMjFHZEpwUTA1bVBROGVsT1lCVDlCZUN2TXBMQl9FaGh4c0pNQ2xxMklnZndtcjJ4RlQzTHBKektEUFBKTG02Q0E3am16cjM?oc=5",
+     "source": "WBOC TV",
+     "publishedAt": "2026-09-27T15:00:00.000Z",
+     "titleKo": ""
+    },
+    {
+     "title": "Solana Price Prediction Eyes $150 as Pepeto Tops $11.1M With Zero-Fee Trading Live",
+     "link": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxOS0xUTnFHWDZCdXNLUGpBc2FWb1VxcGZOVEFUSHoyOE9MN2szZjQteTlULXlEVzROWmlGNEF5dFhFTlRYUG9zSHl3d0xVTXhreUxpdnVLcmJlVWh6WTlRampCMlI5WVJPdVU2ay1XaHJMYXVjUzV2YnRHZkRza29oaGZxNnhfc2RqX2ROYUxKWHN3YlN5czY3M2E2UUtRQklvcnh6amRLUC0?oc=5",
+     "source": "TechBullion",
+     "publishedAt": "2026-09-27T14:53:09.000Z",
+     "titleKo": ""
+    },
+    {
+     "title": "Solana Sees Biggest ETF Week Since Launch",
+     "link": "https://news.google.com/rss/articles/CBMiaEFVX3lxTE1NM2tuSkJSaHljY1A5blRIbXBBMm9MLXRUTDZCaTdKbG4yT3pBajhlU1ZhZnpZbmVYeXBiSzZCdm5yNW9zYXlFNE5mQjRhOVd4XzlhTjd1MVZJajZJeGN6OGJDTHNpQjdK0gFuQVVfeXFMUEZJd1IzdEt5ejJxY3VjeGJ5X0hWMFJWRnR4bGRjUmM2WlpLUzd4NTBiTmpDTmduUkhBenRmQ0VvbnMwMmc3YVRDY3A0ZXVlSkdPYUZpclQtNzFNNWVqLU15bkUyZ2YwT2xBLWI0dHc?oc=5",
+     "source": "U.Today",
+     "publishedAt": "2026-09-27T14:37:45.000Z",
+     "titleKo": ""
+    },
+    {
+     "title": "Pump.fun sells $5.83M SOL, but ETF inflows surge – Can Solana break $122.70?",
+     "link": "https://news.google.com/rss/articles/CBMimAFBVV95cUxOaks1Ul9LbWp2Z3YyaTNpUThSTHNxc21WemxfamJuWk1WUExlRHZWQ1J3d0k2a2taWExmUXl3dHN5cFp2cEN4TUZWYzJoRDRNRkRuM05CX0J4YnVsQVNWS2VLYVNZS3N5X0RZdjJZR0xiNG15c1R6eW5hSm9qV1UzbmM5MURZRTNvdnpKZENpNzNpVjJMdzRUbw?oc=5",
+     "source": "AMBCrypto",
+     "publishedAt": "2026-09-27T14:00:32.000Z",
+     "titleKo": ""
+    },
+    {
+     "title": "Unearthing the Truth Behind Solana's DEX Trading Volume",
+     "link": "https://news.google.com/rss/articles/CBMib0FVX3lxTFAxTWZuYnI5dHM5VlhPTjdQdU50MWhCUmlMcHpkRVJZT2VZR1VYSXNmQkdESXN4LVA1aDVsT0lkY0JTWU1qMWJkU204amMzWFRUaGRRSzJCQV80T1NIajJuMDRaNlMzWWJ2c09CLWhTWQ?oc=5",
+     "source": "OneSafe",
+     "publishedAt": "2026-09-27T14:00:05.000Z",
+     "titleKo": ""
+    },
+    {
+     "title": "Solana Price Prediction Hits $138 and Pepeto Presale Could Turn 100x at Listing",
+     "link": "https://news.google.com/rss/articles/CBMipgFBVV95cUxQbEhTZFQ3Qld3T01KQTdnN3hDaHBjbEcyaU40cV9mQnZ6a1dsRURNT0NsY3lybU5Ub2x0ck83VVYzRUxIQmhuNTk2TDd4TnNTS2pRZmxXQkhCZ0pvc2t4XzdGOXdsblFiYnkyOTAtdFdnNEgxTkdkQll4WkxIXzBoYkdwUnNzTmJ0SGdLeDRnYmNfcWJPQTlGaW84ZGxaci1rX1V6YmlB?oc=5",
+     "source": "TechBullion",
+     "publishedAt": "2026-09-27T13:20:29.000Z",
+     "titleKo": ""
+    },
+    {
+     "title": "Solana Price Prediction: Missed SOL Below $1? DigiTap Gives",
+     "link": "https://news.google.com/rss/articles/CBMilwFBVV95cUxNN2hsYVBqX1ZzbE1lRXVNdjRZWF91angtcEN4bm01SFgxU3NJU2NwbzJKT0piTTluLXJBdzFZN2V6S2lIbS04clBxeXpfREFkR0VzOGN3eUpyTkQyS1NtZkJFV3dWNnQ0Q2VJbTBKOW82d2ZNQkVxNEdibzdKWGMwdzBseGhNYVctVjI1WUxZa0VxY29QWWFv?oc=5",
+     "source": "openPR.com",
+     "publishedAt": "2026-09-27T13:18:08.000Z",
+     "titleKo": ""
+    },
+    {
+     "title": "Trader’s $67.88M Long on Solana Could Yield $65M Profit",
+     "link": "https://news.google.com/rss/articles/CBMigwFBVV95cUxNYTZKZ29MV1dZVjVWZi1BODJBNmlXTmFXZDVneGlDRUhjMmVPekN5SV9UeFB5djE5MEJMQkJxT3pIcUUzTFVLS2lRa0xQVzRESmN3QjRKTncwcEM3RHBPdUpJMFBpNEdpZmtUWnc3UkxyZXBaYjQ2eThjSW9ZTWdRN0xINA?oc=5",
+     "source": "Coinfomania",
+     "publishedAt": "2026-09-27T13:15:13.000Z",
+     "titleKo": ""
+    },
+    {
+     "title": "Best Crypto Presale to Watch in 2026: Can Pepeto, Solana, and Cardano Ride the $2.4 Billion Wave?",
+     "link": "https://news.google.com/rss/articles/CBMilAFBVV95cUxPYm1YblJFcW1nTWdiR25hU09BRmRIUWtwNmh5VFFpY0xNNzQ4YlhpeVoxTkdJU3pQb2d2dFFrNkotUWlocTNRblB1TjBtV2pZMXJ2MUxQTkd4ZmNDdzZTemFnYy1JLW90V0Q3RGktanNTSlE5b05Dc19wMGQyRS1aTW5ibExvRzBjU2NBRGJFdl9tZnhN?oc=5",
+     "source": "openPR.com",
+     "publishedAt": "2026-09-27T13:01:14.000Z",
+     "titleKo": ""
+    },
+    {
+     "title": "Solana: New Token Launches on Pump.fun",
+     "link": "https://news.google.com/rss/articles/CBMid0FVX3lxTE9aWWpFMnhkWllUWjBOMTRKU1BxS2Jqa3JRY1B0NXA5cDdXRnFzMzd0bnpVUUFzZGxSakpoXzJXOXNSWlNWejU2bkNPY3hxZjZMV3BGREFHamgyQVNrNFRoX1ppcDdUV2s4c2tONWVoMFdJTVN6bGpB?oc=5",
+     "source": "blockchain.news",
+     "publishedAt": "2026-09-27T12:56:00.000Z",
+     "titleKo": ""
+    },
+    {
+     "title": "Ripple CEO Owns Solana, Says XRP Isn’t Always the Best Payment Asset",
+     "link": "https://news.google.com/rss/articles/CBMipwFBVV95cUxNZWJudUZzQVRuWGVmN2lxdlFxTVRieW1ldnVjUC0yVTFqS0NUQ1JBc09LMVRqWWNrQWxWR1g2VEQ4QVZqYjd5NGp3U1JqZ0xXSnpOWUxMajlicHB6RXBocDVDUHlWLXRGRzIxaVBiTWlZdHRYM2pxVWlUaE56Z1d5VHFOczdDakJSVWZGTEJmczFaYnphNDZBcUNFVmZSX09kZkxTTjgyTQ?oc=5",
+     "source": "CryptoRank",
+     "publishedAt": "2026-09-27T12:54:33.000Z",
+     "titleKo": ""
+    },
+    {
+     "title": "Solana Price Prediction 2026: Can the Rally Reach $200?",
+     "link": "https://news.google.com/rss/articles/CBMilwFBVV95cUxQUXNRTm9sWG1oMkkxNGRGcW9BMW05MGt0UGRSc0tpSnA0RG1YNjdGeFN6YmFNQVZ2Z21KTGY4ZEx2cV9vaGJ2dUNNSWFwUllqanJxSFNXNDdxdWdBczFDX0daNDZ1cUx0UTlCMkdzSWx5YXV0akthQ3cwMXlISmNoR2FXdnlNZ3JKUVFqTU9zalpBNXZYdG9Z?oc=5",
+     "source": "Coin Gabbar",
+     "publishedAt": "2026-09-27T12:25:00.000Z",
+     "titleKo": ""
+    },
+    {
+     "title": "Crypto Markets Rise Broadly on Sunday Morning With Solana Leading Gains",
+     "link": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxOVXFlZU0wMjhEZjhER2RveTN3c2twWmtSZEJZSFliaWhodTJKdFdBODBiUW5FT2p5MDBIck9USTU4MjRWV1lrcHRwdVljZnVia3UydjZsOHNjVnp0TG9XUXFxTzVlazc0U2x1dGpiNzMyTE5jUnJvOGlmT25qYWhNNXk1cGpOMlhaaDRKWVU5d1VaakxFNE43ZjNsQWU5anRXM3FaRFhxYTk1Z1FtSW1RWnJnT3hoMnpiS3ZhbHJXMEV2Zw?oc=5",
+     "source": "Business Upturn",
+     "publishedAt": "2026-09-27T11:55:00.000Z",
+     "titleKo": ""
+    },
+    {
+     "title": "Solana Price Prediction: SOL Eyes $160 While AlphaPepe Gives Presale Buyers AI Trading Tools They Can Already Try",
+     "link": "https://news.google.com/rss/articles/CBMimgFBVV95cUxOXy10ci1hcDZnN3A1bW5NUWtFam03TFdwUGU2X0tTWXhBZ0t4MEVqMER5YWYtU0xjWm9UcjNZTk5rNWpVMXh1bGoxYVJ3ZXBYNE1PUWFpTVh3amdpak1USFJKVldqQUdwcVJSbUZzelk2aDZSUEUxajczbTVMX0Q0ZlltNTVkMncyWGl6SW45YWdudHIwV0FSS0h3?oc=5",
+     "source": "openPR.com",
+     "publishedAt": "2026-09-27T09:21:00.000Z",
+     "titleKo": ""
+    }
+   ]
+  },
+  {
+   "key": "sol_key",
+   "label": "주요 인물 · 기관",
+   "items": [
+    {
+     "title": "A New Dawn for XRP and Solana ETFs in the Crypto Sphere",
+     "link": "https://news.google.com/rss/articles/CBMifkFVX3lxTE5xVWNfLUNwR1ZGMk9HRmF0UElRVVVXSzlmT0RKT3VscWFwMU8tNWxaN0xPMXZrdGxEcUZYdGd2dnd6Q3VCdHZHRDVkbFhGR2J5M2otQWltSGFoUEo4bDRSMkpicFBZX1ZuYVdsTHBsMEZYWHRWcmhXLTlYZC1iUQ?oc=5",
+     "source": "OneSafe",
+     "publishedAt": "2026-09-27T20:58:55.000Z",
+     "titleKo": ""
+    },
+    {
+     "title": "Solana ETFs attract $188.21 million in reported inflows",
+     "link": "https://news.google.com/rss/articles/CBMigAFBVV95cUxPOE1mVHpRendXY0N2UmwyWHNlZTFvUUo5Q21KZjEwQkNCMFpSSldtX2p2aklqb3RfUWxFVkxrOWQyRUhUVnVmQ090enZiRENmTHFMY0xaT295NVQ2R3VzNnpTNFl1aUFLZTVMRGlNSTJwTlZiSXU1WDVOZHNZUGVOYg?oc=5",
+     "source": "Altcoin Buzz",
+     "publishedAt": "2026-09-27T19:47:56.000Z",
+     "titleKo": ""
+    },
+    {
+     "title": "Spot Solana ETFs Rake In Record $188 Million Weekly Inflow as Upgrade Nears",
+     "link": "https://news.google.com/rss/articles/CBMidkFVX3lxTE9lMVpUc0RodWdpRXBoSC0xRzN6RUphU0dyT2E5UlQ1WklaNnRyZE1WQTNhMkxVaUZsd2t6ZU5xRUpmbk1qR0l1ODhTWWpxU1FTcjFmX1dFRlFXcFVvOUxCbkt4THZ6UWdLd0dKU1dIdl9iSmNrWFE?oc=5",
+     "source": "finance.biggo.com",
+     "publishedAt": "2026-09-27T18:15:00.000Z",
+     "titleKo": ""
+    },
+    {
+     "title": "Solana News: Former Binance and Polygon Executives Join Solana Foundation as Remittix Confirms Its Token Debut",
+     "link": "https://news.google.com/rss/articles/CBMiggJBVV95cUxOV2Q2UGFtUy1jM1otcDFrX3FtQlZlWWhqMmt6bjFkSTVuQ2hqSk9sUWtlb1RWMUpCQng0dWpvSDRodDlsb1ZsQVhaaDJ5WTloV1NHSXBUYkpBR0NPQzZ4QXJzcmpKZmp1cExhQVFuYmNpa2d6RU81NldPcDJZS1ZQemkwN3pKRXBmSFEyRU9rd3hqa2pQSFNNQkhLS3VyYTlXN3FSWW5ZaGI4YjViQjdxVVNCSU1uZ2FWXzFCWjg2enVCRFFXdC1QVW40SnBRTzJkSzdRTmU3RGRWWVpoYUlfZVBhY21NMEhUWmdYajl4T3F2VlQxWlJOWU1wcjlHM0F4NkE?oc=5",
+     "source": "StreetInsider",
+     "publishedAt": "2026-09-27T16:02:38.000Z",
+     "titleKo": ""
+    },
+    {
+     "title": "Solana News: Ex-Binance and Polygon Execs Join the Solana Foundation",
+     "link": "https://news.google.com/rss/articles/CBMinAFBVV95cUxQX3A0TUxWb0xkeWFScmktV29udWxETHo1bFp5Nmc4N3NMVDF5YWFudUpwc3E3X3NvR2JyYnJGb1lkaGUwQ2otQXFTZzZBX1N0aHVTTDRDU2xHWnNVZDVYQVBSdWx6SVVRMUdFdlpQVXV4QmM4U1hNMXRuamlVcllxcGlSeEZRUWNOOGlMek9zWVU1Q29XQmdJek5uZlE?oc=5",
+     "source": "Cryptonews",
+     "publishedAt": "2026-09-27T15:30:00.000Z",
+     "titleKo": ""
+    },
+    {
+     "title": "Solana Surges 3.7% on Upgrades, ETF Inflows, and Tokenomics",
+     "link": "https://news.google.com/rss/articles/CBMicEFVX3lxTE16RDIyekoxYnJTdTBYeFNBUzlZNUJFdElpZjZwTlFoTzJYTG9tTjVZOFdWVUlKaG1MOVo0TG9FRlZPUDdkX19vY3dYRmQzUjVFenlDSWtSZWt2SlVuYmZBckNnWkgwNEZ5a1VuTFJUVlI?oc=5",
+     "source": "CoinMarketCap",
+     "publishedAt": "2026-09-27T08:04:00.000Z",
+     "titleKo": ""
+    },
+    {
+     "title": "Solana breaks $119 as ETF inflows hit 6 days – 2 metrics could unlock SOL’s $130 next",
+     "link": "https://news.google.com/rss/articles/CBMipgFBVV95cUxPWW5aUE5NU0ZuRGZGbk9JUGw4bzdGVWItVWdTTUpfZV9SUm1oakpYaHFfSExudURJRDZ0NUN0MzI5LWpCRGMxRGJlVU14VjJ4WHA3eFRmT2F6TUptckNNeU1XZm5YTU14eThfVG0zeDRmTWFWeThpMEEtTWdJblZ2ZmNHMDlNUDU3czFFOXRLNkhYTFRNZF83b0NOMTRINWotR1otMk1R?oc=5",
+     "source": "AMBCrypto",
+     "publishedAt": "2026-09-26T14:00:42.000Z",
+     "titleKo": ""
+    },
+    {
+     "title": "US spot Solana ETFs hit record $80M inflow in o...",
+     "link": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxPWm9hWnF2M19wR3QwaHlDb2JIUHNZZjJWUWpzUnpBTGxBYlY2SUpUSFp3Ti02WHRlU1lmZlh3b2JxcW1tcXBScEFhZmNlSFI2R1IydjFJU2F6Z3lRNzNDQ281eHhlVDQ3dnBEZTk3ZlcxMTFELWtwaHMxNDhNZmthVXc5ZEVEbzA3Q0dj?oc=5",
+     "source": "Pluang",
+     "publishedAt": "2026-09-26T09:44:40.000Z",
+     "titleKo": ""
+    },
+    {
+     "title": "U.S. Solana ETFs hit record $86.7M inflows, sho...",
+     "link": "https://news.google.com/rss/articles/CBMihwFBVV95cUxQamFzeldyZXpaTE83Snl4NUREYUFJQ1FyM09pY2p1WUNpVVAwZlFFWFBVcHpqRXhaU2V3VFNXdGZPclFnN1piZ0tvSk40MXJkU0xBVHUwc3QydDFIX1NxSlhKTnE4NkpuSHIxX2ZUcTNydUlzWGJLazE4OWp6ZUlZVE80d3BpSGM?oc=5",
+     "source": "Pluang",
+     "publishedAt": "2026-09-26T09:44:40.000Z",
+     "titleKo": ""
+    },
+    {
+     "title": "SharpLink and Forward Industries To Join Russell Indexes With Ethereum, Solana Treasuries",
+     "link": "https://news.google.com/rss/articles/CBMigAFBVV95cUxPUW5VTWJKZExmdXcxMUxzenhEQXJVMlV3VjZDcExpbTRwVWltRnNlNWg2QS1YM0ZlZ3BWdlhwXzE3dEhtR25YVGlZWFZpM1lmWE9hUHU0Q0ZPVUc4aTRmRFltTDd2R0RyLTJ0Q0VRYUFyajZMNm1XR3RhYTdiMEQxdQ?oc=5",
+     "source": "CoinMarketCap",
+     "publishedAt": "2026-09-26T04:27:06.000Z",
+     "titleKo": ""
+    },
+    {
+     "title": "Solana spot ETFs see $86.67M inflows on Sept 25, led by Bitwise BSOL with $55.73M",
+     "link": "https://news.google.com/rss/articles/CBMikgFBVV95cUxPc1I1ZHUzdjQ5SGVLb09udXlBZE54U3Q1U1JvLXVKWjgtYm04a3JjNnhVYTgwOHdMSHA1OENEZ1BjVjZOTWpzdHl4YV9rUmNzaUJGQjJybXR2QUtmek1hN3luWk42UGdnSThvVy1DakxsUU9vd1ZZV2VJdncyYmtmeEs2aF9XOENtZ2JQUHdoR0Yzdw?oc=5",
+     "source": "Pluang",
+     "publishedAt": "2026-09-26T02:24:40.000Z",
+     "titleKo": ""
+    },
+    {
+     "title": "Solana Foundation Hires Former Binance CMO For Institutional Push",
+     "link": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxOWUlUaDVnNGQ4X2NuOHZ5czB1UXJEand6UWpIcUEzQkcxcHJzQVNLb1FkbkUyb0M1Vk4yc1hPZDBwZ2M3UXFsdjRSZHMwNndnNUYxWk9tVVFPQl9KRTItSlcxM0t0QkJqMGxsNnVtYmFUOFRHTDMwWHhFZ05PMURrQzRjYVZKVnpkNk9SRTdTekxiMXRzakZZOTh5TG8xYWV1eXh2WEFjMjZmdHhBX2dGUkcyRi1yYlRSaDZhb2pVRm0?oc=5",
+     "source": "TradingView",
+     "publishedAt": "2026-09-26T01:30:00.000Z",
+     "titleKo": ""
+    },
+    {
+     "title": "Forward Industries raises $25M to expand its So...",
+     "link": "https://news.google.com/rss/articles/CBMimgFBVV95cUxNaXpDOVFISUlHV2t2UHJpNWFUdWhPb01aak02bTZwREEweHYxclN3a2xTNlJhb1dBSGcycVlNSDN3SXdvZ1VGcGZwMXlrZVcyZnRqRmthVWFxYlVoMkFOcFFORUgyN1pFbHRlMmxaUnpnR0g4TzM3d2pyMG5QeTVTb2JId2ZwMi1PMjlXMWx1d0pidjBoXzVaai1n?oc=5",
+     "source": "Pluang",
+     "publishedAt": "2026-09-25T18:55:12.000Z",
+     "titleKo": ""
+    },
+    {
+     "title": "Solana Foundation’s New Hires: What Does It Mean for SOL?",
+     "link": "https://news.google.com/rss/articles/CBMiswFBVV95cUxOU2I1YTJ1cDM3YWNWNjZHRHZVd1VQSXlDUGxOdTZIWnZzS29YTGl5bjhsR1VJQ0VvNDI2S1JnZHRaelFLWm1zMnl2ZTdBQVNRMG5lbFJvV0dMeGFMOGpUd1VyQWNPZGJtUHBRc2dWY3ZWNWh5aldjOTJHc2JHZG1Wd3lLSkJORUY0cFR1cVQxaHQ2THlYNWVDNC1zaV9GUEUzc09vcnk0WURwTnhoSTdLVmUtaw?oc=5",
+     "source": "24/7 Wall St.",
+     "publishedAt": "2026-09-25T18:39:00.000Z",
+     "titleKo": ""
+    },
+    {
+     "title": "Forward Industries raises $25M to boost Solana token holdings and expand its digital asset treasury",
+     "link": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxNLTVLbmQydHJ5a091Njl2Ui16bVdLelE1Yk1zREc3cWNLWS1WVkpQTVBiazNWQ0VoVXN1TF9kSmxfYWZRMktNNWJhaTZGRlJHRWt4R3AzU3h6OTV6Z04zWHBRNEI2NXdaMG5DRkRvWmxxd0F4YUpDSmg5QVNTRlhjMnBZMU4wNkdPYmFVbkRFNk16U3g2Mkt5Z0c3U3c0bjJMaFE5REpfc0FJTzQ?oc=5",
+     "source": "Pluang",
+     "publishedAt": "2026-09-25T18:19:04.000Z",
+     "titleKo": ""
+    },
+    {
+     "title": "Forward Industries Completes $25 Million Raise for Solana Treasury",
+     "link": "https://news.google.com/rss/articles/CBMiWEFVX3lxTE5Rd1hNLVd5WmZWOVJiQWpBZ2JjQkR3VWM5bDZ6ZndnY1hKeHJsbkFFNE5LYldZa2t0Mm1vTEZqS3BGV2laUnB6NFRQQ1VBSjJIeDFRbHhRYUI?oc=5",
+     "source": "tokenpost.com",
+     "publishedAt": "2026-09-25T17:41:46.000Z",
+     "titleKo": ""
+    },
+    {
+     "title": "$2x Solana ETF (SOLT.US)$",
+     "link": "https://news.google.com/rss/articles/CBMigAFBVV95cUxQZWJ2TGFCQUQ3S29tVnBFbjR2VFRTUEltT284SXdIbVVrekxGWTM2bUJMR1pKMk5qVTJra2VlejhpQkRURXR6anMxVVNCSVNoTHlGYVh3aWVmY2U5SC1idHlRTktXUEFxVlo4U2RWcmJ1ZmdOcHUwYzZmVjdOcXZhUA?oc=5",
+     "source": "Moomoo",
+     "publishedAt": "2026-09-25T12:12:58.000Z",
+     "titleKo": ""
+    },
+    {
+     "title": "Solana ETF News: Cumulative Inflows Surge to $1.52B as LiquidChain Presale Nears $1M",
+     "link": "https://news.google.com/rss/articles/CBMirgFBVV95cUxOemh6XzFXdmlwUDNxcjdPTFEzMnVPWVZZNzVHTEpNYW13d3VvY1ZSVG5fbjQ1bWlQRzlSR0FET2dPbXNUUkQ5TlR2LWtEdUVYWERITkVqcml3eGFOMGRpWWNHLUpCS05nd1J2R3VuWW5CQmdORUVmYno5VUFQdThJZmdpVUZDdjVfdUxVZVBKYU9XQlJBR3daTnJ3Ykx5VjlJUkZLcW9pdUQxS1JGd2c?oc=5",
+     "source": "Cryptonews",
+     "publishedAt": "2026-09-25T10:13:50.000Z",
+     "titleKo": ""
+    },
+    {
+     "title": "Solana Foundation Recruits Binance and Polygon Executives to Drive Global Payments Strategy",
+     "link": "https://news.google.com/rss/articles/CBMiswFBVV95cUxQRjh2bGYxcUN6cFlkblcyUWR2LUZjTFV4RXVZdFREWm5tcVdFWEEyNldBaGRJcVByTk5ZR0NwWDBpNUxoRWtJN3NKdlRyWnd1dzdBU21fZkNkNy16MllLQTY1TDVVOW9Jc1Z6X0tHcWpobTVTRTVtQUx6ZEJxc2MzcDVLWnpqUWJ1cTBDNVRkdjY2YUxQWWVfS052bTFvMkhwYjZVWVI1VE02anYtaUtBaUd5bw?oc=5",
+     "source": "FF News",
+     "publishedAt": "2026-09-25T08:14:35.000Z",
+     "titleKo": ""
+    },
+    {
+     "title": "Solana Foundation Appoints Rachel Conlan as CSO and Jamal Raees as Payments GM",
+     "link": "https://news.google.com/rss/articles/CBMilAFBVV95cUxNSXhET3prd3JvdFU1MWNkbEFTYTJpY0hfVWhWcmpidHVGTktjbWdwTUszaDJEYm9TNHdZVjE5azNHeHBMdVJ2ODVTTVVfR2lWRFB1Rld0UDU2V0RqSjVjVkxhUm03aFo1Wm9WV2JYZ0lTdE9LTFZva2FlaEx4Tmp3OEtEVHR2RUtERlZaeC1yb3ZlTXFD?oc=5",
+     "source": "CryptoRank",
+     "publishedAt": "2026-09-25T07:33:50.000Z",
+     "titleKo": ""
+    },
+    {
+     "title": "Top Altcoins Price Forecast: Ripple, Cardano, Solana – ETF inflows, whale demand signal further rally",
+     "link": "https://news.google.com/rss/articles/CBMi6wFBVV95cUxQb3hUVkRQTlFzV3BneW9IUUlhQTNtU3FzT1p5UDFSamhjY3VJbnJxLUcxcWs5eWdQTXROek54S0N4T3Q2M3RReGRCSTRiU3hrazhBWUd3SFZ1Z2pEOFd6VHVHeEcxb0tJTW5ET1RMZUZTU0MxRjRoUGZ3cUJXV2J2U2Mwbmlqd3pvVEFRWjFZTnl3T2hydTZ3UDZ3eks3RWxNZ1ltOS1LOUN4Mjdvckozd3dqU25YLWZNTmd6V0s2ZG5TZmU2dlFWOWFvSzNBUDB6Z0NNQ3NZcG1iSzVlSGxuM19iUUl0Z1lQY3Nj?oc=5",
+     "source": "FXStreet",
+     "publishedAt": "2026-09-25T04:47:40.000Z",
+     "titleKo": ""
+    },
+    {
+     "title": "Solana Foundation Names Rachel Conlan Chief Strategy Officer",
+     "link": "https://news.google.com/rss/articles/CBMiVkFVX3lxTFB6c0pBMlhNUXNkLTVZTk5ZYVBZX1dYQjd5ZjZhR3BmVGtwNEhzQ1RBX2VVbXd0aXExWDNsdTBpVnFRSlBIWHo4clUyS0FtTEZyZXlkVlFn?oc=5",
+     "source": "tokenpost.com",
+     "publishedAt": "2026-09-25T02:28:00.000Z",
+     "titleKo": ""
+    },
+    {
+     "title": "Forward Industries Completes $25 Million Registered Direct Offering with an Institutional Investor",
+     "link": "https://news.google.com/rss/articles/CBMigAJBVV95cUxPZjJGM25CZVQ0UVRNSXhabmFnRkI1N2ZzSE9XcXZZVGtrbDlGVlJsb3RwbEdVUmxDN1FIM1BTR0VlVUdlUTcxZGlqcFVXd1l1MFMxNF9iZ3k0LTFaWWVwQk95ZWhPRkRNZ25GR0F6YWlnMTl6bndOZGg3U3hJbnF0OUVZQTVJXzBSUUpBd1RycTBaYXJzMjRKMXRubW1PanlmU3diTVFRYVUxdVVUNzNqVVYwWmN4SEdUN21jSW14amJrTUVxT2MxRUktTFp2dmlfeHV1LW45UVdDTTd2Z0RDZmhudXoyb24zUjNxQTBhMXRnTGtXZTZvNEc2dngycVdY0gGGAkFVX3lxTE1QV2lWdnF6ZUlVcUUwaTVTaWc1LXhEejRReXdXalBuWTJINE1sQ2h1NHMwbHA1VWpzV3VSOG9TenJXejFLRmhhR19Hd3FxcXBjbWtjNjlFZzRHem50UGJIWmpUZWhYWnhUVXpqN2wzZ1FzU1FtLWZQOHNfMTkzYjRuVjZpblhFTFFQcXVjWkVaWmtOd0RqVExxOGFTNU9Sc3UyVW9sNno0S2pfMlBUWldwQk45bmhrYnQ2N0szYV9CbnpNeGo1M1h1MkNka1NfRFdXcFdzUTFWSGs0ZHpjWVpXX3FZRXYxSWJURy1UdXJLdGFha0kxUWlWUHhfbTZJY2Z2QU9kUFE?oc=5",
+     "source": "The Manila Times",
+     "publishedAt": "2026-09-24T20:02:31.000Z",
+     "titleKo": ""
+    },
+    {
+     "title": "Solana Foundation Taps Binance, Polygon Veterans to Lead Institutional Push",
+     "link": "https://news.google.com/rss/articles/CBMidkFVX3lxTE1jQzlKbHZ0ZFdtQVppRC1OT2tQMzgwVnU0aW81akdVdDJBRW9GeHNiYkwwQkdiTzBSQ1NBbEZZWURYYWUzSGR1ZjZBbGdMQktsYXdhOUVyYjZFSkhmNE1vRW4tYnNXUGV5VVg2SV82djRueHExMFE?oc=5",
+     "source": "finance.biggo.com",
+     "publishedAt": "2026-09-24T18:06:00.000Z",
+     "titleKo": ""
+    },
+    {
+     "title": "Solana Foundation hires ex-Binance CMO and payments exec as new partnerships expand",
+     "link": "https://news.google.com/rss/articles/CBMiWkFVX3lxTFB4dklDSlcxRmJYaDMySTB5VlMwQzJHVUdxemVwdDZUVjg0VzV1RkZIREdLNkFObHdZanU3NTY3Q2NNX2p6RWhUU1UxM3JwaDRmb0lzd1VuN2p4UQ?oc=5",
+     "source": "Cryptonews.net",
+     "publishedAt": "2026-09-24T17:21:32.000Z",
+     "titleKo": ""
+    },
+    {
+     "title": "Solana Foundation hires Binance, Polygon veterans for institutional push",
+     "link": "https://news.google.com/rss/articles/CBMilwFBVV95cUxOdWRYSl9JcUFTRHl4Tkt6MkE3YXNNQWJxZTAtbWdHeTdocG16bHl4UERCbVhIU3VRUTRQby11UUpFS3VVNDROMXJ2eVdPYVNMWlZvcjM2Z1pWT1JxMGtYZ0xTbEh2bndyY2IwZFQ4RzdYT1l5dlpoMUpHQVFfR3hvWUN3WG5aN3Y5UndzTjlEM2huZHhCUENZ?oc=5",
+     "source": "Crypto News",
+     "publishedAt": "2026-09-24T14:59:55.000Z",
+     "titleKo": ""
+    },
+    {
+     "title": "Solana Foundation Names Rachel Conlan Strategy Chief, Jamal Raees Payments GM",
+     "link": "https://news.google.com/rss/articles/CBMitgFBVV95cUxQcTdZTk5BZXZoLTNFcFlpOThWbjJBcG44OFN2ckZuUjU0QnNKOF9VVkJXZTY4bGhFMUYzRnpfcnI2N2szODhSX0NoNE1fWmpBZW9HMDBHeE9zc1EtVF9vOGFiS1lZakdPTXVnR1hjeUhDcVNxa3YxOUlrSnlabmRCeGVZYWlfbFhwRW1VM29BMWFyZ1FGZWZ1RWZVa1VNN3ZOemRCOG5LSXRsejRHV2JzRk1nM1BVQQ?oc=5",
+     "source": "citybiz",
+     "publishedAt": "2026-09-24T14:55:16.000Z",
+     "titleKo": ""
+    },
+    {
+     "title": "Solana Foundation Names Ex-Binance Marketing Chief as Strategy Head",
+     "link": "https://news.google.com/rss/articles/CBMirgFBVV95cUxQc0VrQV9ScWhvQWtFOHJzdXIyNHB0UTdtTkRENXhtemdoS0c5NkRjeVp5d3EzQTJyMm1qaF9lSWdqLWVDa0NvYjVUbTJtbE41Nm5qWUpwY0FTQ29peU9Pbmtoc0c3M1BNbGd5NmxhYmwtNk0wck04aUJ6RHVfOEJEcVpMYTY0WmZVMVNOQ2VmS2J5Y0JJcjJSLTlEbnotaVBJU3ZlMFJnUEdKd1ZpNmc?oc=5",
+     "source": "CoinMarketCap",
+     "publishedAt": "2026-09-24T14:26:59.000Z",
+     "titleKo": ""
+    },
+    {
+     "title": "Solana Foundation appoints new leaders to boost institutional growth and payments focus",
+     "link": "https://news.google.com/rss/articles/CBMipAFBVV95cUxOSUIzRklaUTVGNzNsX1ZoVVg2NVN6ekEzYnJ2SUM2ZkEwdGEzVE9JZGNXcjh2UjNDV3JMWXNRaS0xaGtzMlpKcnJjemlNaHdGTDdXcW5mWjdsSUwxbWozZ0FhNzlXakJ4WmNBTnZCR2xobDlWeXNBQ0QwSU9PM1FwQnNMRngwbmM5QXlpYngxNjRRYU5STUxVMHdpUzFBcHFFZjZGRA?oc=5",
+     "source": "Pluang",
+     "publishedAt": "2026-09-24T13:51:49.000Z",
+     "titleKo": ""
+    },
+    {
+     "title": "Solana Foundation Hires Former Binance CMO, Ex-Polygon Executive to Strengthen Payments and Institutional Partnerships",
+     "link": "https://news.google.com/rss/articles/CBMiVEFVX3lxTE82ZlFRQVhycXlISGRpYmhKT0wzYnFtTE95TUQ3T21SaFBCNElaN3liMENhU0lKenFXNUkzb3pBeTN3RVNRc1JJYUlQbFg0VXlYTy1FRg?oc=5",
+     "source": "bloomingbit",
+     "publishedAt": "2026-09-24T13:50:22.000Z",
+     "titleKo": ""
+    },
+    {
+     "title": "Solana Foundation hires Binance and Polygon vet...",
+     "link": "https://news.google.com/rss/articles/CBMimgFBVV95cUxNZEp1eUNId0pNaFlwanFRenVjMjRpaU1sNWR6TjJtZk5sRWsySF81ZGdYbTdQMVZWTUVOY0pjNEYyaE43ZlVqWDhDRVRwNUFEZ1Z4YUVWX2ZuTEdoT0RzUkEwaWk0N18xbmxPUEpTbUpWczQxeHc0ay1neG5odEJ3MlFuXzF5eHd6U0lhY3NZTWRJYzNBNktCMkN3?oc=5",
+     "source": "Pluang",
+     "publishedAt": "2026-09-24T13:31:39.000Z",
+     "titleKo": ""
+    },
+    {
+     "title": "Solana Foundation hires Binance and Polygon exe...",
+     "link": "https://news.google.com/rss/articles/CBMiogFBVV95cUxPYWZjejNTNk1kZEJJTGJNMnJZZWV3UTVFS29Qd096SWYzTlljTGg5cEVfcWJMVEpJWDJqWXFMbEFHSXZVUDJZSUp3YzQzLTNRcGVrUWIwMWRFSXRqTlRZQzk1NVdGNW5uQVdLQU5yXzhmNThIWTNiU0h6emVlZF9aR1pJVDFEQmpIN0I4TEFMOEZwVFd5NTJab1gxQ3p1dlVQbXc?oc=5",
+     "source": "Pluang",
+     "publishedAt": "2026-09-24T13:31:30.000Z",
+     "titleKo": ""
+    },
+    {
+     "title": "Forward Industries raises $25M to buy more Sola...",
+     "link": "https://news.google.com/rss/articles/CBMisgFBVV95cUxPdVZ0bWlNTXRobHliekIzVlV4b25QMVdaU1hwOUJOa3BJbzRYalVvQk5zZE5BS25oM0gxZFY4VmRwNjVkZmhQLVJMVnBKZmRiYTJxUWZ4dTFVbzZvaGN2YVZuNnpuVkVBaVVLUDZjNWRCaXQ0allvSWhCdkFpSHZRNmdwUXNfb2pHVzFyQ0FlSkFOb3pkclVYb0F4MlFvcjZiTFJaOGJVelU4WHo5Tjl3YXFR?oc=5",
+     "source": "Pluang",
+     "publishedAt": "2026-09-24T13:25:43.000Z",
+     "titleKo": ""
+    },
+    {
+     "title": "Forward Industries Plans $25 Million Raise to Expand Solana Treasury",
+     "link": "https://news.google.com/rss/articles/CBMiWEFVX3lxTE9YcEUzSW1rV2p6d0F6emxPbnZOcEZ4eDltMnpDdFJodUtnUjI0ZEUwOExaM1dtbGRSREJaZUZHTm1ZMW9INUplQXVJSTljdWhzQlVCdlJLUjU?oc=5",
+     "source": "tokenpost.com",
+     "publishedAt": "2026-09-24T13:06:08.000Z",
+     "titleKo": ""
+    },
+    {
+     "title": "Solana Foundation Hires Binance's Former Global CMO for Institutional Push",
+     "link": "https://news.google.com/rss/articles/CBMioAFBVV95cUxPZHZ2SjVmRGp6UDhBcDFfZElfZmh3NEFkS0VWVEJ0cGx5RG9RbFBWM1N2a29KT2J5MUhNUUhvdFVERGpMaE9YdFF3RzVKc2JhbXZyQTRYSW9BY201SzhHSWFDUVZEVUlJWjZPM214Sy13YWx0Vm9VRlZBWVI2VGxpZW1jZUNLc2xCY212cC1xSzFiajJNRXRsODlYaTVTS0ZD?oc=5",
+     "source": "Decrypt",
+     "publishedAt": "2026-09-24T13:03:03.000Z",
+     "titleKo": ""
+    },
+    {
+     "title": "Solana Foundation hires Binance, Polygon veterans as it ramps up tokenized finance push",
+     "link": "https://news.google.com/rss/articles/CBMiywFBVV95cUxOcGZkcUJfWXR0UU43VWVuU05oZzNpT1RtbGJqVUdrTjVRQ3E5RGZ3Qmc3UWk3QlBaZm16VTkyb0ZfaGU2NEdxeHZyNG9vUDJwWU52aTZJdkdvemp3ZVNfOUwzb3hLTGpaQUQxdndrR1FLLTlDa2ZoNldyWjV2SmZGZ1MtV0FKUWNrMDJRUmxHSnBVMUpfeVV1U3d2ZkQxQlJuSV9lSmVwU1VNem5ic0lHMFJDaGhlV00tR1RYMnVQT0dLQzJCdklkWkNXVQ?oc=5",
+     "source": "CoinDesk",
+     "publishedAt": "2026-09-24T13:00:00.000Z",
+     "titleKo": ""
+    },
+    {
+     "title": "Solana Foundation taps Binance, Polygon vets to drive institutional adoption and payments",
+     "link": "https://news.google.com/rss/articles/CBMi3wFBVV95cUxPY2VrclRLWFpGM1NjYWVIN1k5M3Z0SnJIaEJSU2hkaENySnlNdzJYXzBkS3Z5am5ISlJIX29BSnJkbmV4X1JENkJCbE9lZDdDQm05MjhuRXoxTHZtYmd3bC1hU0xMaXVYV2VYcWpZbmJwUTAzQnJPa25kYURtdldGcWdEck1NUnFZTGJQWnZLUm1lN0h4NVNHLVg0eGJoR3ZfbmZicmZ1SDR3bGdwZDZaX1VpUzgyUmpSWTVqa3ZFbnA5MzRKMk1JelJENDZUazl5cXNIQTNzQjV5b1pTX2VB?oc=5",
+     "source": "The Block",
+     "publishedAt": "2026-09-24T13:00:00.000Z",
+     "titleKo": ""
+    },
+    {
+     "title": "Solana Foundation Appoints Rachel Conlan as Chief Strategy Officer and Jamal Raees as General Manager of Payments",
+     "link": "https://news.google.com/rss/articles/CBMi_gFBVV95cUxQQzd6blJfREVISVlGTWN1aVkzeWlWaENFQWtoNFhyY1VaWHcyeFBVVmpkaHJyMkpPZTRyUFpxZUU3ZldZc0tSeHFPVExEZ3pxQURVNGtja0xzZ2xLYmh5UUw1QW1DSHZ6ZmtJMHExOWdBSms0aGxlTllOM3M2cEpuN2RaSVdET1NKWnJIaEpzR3B3SzBkd0NMVFJWbGdOUjllQTAtWFBoWG05a2liZXdENWU3OHkxdnQzTkZjRjNlbVFmNG01U2Y0UHlIbmJWa1lWc0Y1YmVSMi1mMlUtNl9wVTdrUTdDdDFlVHh3YWJQTjM2cWVBblpTekxEbTRiUQ?oc=5",
+     "source": "PR Newswire",
+     "publishedAt": "2026-09-24T13:00:00.000Z",
+     "titleKo": ""
+    },
+    {
+     "title": "Solana Foundation makes two senior hires as onchain activity accelerates",
+     "link": "https://news.google.com/rss/articles/CBMitwFBVV95cUxObGxmbTRLbTRHdzJ0WU90WUE0emh1VDQ3NDhrcGFSZFFIWjJVX2oxOHdnZzNSdjFJS29uUXpCZGhIbk1qbllmbTF3azBwYWJYTmdlNEhuVVgzbWk4RmdpNEZoMzduZGhuaDVWLUdUZUhHQUFHc2RVLUtjZXFIeFhTRzVpNGRPLW5JWUQtR3FsLTZ6YUdYVEhiejRNWnRSeS1ZTGJQU3VWX0ItYklEbkg5NDEtTVh5aEU?oc=5",
+     "source": "thestreet.com",
+     "publishedAt": "2026-09-24T12:59:00.000Z",
+     "titleKo": ""
+    },
+    {
+     "title": "Solana treasury firm Forward Industries prices $25M registered direct at $8 per share",
+     "link": "https://news.google.com/rss/articles/CBMigAFBVV95cUxQZ2JBRkZQLTJ5Z3lYbkZ0OUpfUFJtWUE0M25MTmtiQW0tWnpaOWNZVEg5SGVOeGdkLU9xd0pkWjdRRmxpejRoNE1SRlRyTE5lUjRXR09KYk96dUhEWHFxWTBrRkxiWURpQWFNWlBJRDktY0tTSDMxXzJ1QnpEUnhLYw?oc=5",
+     "source": "CryptoRank",
+     "publishedAt": "2026-09-24T09:41:58.000Z",
+     "titleKo": ""
     }
    ]
   }

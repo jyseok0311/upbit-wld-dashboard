@@ -3,6 +3,7 @@
 // 알림: 보유 수량·평균 매수가를 입력하면 수익률이 목표(기본 20%) 단계를 넘을 때마다 매도 알림,
 //       최근 고점·전일 종가 대비 기준(기본 20%) 이상 급락하면 매수 알림을 브라우저 알림으로 보낸다.
 import { computeAll } from './engine.js';
+import { profileFor, LABELS } from './markets.js';
 
 const params = new URLSearchParams(location.search);
 const MARKET = (params.get('market') || 'KRW-WLD').toUpperCase();
@@ -20,15 +21,17 @@ const WATCH = [
   { code: 'KRW-SOL', label: '솔라나(SOL)', short: 'SOL' },
 ];
 // 비교 바스켓: 관심 종목(시장 요인 BTC 포함) + 업비트 상장 AI 테마 코인. WebSocket 한 연결로 함께 수신한다.
-const BASKET = [
-  { code: 'KRW-BTC', label: '비트코인', kind: 'market' },
-  { code: 'KRW-ETH', label: '이더리움', kind: 'major' },
-  { code: 'KRW-SOL', label: '솔라나', kind: 'major' },
-  { code: 'KRW-WLD', label: '월드코인', kind: 'major' },
-  { code: 'KRW-TAO', label: '비트텐서(TAO)', kind: 'ai' },
-  { code: 'KRW-NEAR', label: '니어(NEAR)', kind: 'ai' },
-  { code: 'KRW-RENDER', label: '렌더(RENDER)', kind: 'ai' },
-].filter(b => b.code !== MARKET);
+// 종목 프로필(뉴스 분류 · 연관도 설정 · 주요 인물·기관)은 markets.js 에서 관리한다
+const PROFILE = profileFor(MARKET);
+// 바스켓 = 관심 종목 + 이 종목의 연관도 분석용 시장 요인·테마 코인. market: 시장 요인, theme: 테마 바스켓
+const BASKET = (() => {
+  const map = new Map();
+  const add = (code, flags) => { if (code === MARKET) return; const b = map.get(code) || { code, label: LABELS[code] || code.slice(4), market: false, theme: false }; Object.assign(b, flags); map.set(code, b); };
+  for (const w of WATCH) add(w.code, {});
+  add(PROFILE.relate.marketFactor, { market: true });
+  for (const c of PROFILE.relate.theme.codes) add(c, { theme: true });
+  return [...map.values()];
+})();
 
 const state = {
   market: MARKET, candles1m: [], candles5m: [], orderbook: null, trades: [], ticker: null,
@@ -469,7 +472,7 @@ function render(m) {
   const connLabel = { connecting: '연결 중…', live: 'WebSocket 실시간', reconnect: '재연결 대기 중 (요청 제한 회피를 위해 간격을 늘림)' }[s.conn];
   $('meta').textContent = `${connLabel}${s.updatedAt ? ' · 갱신 ' + kstTime(s.updatedAt) : ''}`;
   // 사이드바(넓은 화면) 상태 카드·바닥글
-  $('sb-market').textContent = s.market;
+  $('sb-market').textContent = BASE;
   if (s.ticker) $('sb-price').innerHTML = `${fmtKRW(s.ticker.price)}<span class="chg ${s.ticker.changeRate >= 0 ? 'up' : 'down'}">${s.ticker.changeRate >= 0 ? '▲' : '▼'}${(Math.abs(s.ticker.changeRate) * 100).toFixed(2)}%</span>`;
   $('sb-foot').innerHTML = `${connLabel}${s.updatedAt ? '<br>갱신 ' + kstTime(s.updatedAt) : ''}<br><kbd>1</kbd><kbd>2</kbd><kbd>3</kbd><kbd>4</kbd> 메뉴 이동`;
   $('market').textContent = `${s.market} · 업비트 · 1분봉`;
@@ -595,7 +598,7 @@ function tick() {
 
 // 다른 모듈(relate.js 등)이 같은 데이터·REST 제한 관리 로직을 쓰도록 공개
 window.dash = {
-  state, MARKET, BASE, BASKET, WATCH, KST, restJson, mergeCandles, toCandle, fmt, fmtKRW, big, kstTime, notify, settings,
+  state, MARKET, BASE, BASKET, WATCH, PROFILE, KST, restJson, mergeCandles, toCandle, fmt, fmtKRW, big, kstTime, notify, settings,
   subscribe(fn) { listeners.add(fn); return () => listeners.delete(fn); },
   markDirty() { dirty = true; },
 };
@@ -632,6 +635,9 @@ bindSettings();
 renderSettings();
 renderMarkets();
 document.title = `${BASE} 스캘핑 조건 대시보드`;
+// 종목에 맞는 메뉴 이름 (WLD: OpenAI 연관도 / BTC·ETH·SOL: 주요 인물·기관)
+$('tab-relate').querySelector('.tl').innerHTML = `${PROFILE.relate.tab}<small>${PROFILE.relate.tabSub}</small>`;
+$('tab-news').querySelector('.tl').innerHTML = `뉴스 · 속보<small>${PROFILE.name} · ${PROFILE.news[1]?.label || '해외 기사'} 번역</small>`;
 render(null);
 if ('serviceWorker' in navigator) navigator.serviceWorker.register('./sw.js').then(r => { swReg = r; }).catch(() => {});
 connectWS();                       // WebSocket 접속 1회
