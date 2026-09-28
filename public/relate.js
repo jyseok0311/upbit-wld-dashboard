@@ -12,12 +12,10 @@ const NEWS_RE = /openai|altman|올트먼|chatgpt|gpt-?\d|sora|o\d\b/i;
 
 let news = null, events = [], lastRender = 0, chart = null, series = {}, loadingStarted = false;
 
-// ---------- 바스켓 5분봉 REST 로딩 (페이지 로드 60초 이후, 15초 간격 — 분당 6회 제한 준수) ----------
+// ---------- 바스켓 5분봉 REST 로딩 (app.js 의 REST 큐가 11초 간격을 지켜 준다) ----------
 async function loadBasket() {
   if (loadingStarted) return; loadingStarted = true;
-  const wait = Math.max(0, 60000 - (Date.now() - state.loadedAt));
-  setStatus(`비교 종목 캔들은 요청 제한을 지키기 위해 ${Math.ceil(wait / 1000)}초 후부터 15초 간격으로 받습니다…`);
-  await new Promise(r => setTimeout(r, wait));
+  setStatus('비교 종목 캔들을 요청 제한(약 10초당 1회)에 맞춰 차례로 받는 중…');
   for (const b of BASKET) {
     const slot = state.basket[b.code];
     try {
@@ -26,7 +24,6 @@ async function loadBasket() {
       setStatus(`${b.label} 캔들 수신 완료`);
     } catch { setStatus(`${b.label} 캔들 수신 실패 · WebSocket 으로 누적 중`); }
     D.markDirty();
-    await new Promise(r => setTimeout(r, 15000));
   }
   setStatus('');
 }
@@ -241,7 +238,6 @@ function render() {
 // ---------- 시작 ----------
 D.subscribe(() => { if (!$('view-relate').hidden && Date.now() - lastRender > 3000) { lastRender = Date.now(); render(); } });
 window.addEventListener('hashchange', () => { if (location.hash === '#relate') { loadBasket(); lastRender = Date.now(); render(); } });
-if (location.hash === '#relate') { loadBasket(); }
-setTimeout(loadBasket, 60000);  // 탭을 열지 않아도 60초 뒤부터 비교 종목 캔들을 받아 둔다
+(D.queueReady || Promise.resolve()).then(loadBasket);   // 초기 캔들·관심 종목 1분봉이 끝난 뒤 이어서 받는다
 loadNews();
 setInterval(loadNews, 5 * 60 * 1000);

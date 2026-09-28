@@ -226,7 +226,7 @@ export function computeAll({ candles1m, candles5m, orderbook, trades, now = Date
     // 트리거 (40, 합산 상한)
     item('rsi_turn_up', 'trigger', 'RSI 과매도권에서 반등 전환', 14, rsiTurnUp ? 14 : 0, Number.isFinite(rsiRecentMin) ? `저점 ${f1(rsiRecentMin)} → ${f1(rsiNow)}` : '-'),
     item('bb_reentry', 'trigger', '볼린저 하단 이탈 후 밴드 안으로 복귀', 12, bbReentryUp ? 12 : 0, bbReentryUp ? '복귀' : piercedLow ? (price >= bbM ? '이탈 후 중심선 위' : '하단 이탈 중') : '없음'),
-    item('bull_candle', 'trigger', '반전 캔들 (망치형 · 상승 장악형)', 10, bullCandle ? 10 : 0, bullCandle ? '발생' : '없음'),
+    item('bull_candle', 'trigger', '상승 반전 캔들 (망치형 · 장악형)', 10, bullCandle ? 10 : 0, bullCandle ? '발생' : '없음'),
     item('golden', 'trigger', '1분봉 EMA9/21 골든크로스 (최근 3봉)', 10, ind.goldenCross ? 10 : 0, ind.goldenCross ? '발생' : '없음'),
     item('ema9_reclaim', 'trigger', 'EMA9 위로 회복 · VWAP 회복', 6, ema9Reclaim || vwapReclaim ? 6 : 0, ema9Reclaim && vwapReclaim ? 'EMA9 · VWAP' : ema9Reclaim ? 'EMA9' : vwapReclaim ? 'VWAP' : '없음'),
     // 확인 (25, 합산 상한)
@@ -243,7 +243,7 @@ export function computeAll({ candles1m, candles5m, orderbook, trades, now = Date
     item('overextended', 'setup', 'EMA9 위로 과열 괴리 (1.5 ATR 이상)', 8, extAtr >= 2.5 ? 8 : extAtr >= 1.5 ? 5 : 0, `${extAtr >= 0 ? '+' : ''}${f2(extAtr)} ATR`),
     item('rsi_turn_down', 'trigger', 'RSI 과매수권에서 꺾임', 14, rsiTurnDown ? 14 : 0, Number.isFinite(rsiRecentMax) ? `고점 ${f1(rsiRecentMax)} → ${f1(rsiNow)}` : '-'),
     item('bb_reentry_down', 'trigger', '볼린저 상단 이탈 후 밴드 안으로 복귀', 12, bbReentryDown ? 12 : 0, bbReentryDown ? '복귀' : piercedHigh ? (price <= bbM ? '이탈 후 중심선 아래' : '상단 이탈 중') : '없음'),
-    item('bear_candle', 'trigger', '반전 캔들 (유성형 · 하락 장악형)', 10, bearCandle ? 10 : 0, bearCandle ? '발생' : '없음'),
+    item('bear_candle', 'trigger', '하락 반전 캔들 (유성형 · 장악형)', 10, bearCandle ? 10 : 0, bearCandle ? '발생' : '없음'),
     item('dead', 'trigger', '1분봉 EMA9/21 데드크로스 (최근 3봉)', 10, ind.deadCross ? 10 : 0, ind.deadCross ? '발생' : '없음'),
     item('vwap_loss', 'trigger', 'VWAP 아래로 이탈 · EMA9 이탈', 10, vwapLoss ? 10 : ema9Loss ? 6 : 0, vwapLoss && ema9Loss ? 'VWAP · EMA9' : vwapLoss ? 'VWAP' : ema9Loss ? 'EMA9' : '없음'),
     item('ask_dom', 'confirm', '호가 매도잔량 우위 (1.2배 · 1.5배 강함)', 10, !ob || !(ob.bidAskRatio > 0) ? 0 : 1 / ob.bidAskRatio >= 1.5 ? 10 : 1 / ob.bidAskRatio >= 1.2 ? 7 : 0, ob && ob.bidAskRatio > 0 ? f2(1 / ob.bidAskRatio) + '배' : '-'),

@@ -13,7 +13,7 @@ function ago(iso) {
   return `${Math.floor(h / 24)}일 전`;
 }
 
-const VIEWS = ['dash', 'news', 'relate'];
+const VIEWS = ['dash', 'multi', 'news', 'relate'];
 function showView(name) {
   if (!VIEWS.includes(name)) name = 'dash';
   for (const v of VIEWS) { $(`view-${v}`).hidden = v !== name; $(`tab-${v}`).classList.toggle('active', v === name); }

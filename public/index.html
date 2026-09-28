@@ -85,7 +85,20 @@
   table.watch .wl { color: var(--muted); font-size: 12px; }
   table.watch .now { margin-left: 6px; padding: 1px 7px; border-radius: 999px; background: rgba(124,156,255,.2); color: var(--accent); font-size: 10.5px; font-weight: 700; }
   .minibar { display: none; }
+  .brand { display: none; }
   nav.tabs { display: flex; gap: 4px; padding: 8px 22px 0; background: var(--panel); border-bottom: 1px solid var(--line); }
+  /* ---------- 넓은 화면(1101px 이상): 메뉴를 왼쪽 사이드바로 ---------- */
+  @media (min-width: 1101px) {
+    body { padding-left: 200px; }
+    .topbar { position: fixed; left: 0; top: 0; bottom: 0; width: 200px; z-index: 6; display: flex; flex-direction: column; gap: 6px; padding: 18px 10px; background: var(--panel); border-right: 1px solid var(--line); }
+    .brand { display: flex; flex-direction: column; gap: 2px; padding: 4px 12px 14px; border-bottom: 1px solid var(--line); margin-bottom: 6px; }
+    .brand b { font-size: 15px; font-weight: 800; letter-spacing: -0.2px; } .brand span { font-size: 11px; color: var(--muted); }
+    nav.tabs { flex-direction: column; gap: 4px; padding: 0; background: transparent; border-bottom: 0; }
+    nav.tabs a { padding: 11px 14px; border-radius: 10px; border: 1px solid transparent; font-size: 14px; display: flex; align-items: center; }
+    nav.tabs a.active { background: var(--panel2); border-color: var(--line); color: var(--text); box-shadow: inset 3px 0 0 var(--accent); }
+    nav.tabs a:hover:not(.active) { color: var(--text); background: rgba(255,255,255,.03); }
+    nav.tabs a .badge { margin-left: auto; }
+  }
   nav.tabs a { padding: 8px 16px; border-radius: 10px 10px 0 0; color: var(--muted); text-decoration: none; font-weight: 700; font-size: 13px; border: 1px solid transparent; border-bottom: 0; }
   nav.tabs a.active { color: var(--text); background: var(--bg); border-color: var(--line); }
   nav.tabs a .badge { display: inline-block; min-width: 18px; padding: 0 6px; margin-left: 6px; border-radius: 999px; background: var(--accent); color: #0b0f17; font-size: 11px; text-align: center; }
@@ -159,6 +172,39 @@
   .news-item .src { color: var(--muted); font-size: 11px; margin-top: 6px; display: flex; gap: 8px; }
   .news-item .src b { color: var(--accent); font-weight: 700; }
   .news-item.fresh .ko::before { content: "NEW"; font-size: 10px; background: var(--up); color: #fff; border-radius: 4px; padding: 0 5px; margin-right: 6px; vertical-align: middle; }
+  /* 4종목 한눈에 */
+  #view-multi { display: block; padding: 14px 22px 30px; }
+  .multi-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  @media (max-width: 1000px) { .multi-grid { grid-template-columns: 1fr; } }
+  .mcard { background: var(--panel); border: 1px solid var(--line); border-radius: 14px; padding: 14px 16px; display: flex; flex-direction: column; gap: 10px; }
+  .mcard.me { border-color: rgba(124,156,255,.5); }
+  .mcard.buy_watch { border-color: rgba(34,197,94,.45); } .mcard.sell_watch { border-color: rgba(245,158,11,.5); }
+  .mcard.buy_strong { border-color: var(--green); background: linear-gradient(135deg, rgba(34,197,94,.2), var(--panel) 55%); animation: glow-buy 1.6s ease-in-out infinite; }
+  .mcard.sell_strong { border-color: var(--amber); background: linear-gradient(135deg, rgba(245,158,11,.22), var(--panel) 55%); animation: glow-sell 1.6s ease-in-out infinite; }
+  .mhead { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+  .mhead .mname b { font-size: 18px; font-weight: 900; margin-right: 6px; } .mhead .mname span { color: var(--muted); font-size: 12px; }
+  .mhead .mprice { margin-left: auto; font-size: 20px; font-weight: 800; font-variant-numeric: tabular-nums; }
+  .mhead .mprice .chg { font-size: 13px; margin-left: 6px; }
+  .mhead .btn { padding: 5px 10px; font-size: 12px; }
+  .mstatus { display: grid; grid-template-columns: auto 1fr; gap: 10px 14px; align-items: center; }
+  .mstatus .pill { font-size: 13px; padding: 5px 12px; }
+  .mstatus .pill.buy_strong, .mstatus .pill.sell_strong { animation: pulse 1.4s ease-in-out infinite; }
+  .mstatus .pill.buy_strong { background: var(--green); color: #052e16; } .mstatus .pill.sell_strong { background: var(--amber); color: #1c0a00; }
+  .mgauge { display: flex; flex-direction: column; gap: 4px; }
+  .mgauge .g { position: relative; height: 14px; border-radius: 4px; background: var(--panel2); overflow: hidden; }
+  .mgauge .g i { position: absolute; left: 0; top: 0; bottom: 0; border-radius: 4px; opacity: .85; transition: width .4s; }
+  .mgauge .g.buy i { background: var(--green); } .mgauge .g.sell i { background: var(--amber); }
+  .mgauge .g b { position: absolute; top: 0; bottom: 0; width: 2px; background: rgba(255,255,255,.5); }
+  .mgauge .g span { position: absolute; left: 6px; top: 0; line-height: 14px; font-size: 10.5px; font-weight: 800; z-index: 1; text-shadow: 0 0 3px rgba(0,0,0,.7); }
+  .mchart { height: 150px; }
+  .mkpis { display: flex; flex-wrap: wrap; gap: 4px 14px; font-size: 12px; color: var(--muted); font-variant-numeric: tabular-nums; }
+  .mkpis b { color: var(--text); font-weight: 700; }
+  .mtrig { font-size: 12px; color: var(--text); }
+  .mtrig .lb { color: var(--muted); margin-right: 4px; }
+  .mtrig .t { display: inline-block; padding: 1px 8px; margin: 2px 4px 2px 0; border-radius: 999px; background: var(--panel2); border: 1px solid var(--line); font-size: 11.5px; }
+  .mtrig .t.buy { color: var(--green); border-color: rgba(34,197,94,.4); } .mtrig .t.sell { color: var(--amber); border-color: rgba(245,158,11,.45); }
+  .mplan { font-size: 12px; color: var(--muted); font-variant-numeric: tabular-nums; }
+  .mplan b { color: var(--text); } .mplan .stop { color: #f87171; }
   /* 연관도 */
   #view-relate { display: block; padding: 14px 22px 30px; }
   .rel-grid { display: grid; grid-template-columns: 1.4fr 1fr; gap: 14px; }
@@ -204,7 +250,10 @@
     .minibar.sell_strong .ms { color: #1c0a00; background: var(--amber); border-color: var(--amber); animation: pulse 1.4s ease-in-out infinite; }
     .minibar.buy_strong { background: rgba(34,197,94,.12); } .minibar.sell_strong { background: rgba(245,158,11,.12); }
     .err { padding: 8px 12px; font-size: 12px; }
-    main, #view-news, #view-relate { padding: 10px 10px calc(30px + env(safe-area-inset-bottom)); gap: 10px; }
+    main, #view-news, #view-relate, #view-multi { padding: 10px 10px calc(30px + env(safe-area-inset-bottom)); gap: 10px; }
+    .multi-grid { gap: 10px; } .mcard { padding: 12px; border-radius: 12px; }
+    .mhead .mprice { font-size: 17px; } .mchart { height: 130px; }
+    .mstatus { grid-template-columns: 1fr; }
     /* 카드 순서: 배너 → 차트 → 매수·매도 점수 → 포지션·알림 → 지표 → 호가·체결 → 기록 */
     main { display: flex; flex-direction: column; }
     .col { display: contents; }
@@ -267,8 +316,10 @@
   <div class="status neutral" id="status">데이터 대기</div>
 </header>
 <div class="topbar">
+  <div class="brand"><b>스캘핑 대시보드</b><span>업비트 · 실시간 조건 판정</span></div>
   <nav class="tabs">
     <a href="#dash" id="tab-dash" class="active">대시보드</a>
+    <a href="#multi" id="tab-multi">4종목 한눈에</a>
     <a href="#news" id="tab-news">뉴스 · 속보<span class="badge" id="news-badge" hidden>0</span></a>
     <a href="#relate" id="tab-relate">OpenAI 연관도</a>
   </nav>
@@ -366,6 +417,18 @@
   </div>
 </main>
 
+<section id="view-multi" hidden>
+  <div class="news-head">
+    <span class="meta" id="multi-meta">데이터 대기…</span>
+    <span class="meta" style="margin-left:auto">카드의 "열기"를 누르면 그 종목 대시보드로 이동 · 타이밍 알림은 네 종목 모두 발송</span>
+  </div>
+  <div class="multi-grid" id="multi-grid"></div>
+  <div class="card disclaimer" style="margin-top:14px">
+    네 종목 모두 같은 점수제(셋업·트리거·확인·추세)로 판정합니다. 1분봉은 접속 후 차례로 받아오므로 처음 1~2분은 "캔들 수신 중"으로 표시될 수 있습니다.
+    매수·매도 권유가 아니며 모든 거래 판단과 결과의 책임은 사용자에게 있습니다.
+  </div>
+</section>
+
 <section id="view-news" hidden>
   <div class="news-head">
     <span class="chip active" data-cat="all">전체</span>
@@ -421,6 +484,7 @@
 <div id="toasts"></div>
 <script type="module" src="./app.js"></script>
 <script type="module" src="./news.js"></script>
+<script type="module" src="./multi.js"></script>
 <script type="module" src="./relate.js"></script>
 </body>
 </html>

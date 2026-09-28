@@ -33,7 +33,7 @@ const BASKET = [
 const state = {
   market: MARKET, candles1m: [], candles5m: [], orderbook: null, trades: [], ticker: null,
   error: null, updatedAt: null, conn: 'connecting', log: [], alertLog: [], computed: null,
-  basket: Object.fromEntries(BASKET.map(b => [b.code, { ...b, ticker: null, candles5m: [], loaded: false }])),
+  basket: Object.fromEntries(BASKET.map(b => [b.code, { ...b, ticker: null, candles5m: [], candles1m: [], orderbook: null, trades: [], loaded: false, loaded1m: false }])),
   bootstrapFailed: false, loadedAt: Date.now(),
   // 타이밍 신호: 강한 신호가 뜨면 최소 HOLD 동안 유지해 깜빡임을 막고, 발생 시점·가격·계획을 기억한다
   signal: null, signalMarks: [],
@@ -77,16 +77,29 @@ function setConn(c) { state.conn = c; }
 // ---------- REST 초기 데이터 (브라우저 Origin 요청은 분당 6회 수준으로 제한되므로 최소한만 호출) ----------
 // 업비트는 Origin 이 붙은 요청(REST + WebSocket 접속)을 IP 단위로 분당 약 6회로 제한한다.
 // 429 응답에는 CORS 헤더가 없어 브라우저에서는 "Failed to fetch"(TypeError) 로 보이므로 둘을 같은 제한으로 취급한다.
-async function restJson(path, tries = 6) {
-  for (let i = 0; i < tries; i++) {
-    let r;
-    try { r = await fetch(REST + path, { cache: 'no-store' }); }
-    catch { r = { status: 429 }; }
-    if (r.status === 429) { const wait = 15 * (i + 1); setError(`업비트 요청 제한 · ${wait}초 후 자동 재시도 (${i + 1}/${tries})`); await sleep(wait * 1000); continue; }
-    if (!r.ok) throw new Error(`HTTP ${r.status} ${path}`);
-    return r.json();
-  }
-  throw new Error('rate-limited');
+// 실측: 같은 IP 에서 브라우저 Origin 요청은 약 10초 간격이면 통과, 8초 이하면 429. 모든 REST 호출을 한 큐로 묶어
+// 11초 간격으로 순서대로 보낸다 (초기 캔들 → 관심 종목 1분봉 → 비교 종목 5분봉). WebSocket 접속도 같은 제한을 쓰므로 시각을 기록한다.
+const REST_GAP = 11000;
+let restChain = Promise.resolve(), lastRestAt = 0;
+function restJson(path, tries = 6) {
+  const run = async () => {
+    for (let i = 0; i < tries; i++) {
+      const wait = lastRestAt + REST_GAP - Date.now();
+      if (wait > 0) await sleep(wait);
+      lastRestAt = Date.now();
+      let r;
+      try { r = await fetch(REST + path, { cache: 'no-store' }); }
+      catch { r = { status: 429 }; }
+      if (r.status === 429) { const w = 15 * (i + 1); setError(`업비트 요청 제한 · ${w}초 후 자동 재시도 (${i + 1}/${tries})`); await sleep(w * 1000); continue; }
+      if (!r.ok) throw new Error(`HTTP ${r.status} ${path}`);
+      if (state.error && state.error.startsWith('업비트 요청 제한 ·')) setError(null);
+      return r.json();
+    }
+    throw new Error('rate-limited');
+  };
+  const p = restChain.then(run, run);
+  restChain = p.catch(() => {});
+  return p;
 }
 
 // REST 캔들(과거)과 WebSocket 으로 이미 쌓인 캔들(최신)을 시간 기준으로 합친다
@@ -99,24 +112,44 @@ function mergeCandles(rest, live, max) {
 
 async function bootstrap() {
   setError('초기 캔들 데이터를 받는 중…');
+  // 두 요청을 동시에 큐에 넣어 다른 종목 요청보다 앞서게 한다 (큐가 11초 간격으로 순서대로 보낸다)
+  const p1 = restJson(`/v1/candles/minutes/1?market=${MARKET}&count=200`);
+  const p5 = restJson(`/v1/candles/minutes/5?market=${MARKET}&count=120`);
   try {
-    const c1 = (await restJson(`/v1/candles/minutes/1?market=${MARKET}&count=200`)).reverse().map(toCandle);
+    const c1 = (await p1).reverse().map(toCandle);
     state.candles1m = mergeCandles(c1, state.candles1m, 300);
     dirty = true;
-    await sleep(1500);
-    const c5 = (await restJson(`/v1/candles/minutes/5?market=${MARKET}&count=120`)).reverse().map(toCandle);
+    const c5 = (await p5).reverse().map(toCandle);
     state.candles5m = mergeCandles(c5, state.candles5m, 200);
     state.bootstrapFailed = false;
     setError(null);
   } catch {
+    p5.catch(() => {});
     // REST 를 못 받아도 WebSocket 1분봉이 쌓이면 60분 뒤부터 지표가 계산된다
     state.bootstrapFailed = true;
     setError(`업비트 요청 제한으로 과거 캔들을 받지 못했습니다. 실시간 캔들을 누적 중 (${state.candles1m.length}/60) · 1~2분 뒤 새로 고침하면 바로 받을 수 있습니다.`);
   }
   dirty = true;
 }
+// 관심 종목(한눈에 탭)의 1분봉. 초기 캔들 뒤에 큐로 이어서 받는다. 못 받으면 WebSocket 으로 누적된다.
+async function loadWatch1m() {
+  for (const w of WATCH) {
+    const b = state.basket[w.code]; if (!b) continue;
+    try {
+      const c1 = (await restJson(`/v1/candles/minutes/1?market=${w.code}&count=200`, 3)).reverse().map(toCandle);
+      b.candles1m = mergeCandles(c1, b.candles1m, 300); b.loaded1m = true; dirty = true;
+    } catch { /* WebSocket 누적 */ }
+  }
+}
 
 // ---------- WebSocket 실시간 ----------
+function parseOrderbook(d) {
+  const units = d.orderbook_units.slice(0, 15);
+  const totalBid = units.reduce((a, u) => a + u.bid_size, 0), totalAsk = units.reduce((a, u) => a + u.ask_size, 0);
+  return { bestBid: units[0].bid_price, bestAsk: units[0].ask_price, spread: units[0].ask_price - units[0].bid_price,
+    spreadPct: (units[0].ask_price - units[0].bid_price) / units[0].bid_price * 100, totalBid, totalAsk,
+    bidAskRatio: totalAsk ? totalBid / totalAsk : 0, units: units.slice(0, 10) };
+}
 function upsertCandle(arr, raw, max) {
   const c = toCandle(raw), lastC = arr[arr.length - 1];
   if (lastC && lastC.time === c.time) arr[arr.length - 1] = c;
@@ -125,16 +158,18 @@ function upsertCandle(arr, raw, max) {
 let wsRetry = 0;
 function connectWS() {
   setConn('connecting');
+  lastRestAt = Date.now();   // WebSocket 접속도 Origin 요청 제한에 포함되므로 REST 큐가 간격을 두게 한다
   const ws = new WebSocket(WS_URL);
   ws.binaryType = 'arraybuffer';
   let ping;
   ws.onopen = () => {
     wsRetry = 0;
     const all = [MARKET, ...BASKET.map(b => b.code)];
+    const watch = [...new Set([MARKET, ...WATCH.map(w => w.code)])];   // 한눈에 탭: 네 종목 모두 1분봉·호가·체결 수신
     ws.send(JSON.stringify([
       { ticket: 'scalp-dash-' + Math.random().toString(36).slice(2, 10) },
-      { type: 'ticker', codes: all }, { type: 'trade', codes: [MARKET] }, { type: 'orderbook', codes: [MARKET] },
-      { type: 'candle.1m', codes: [MARKET] }, { type: 'candle.5m', codes: all },
+      { type: 'ticker', codes: all }, { type: 'trade', codes: watch }, { type: 'orderbook', codes: watch },
+      { type: 'candle.1m', codes: watch }, { type: 'candle.5m', codes: all },
       { format: 'DEFAULT' },
     ]));
     setConn('live');
@@ -149,6 +184,9 @@ function connectWS() {
       const b = state.basket[d.code]; if (!b) return;
       if (d.type === 'ticker') b.ticker = tick(d);
       else if (d.type === 'candle.5m') upsertCandle(b.candles5m, d, 200);
+      else if (d.type === 'candle.1m') upsertCandle(b.candles1m, d, 300);
+      else if (d.type === 'orderbook') b.orderbook = parseOrderbook(d);
+      else if (d.type === 'trade') { b.trades.unshift(toTrade(d)); if (b.trades.length > 200) b.trades.length = 200; }
       else return;
       state.updatedAt = Date.now(); dirty = true; return;
     }
@@ -158,14 +196,7 @@ function connectWS() {
         break;
       case 'trade':
         state.trades.unshift(toTrade(d)); if (state.trades.length > 200) state.trades.length = 200; break;
-      case 'orderbook': {
-        const units = d.orderbook_units.slice(0, 15);
-        const totalBid = units.reduce((a, u) => a + u.bid_size, 0), totalAsk = units.reduce((a, u) => a + u.ask_size, 0);
-        state.orderbook = { bestBid: units[0].bid_price, bestAsk: units[0].ask_price, spread: units[0].ask_price - units[0].bid_price,
-          spreadPct: (units[0].ask_price - units[0].bid_price) / units[0].bid_price * 100, totalBid, totalAsk,
-          bidAskRatio: totalAsk ? totalBid / totalAsk : 0, units: units.slice(0, 10) };
-        break;
-      }
+      case 'orderbook': state.orderbook = parseOrderbook(d); break;
       case 'candle.1m':
         upsertCandle(state.candles1m, d, 300);
         if (state.bootstrapFailed) setError(`업비트 요청 제한으로 과거 캔들을 받지 못했습니다. 실시간 캔들을 누적 중 (${state.candles1m.length}/60) · 1~2분 뒤 새로 고침하면 바로 받을 수 있습니다.`);
@@ -559,7 +590,7 @@ function tick() {
 
 // 다른 모듈(relate.js 등)이 같은 데이터·REST 제한 관리 로직을 쓰도록 공개
 window.dash = {
-  state, MARKET, BASE, BASKET, KST, restJson, mergeCandles, toCandle, fmt, fmtKRW, big, kstTime,
+  state, MARKET, BASE, BASKET, WATCH, KST, restJson, mergeCandles, toCandle, fmt, fmtKRW, big, kstTime, notify, settings,
   subscribe(fn) { listeners.add(fn); return () => listeners.delete(fn); },
   markDirty() { dirty = true; },
 };
@@ -599,5 +630,6 @@ document.title = `${BASE} 스캘핑 조건 대시보드`;
 render(null);
 if ('serviceWorker' in navigator) navigator.serviceWorker.register('./sw.js').then(r => { swReg = r; }).catch(() => {});
 connectWS();                       // WebSocket 접속 1회
-setTimeout(bootstrap, 1500);       // 그 다음 REST 2회 (1분봉, 5분봉) — 분당 6회 제한 안에서 여유 확보
+// REST 큐 순서: 현재 종목 1분봉·5분봉 → 관심 종목 1분봉 3개 → (relate.js) 비교 종목 5분봉 6개. 11초 간격, 약 2분
+window.dash.queueReady = bootstrap().then(loadWatch1m);
 setInterval(tick, 1000);
