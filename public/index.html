@@ -71,6 +71,19 @@
   #selllist li.on .pts { color: var(--amber); }
   li .pts + .val { margin-left: 0; min-width: 96px; text-align: right; }
   .meta { color: var(--muted); font-size: 12px; }
+  /* 종목 전환 칩 */
+  nav.markets { display: flex; gap: 4px; padding: 3px; border-radius: 999px; background: var(--bg); border: 1px solid var(--line); }
+  nav.markets a { padding: 5px 12px; border-radius: 999px; color: var(--muted); text-decoration: none; font-weight: 800; font-size: 12.5px; }
+  nav.markets a.active { background: var(--accent); color: #0b0f17; }
+  nav.markets a:hover:not(.active) { color: var(--text); }
+  /* 관심 종목 표 */
+  table.watch tr[data-code] { cursor: pointer; }
+  table.watch tr[data-code]:hover td { background: var(--panel2); }
+  table.watch tr.me td { background: rgba(124,156,255,.08); }
+  table.watch td, table.watch th { padding: 7px 6px; font-size: 13px; }
+  table.watch td:first-child b { font-size: 13.5px; margin-right: 6px; }
+  table.watch .wl { color: var(--muted); font-size: 12px; }
+  table.watch .now { margin-left: 6px; padding: 1px 7px; border-radius: 999px; background: rgba(124,156,255,.2); color: var(--accent); font-size: 10.5px; font-weight: 700; }
   .minibar { display: none; }
   nav.tabs { display: flex; gap: 4px; padding: 8px 22px 0; background: var(--panel); border-bottom: 1px solid var(--line); }
   nav.tabs a { padding: 8px 16px; border-radius: 10px 10px 0 0; color: var(--muted); text-decoration: none; font-weight: 700; font-size: 13px; border: 1px solid transparent; border-bottom: 0; }
@@ -166,9 +179,16 @@
     header .market { font-size: 11px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
     header > div:first-child { grid-column: 1; min-width: 0; }
     .price { font-size: 22px; grid-column: 2; grid-row: 1; text-align: right; line-height: 1.1; }
-    .chg { grid-column: 1; font-size: 12.5px; }
-    .meta { grid-column: 2; text-align: right; font-size: 10.5px; white-space: nowrap; }
+    .chg { grid-column: 1; grid-row: 2; font-size: 12.5px; }
+    .meta { grid-column: 2; grid-row: 2; text-align: right; font-size: 10.5px; white-space: nowrap; }
     header .status { display: none; }
+    nav.markets { grid-column: 1 / -1; grid-row: 3; margin-top: 4px; justify-content: stretch; }
+    nav.markets a { flex: 1; text-align: center; padding: 7px 0; font-size: 13px; }
+    table.watch .vol { display: none; }
+    table.watch .wl { display: none; }
+    table.watch .now { display: none; }
+    table.watch tr.me td:first-child b { color: var(--accent); }
+    table.watch td, table.watch th { padding: 8px 3px; font-size: 12.5px; white-space: nowrap; }
     /* 탭 + 미니바를 한 덩어리로 상단 고정 */
     .topbar { position: sticky; top: 0; z-index: 4; background: var(--panel); box-shadow: 0 4px 14px rgba(0,0,0,.35); }
     nav.tabs { padding: 6px 8px 0; gap: 2px; overflow-x: auto; -webkit-overflow-scrolling: touch; scrollbar-width: none; }
@@ -188,8 +208,8 @@
     /* 카드 순서: 배너 → 차트 → 매수·매도 점수 → 포지션·알림 → 지표 → 호가·체결 → 기록 */
     main { display: flex; flex-direction: column; }
     .col { display: contents; }
-    .timing { order: 0; } .c-chart { order: 1; } .c-buy { order: 2; } .c-sell { order: 3; } .c-position { order: 4; }
-    .c-kpis { order: 5; } .c-flow { order: 6; } .c-alertlog { order: 7; } .c-log { order: 8; } .c-disc { order: 9; }
+    .timing { order: 0; } .c-chart { order: 1; } .c-watch { order: 2; } .c-buy { order: 3; } .c-sell { order: 4; } .c-position { order: 5; }
+    .c-kpis { order: 6; } .c-flow { order: 7; } .c-alertlog { order: 8; } .c-log { order: 9; } .c-disc { order: 10; }
     /* 조건 행: 라벨 한 줄, 그 아래 점수·현재값 */
     ul.cond li:not(.grp) { display: grid; grid-template-columns: 10px 1fr auto; column-gap: 8px; row-gap: 1px; align-items: center; padding: 7px 0; }
     ul.cond li:not(.grp) .pts { grid-column: 3; grid-row: 1; margin-left: 0; min-width: 0; }
@@ -240,6 +260,7 @@
     <h1 id="title">WLD 스캘핑 조건 대시보드</h1>
     <div class="market" id="market">KRW-WLD · 업비트 · 1분봉</div>
   </div>
+  <nav class="markets" id="markets" aria-label="종목 전환"></nav>
   <div class="price" id="price">–</div>
   <div class="chg" id="chg">–</div>
   <div class="meta" id="meta">연결 중…</div>
@@ -266,6 +287,10 @@
       <div id="chart"></div>
       <h2 style="margin-top:10px">RSI(14)</h2>
       <div id="rsi"></div>
+    </div>
+    <div class="card c-watch">
+      <h2>관심 종목 시세 <span class="count" style="font-weight:600;color:var(--muted)">종목을 누르면 전환</span></h2>
+      <table id="watchtable" class="watch"></table>
     </div>
     <div class="card c-kpis">
       <h2>지표 요약</h2>
@@ -336,7 +361,7 @@
       목표가·손절가는 ATR과 최근 10봉 고저를 기준으로 계산한 참고값입니다.
       매수·매도 권유나 투자 조언이 아니며, 조건 충족이 수익을 보장하지 않습니다. 모든 거래 판단과 결과의 책임은 사용자에게 있습니다.
       데이터는 업비트 WebSocket으로 실시간 수신되며 지연이나 오류가 있을 수 있습니다.
-      주소 뒤에 <code>?market=KRW-BTC</code> 처럼 붙이면 다른 종목을 볼 수 있습니다.
+      상단 칩이나 관심 종목 표에서 WLD · BTC · ETH · SOL 을 전환할 수 있고, 주소 뒤에 <code>?market=KRW-XRP</code> 처럼 붙이면 다른 종목도 볼 수 있습니다. 포지션·알림 설정은 종목별로 따로 저장됩니다.
     </div>
   </div>
 </main>

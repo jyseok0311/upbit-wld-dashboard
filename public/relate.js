@@ -81,7 +81,7 @@ const openAt = (candles, t) => { // 헤드라인 직전 가격: t 이전 마지�
 function analyze() {
   const w = state.candles5m, btc = state.basket['KRW-BTC']?.candles5m || [];
   const ai = BASKET.filter(b => b.kind === 'ai').map(b => state.basket[b.code]).filter(s => s.candles5m.length > 20);
-  const out = { ready: w.length > 20, corr: [], beta4h: null, beta12h: null, events: [], baseline30: null, reactionRatio: null, aiVsBtc: null };
+  const out = { ready: w.length > 20, corr: [], beta4h: null, beta12h: null, events: [], baseline30: null, reactionRatio: null, aiVsBtc: null, btcCorr: null, aiCorrMean: null, newsShare: null };
   if (!out.ready) { out.events = events.map(e => ({ ...e, outOfRange: true })); return out; }
 
   // 상관계수·베타
@@ -210,7 +210,7 @@ function render() {
     (a.corr.length ? a.corr.map(r => `<tr><td style="text-align:left">${r.label}</td><td>${r.c4h === null ? '–' : r.c4h.toFixed(2)}</td><td>${r.c12h === null ? '–' : r.c12h.toFixed(2)}</td><td>${r.n}봉</td></tr>`).join('') : '<tr><td colspan="4" class="hold-empty">비교 종목 캔들 수신 대기…</td></tr>');
 
   // 실시간 시세 비교
-  const rows = [{ code: MARKET, label: `${BASE} (월드코인)`, t: state.ticker, c: state.candles5m }, ...BASKET.map(b => ({ code: b.code, label: b.label, t: state.basket[b.code].ticker, c: state.basket[b.code].candles5m }))];
+  const rows = [{ code: MARKET, label: `${BASE} (보는 중)`, t: state.ticker, c: state.candles5m }, ...BASKET.map(b => ({ code: b.code, label: b.label, t: state.basket[b.code].ticker, c: state.basket[b.code].candles5m }))];
   $('rel-tickers').innerHTML = `<tr><th style="text-align:left">종목</th><th>현재가</th><th>전일 대비</th><th>1시간</th><th>4시간</th></tr>` + rows.map(r => {
     const h1 = r.c.length > 12 ? (r.c[r.c.length - 1].close / r.c[r.c.length - 13].close - 1) * 100 : null;
     const h4 = r.c.length > 48 ? (r.c[r.c.length - 1].close / r.c[r.c.length - 49].close - 1) * 100 : null;
@@ -235,7 +235,7 @@ function render() {
 
   $('rel-text').innerHTML = interpret(a).map(l => `<p>${l}</p>`).join('');
   if (a.ready) renderChart(a);
-  $('rel-meta').textContent = `갱신 ${kstTime(Date.now())} · WLD 5분봉 ${state.candles5m.length}봉 · 비교 종목 ${BASKET.filter(b => state.basket[b.code].candles5m.length > 20).length}/${BASKET.length} 수신`;
+  $('rel-meta').textContent = `갱신 ${kstTime(Date.now())} · ${BASE} 5분봉 ${state.candles5m.length}봉 · 비교 종목 ${BASKET.filter(b => state.basket[b.code].candles5m.length > 20).length}/${BASKET.length} 수신`;
 }
 
 // ---------- 시작 ----------

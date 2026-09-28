@@ -12,9 +12,19 @@ const WS_URL = 'wss://api.upbit.com/websocket/v1';
 const KST = 9 * 3600;
 const LS_KEY = `scalp-dash:${MARKET}`;
 
-// 연관도 분석용 비교 바스켓: 시장 요인(비트코인) + 업비트 상장 AI 테마 코인. WebSocket 한 연결로 함께 수신한다.
+// 관심 종목: 헤더에서 바로 전환할 수 있고, 대시보드 "관심 종목 시세" 표에 함께 표시된다
+const WATCH = [
+  { code: 'KRW-WLD', label: '월드코인(WLD)', short: 'WLD' },
+  { code: 'KRW-BTC', label: '비트코인(BTC)', short: 'BTC' },
+  { code: 'KRW-ETH', label: '이더리움(ETH)', short: 'ETH' },
+  { code: 'KRW-SOL', label: '솔라나(SOL)', short: 'SOL' },
+];
+// 비교 바스켓: 관심 종목(시장 요인 BTC 포함) + 업비트 상장 AI 테마 코인. WebSocket 한 연결로 함께 수신한다.
 const BASKET = [
   { code: 'KRW-BTC', label: '비트코인', kind: 'market' },
+  { code: 'KRW-ETH', label: '이더리움', kind: 'major' },
+  { code: 'KRW-SOL', label: '솔라나', kind: 'major' },
+  { code: 'KRW-WLD', label: '월드코인', kind: 'major' },
   { code: 'KRW-TAO', label: '비트텐서(TAO)', kind: 'ai' },
   { code: 'KRW-NEAR', label: '니어(NEAR)', kind: 'ai' },
   { code: 'KRW-RENDER', label: '렌더(RENDER)', kind: 'ai' },
@@ -277,7 +287,9 @@ const common = {
   grid: { vertLines: { color: '#1b2336' }, horzLines: { color: '#1b2336' } },
   // 좁은 화면에서는 봉 간격을 줄여 같은 폭에 더 긴 구간(약 1시간)이 보이게 한다
   timeScale: { timeVisible: true, secondsVisible: false, borderColor: '#232c42', rightOffset: 4, barSpacing: window.innerWidth <= 700 ? 4.5 : 7 },
-  rightPriceScale: { borderColor: '#232c42' }, crosshair: { mode: 0 }, localization: { locale: 'ko-KR' },
+  rightPriceScale: { borderColor: '#232c42' }, crosshair: { mode: 0 },
+  // 가격축: 1만 원 이상은 천 단위 구분·정수, 그 미만은 소수 1자리 (RSI 축도 같은 형식을 쓴다)
+  localization: { locale: 'ko-KR', priceFormatter: p => p >= 10000 ? Math.round(p).toLocaleString('ko-KR') : p.toFixed(1) },
   // 모바일: 차트 위 세로 스와이프는 페이지 스크롤로, 가로 스와이프·핀치만 차트 조작으로
   handleScroll: { vertTouchDrag: false, mouseWheel: true, pressedMouseMove: true, horzTouchDrag: true },
   handleScale: { axisPressedMouseMove: true, mouseWheel: true, pinch: true },
@@ -399,8 +411,30 @@ function renderPosition(m) {
   el.innerHTML = items.map(([l, v, s2]) => `<div class="kpi"><div class="l">${l}</div><div class="v">${v}</div><div class="s">${s2}</div></div>`).join('');
 }
 
+// 관심 종목 시세 표: 현재 종목은 자체 상태, 나머지는 바스켓 수신값을 쓴다. 행을 누르면 그 종목으로 전환
+function renderWatch() {
+  const pct = v => v === null || v === undefined ? '–' : `${v >= 0 ? '+' : ''}${v.toFixed(2)}%`;
+  const cls = v => v === null || v === undefined ? '' : v >= 0 ? 'chg up' : 'chg down';
+  const rows = WATCH.map(w => {
+    const mine = w.code === MARKET, b = state.basket[w.code];
+    const t = mine ? state.ticker : b?.ticker, c = mine ? state.candles5m : (b?.candles5m || []);
+    const h1 = c.length > 12 ? (c[c.length - 1].close / c[c.length - 13].close - 1) * 100 : null;
+    const h4 = c.length > 48 ? (c[c.length - 1].close / c[c.length - 49].close - 1) * 100 : null;
+    const cr = t ? t.changeRate * 100 : null;
+    return `<tr class="${mine ? 'me' : ''}" data-code="${w.code}">
+      <td style="text-align:left"><b>${w.short}</b><span class="wl">${w.label.replace(/\(.*\)/, '')}</span>${mine ? '<span class="now">보는 중</span>' : ''}</td>
+      <td>${t ? fmtKRW(t.price) : '–'}</td><td class="${cls(cr)}">${pct(cr)}</td><td class="${cls(h1)}">${pct(h1)}</td><td class="${cls(h4)}">${pct(h4)}</td>
+      <td class="vol">${t ? big(t.accTradePrice24h) + '원' : '–'}</td></tr>`;
+  }).join('');
+  $('watchtable').innerHTML = `<tr><th style="text-align:left">종목</th><th>현재가</th><th>전일 대비</th><th>1시간</th><th>4시간</th><th class="vol">24h 거래대금</th></tr>${rows}`;
+}
+function renderMarkets() {
+  $('markets').innerHTML = WATCH.map(w => `<a href="?market=${w.code}${location.hash || '#dash'}" class="${w.code === MARKET ? 'active' : ''}">${w.short}</a>`).join('');
+}
+
 function render(m) {
   const s = state, c = s.computed;
+  renderWatch();
   const connLabel = { connecting: '연결 중…', live: 'WebSocket 실시간', reconnect: '재연결 대기 중 (요청 제한 회피를 위해 간격을 늘림)' }[s.conn];
   $('meta').textContent = `${connLabel}${s.updatedAt ? ' · 갱신 ' + kstTime(s.updatedAt) : ''}`;
   $('market').textContent = `${s.market} · 업비트 · 1분봉`;
@@ -547,6 +581,10 @@ function bindSettings() {
     saveLocal(); renderSettings(); dirty = true; toast('알림 설정을 저장했습니다.');
   });
   $('minibar').addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+  $('watchtable').addEventListener('click', e => {
+    const tr = e.target.closest('tr[data-code]');
+    if (tr && tr.dataset.code !== MARKET) location.href = `?market=${tr.dataset.code}${location.hash || '#dash'}`;
+  });
   $('btn-perm').addEventListener('click', requestPermission);
   $('btn-test').addEventListener('click', () => notify('sell', '테스트 알림', `${MARKET} 알림이 이렇게 표시됩니다.`));
   $('btn-reset').addEventListener('click', () => { alertState.lastSellLevel = 0; alertState.dropFired = false; state.alertLog = []; state.signalMarks = []; state.signal = null; saveLocal(); dirty = true; toast('알림 기록과 단계를 초기화했습니다.'); });
@@ -556,6 +594,8 @@ function bindSettings() {
 loadLocal();
 bindSettings();
 renderSettings();
+renderMarkets();
+document.title = `${BASE} 스캘핑 조건 대시보드`;
 render(null);
 if ('serviceWorker' in navigator) navigator.serviceWorker.register('./sw.js').then(r => { swReg = r; }).catch(() => {});
 connectWS();                       // WebSocket 접속 1회
