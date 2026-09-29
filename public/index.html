@@ -569,6 +569,72 @@
     *, *::before, *::after { animation: none !important; transition: none !important; }
     #bloom { display: none; }
   }
+
+  /* ================= 모바일 v2 (700px 이하) =================
+     문제: ① 상단 탭 459px > 화면 390px 이라 마지막 탭이 잘림 ② 헤더 4줄(214px)이 화면의 1/4 ③ 배너 링이 한 줄을 통째로 차지
+           ④ 고정 상단 바가 노치·상태바 안전영역을 무시해 홈 화면 앱에서 상단이 가려짐
+     해법: 탭 → 하단 탭바(4등분, 잘림 없음) / 헤더 3줄 압축 / 배너 가로 배치 / 안전영역 반영 */
+  html::before { content: ""; position: fixed; top: 0; left: 0; right: 0; height: env(safe-area-inset-top, 0px); background: rgba(5,6,10,.96); z-index: 60; pointer-events: none; }
+  @media (max-width: 700px) {
+    header { grid-template-columns: minmax(0,1fr) auto; grid-template-areas: "title price" "chg alt" "markets exch"; gap: 6px 10px; align-items: center;
+      padding: 8px 12px 6px; padding-top: calc(8px + env(safe-area-inset-top, 0px)); padding-left: max(12px, env(safe-area-inset-left, 0px)); padding-right: max(12px, env(safe-area-inset-right, 0px)); }
+    header > div:first-child { grid-area: title; min-width: 0; }
+    header h1 { font-size: 13px; white-space: normal; overflow: visible; text-overflow: clip; line-height: 1.25; }
+    header .market { font-size: 11px; }
+    header .price { grid-area: price; font-size: 30px; line-height: 1; }
+    header .chg { grid-area: chg; justify-self: start; padding: 5px 11px; font-size: 12.5px; }
+    header .altp { grid-area: alt; justify-self: end; margin: 0; padding: 6px 10px; font-size: 11.5px; }
+    header nav.markets { grid-area: markets; margin: 0; padding: 3px; }
+    header nav.markets a { padding: 8px 0; font-size: 13px; }
+    header nav.exch { grid-area: exch; margin: 0; justify-self: end; padding: 3px; }
+    header nav.exch a { padding: 8px 12px; font-size: 12px; }
+    header .meta { display: none; }
+
+    .topbar { top: env(safe-area-inset-top, 0px); background: rgba(5,6,10,.94); }
+    .minibar { padding-top: 7px; padding-bottom: 7px; }
+
+    /* 하단 탭바 */
+    nav.tabs { position: fixed; left: 0; right: 0; bottom: 0; z-index: 30; display: grid; grid-template-columns: repeat(4, minmax(0,1fr)); gap: 0; overflow: visible;
+      padding: 0 env(safe-area-inset-right, 0px) env(safe-area-inset-bottom, 0px) env(safe-area-inset-left, 0px);
+      background: rgba(5,6,10,.95); border-top: 1px solid var(--line); box-shadow: 0 -10px 30px -12px rgba(0,0,0,.8); }
+    nav.tabs a { position: relative; display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 4px; height: 58px; padding: 6px 2px 4px;
+      border: 0; border-radius: 0; background: none; box-shadow: none; font-size: 10.5px; font-weight: 600; letter-spacing: -.02em; white-space: nowrap; color: var(--muted); }
+    nav.tabs a svg { width: 22px; height: 22px; flex-basis: 22px; opacity: .75; }
+    nav.tabs a .tl { display: block; max-width: 100%; overflow: hidden; text-overflow: ellipsis; text-align: center; }
+    nav.tabs a .tl small { display: none; }
+    nav.tabs a.active { background: none; box-shadow: none; border: 0; color: var(--text); }
+    nav.tabs a.active svg { color: #cfc4ff; opacity: 1; }
+    nav.tabs a.active::before { content: ""; position: absolute; top: 0; left: 28%; right: 28%; height: 2px; border-radius: 0 0 3px 3px; background: var(--violet); box-shadow: 0 0 14px 1px var(--violet); }
+    nav.tabs a .badge { position: absolute; top: 5px; left: calc(50% + 7px); margin: 0; min-width: 16px; padding: 0 4px; font-size: 9.5px; line-height: 16px; }
+    main, #view-news, #view-relate, #view-multi { padding-bottom: calc(82px + env(safe-area-inset-bottom, 0px)); }
+    #toasts { bottom: calc(70px + env(safe-area-inset-bottom, 0px)); }
+
+    /* 배너: 링(좌) + 제목(우), 작은 링과 설명은 아래 줄 */
+    .timing { grid-template-columns: auto minmax(0,1fr); grid-template-areas: "ring text" "side side"; gap: 12px 16px; padding: 16px; }
+    .timing > .ring.big { grid-area: ring; align-self: center; justify-self: start; }
+    .timing > .tl { grid-area: text; min-width: 0; }
+    .timing > .tside { grid-area: side; flex-direction: row; align-items: center; justify-content: flex-start; gap: 12px; padding-top: 10px; border-top: 1px solid var(--line); }
+    .tside .g-note { text-align: left; max-width: none; }
+    .ring.big svg { width: 92px; height: 92px; } .ring.big .rv b { font-size: 30px; } .ring.big::before { inset: -12px; }
+    .ring.sm svg { width: 54px; height: 54px; } .ring.sm .rv b { font-size: 16px; } .ring.sm .rv small { font-size: 9px; margin-top: 1px; }
+    .timing .big { font-size: 21px; word-break: keep-all; } .timing.buy_strong .big, .timing.sell_strong .big { font-size: 23px; }
+    .timing .sub { font-size: 12px; }
+  }
+  /* 버그 수정: 표 셀(td/th)에 붙은 .chg 는 글자색용인데 알약 배경·패딩이 같이 적용되던 문제 */
+  td.chg, th.chg { padding: 3px 6px; background: transparent; border-radius: 0; font-size: inherit; }
+  @media (max-width: 700px) {
+    /* 관심 종목 표: 종목 · 현재가 · 전일 대비 · 다른 거래소 차이만 (1시간·4시간은 4종목 화면에서) */
+    table.watch th:nth-child(4), table.watch td:nth-child(4), table.watch th:nth-child(5), table.watch td:nth-child(5) { display: none; }
+    table.watch td, table.watch th { padding: 9px 4px; }
+    table.watch td:first-child, table.watch th:first-child { width: 26%; }
+    table.watch th.alt { font-size: 11px; }
+    table.watch tr[data-code] td:first-child { border-radius: 10px 0 0 10px; } table.watch tr[data-code] td:last-child { border-radius: 0 10px 10px 0; }
+  }
+  @media (max-width: 700px) {
+    .news-head .meta { white-space: normal; overflow-wrap: anywhere; text-align: left; }
+    .news-head { min-width: 0; }
+  }
+  .mkpis .chg { padding: 0; background: transparent; border-radius: 0; font-size: inherit; }
 </style>
 </head>
 <body>
