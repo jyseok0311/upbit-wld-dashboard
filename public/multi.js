@@ -14,6 +14,10 @@ const lastNotify = {};                // code → ms
 let lastRender = 0, lastCompute = 0;
 const results = {};                   // code → computeAll 결과 (현재 종목 제외)
 
+// innerHTML/텍스트는 바뀐 경우에만 넣는다
+const htmlCache = new WeakMap();
+const setHTML = (el, html) => { if (htmlCache.get(el) === html) return; htmlCache.set(el, html); el.innerHTML = html; };
+const setText = (el, t) => { if (el.textContent !== t) el.textContent = t; };
 const pct = v => v === null || v === undefined ? '–' : `${v >= 0 ? '+' : ''}${v.toFixed(2)}%`;
 const cls = v => v === null || v === undefined ? '' : v >= 0 ? 'chg up' : 'chg down';
 const STATUS_LABEL = { neutral: '관망', buy_watch: '매수 준비', sell_watch: '매도 준비', buy_strong: '▲ 매수 타이밍', sell_strong: '▼ 매도 타이밍' };
@@ -60,7 +64,7 @@ function ensureChart(code) {
   const series = chart.addCandlestickSeries({ upColor: '#ff5b6e', downColor: '#3f8cff', borderVisible: false, wickUpColor: '#ff5b6e', wickDownColor: '#3f8cff', priceLineVisible: true });
   const ema9 = chart.addLineSeries({ color: '#facc15', lineWidth: 1, priceLineVisible: false, lastValueVisible: false });
   const ema21 = chart.addLineSeries({ color: '#a78bfa', lineWidth: 1, priceLineVisible: false, lastValueVisible: false });
-  charts[code] = { chart, series, ema9, ema21, first: true };
+  charts[code] = { chart, series, ema9, ema21, first: true, lastLen: 0, lastFirst: 0 };
   return charts[code];
 }
 const shift = arr => arr.map(p => ({ ...p, time: p.time + KST }));
@@ -85,24 +89,29 @@ function renderCard(w) {
   const t = d.ticker, c = d.computed, sg = c?.signals;
   const card = $(`mcard-${w.code}`);
   card.className = `mcard ${sg ? sg.status : 'neutral'}${d.mine ? ' me' : ''}`;
-  if (t) $(`mprice-${w.code}`).innerHTML = `${fmtKRW(t.price)}<span class="chg ${t.changeRate >= 0 ? 'up' : 'down'}">${t.changeRate >= 0 ? '▲' : '▼'}${(Math.abs(t.changeRate) * 100).toFixed(2)}%</span>`;
+  if (t) setHTML($(`mprice-${w.code}`), `${fmtKRW(t.price)}<span class="chg ${t.changeRate >= 0 ? 'up' : 'down'}">${t.changeRate >= 0 ? '▲' : '▼'}${(Math.abs(t.changeRate) * 100).toFixed(2)}%</span>`);
 
   const pill = $(`mpill-${w.code}`);
   if (sg) {
     const score = sg.status.startsWith('buy') ? sg.buyScore : sg.status.startsWith('sell') ? sg.sellScore : null;
-    pill.textContent = score !== null ? `${STATUS_LABEL[sg.status]} · ${score}점` : `${STATUS_LABEL.neutral} · 매수 ${sg.buyScore} / 매도 ${sg.sellScore}`;
+    setText(pill, score !== null ? `${STATUS_LABEL[sg.status]} · ${score}점` : `${STATUS_LABEL.neutral} · 매수 ${sg.buyScore} / 매도 ${sg.sellScore}`);
     pill.className = `pill ${sg.status}`;
-    $(`mgb-${w.code}`).textContent = `매수 ${sg.buyScore}`; $(`mgbi-${w.code}`).style.width = `${sg.buyScore}%`;
-    $(`mgs-${w.code}`).textContent = `매도 ${sg.sellScore}`; $(`mgsi-${w.code}`).style.width = `${sg.sellScore}%`;
+    setText($(`mgb-${w.code}`), `매수 ${sg.buyScore}`); $(`mgbi-${w.code}`).style.width = `${sg.buyScore}%`;
+    setText($(`mgs-${w.code}`), `매도 ${sg.sellScore}`); $(`mgsi-${w.code}`).style.width = `${sg.sellScore}%`;
   } else {
-    pill.textContent = `1분봉 수신 중 ${d.candles1m.length}/60`; pill.className = 'pill neutral';
+    setText(pill, `1분봉 수신 중 ${d.candles1m.length}/60`); pill.className = 'pill neutral';
   }
 
   // 미니 차트: 최근 1분봉 120개 + EMA 9/21
   const ch = ensureChart(w.code);
   if (ch && d.candles1m.length) {
-    ch.series.setData(shift(d.candles1m.slice(-120)));
-    if (c) { ch.ema9.setData(shift(c.indicators.series.ema9.slice(-120))); ch.ema21.setData(shift(c.indicators.series.ema21.slice(-120))); }
+    // 봉이 1개 이하로 바뀌었으면 마지막 봉만 update(), 아니면 setData()
+    const win = d.candles1m.slice(-120), n = d.candles1m.length, first = d.candles1m[0].time;
+    const inc = !ch.first && first === ch.lastFirst && n - ch.lastLen >= 0 && n - ch.lastLen <= 1;
+    const push = (series, arr) => { if (!arr.length) return; if (inc) series.update(arr[arr.length - 1]); else series.setData(arr); };
+    push(ch.series, shift(win));
+    if (c) { push(ch.ema9, shift(c.indicators.series.ema9.slice(-120))); push(ch.ema21, shift(c.indicators.series.ema21.slice(-120))); }
+    ch.lastLen = n; ch.lastFirst = first;
     if (ch.first) { ch.chart.timeScale().scrollToRealTime(); ch.first = false; }
   }
 
@@ -119,16 +128,16 @@ function renderCard(w) {
       `호가 <b>${d.orderbook ? d.orderbook.bidAskRatio.toFixed(2) + '배' : '–'}</b>`, `체결 매수 <b>${c.tradeStat ? (c.tradeStat.buyRatio * 100).toFixed(0) + '%' : '–'}</b>`);
   }
   if (t) kp.push(`24h 거래대금 <b>${big(t.accTradePrice24h)}원</b>`);
-  $(`mkpi-${w.code}`).innerHTML = kp.map(x => `<span>${x}</span>`).join('');
+  setHTML($(`mkpi-${w.code}`), kp.map(x => `<span>${x}</span>`).join(''));
 
   // 켜진 트리거 · 실행 계획
   if (sg) {
     const bt = sg.buyParts.triggers.map(x => `<span class="t buy">${x.label.split(' (')[0]}</span>`).join('');
     const st = sg.sellParts.triggers.map(x => `<span class="t sell">${x.label.split(' (')[0]}</span>`).join('');
-    $(`mtrig-${w.code}`).innerHTML = bt || st ? `<span class="lb">트리거</span>${bt}${st}` : '<span class="lb">트리거 없음 · 셋업·확인만 반영 중</span>';
+    setHTML($(`mtrig-${w.code}`), bt || st ? `<span class="lb">트리거</span>${bt}${st}` : '<span class="lb">트리거 없음 · 셋업·확인만 반영 중</span>');
     const p = sg.plan;
-    $(`mplan-${w.code}`).innerHTML = p ? `${p.side === 'buy' ? '진입' : '신호'} <b>${fmtKRW(p.entry)}</b> · 목표 <b>${fmtKRW(p.target1)}</b> / <b>${fmtKRW(p.target2)}</b> · <span class="stop">손절 ${fmtKRW(p.stop)}</span> · 손익비 <b>${p.rr.toFixed(1)}</b>` : '';
-  } else { $(`mtrig-${w.code}`).innerHTML = ''; $(`mplan-${w.code}`).innerHTML = ''; }
+    setHTML($(`mplan-${w.code}`), p ? `${p.side === 'buy' ? '진입' : '신호'} <b>${fmtKRW(p.entry)}</b> · 목표 <b>${fmtKRW(p.target1)}</b> / <b>${fmtKRW(p.target2)}</b> · <span class="stop">손절 ${fmtKRW(p.stop)}</span> · 손익비 <b>${p.rr.toFixed(1)}</b>` : '');
+  } else { setHTML($(`mtrig-${w.code}`), ''); setHTML($(`mplan-${w.code}`), ''); }
 }
 
 function render() {
@@ -137,7 +146,7 @@ function render() {
   if (!grid.children.length) grid.innerHTML = WATCH.map(cardHtml).join('');
   for (const w of WATCH) renderCard(w);
   const ready = WATCH.filter(w => dataFor(w.code)?.computed).length;
-  $('multi-meta').textContent = `갱신 ${kstTime(Date.now())} · 판정 가능 ${ready}/${WATCH.length} 종목`;
+  setText($('multi-meta'), `갱신 ${kstTime(Date.now())} · 판정 가능 ${ready}/${WATCH.length} 종목`);
 }
 
 // 3초마다 판정(알림 포함), 화면이 열려 있을 때만 그린다
@@ -146,5 +155,5 @@ D.subscribe(() => {
   if (now - lastCompute > 3000) { lastCompute = now; compute(); }
   if (!$('view-multi').hidden && now - lastRender > 2000) { lastRender = now; render(); }
 });
-window.addEventListener('hashchange', () => { if (location.hash === '#multi') { lastRender = Date.now(); render(); } });
+window.addEventListener('hashchange', () => { if (location.hash === '#multi') { for (const ch of Object.values(charts)) ch.first = true; lastRender = Date.now(); render(); } });
 if (location.hash === '#multi') setTimeout(render, 300);

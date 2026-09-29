@@ -62,6 +62,30 @@ function saveLocal() {
   try { localStorage.setItem(LS_KEY, JSON.stringify({ settings, alertState, alertLog: state.alertLog.slice(0, 50) })); } catch { /* 무시 */ }
 }
 
+// ---------- 캔들 캐시 (localStorage) ----------
+// 종목을 바꾸거나 새로 고침할 때 REST 대기(약 11초/회) 없이 바로 그리기 위해, 받아 둔 1분봉·5분봉을 30초마다 저장한다.
+// 캐시가 "직전 봉"까지 있으면 WebSocket 이 현재 봉을 채워 주므로 REST 초기 요청을 건너뛴다.
+const CACHE_KEY = 'scalp-dash:candles:v1';
+let lastCacheSave = 0;
+function saveCandleCache() {
+  const markets = {};
+  const put = (code, c1, c5) => { if (c1.length || c5.length) markets[code] = { c1: c1.slice(-300), c5: c5.slice(-200) }; };
+  put(MARKET, state.candles1m, state.candles5m);
+  for (const b of Object.values(state.basket)) put(b.code, b.candles1m, b.candles5m);
+  try { localStorage.setItem(CACHE_KEY, JSON.stringify({ savedAt: Date.now(), markets })); } catch { /* 용량 초과 등은 무시 */ }
+  lastCacheSave = Date.now();
+}
+// 캐시가 직전 봉(또는 현재 봉)까지 담고 있으면 true → REST 없이 WebSocket 만으로 이어 붙일 수 있다
+const cacheCovers = (arr, secs) => arr.length > 50 && arr[arr.length - 1].time >= Math.floor(Date.now() / 1000 / secs) * secs - secs;
+function restoreCandleCache() {
+  let data; try { data = JSON.parse(localStorage.getItem(CACHE_KEY) || 'null'); } catch { return; }
+  if (!data || !data.markets || Date.now() - data.savedAt > 6 * 3600 * 1000) return;   // 6시간 넘은 캐시는 버린다
+  const me = data.markets[MARKET];
+  if (me) { state.candles1m = me.c1 || []; state.candles5m = me.c5 || []; }
+  for (const b of Object.values(state.basket)) { const c = data.markets[b.code]; if (c) { b.candles1m = c.c1 || []; b.candles5m = c.c5 || []; } }
+  state.fromCache = !!me;
+}
+
 // ---------- 유틸 ----------
 const $ = id => document.getElementById(id);
 const fmt = (n, d = 0) => n === null || n === undefined || Number.isNaN(n) ? '–' : Number(n).toLocaleString('ko-KR', { maximumFractionDigits: d, minimumFractionDigits: d });
@@ -114,16 +138,18 @@ function mergeCandles(rest, live, max) {
 }
 
 async function bootstrap() {
-  setError('초기 캔들 데이터를 받는 중…');
+  // 캐시가 직전 봉까지 있으면 REST 를 건너뛴다 (WebSocket 이 현재 봉부터 이어 붙인다)
+  const need1 = !cacheCovers(state.candles1m, 60), need5 = !cacheCovers(state.candles5m, 300);
+  if (!need1 && !need5) { state.bootstrapFailed = false; return; }
+  setError(state.candles1m.length ? '캐시로 먼저 표시 중 · 최신 캔들을 받는 중…' : '초기 캔들 데이터를 받는 중…');
   // 두 요청을 동시에 큐에 넣어 다른 종목 요청보다 앞서게 한다 (큐가 11초 간격으로 순서대로 보낸다)
-  const p1 = restJson(`/v1/candles/minutes/1?market=${MARKET}&count=200`);
-  const p5 = restJson(`/v1/candles/minutes/5?market=${MARKET}&count=120`);
+  const p1 = need1 ? restJson(`/v1/candles/minutes/1?market=${MARKET}&count=200`) : Promise.resolve(null);
+  const p5 = need5 ? restJson(`/v1/candles/minutes/5?market=${MARKET}&count=120`) : Promise.resolve(null);
   try {
-    const c1 = (await p1).reverse().map(toCandle);
-    state.candles1m = mergeCandles(c1, state.candles1m, 300);
-    dirty = true;
-    const c5 = (await p5).reverse().map(toCandle);
-    state.candles5m = mergeCandles(c5, state.candles5m, 200);
+    const r1 = await p1;
+    if (r1) { state.candles1m = mergeCandles(r1.reverse().map(toCandle), state.candles1m, 300); fullRedraw = true; dirty = true; }
+    const r5 = await p5;
+    if (r5) state.candles5m = mergeCandles(r5.reverse().map(toCandle), state.candles5m, 200);
     state.bootstrapFailed = false;
     setError(null);
   } catch {
@@ -135,9 +161,12 @@ async function bootstrap() {
   dirty = true;
 }
 // 관심 종목(한눈에 탭)의 1분봉. 초기 캔들 뒤에 큐로 이어서 받는다. 못 받으면 WebSocket 으로 누적된다.
+let watchStarted = false;
 async function loadWatch1m() {
+  if (watchStarted) return; watchStarted = true;
   for (const w of WATCH) {
     const b = state.basket[w.code]; if (!b) continue;
+    if (cacheCovers(b.candles1m, 60)) { b.loaded1m = true; continue; }   // 캐시로 충분하면 건너뛴다
     try {
       const c1 = (await restJson(`/v1/candles/minutes/1?market=${w.code}&count=200`, 3)).reverse().map(toCandle);
       b.candles1m = mergeCandles(c1, b.candles1m, 300); b.loaded1m = true; dirty = true;
@@ -196,6 +225,7 @@ function connectWS() {
     switch (d.type) {
       case 'ticker':
         state.ticker = tick(d);
+        schedulePriceRender();   // 현재가는 1초 틱을 기다리지 않고 바로 표시
         break;
       case 'trade':
         state.trades.unshift(toTrade(d)); if (state.trades.length > 200) state.trades.length = 200; break;
@@ -341,7 +371,10 @@ rsiS.createPriceLine({ price: 70, color: 'rgba(245,158,11,.6)', lineStyle: 2, li
 rsiS.createPriceLine({ price: 30, color: 'rgba(34,197,94,.6)', lineStyle: 2, lineWidth: 1, title: '30' });
 chart.timeScale().subscribeVisibleLogicalRangeChange(r => r && rsiChart.timeScale().setVisibleLogicalRange(r));
 const shift = arr => arr.map(p => ({ ...p, time: p.time + KST }));
+let lastPriceLineKey = '';
 function updatePriceLines(m) {
+  const key = `${m.hasPosition ? settings.avgPrice + ':' + m.nextLevelPrice : ''}|${m.dropTriggerPrice || ''}`;
+  if (key === lastPriceLineKey) return; lastPriceLineKey = key;
   [avgLine, targetLine, dropLine].forEach(l => l && candleSeries.removePriceLine(l)); avgLine = targetLine = dropLine = null;
   if (m.hasPosition) {
     avgLine = candleSeries.createPriceLine({ price: settings.avgPrice, color: '#e6eaf2', lineWidth: 1, lineStyle: 0, title: '평단' });
@@ -350,7 +383,10 @@ function updatePriceLines(m) {
   if (m.dropTriggerPrice) dropLine = candleSeries.createPriceLine({ price: m.dropTriggerPrice, color: '#f59e0b', lineWidth: 1, lineStyle: 2, title: `급락 알림 -${settings.dropPct}%` });
 }
 // 활성 타이밍 신호의 목표가·손절가를 차트에 표시
+let lastPlanKey = '', lastMarkKey = '';
 function updatePlanLines(sig) {
+  const key = sig && sig.plan ? `${sig.kind}:${sig.plan.entry}:${sig.plan.stop}:${sig.plan.target1}:${sig.plan.target2}` : '';
+  if (key === lastPlanKey) return; lastPlanKey = key;
   planLines.forEach(l => candleSeries.removePriceLine(l)); planLines = [];
   if (!sig || !sig.plan) return;
   const p = sig.plan, col = p.side === 'buy' ? '#22c55e' : '#f59e0b';
@@ -360,6 +396,8 @@ function updatePlanLines(sig) {
   planLines.push(candleSeries.createPriceLine({ price: p.stop, color: '#ef4444', lineWidth: 1, lineStyle: 2, title: '손절' }));
 }
 function updateMarkers() {
+  const key = state.signalMarks.map(mk => mk.time + mk.kind + mk.score).join(',');
+  if (key === lastMarkKey) return; lastMarkKey = key;
   candleSeries.setMarkers(state.signalMarks.map(mk => ({
     time: mk.time + KST, position: mk.kind === 'buy' ? 'belowBar' : 'aboveBar', color: mk.kind === 'buy' ? '#22c55e' : '#f59e0b',
     shape: mk.kind === 'buy' ? 'arrowUp' : 'arrowDown', text: `${mk.kind === 'buy' ? '매수' : '매도'} ${mk.score}`, size: 1.5,
@@ -367,9 +405,30 @@ function updateMarkers() {
 }
 
 // ---------- 렌더 ----------
-const GROUPS = [['setup', '셋업 · 어디에 있나', 35], ['trigger', '트리거 · 지금 도는가', 40], ['confirm', '확인 · 수급이 따르나', 25], ['regime', '추세 · 배수로 반영', 0]];
+// innerHTML 은 내용이 바뀐 경우에만 넣는다 (같은 문자열이면 DOM 재구성·레이아웃을 건너뛴다)
+const htmlCache = new WeakMap();
+function setHTML(el, html) { if (htmlCache.get(el) === html) return; htmlCache.set(el, html); el.innerHTML = html; }
+function setText(el, text) { if (el.textContent !== text) el.textContent = text; }
+// 현재가 표시(헤더·미니바·사이드바)만 즉시 갱신. 프레임당 1회로 묶는다
+let priceRaf = 0;
+function schedulePriceRender() { if (priceRaf) return; priceRaf = requestAnimationFrame(() => { priceRaf = 0; renderPrice(); }); }
+function renderPrice() {
+  const t = state.ticker; if (!t) return;
+  const up = t.changeRate >= 0, pctTxt = `${(Math.abs(t.changeRate) * 100).toFixed(2)}%`;
+  setText($('price'), fmtKRW(t.price));
+  const el = $('chg'); setText(el, `${up ? '▲' : '▼'} ${fmt(Math.abs(t.changePrice))} (${up ? '' : '-'}${pctTxt})`); el.className = 'chg ' + (up ? 'up' : 'down');
+  setHTML($('sb-price'), `${fmtKRW(t.price)}<span class="chg ${up ? 'up' : 'down'}">${up ? '▲' : '▼'}${pctTxt}</span>`);
+  setHTML($('mb-price'), `${fmtKRW(t.price)} <span class="chg ${up ? 'up' : 'down'}">${up ? '▲' : '▼'}${pctTxt}</span>`);
+}
+// 차트: 봉 수가 1개 이하로 변했으면 마지막 점만 update(), 그 외(초기·REST 병합)는 setData()
+let fullRedraw = true, lastLen = 0, lastFirst = 0;
+function pushSeries(series, data, incremental) {
+  if (!data.length) return;
+  if (incremental) series.update(data[data.length - 1]); else series.setData(data);
+}
+const GROUPS =[['setup', '셋업 · 어디에 있나', 35], ['trigger', '트리거 · 지금 도는가', 40], ['confirm', '확인 · 수급이 따르나', 25], ['regime', '추세 · 배수로 반영', 0]];
 function renderList(id, items, kind, parts) {
-  $(id).innerHTML = GROUPS.map(([g, title, cap]) => {
+  const html = GROUPS.map(([g, title, cap]) => {
     const rows = items.filter(c => c.group === g);
     if (!rows.length) return '';
     const got = parts ? parts[g] : null;
@@ -378,13 +437,14 @@ function renderList(id, items, kind, parts) {
       `<li class="${c.ok ? 'on' : ''} ${c.group}"><span class="dot ${kind} ${c.ok ? 'on' : ''}"></span><span>${c.label}</span>
        <span class="pts">${c.max ? (c.ok ? `+${c.pts}` : `0/${c.max}`) : ''}</span><span class="val">${c.value ?? '–'}</span></li>`).join('');
   }).join('');
+  setHTML($(id), html);
 }
 const pctStr = (a, b) => `${a >= b ? '+' : ''}${((a / b - 1) * 100).toFixed(2)}%`;
 const ago = ms => { const s = Math.round((Date.now() - ms) / 1000); return s < 60 ? `${s}초 전` : `${Math.floor(s / 60)}분 ${s % 60}초 전`; };
 // 상단 타이밍 배너: 활성 신호가 있으면 그것을, 없으면 현재 점수·상태를 크게 보여준다
 function renderTiming(c) {
   const el = $('timing');
-  if (!c) { el.className = 'timing neutral'; el.innerHTML = '<div class="tl"><div class="big">데이터 대기</div><div class="sub">1분봉 60개가 쌓이면 판정을 시작합니다</div></div>'; return; }
+  if (!c) { el.className = 'timing neutral'; setHTML(el, '<div class="tl"><div class="big">데이터 대기</div><div class="sub">1분봉 60개가 쌓이면 판정을 시작합니다</div></div>'); return; }
   const sg = c.signals, sig = state.signal;
   const status = sig ? `${sig.kind}_strong` : sg.status;
   const side = status.startsWith('buy') ? 'buy' : status.startsWith('sell') ? 'sell' : null;
@@ -418,7 +478,7 @@ function renderTiming(c) {
     planHtml = `<div class="plan"><span><b>${plan.side === 'buy' ? '진입' : '신호'}</b> ${fmtKRW(plan.entry)}</span><span><b>목표 1</b> ${d(plan.target1)}</span><span><b>목표 2</b> ${d(plan.target2)}</span><span class="stop"><b>손절</b> ${d(plan.stop)}</span><span><b>손익비</b> ${plan.rr.toFixed(1)}</span></div>`;
   }
   el.className = `timing ${status}`;
-  el.innerHTML = `<div class="tl"><div class="big">${big}</div><div class="sub">${sub}</div>${why}${planHtml}</div>${gauge}`;
+  setHTML(el, `<div class="tl"><div class="big">${big}</div><div class="sub">${sub}</div>${why}${planHtml}</div>${gauge}`);
 }
 function renderSettings() {
   $('in-qty').value = settings.qty || ''; $('in-avg').value = settings.avgPrice || '';
@@ -442,7 +502,7 @@ function renderPosition(m) {
   if (m.dropFromHigh !== null) items.push([`최근 ${settings.dropWindowMin}분 고점 대비`, `${m.dropFromHigh.toFixed(2)}%`, `고점 ${fmtKRW(m.windowHigh)} · 알림가 ${fmtKRW(m.dropTriggerPrice)}`]);
   if (m.dropFromPrev !== null) items.push(['전일 종가 대비', `${m.dropFromPrev >= 0 ? '+' : ''}${m.dropFromPrev.toFixed(2)}%`, `급락 알림 기준 -${settings.dropPct}% · ${alertState.dropFired ? '알림 발송됨 (회복 시 재무장)' : '감시 중'}`]);
   el.className = 'kpis';
-  el.innerHTML = items.map(([l, v, s2]) => `<div class="kpi"><div class="l">${l}</div><div class="v">${v}</div><div class="s">${s2}</div></div>`).join('');
+  setHTML(el, items.map(([l, v, s2]) => `<div class="kpi"><div class="l">${l}</div><div class="v">${v}</div><div class="s">${s2}</div></div>`).join(''));
 }
 
 // 관심 종목 시세 표: 현재 종목은 자체 상태, 나머지는 바스켓 수신값을 쓴다. 행을 누르면 그 종목으로 전환
@@ -460,7 +520,7 @@ function renderWatch() {
       <td>${t ? fmtKRW(t.price) : '–'}</td><td class="${cls(cr)}">${pct(cr)}</td><td class="${cls(h1)}">${pct(h1)}</td><td class="${cls(h4)}">${pct(h4)}</td>
       <td class="vol">${t ? big(t.accTradePrice24h) + '원' : '–'}</td></tr>`;
   }).join('');
-  $('watchtable').innerHTML = `<tr><th style="text-align:left">종목</th><th>현재가</th><th>전일 대비</th><th>1시간</th><th>4시간</th><th class="vol">24h 거래대금</th></tr>${rows}`;
+  setHTML($('watchtable'), `<tr><th style="text-align:left">종목</th><th>현재가</th><th>전일 대비</th><th>1시간</th><th>4시간</th><th class="vol">24h 거래대금</th></tr>${rows}`);
 }
 function renderMarkets() {
   $('markets').innerHTML = WATCH.map(w => `<a href="?market=${w.code}${location.hash || '#dash'}" class="${w.code === MARKET ? 'active' : ''}">${w.short}</a>`).join('');
@@ -470,40 +530,42 @@ function render(m) {
   const s = state, c = s.computed;
   renderWatch();
   const connLabel = { connecting: '연결 중…', live: 'WebSocket 실시간', reconnect: '재연결 대기 중 (요청 제한 회피를 위해 간격을 늘림)' }[s.conn];
-  $('meta').textContent = `${connLabel}${s.updatedAt ? ' · 갱신 ' + kstTime(s.updatedAt) : ''}`;
+  setText($('meta'), `${connLabel}${s.updatedAt ? ' · 갱신 ' + kstTime(s.updatedAt) : ''}`);
   // 사이드바(넓은 화면) 상태 카드·바닥글
-  $('sb-market').textContent = BASE;
-  if (s.ticker) $('sb-price').innerHTML = `${fmtKRW(s.ticker.price)}<span class="chg ${s.ticker.changeRate >= 0 ? 'up' : 'down'}">${s.ticker.changeRate >= 0 ? '▲' : '▼'}${(Math.abs(s.ticker.changeRate) * 100).toFixed(2)}%</span>`;
-  $('sb-foot').innerHTML = `${connLabel}${s.updatedAt ? '<br>갱신 ' + kstTime(s.updatedAt) : ''}<br><kbd>1</kbd><kbd>2</kbd><kbd>3</kbd><kbd>4</kbd> 메뉴 이동`;
-  $('market').textContent = `${s.market} · 업비트 · 1분봉`;
-  $('title').textContent = `${BASE} 스캘핑 조건 대시보드`;
-
-  if (s.ticker) {
-    const t = s.ticker;
-    $('price').textContent = fmtKRW(t.price);
-    const el = $('chg');
-    el.textContent = `${t.changeRate >= 0 ? '▲' : '▼'} ${fmt(Math.abs(t.changePrice))} (${(t.changeRate * 100).toFixed(2)}%)`;
-    el.className = 'chg ' + (t.changeRate >= 0 ? 'up' : 'down');
-  }
-  renderPosition(m);
-  renderTiming(c);
-  // 모바일 고정 미니바 (현재가 · 상태)
-  if (s.ticker) $('mb-price').innerHTML = `${fmtKRW(s.ticker.price)} <span class="chg ${s.ticker.changeRate >= 0 ? 'up' : 'down'}">${s.ticker.changeRate >= 0 ? '▲' : '▼'}${(Math.abs(s.ticker.changeRate) * 100).toFixed(2)}%</span>`;
+  setText($('sb-market'), BASE);
+  setHTML($('sb-foot'), `${connLabel}${s.updatedAt ? '<br>갱신 ' + kstTime(s.updatedAt) : ''}<br><kbd>1</kbd><kbd>2</kbd><kbd>3</kbd><kbd>4</kbd> 메뉴 이동`);
+  setText($('market'), `${s.market} · 업비트 · 1분봉`);
+  setText($('title'), `${BASE} 스캘핑 조건 대시보드`);
+  renderPrice();
+  // 대시보드 화면이 숨겨져 있으면(다른 탭) 헤더·상태만 갱신하고 무거운 본문 렌더는 건너뛴다. 다시 보일 때 전체를 그린다
+  const dashVisible = !$('view-dash').hidden;
+  if (!dashVisible) fullRedraw = true;
   if (c) {
     const st = $('status');
     const shown = s.signal ? `${s.signal.kind === 'buy' ? '▲ 매수' : '▼ 매도'} 타이밍 · ${s.signal.kind === 'buy' ? c.signals.buyScore : c.signals.sellScore}점` : c.signals.statusLabel;
     const cls = s.signal ? `${s.signal.kind}_strong` : c.signals.status;
-    st.textContent = shown; st.className = 'status ' + cls;
-    $('mb-status').textContent = shown; $('minibar').className = 'minibar ' + cls;
-    $('sb-pill').textContent = shown; $('sbstatus').className = 'sbstatus ' + cls;
+    setText(st, shown); st.className = 'status ' + cls;
+    setText($('mb-status'), shown); $('minibar').className = 'minibar ' + cls;
+    setText($('sb-pill'), shown); $('sbstatus').className = 'sbstatus ' + cls;
+  }
+  if (!dashVisible) return;
+  renderWatch();
+  renderPosition(m);
+  renderTiming(c);
+  if (c) {
     renderList('buylist', c.signals.buy, 'buy', c.signals.buyParts); renderList('selllist', c.signals.sell, 'sell', c.signals.sellParts);
-    $('buycount').textContent = `${c.signals.buyScore}점`; $('buycount').className = 'count ' + (c.signals.buyScore >= c.signals.thresholds.strong ? 'hot' : '');
-    $('sellcount').textContent = `${c.signals.sellScore}점`; $('sellcount').className = 'count ' + (c.signals.sellScore >= c.signals.thresholds.strong ? 'hot' : '');
+    setText($('buycount'), `${c.signals.buyScore}점`); $('buycount').className = 'count ' + (c.signals.buyScore >= c.signals.thresholds.strong ? 'hot' : '');
+    setText($('sellcount'), `${c.signals.sellScore}점`); $('sellcount').className = 'count ' + (c.signals.sellScore >= c.signals.thresholds.strong ? 'hot' : '');
 
-    candleSeries.setData(shift(s.candles1m));
-    ema9S.setData(shift(c.indicators.series.ema9)); ema21S.setData(shift(c.indicators.series.ema21));
-    bbU.setData(shift(c.indicators.series.bbUpper)); bbL.setData(shift(c.indicators.series.bbLower));
-    rsiS.setData(shift(c.indicators.series.rsi));
+    // 차트: 평소에는 마지막 봉만 갱신(update), 봉이 여러 개 바뀌었거나 처음이면 전체(setData)
+    const n = s.candles1m.length, first = s.candles1m[0]?.time || 0;
+    const incremental = !fullRedraw && first === lastFirst && n - lastLen >= 0 && n - lastLen <= 1;
+    const sr = c.indicators.series;
+    pushSeries(candleSeries, shift(s.candles1m), incremental);
+    pushSeries(ema9S, shift(sr.ema9), incremental); pushSeries(ema21S, shift(sr.ema21), incremental);
+    pushSeries(bbU, shift(sr.bbUpper), incremental); pushSeries(bbL, shift(sr.bbLower), incremental);
+    pushSeries(rsiS, shift(sr.rsi), incremental);
+    lastLen = n; lastFirst = first; fullRedraw = false;
     if (m) updatePriceLines(m);
     updatePlanLines(s.signal); updateMarkers();
     if (firstDraw) { chart.timeScale().scrollToRealTime(); firstDraw = false; }
@@ -520,33 +582,33 @@ function render(m) {
       ['스프레드', ob ? `${fmt(ob.spread)}원` : '–', ob ? `${ob.spreadPct.toFixed(3)}%` : ''],
       ['24h 고가 / 저가', tk ? `${fmt(tk.high24)} / ${fmt(tk.low24)}` : '–', tk ? `24h 거래대금 ${big(tk.accTradePrice24h)}원` : ''],
     ];
-    $('kpis').innerHTML = kp.map(([l, v, s2]) => `<div class="kpi"><div class="l">${l}</div><div class="v">${v ?? '–'}</div><div class="s">${s2 ?? ''}</div></div>`).join('');
+    setHTML($('kpis'), kp.map(([l, v, s2]) => `<div class="kpi"><div class="l">${l}</div><div class="v">${v ?? '–'}</div><div class="s">${s2 ?? ''}</div></div>`).join(''));
   }
   if (s.orderbook) {
     const ob = s.orderbook, p = ob.totalBid / (ob.totalBid + ob.totalAsk) * 100;
     $('obbar').style.setProperty('--p', p.toFixed(1) + '%');
-    $('obbid').textContent = `매수 ${big(ob.totalBid)}`; $('obask').textContent = `매도 ${big(ob.totalAsk)}`;
-    $('obratio').textContent = `매수/매도 ${ob.bidAskRatio.toFixed(2)}배`;
+    setText($('obbid'), `매수 ${big(ob.totalBid)}`); setText($('obask'), `매도 ${big(ob.totalAsk)}`);
+    setText($('obratio'), `매수/매도 ${ob.bidAskRatio.toFixed(2)}배`);
     const max = Math.max(...ob.units.flatMap(u => [u.ask_size, u.bid_size]));
     const asks = ob.units.slice().reverse().map(u => `<tr><td></td><td class="depth ask"><span style="width:${u.ask_size / max * 100}%"></span>${big(u.ask_size)}</td><td class="ask">${fmt(u.ask_price)}</td></tr>`).join('');
     const bids = ob.units.map(u => `<tr><td class="bid">${fmt(u.bid_price)}</td><td class="depth bid"><span style="width:${u.bid_size / max * 100}%"></span>${big(u.bid_size)}</td><td></td></tr>`).join('');
-    $('obtable').innerHTML = `<tr><th>매수호가</th><th>잔량</th><th>매도호가</th></tr>${asks}${bids}`;
+    setHTML($('obtable'), `<tr><th>매수호가</th><th>잔량</th><th>매도호가</th></tr>${asks}${bids}`);
   }
   if (c && c.tradeStat) {
     const tr = c.tradeStat, p = tr.buyRatio * 100;
-    $('trhead').textContent = `최근 체결 ${tr.count}건 매수/매도 비중${tr.count < 200 ? ' (접속 후 누적 중)' : ''}`;
+    setText($('trhead'), `최근 체결 ${tr.count}건 매수/매도 비중${tr.count < 200 ? ' (접속 후 누적 중)' : ''}`);
     $('trbar').style.setProperty('--p', p.toFixed(1) + '%');
-    $('trbuy').textContent = `매수 ${p.toFixed(0)}% (${big(tr.buyVol)})`; $('trsell').textContent = `매도 ${(100 - p).toFixed(0)}% (${big(tr.sellVol)})`;
-    $('trtable').innerHTML = `<tr><th>시간(KST)</th><th>가격</th><th>수량</th><th>구분</th></tr>` +
-      s.trades.slice(0, 12).map(t => `<tr><td>${kstTime(t.ts)}</td><td>${fmt(t.price)}</td><td>${big(t.volume)}</td><td class="${t.side === 'BID' ? 'bid' : 'ask'}">${t.side === 'BID' ? '매수' : '매도'}</td></tr>`).join('');
+    setText($('trbuy'), `매수 ${p.toFixed(0)}% (${big(tr.buyVol)})`); setText($('trsell'), `매도 ${(100 - p).toFixed(0)}% (${big(tr.sellVol)})`);
+    setHTML($('trtable'), `<tr><th>시간(KST)</th><th>가격</th><th>수량</th><th>구분</th></tr>` +
+      s.trades.slice(0, 12).map(t => `<tr><td>${kstTime(t.ts)}</td><td>${fmt(t.price)}</td><td>${big(t.volume)}</td><td class="${t.side === 'BID' ? 'bid' : 'ask'}">${t.side === 'BID' ? '매수' : '매도'}</td></tr>`).join(''));
   }
 
-  $('alertlog').innerHTML = s.alertLog.length ? s.alertLog.map(a =>
+  setHTML($('alertlog'), s.alertLog.length ? s.alertLog.map(a =>
     `<div><span class="t">${kstTime(a.time)}</span><span class="pill ${a.kind === 'sell' ? 'buy_strong' : 'sell_strong'}">${a.kind === 'sell' ? '매도' : '매수'}</span><span>${a.title} · ${a.body}</span></div>`).join('')
-    : '<div style="color:var(--muted)">아직 알림 없음</div>';
-  $('log').innerHTML = s.log.length ? s.log.map(l =>
+    : '<div style="color:var(--muted)">아직 알림 없음</div>');
+  setHTML($('log'), s.log.length ? s.log.map(l =>
     `<div><span class="t">${kstTime(l.time)}</span><span class="pill ${l.status}">${l.statusLabel}</span><span style="margin-left:auto;color:var(--muted)">${fmtKRW(l.price)} · 매수 ${l.buyCount}점 / 매도 ${l.sellCount}점</span></div>`).join('')
-    : '<div style="color:var(--muted)">아직 상태 변화 없음</div>';
+    : '<div style="color:var(--muted)">아직 상태 변화 없음</div>');
 }
 
 // 강한 신호 관리: 새로 뜨면 기록·마커·알림, 이후 HOLD 동안 유지, 반대 신호가 뜨거나 점수가 준비 기준 아래로 떨어지면 해제
@@ -593,6 +655,7 @@ function tick() {
   const m = state.ticker ? checkAlerts(state.ticker.price) : null;
   // 렌더 중 예외가 나도 다음 틱과 구독자(연관도 탭)는 계속 돌게 한다
   try { render(m); } catch (e) { console.error('render', e); }
+  if (Date.now() - lastCacheSave > 30000) saveCandleCache();
   for (const fn of listeners) { try { fn(state); } catch { /* 구독자 오류는 대시보드에 영향 주지 않음 */ } }
 }
 
@@ -631,6 +694,7 @@ function bindSettings() {
 
 // ---------- 시작 ----------
 loadLocal();
+restoreCandleCache();   // 캐시가 있으면 REST 대기 없이 즉시 차트·판정을 시작한다
 bindSettings();
 renderSettings();
 renderMarkets();
@@ -642,5 +706,10 @@ render(null);
 if ('serviceWorker' in navigator) navigator.serviceWorker.register('./sw.js').then(r => { swReg = r; }).catch(() => {});
 connectWS();                       // WebSocket 접속 1회
 // REST 큐 순서: 현재 종목 1분봉·5분봉 → 관심 종목 1분봉 3개 → (relate.js) 비교 종목 5분봉 6개. 11초 간격, 약 2분
-window.dash.queueReady = bootstrap().then(loadWatch1m);
+// 연관도 탭으로 바로 들어온 경우엔 비교 종목 5분봉(relate.js)을 먼저 받고 관심 종목 1분봉은 그 뒤에 받는다
+window.dash.loadWatch1m = loadWatch1m;
+window.dash.queueReady = bootstrap().then(() => { if (location.hash !== '#relate') return loadWatch1m(); });
+window.addEventListener('hashchange', () => { dirty = true; fullRedraw = true; });
+window.addEventListener('pagehide', saveCandleCache);
+if (state.fromCache) dirty = true;
 setInterval(tick, 1000);

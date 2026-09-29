@@ -23,6 +23,8 @@ async function loadBasket() {
   setStatus('비교 종목 캔들을 요청 제한(약 10초당 1회)에 맞춰 차례로 받는 중…');
   for (const b of BASKET) {
     const slot = state.basket[b.code];
+    // 캐시가 직전 5분봉까지 담고 있으면 REST 를 건너뛴다 (WebSocket 이 현재 봉을 채운다)
+    if (slot.candles5m.length > 50 && slot.candles5m[slot.candles5m.length - 1].time >= Math.floor(Date.now() / 1000 / 300) * 300 - 300) { slot.loaded = true; continue; }
     try {
       const c5 = (await restJson(`/v1/candles/minutes/5?market=${b.code}&count=200`, 3)).reverse().map(toCandle);
       slot.candles5m = mergeCandles(c5, slot.candles5m, 200); slot.loaded = true;
@@ -259,6 +261,7 @@ $('rel-chart-title').textContent = `최근 12시간 정규화 가격 비교 · �
 $('rel-events-title').textContent = `${R.entity} 헤드라인 이후 ${BASE} 가격 반응`;
 D.subscribe(() => { if (!$('view-relate').hidden && Date.now() - lastRender > 3000) { lastRender = Date.now(); render(); } });
 window.addEventListener('hashchange', () => { if (location.hash === '#relate') { loadBasket(); lastRender = Date.now(); render(); } });
-(D.queueReady || Promise.resolve()).then(loadBasket);   // 초기 캔들·관심 종목 1분봉이 끝난 뒤 이어서 받는다
+// 초기 캔들 뒤에 이어서 받는다. 연관도 탭으로 바로 들어왔으면 비교 종목이 먼저, 관심 종목 1분봉은 그 다음
+(D.queueReady || Promise.resolve()).then(loadBasket).then(() => D.loadWatch1m && D.loadWatch1m());
 loadNews();
 setInterval(loadNews, 5 * 60 * 1000);
