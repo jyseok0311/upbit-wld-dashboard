@@ -153,16 +153,16 @@ function ensureChart() {
   if (chart) return;
   const LWC = window.LightweightCharts;
   chart = LWC.createChart($('rel-chart'), {
-    autoSize: true, layout: { background: { color: '#121826' }, textColor: '#8b95ad', fontSize: 11 },
-    grid: { vertLines: { color: '#1b2336' }, horzLines: { color: '#1b2336' } },
-    timeScale: { timeVisible: true, secondsVisible: false, borderColor: '#232c42', rightOffset: 3 },
-    rightPriceScale: { borderColor: '#232c42' }, crosshair: { mode: 0 }, localization: { locale: 'ko-KR', priceFormatter: v => v.toFixed(1) + '%' },
+    autoSize: true, layout: { background: { type: 'solid', color: 'transparent' }, textColor: '#8d97b8', fontSize: 11 },
+    grid: { vertLines: { color: 'rgba(255,255,255,.05)' }, horzLines: { color: 'rgba(255,255,255,.05)' } },
+    timeScale: { timeVisible: true, secondsVisible: false, borderColor: 'rgba(255,255,255,.12)', rightOffset: 3 },
+    rightPriceScale: { borderColor: 'rgba(255,255,255,.12)' }, crosshair: { mode: 0 }, localization: { locale: 'ko-KR', priceFormatter: v => v.toFixed(1) + '%' },
     handleScroll: { vertTouchDrag: false, mouseWheel: true, pressedMouseMove: true, horzTouchDrag: true },
     handleScale: { axisPressedMouseMove: true, mouseWheel: true, pinch: true },
   });
-  series.me = chart.addLineSeries({ color: '#7c9cff', lineWidth: 2, title: BASE, priceLineVisible: false });
-  series.factor = chart.addLineSeries({ color: '#f59e0b', lineWidth: 1, title: FACTOR_SHORT, priceLineVisible: false, lastValueVisible: true });
-  series.theme = chart.addLineSeries({ color: '#22c55e', lineWidth: 1, title: `${R.theme.label} 평균`, priceLineVisible: false, lastValueVisible: true });
+  series.me = chart.addLineSeries({ color: '#3fd6ff', lineWidth: 2, title: BASE, priceLineVisible: false });
+  series.factor = chart.addLineSeries({ color: '#ffb454', lineWidth: 1, title: FACTOR_SHORT, priceLineVisible: false, lastValueVisible: true });
+  series.theme = chart.addLineSeries({ color: '#3ddc97', lineWidth: 1, title: `${R.theme.label} 평균`, priceLineVisible: false, lastValueVisible: true });
   series.me.createPriceLine({ price: 0, color: 'rgba(230,234,242,.35)', lineStyle: 2, lineWidth: 1, title: '0%' });
 }
 function normalized(candles, times) {

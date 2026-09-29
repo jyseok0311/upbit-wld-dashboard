@@ -347,11 +347,11 @@ function checkAlerts(price) {
 // ---------- 차트 ----------
 const LWC = window.LightweightCharts;
 const common = {
-  layout: { background: { color: '#121826' }, textColor: '#8b95ad', fontSize: 11 },
-  grid: { vertLines: { color: '#1b2336' }, horzLines: { color: '#1b2336' } },
+  layout: { background: { type: 'solid', color: 'transparent' }, textColor: '#8d97b8', fontSize: 11 },
+  grid: { vertLines: { color: 'rgba(255,255,255,.05)' }, horzLines: { color: 'rgba(255,255,255,.05)' } },
   // 좁은 화면에서는 봉 간격을 줄여 같은 폭에 더 긴 구간(약 1시간)이 보이게 한다
-  timeScale: { timeVisible: true, secondsVisible: false, borderColor: '#232c42', rightOffset: 4, barSpacing: window.innerWidth <= 700 ? 4.5 : 7 },
-  rightPriceScale: { borderColor: '#232c42' }, crosshair: { mode: 0 },
+  timeScale: { timeVisible: true, secondsVisible: false, borderColor: 'rgba(255,255,255,.12)', rightOffset: 4, barSpacing: window.innerWidth <= 700 ? 4.5 : 7 },
+  rightPriceScale: { borderColor: 'rgba(255,255,255,.12)' }, crosshair: { mode: 0 },
   // 가격축: 1만 원 이상은 천 단위 구분·정수, 그 미만은 소수 1자리 (RSI 축도 같은 형식을 쓴다)
   localization: { locale: 'ko-KR', priceFormatter: p => p >= 10000 ? Math.round(p).toLocaleString('ko-KR') : p.toFixed(1) },
   // 모바일: 차트 위 세로 스와이프는 페이지 스크롤로, 가로 스와이프·핀치만 차트 조작으로
@@ -359,16 +359,16 @@ const common = {
   handleScale: { axisPressedMouseMove: true, mouseWheel: true, pinch: true },
 };
 const chart = LWC.createChart($('chart'), { ...common, autoSize: true });
-const candleSeries = chart.addCandlestickSeries({ upColor: '#ff5b6e', downColor: '#3f8cff', borderVisible: false, wickUpColor: '#ff5b6e', wickDownColor: '#3f8cff' });
-const ema9S = chart.addLineSeries({ color: '#facc15', lineWidth: 1, priceLineVisible: false, lastValueVisible: false, title: 'EMA9' });
-const ema21S = chart.addLineSeries({ color: '#a78bfa', lineWidth: 1, priceLineVisible: false, lastValueVisible: false, title: 'EMA21' });
-const bbU = chart.addLineSeries({ color: 'rgba(124,156,255,.55)', lineWidth: 1, lineStyle: 2, priceLineVisible: false, lastValueVisible: false });
-const bbL = chart.addLineSeries({ color: 'rgba(124,156,255,.55)', lineWidth: 1, lineStyle: 2, priceLineVisible: false, lastValueVisible: false });
+const candleSeries = chart.addCandlestickSeries({ upColor: '#ff6580', downColor: '#4f8dff', borderVisible: false, wickUpColor: '#ff6580', wickDownColor: '#4f8dff' });
+const ema9S = chart.addLineSeries({ color: '#3fd6ff', lineWidth: 1, priceLineVisible: false, lastValueVisible: false, title: 'EMA9' });
+const ema21S = chart.addLineSeries({ color: '#8b7cff', lineWidth: 1, priceLineVisible: false, lastValueVisible: false, title: 'EMA21' });
+const bbU = chart.addLineSeries({ color: 'rgba(63,214,255,.35)', lineWidth: 1, lineStyle: 2, priceLineVisible: false, lastValueVisible: false });
+const bbL = chart.addLineSeries({ color: 'rgba(63,214,255,.35)', lineWidth: 1, lineStyle: 2, priceLineVisible: false, lastValueVisible: false });
 let avgLine = null, targetLine = null, dropLine = null, planLines = [];
 const rsiChart = LWC.createChart($('rsi'), { ...common, autoSize: true, rightPriceScale: { ...common.rightPriceScale, scaleMargins: { top: .1, bottom: .1 } } });
-const rsiS = rsiChart.addLineSeries({ color: '#7c9cff', lineWidth: 1.5, priceLineVisible: false });
-rsiS.createPriceLine({ price: 70, color: 'rgba(245,158,11,.6)', lineStyle: 2, lineWidth: 1, title: '70' });
-rsiS.createPriceLine({ price: 30, color: 'rgba(34,197,94,.6)', lineStyle: 2, lineWidth: 1, title: '30' });
+const rsiS = rsiChart.addLineSeries({ color: '#8b7cff', lineWidth: 1.5, priceLineVisible: false });
+rsiS.createPriceLine({ price: 70, color: 'rgba(255,180,84,.6)', lineStyle: 2, lineWidth: 1, title: '70' });
+rsiS.createPriceLine({ price: 30, color: 'rgba(61,220,151,.6)', lineStyle: 2, lineWidth: 1, title: '30' });
 chart.timeScale().subscribeVisibleLogicalRangeChange(r => r && rsiChart.timeScale().setVisibleLogicalRange(r));
 const shift = arr => arr.map(p => ({ ...p, time: p.time + KST }));
 let lastPriceLineKey = '';
@@ -461,10 +461,21 @@ function renderTiming(c) {
   else if (status === 'sell_watch') { big = '매도 준비 · 트리거 대기'; sub = `과열 구간입니다. RSI 꺾임·밴드 복귀·VWAP 이탈 같은 전환 신호가 뜨면 타이밍으로 바뀝니다 · ${trendTxt}`; }
   else { big = '관망 · 타이밍 아님'; sub = `매수·매도 어느 쪽도 점수 ${sg.thresholds.watch} 미만입니다 · ${trendTxt}`; }
 
-  const gauge = `<div class="gauge">
-      <div class="g buy"><span>매수 ${sg.buyScore}</span><i style="width:${sg.buyScore}%"></i><b style="left:${sg.thresholds.strong}%"></b></div>
-      <div class="g sell"><span>매도 ${sg.sellScore}</span><i style="width:${sg.sellScore}%"></i><b style="left:${sg.thresholds.strong}%"></b></div>
-      <div class="g-note">${sg.thresholds.strong}점 이상 + 트리거 1개 이상 + 반대 점수보다 ${sg.thresholds.gap}점 이상 높으면 타이밍</div></div>`;
+  // 원형 게이지: 큰 링은 우세한 쪽 점수, 작은 링은 반대쪽. 65점 기준선은 링 둘레의 눈금으로 표시
+  const ring = (v, kind, size, extra = '') => {
+    const r = (size - 14) / 2, cc = 2 * Math.PI * r, col = kind === 'buy' ? 'var(--green)' : 'var(--amber)';
+    const tick = sg.thresholds.strong / 100 * 360 - 90, tx = size / 2 + Math.cos(tick * Math.PI / 180) * r, ty = size / 2 + Math.sin(tick * Math.PI / 180) * r;
+    return `<div class="ring ${kind} ${extra}"><svg width="${size}" height="${size}" viewBox="0 0 ${size} ${size}" aria-label="${kind === 'buy' ? '매수' : '매도'} 점수 ${v}">
+      <circle cx="${size / 2}" cy="${size / 2}" r="${r}" fill="none" stroke="rgba(255,255,255,.08)" stroke-width="${extra === 'sm' ? 8 : 10}"/>
+      <circle cx="${size / 2}" cy="${size / 2}" r="${r}" fill="none" stroke="${col}" stroke-width="${extra === 'sm' ? 8 : 10}" stroke-linecap="round" stroke-dasharray="${(cc * v / 100).toFixed(1)} ${cc.toFixed(1)}" transform="rotate(-90 ${size / 2} ${size / 2})" style="transition: stroke-dasharray .5s"/>
+      <circle cx="${tx.toFixed(1)}" cy="${ty.toFixed(1)}" r="3" fill="var(--text)"/></svg>
+      <div class="rv"><b>${v}</b><small>${kind === 'buy' ? '매수' : '매도'}</small></div></div>`;
+  };
+  const lead = sg.buyScore >= sg.sellScore ? 'buy' : 'sell';
+  const bigRing = ring(lead === 'buy' ? sg.buyScore : sg.sellScore, lead, 132, 'big');
+  const gauge = `<div class="tside">${ring(lead === 'buy' ? sg.sellScore : sg.buyScore, lead === 'buy' ? 'sell' : 'buy', 84, 'sm')}
+      <div class="g-note">${sg.thresholds.strong}점 이상 + 트리거 1개 이상 + 반대보다 ${sg.thresholds.gap}점 이상 높으면 타이밍</div></div>`;
+  const kicker = status === 'buy_strong' ? 'BUY TIMING' : status === 'sell_strong' ? 'SELL TIMING' : status === 'buy_watch' ? 'BUY SETUP' : status === 'sell_watch' ? 'SELL SETUP' : 'NEUTRAL';
 
   let why = '';
   if (parts) {
@@ -478,7 +489,7 @@ function renderTiming(c) {
     planHtml = `<div class="plan"><span><b>${plan.side === 'buy' ? '진입' : '신호'}</b> ${fmtKRW(plan.entry)}</span><span><b>목표 1</b> ${d(plan.target1)}</span><span><b>목표 2</b> ${d(plan.target2)}</span><span class="stop"><b>손절</b> ${d(plan.stop)}</span><span><b>손익비</b> ${plan.rr.toFixed(1)}</span></div>`;
   }
   el.className = `timing ${status}`;
-  setHTML(el, `<div class="tl"><div class="big">${big}</div><div class="sub">${sub}</div>${why}${planHtml}</div>${gauge}`);
+  setHTML(el, `${bigRing}<div class="tl"><div class="kicker">${kicker}</div><div class="big">${big}</div><div class="sub">${sub}</div>${why}${planHtml}</div>${gauge}`);
 }
 function renderSettings() {
   $('in-qty').value = settings.qty || ''; $('in-avg').value = settings.avgPrice || '';

@@ -53,17 +53,17 @@ function ensureChart(code) {
   if (charts[code]) return charts[code];
   const el = $(`mchart-${code}`); if (!el) return null;
   const chart = LWC.createChart(el, {
-    autoSize: true, layout: { background: { color: '#121826' }, textColor: '#8b95ad', fontSize: 10 },
-    grid: { vertLines: { color: '#1b2336' }, horzLines: { color: '#1b2336' } },
-    timeScale: { timeVisible: true, secondsVisible: false, borderColor: '#232c42', rightOffset: 2, barSpacing: 4 },
-    rightPriceScale: { borderColor: '#232c42' }, crosshair: { mode: 0 },
+    autoSize: true, layout: { background: { type: 'solid', color: 'transparent' }, textColor: '#8d97b8', fontSize: 10 },
+    grid: { vertLines: { color: 'rgba(255,255,255,.05)' }, horzLines: { color: 'rgba(255,255,255,.05)' } },
+    timeScale: { timeVisible: true, secondsVisible: false, borderColor: 'rgba(255,255,255,.12)', rightOffset: 2, barSpacing: 4 },
+    rightPriceScale: { borderColor: 'rgba(255,255,255,.12)' }, crosshair: { mode: 0 },
     localization: { locale: 'ko-KR', priceFormatter: p => p >= 10000 ? Math.round(p).toLocaleString('ko-KR') : p.toFixed(1) },
     handleScroll: { vertTouchDrag: false, mouseWheel: false, pressedMouseMove: true, horzTouchDrag: true },
     handleScale: { axisPressedMouseMove: false, mouseWheel: false, pinch: true },
   });
-  const series = chart.addCandlestickSeries({ upColor: '#ff5b6e', downColor: '#3f8cff', borderVisible: false, wickUpColor: '#ff5b6e', wickDownColor: '#3f8cff', priceLineVisible: true });
-  const ema9 = chart.addLineSeries({ color: '#facc15', lineWidth: 1, priceLineVisible: false, lastValueVisible: false });
-  const ema21 = chart.addLineSeries({ color: '#a78bfa', lineWidth: 1, priceLineVisible: false, lastValueVisible: false });
+  const series = chart.addCandlestickSeries({ upColor: '#ff6580', downColor: '#4f8dff', borderVisible: false, wickUpColor: '#ff6580', wickDownColor: '#4f8dff', priceLineVisible: true });
+  const ema9 = chart.addLineSeries({ color: '#3fd6ff', lineWidth: 1, priceLineVisible: false, lastValueVisible: false });
+  const ema21 = chart.addLineSeries({ color: '#8b7cff', lineWidth: 1, priceLineVisible: false, lastValueVisible: false });
   charts[code] = { chart, series, ema9, ema21, first: true, lastLen: 0, lastFirst: 0 };
   return charts[code];
 }
