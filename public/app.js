@@ -1,17 +1,20 @@
-// 브라우저 앱: 업비트 공개 REST(초기 캔들)와 WebSocket(실시간)으로 데이터를 받아 engine.js 로 조건을 판정한다.
-// 서버 없이 GitHub Pages 같은 정적 호스팅에서 동작한다. 업비트 API 키는 사용하지 않는다(공개 시세만 사용).
+// 브라우저 앱: 선택한 거래소(업비트 또는 빗썸, exchanges.js)의 공개 REST(초기 캔들)와 WebSocket(실시간)으로 데이터를 받아
+// engine.js 로 조건을 판정한다. 다른 거래소의 시세도 함께 받아 거래소 간 가격 차이를 보여준다(지표 계산에는 섞지 않는다).
+// 서버 없이 GitHub Pages 같은 정적 호스팅에서 동작한다. 거래소 API 키는 사용하지 않는다(공개 시세만 사용).
 // 알림: 보유 수량·평균 매수가를 입력하면 수익률이 목표(기본 20%) 단계를 넘을 때마다 매도 알림,
 //       최근 고점·전일 종가 대비 기준(기본 20%) 이상 급락하면 매수 알림을 브라우저 알림으로 보낸다.
 import { computeAll } from './engine.js';
 import { profileFor, LABELS } from './markets.js';
+import { EX, OTHER, hrefFor } from './exchanges.js';
 
 const params = new URLSearchParams(location.search);
 const MARKET = (params.get('market') || 'KRW-WLD').toUpperCase();
 const BASE = MARKET.split('-')[1];
-const REST = 'https://api.upbit.com';
-const WS_URL = 'wss://api.upbit.com/websocket/v1';
+const REST = EX.rest;
+const WS_URL = EX.ws;
 const KST = 9 * 3600;
-const LS_KEY = `scalp-dash:${MARKET}`;
+// 설정·알림 기록은 거래소별로 따로 저장 (업비트는 기존 키 유지)
+const LS_KEY = EX.id === 'upbit' ? `scalp-dash:${MARKET}` : `scalp-dash:${EX.id}:${MARKET}`;
 
 // 관심 종목: 헤더에서 바로 전환할 수 있고, 대시보드 "관심 종목 시세" 표에 함께 표시된다
 const WATCH = [
@@ -20,7 +23,6 @@ const WATCH = [
   { code: 'KRW-ETH', label: '이더리움(ETH)', short: 'ETH' },
   { code: 'KRW-SOL', label: '솔라나(SOL)', short: 'SOL' },
 ];
-// 비교 바스켓: 관심 종목(시장 요인 BTC 포함) + 업비트 상장 AI 테마 코인. WebSocket 한 연결로 함께 수신한다.
 // 종목 프로필(뉴스 분류 · 연관도 설정 · 주요 인물·기관)은 markets.js 에서 관리한다
 const PROFILE = profileFor(MARKET);
 // 바스켓 = 관심 종목 + 이 종목의 연관도 분석용 시장 요인·테마 코인. market: 시장 요인, theme: 테마 바스켓
@@ -40,6 +42,7 @@ const state = {
   bootstrapFailed: false, loadedAt: Date.now(),
   // 타이밍 신호: 강한 신호가 뜨면 최소 HOLD 동안 유지해 깜빡임을 막고, 발생 시점·가격·계획을 기억한다
   signal: null, signalMarks: [],
+  alt: {}, altConn: 'connecting',   // 다른 거래소 시세 (가격 비교용)
 };
 const SIGNAL_HOLD_MS = 3 * 60 * 1000;      // 강한 신호 표시 유지 시간
 const SIGNAL_COOLDOWN_MS = 5 * 60 * 1000;  // 같은 방향 타이밍 알림 재발송 간격
@@ -68,6 +71,7 @@ function saveLocal() {
 const CACHE_KEY = 'scalp-dash:candles:v1';
 let lastCacheSave = 0;
 function saveCandleCache() {
+  if (!EX.useCache) return;
   const markets = {};
   const put = (code, c1, c5) => { if (c1.length || c5.length) markets[code] = { c1: c1.slice(-300), c5: c5.slice(-200) }; };
   put(MARKET, state.candles1m, state.candles5m);
@@ -78,6 +82,7 @@ function saveCandleCache() {
 // 캐시가 직전 봉(또는 현재 봉)까지 담고 있으면 true → REST 없이 WebSocket 만으로 이어 붙일 수 있다
 const cacheCovers = (arr, secs) => arr.length > 50 && arr[arr.length - 1].time >= Math.floor(Date.now() / 1000 / secs) * secs - secs;
 function restoreCandleCache() {
+  if (!EX.useCache) return;
   let data; try { data = JSON.parse(localStorage.getItem(CACHE_KEY) || 'null'); } catch { return; }
   if (!data || !data.markets || Date.now() - data.savedAt > 6 * 3600 * 1000) return;   // 6시간 넘은 캐시는 버린다
   const me = data.markets[MARKET];
@@ -106,7 +111,7 @@ function setConn(c) { state.conn = c; }
 // 429 응답에는 CORS 헤더가 없어 브라우저에서는 "Failed to fetch"(TypeError) 로 보이므로 둘을 같은 제한으로 취급한다.
 // 실측: 같은 IP 에서 브라우저 Origin 요청은 약 10초 간격이면 통과, 8초 이하면 429. 모든 REST 호출을 한 큐로 묶어
 // 11초 간격으로 순서대로 보낸다 (초기 캔들 → 관심 종목 1분봉 → 비교 종목 5분봉). WebSocket 접속도 같은 제한을 쓰므로 시각을 기록한다.
-const REST_GAP = 11000;
+const REST_GAP = EX.restGap;   // 업비트 11초, 빗썸 0.06초
 let restChain = Promise.resolve(), lastRestAt = 0;
 function restJson(path, tries = 6) {
   const run = async () => {
@@ -117,9 +122,9 @@ function restJson(path, tries = 6) {
       let r;
       try { r = await fetch(REST + path, { cache: 'no-store' }); }
       catch { r = { status: 429 }; }
-      if (r.status === 429) { const w = 15 * (i + 1); setError(`업비트 요청 제한 · ${w}초 후 자동 재시도 (${i + 1}/${tries})`); await sleep(w * 1000); continue; }
+      if (r.status === 429) { const w = 15 * (i + 1); setError(`${EX.name} 요청 제한 · ${w}초 후 자동 재시도 (${i + 1}/${tries})`); await sleep(w * 1000); continue; }
       if (!r.ok) throw new Error(`HTTP ${r.status} ${path}`);
-      if (state.error && state.error.startsWith('업비트 요청 제한 ·')) setError(null);
+      if (state.error && state.error.startsWith(`${EX.name} 요청 제한 ·`)) setError(null);
       return r.json();
     }
     throw new Error('rate-limited');
@@ -129,11 +134,13 @@ function restJson(path, tries = 6) {
   return p;
 }
 
-// REST 캔들(과거)과 WebSocket 으로 이미 쌓인 캔들(최신)을 시간 기준으로 합친다
-function mergeCandles(rest, live, max) {
+// REST 캔들(과거)과 WebSocket 으로 이미 쌓인 캔들(최신)을 시간 기준으로 합친다.
+// 업비트: WebSocket 캔들은 완전한 봉이라 실시간 쪽이 이긴다. 빗썸: 체결로 만든 봉은 접속 이후 체결만 담긴 부분 봉이라 REST 가 이긴다.
+function mergeCandles(rest, live, max, restWins = EX.liveCandles === 'trade') {
   const map = new Map();
-  for (const c of rest) map.set(c.time, c);
-  for (const c of live) map.set(c.time, c);
+  const [a, b] = restWins ? [live, rest] : [rest, live];
+  for (const c of a) map.set(c.time, c);
+  for (const c of b) map.set(c.time, c);
   return [...map.values()].sort((a, b) => a.time - b.time).slice(-max);
 }
 
@@ -156,7 +163,7 @@ async function bootstrap() {
     p5.catch(() => {});
     // REST 를 못 받아도 WebSocket 1분봉이 쌓이면 60분 뒤부터 지표가 계산된다
     state.bootstrapFailed = true;
-    setError(`업비트 요청 제한으로 과거 캔들을 받지 못했습니다. 실시간 캔들을 누적 중 (${state.candles1m.length}/60) · 1~2분 뒤 새로 고침하면 바로 받을 수 있습니다.`);
+    setError(`${EX.name} 요청 제한으로 과거 캔들을 받지 못했습니다. 실시간 캔들을 누적 중 (${state.candles1m.length}/60) · 1~2분 뒤 새로 고침하면 바로 받을 수 있습니다.`);
   }
   dirty = true;
 }
@@ -182,15 +189,35 @@ function parseOrderbook(d) {
     spreadPct: (units[0].ask_price - units[0].bid_price) / units[0].bid_price * 100, totalBid, totalAsk,
     bidAskRatio: totalAsk ? totalBid / totalAsk : 0, units: units.slice(0, 10) };
 }
+// 체결 1건을 secs 초 봉에 반영 (빗썸). 과거 봉에 늦게 도착한 체결은 무시하고, 봉 보정은 REST 에 맡긴다
+function tradeToCandle(arr, t, secs, max) {
+  const ts = t.trade_timestamp ?? t.timestamp, price = t.trade_price, vol = t.trade_volume;
+  if (!ts || !price) return;
+  const time = Math.floor(ts / 1000 / secs) * secs, last = arr[arr.length - 1];
+  if (last && last.time === time) { if (price > last.high) last.high = price; if (price < last.low) last.low = price; last.close = price; last.volume += vol; }
+  else if (!last || time > last.time) { arr.push({ time, open: price, high: price, low: price, close: price, volume: vol }); if (arr.length > max) arr.shift(); }
+}
+// 빗썸 보정: 최근 봉 몇 개를 REST 로 다시 받아 덮어쓴다 (체결 누락·재접속 공백·늦은 체결 보정)
+async function resync() {
+  const get = async (path) => { try { return (await restJson(path, 1)).reverse().map(toCandle); } catch { return null; } };
+  const c1 = await get(`/v1/candles/minutes/1?market=${MARKET}&count=5`); if (c1) state.candles1m = mergeCandles(c1, state.candles1m, 300);
+  const c5 = await get(`/v1/candles/minutes/5?market=${MARKET}&count=3`); if (c5) state.candles5m = mergeCandles(c5, state.candles5m, 200);
+  for (const b of Object.values(state.basket)) {
+    if (WATCH.some(w => w.code === b.code)) { const x = await get(`/v1/candles/minutes/1?market=${b.code}&count=5`); if (x) b.candles1m = mergeCandles(x, b.candles1m, 300); }
+    const y = await get(`/v1/candles/minutes/5?market=${b.code}&count=3`); if (y) b.candles5m = mergeCandles(y, b.candles5m, 200);
+  }
+  fullRedraw = true; dirty = true;
+}
 function upsertCandle(arr, raw, max) {
   const c = toCandle(raw), lastC = arr[arr.length - 1];
   if (lastC && lastC.time === c.time) arr[arr.length - 1] = c;
   else if (!lastC || c.time > lastC.time) { arr.push(c); if (arr.length > max) arr.shift(); }
 }
+const decoder = new TextDecoder();
 let wsRetry = 0;
 function connectWS() {
   setConn('connecting');
-  lastRestAt = Date.now();   // WebSocket 접속도 Origin 요청 제한에 포함되므로 REST 큐가 간격을 두게 한다
+  if (EX.wsSharesLimit) lastRestAt = Date.now();   // 업비트: WebSocket 접속도 요청 제한에 포함되므로 REST 큐가 간격을 두게 한다
   const ws = new WebSocket(WS_URL);
   ws.binaryType = 'arraybuffer';
   let ping;
@@ -200,15 +227,17 @@ function connectWS() {
     const watch = [...new Set([MARKET, ...WATCH.map(w => w.code)])];   // 한눈에 탭: 네 종목 모두 1분봉·호가·체결 수신
     ws.send(JSON.stringify([
       { ticket: 'scalp-dash-' + Math.random().toString(36).slice(2, 10) },
-      { type: 'ticker', codes: all }, { type: 'trade', codes: watch }, { type: 'orderbook', codes: watch },
-      { type: 'candle.1m', codes: watch }, { type: 'candle.5m', codes: all },
+      ...EX.subscribe(all, watch),
       { format: 'DEFAULT' },
     ]));
     setConn('live');
     ping = setInterval(() => { if (ws.readyState === 1) ws.send('PING'); }, 50000);
   };
   ws.onmessage = e => {
-    let d; try { d = JSON.parse(new TextDecoder().decode(e.data)); } catch { return; }
+    let d; try { d = JSON.parse(typeof e.data === 'string' ? e.data : decoder.decode(e.data)); } catch { return; }
+    if (d.error) { setError(`${EX.name} WebSocket 오류: ${d.error.message || d.error.name}`); return; }
+    if (d.code) d.code = d.code.split('.')[0];   // 빗썸 호가 "KRW-WLD.15" → "KRW-WLD"
+    const byTrade = EX.liveCandles === 'trade';
     const tick = t => ({ price: t.trade_price, change: t.change, changeRate: t.signed_change_rate, changePrice: t.signed_change_price,
       high24: t.high_price, low24: t.low_price, accTradePrice24h: t.acc_trade_price_24h, accVolume24h: t.acc_trade_volume_24h, prevClose: t.prev_closing_price });
     // 비교 바스켓 종목 메시지
@@ -218,7 +247,10 @@ function connectWS() {
       else if (d.type === 'candle.5m') upsertCandle(b.candles5m, d, 200);
       else if (d.type === 'candle.1m') upsertCandle(b.candles1m, d, 300);
       else if (d.type === 'orderbook') b.orderbook = parseOrderbook(d);
-      else if (d.type === 'trade') { b.trades.unshift(toTrade(d)); if (b.trades.length > 200) b.trades.length = 200; }
+      else if (d.type === 'trade') {
+        b.trades.unshift(toTrade(d)); if (b.trades.length > 200) b.trades.length = 200;
+        if (byTrade) { tradeToCandle(b.candles1m, d, 60, 300); tradeToCandle(b.candles5m, d, 300, 200); }
+      }
       else return;
       state.updatedAt = Date.now(); dirty = true; return;
     }
@@ -228,11 +260,13 @@ function connectWS() {
         schedulePriceRender();   // 현재가는 1초 틱을 기다리지 않고 바로 표시
         break;
       case 'trade':
-        state.trades.unshift(toTrade(d)); if (state.trades.length > 200) state.trades.length = 200; break;
+        state.trades.unshift(toTrade(d)); if (state.trades.length > 200) state.trades.length = 200;
+        if (byTrade) { tradeToCandle(state.candles1m, d, 60, 300); tradeToCandle(state.candles5m, d, 300, 200); }
+        break;
       case 'orderbook': state.orderbook = parseOrderbook(d); break;
       case 'candle.1m':
         upsertCandle(state.candles1m, d, 300);
-        if (state.bootstrapFailed) setError(`업비트 요청 제한으로 과거 캔들을 받지 못했습니다. 실시간 캔들을 누적 중 (${state.candles1m.length}/60) · 1~2분 뒤 새로 고침하면 바로 받을 수 있습니다.`);
+        if (state.bootstrapFailed) setError(`${EX.name} 요청 제한으로 과거 캔들을 받지 못했습니다. 실시간 캔들을 누적 중 (${state.candles1m.length}/60) · 1~2분 뒤 새로 고침하면 바로 받을 수 있습니다.`);
         break;
       case 'candle.5m': upsertCandle(state.candles5m, d, 200); break;
       default: return;
@@ -247,6 +281,27 @@ function connectWS() {
   };
   ws.onerror = () => ws.close();
 }
+
+// ---------- 다른 거래소 시세 (가격 비교 전용 · 지표 계산에는 쓰지 않는다) ----------
+let altRetry = 0;
+function connectAlt() {
+  let ws; try { ws = new WebSocket(OTHER.ws); } catch { return; }
+  ws.binaryType = 'arraybuffer';
+  ws.onopen = () => {
+    altRetry = 0; state.altConn = 'live';
+    ws.send(JSON.stringify([{ ticket: 'scalp-alt-' + Math.random().toString(36).slice(2, 8) }, { type: 'ticker', codes: [...new Set([MARKET, ...WATCH.map(w => w.code)])] }, { format: 'DEFAULT' }]));
+  };
+  ws.onmessage = e => {
+    let d; try { d = JSON.parse(typeof e.data === 'string' ? e.data : decoder.decode(e.data)); } catch { return; }
+    if (d.type !== 'ticker' || !d.code) return;
+    state.alt[d.code] = { price: d.trade_price, changeRate: d.signed_change_rate, accTradePrice24h: d.acc_trade_price_24h, at: Date.now() };
+    dirty = true;
+  };
+  ws.onclose = () => { state.altConn = 'reconnect'; setTimeout(connectAlt, Math.min(120000, 10000 * 2 ** Math.min(altRetry++, 3))); };
+  ws.onerror = () => ws.close();
+}
+// 다른 거래소 가격과의 차이(%) : (다른 거래소 / 이 거래소 − 1)
+const altDiff = (code, price) => { const a = state.alt[code]; return a && price ? (a.price / price - 1) * 100 : null; };
 
 // ---------- 알림 ----------
 function permissionLabel() {
@@ -414,6 +469,8 @@ let priceRaf = 0;
 function schedulePriceRender() { if (priceRaf) return; priceRaf = requestAnimationFrame(() => { priceRaf = 0; renderPrice(); }); }
 function renderPrice() {
   const t = state.ticker; if (!t) return;
+  const a = state.alt[MARKET], df = altDiff(MARKET, t.price);
+  setHTML($('altp'), a ? `${OTHER.name} <b>${fmtKRW(a.price)}</b> <span class="${df > 0 ? 'up' : df < 0 ? 'down' : ''}">${(df >= 0 ? '+' : '') + df.toFixed(2)}%</span>` : `${OTHER.name} 시세 연결 중…`);
   const up = t.changeRate >= 0, pctTxt = `${(Math.abs(t.changeRate) * 100).toFixed(2)}%`;
   setText($('price'), fmtKRW(t.price));
   const el = $('chg'); setText(el, `${up ? '▲' : '▼'} ${fmt(Math.abs(t.changePrice))} (${up ? '' : '-'}${pctTxt})`); el.className = 'chg ' + (up ? 'up' : 'down');
@@ -526,15 +583,18 @@ function renderWatch() {
     const h1 = c.length > 12 ? (c[c.length - 1].close / c[c.length - 13].close - 1) * 100 : null;
     const h4 = c.length > 48 ? (c[c.length - 1].close / c[c.length - 49].close - 1) * 100 : null;
     const cr = t ? t.changeRate * 100 : null;
+    const a = state.alt[w.code], df = altDiff(w.code, t?.price);
     return `<tr class="${mine ? 'me' : ''}" data-code="${w.code}">
       <td style="text-align:left"><b>${w.short}</b><span class="wl">${w.label.replace(/\(.*\)/, '')}</span>${mine ? '<span class="now">보는 중</span>' : ''}</td>
       <td>${t ? fmtKRW(t.price) : '–'}</td><td class="${cls(cr)}">${pct(cr)}</td><td class="${cls(h1)}">${pct(h1)}</td><td class="${cls(h4)}">${pct(h4)}</td>
-      <td class="vol">${t ? big(t.accTradePrice24h) + '원' : '–'}</td></tr>`;
+      <td class="vol">${t ? big(t.accTradePrice24h) + '원' : '–'}</td>
+      <td class="alt">${a ? fmtKRW(a.price) : '–'}<small class="${df === null ? '' : df > 0 ? 'up' : df < 0 ? 'down' : ''}">${df === null ? '' : (df >= 0 ? '+' : '') + df.toFixed(2) + '%'}</small></td></tr>`;
   }).join('');
-  setHTML($('watchtable'), `<tr><th style="text-align:left">종목</th><th>현재가</th><th>전일 대비</th><th>1시간</th><th>4시간</th><th class="vol">24h 거래대금</th></tr>${rows}`);
+  setHTML($('watchtable'), `<tr><th style="text-align:left">종목</th><th>${EX.name}</th><th>전일 대비</th><th>1시간</th><th>4시간</th><th class="vol">24h 거래대금</th><th class="alt">${OTHER.name} · 차이</th></tr>${rows}`);
 }
 function renderMarkets() {
-  $('markets').innerHTML = WATCH.map(w => `<a href="?market=${w.code}${location.hash || '#dash'}" class="${w.code === MARKET ? 'active' : ''}">${w.short}</a>`).join('');
+  $('markets').innerHTML = WATCH.map(w => `<a href="${hrefFor({ market: w.code })}" class="${w.code === MARKET ? 'active' : ''}">${w.short}</a>`).join('');
+  $('exch').innerHTML = [EX.id === 'upbit' ? EX : OTHER, EX.id === 'upbit' ? OTHER : EX].map(x => `<a href="${hrefFor({ ex: x.id, market: MARKET })}" class="${x.id === EX.id ? 'active' : ''}" aria-current="${x.id === EX.id ? 'true' : 'false'}">${x.name}</a>`).join('');
 }
 
 function render(m) {
@@ -545,7 +605,7 @@ function render(m) {
   // 사이드바(넓은 화면) 상태 카드·바닥글
   setText($('sb-market'), BASE);
   setHTML($('sb-foot'), `${connLabel}${s.updatedAt ? '<br>갱신 ' + kstTime(s.updatedAt) : ''}<br><kbd>1</kbd><kbd>2</kbd><kbd>3</kbd><kbd>4</kbd> 메뉴 이동`);
-  setText($('market'), `${s.market} · 업비트 · 1분봉`);
+  setText($('market'), `${s.market} · ${EX.name} · 1분봉`);
   setText($('title'), `${BASE} 스캘핑 조건 대시보드`);
   renderPrice();
   // 대시보드 화면이 숨겨져 있으면(다른 탭) 헤더·상태만 갱신하고 무거운 본문 렌더는 건너뛴다. 다시 보일 때 전체를 그린다
@@ -672,7 +732,7 @@ function tick() {
 
 // 다른 모듈(relate.js 등)이 같은 데이터·REST 제한 관리 로직을 쓰도록 공개
 window.dash = {
-  state, MARKET, BASE, BASKET, WATCH, PROFILE, KST, restJson, mergeCandles, toCandle, fmt, fmtKRW, big, kstTime, notify, settings,
+  state, MARKET, BASE, BASKET, WATCH, PROFILE, EX, OTHER, hrefFor, KST, restJson, mergeCandles, toCandle, fmt, fmtKRW, big, kstTime, notify, settings,
   subscribe(fn) { listeners.add(fn); return () => listeners.delete(fn); },
   markDirty() { dirty = true; },
 };
@@ -696,7 +756,7 @@ function bindSettings() {
   $('minibar').addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
   $('watchtable').addEventListener('click', e => {
     const tr = e.target.closest('tr[data-code]');
-    if (tr && tr.dataset.code !== MARKET) location.href = `?market=${tr.dataset.code}${location.hash || '#dash'}`;
+    if (tr && tr.dataset.code !== MARKET) location.href = hrefFor({ market: tr.dataset.code });
   });
   $('btn-perm').addEventListener('click', requestPermission);
   $('btn-test').addEventListener('click', () => notify('sell', '테스트 알림', `${MARKET} 알림이 이렇게 표시됩니다.`));
@@ -709,7 +769,8 @@ restoreCandleCache();   // 캐시가 있으면 REST 대기 없이 즉시 차트�
 bindSettings();
 renderSettings();
 renderMarkets();
-document.title = `${BASE} 스캘핑 조건 대시보드`;
+document.title = `${BASE} · ${EX.name} 스캘핑 조건 대시보드`;
+document.querySelector('.brand span').textContent = `${EX.name} · 실시간 조건 판정`;
 // 종목에 맞는 메뉴 이름 (WLD: OpenAI 연관도 / BTC·ETH·SOL: 주요 인물·기관)
 $('tab-relate').querySelector('.tl').innerHTML = `${PROFILE.relate.tab}<small>${PROFILE.relate.tabSub}</small>`;
 $('tab-news').querySelector('.tl').innerHTML = `뉴스 · 속보<small>${PROFILE.name} · ${PROFILE.news[1]?.label || '해외 기사'} 번역</small>`;
@@ -723,4 +784,6 @@ window.dash.queueReady = bootstrap().then(() => { if (location.hash !== '#relate
 window.addEventListener('hashchange', () => { dirty = true; fullRedraw = true; });
 window.addEventListener('pagehide', saveCandleCache);
 if (state.fromCache) dirty = true;
+setTimeout(connectAlt, EX.id === 'bithumb' ? 1500 : 0);   // 다른 거래소 시세 (빗썸 선택 시 업비트 접속은 요청 제한을 쓰므로 초기 로딩 뒤)
+if (EX.resyncMs) window.dash.queueReady.then(() => setInterval(resync, EX.resyncMs));
 setInterval(tick, 1000);

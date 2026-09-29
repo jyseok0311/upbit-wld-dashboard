@@ -73,7 +73,7 @@ function cardHtml(w) {
   return `<div class="mcard neutral" id="mcard-${w.code}">
     <div class="mhead"><div class="mname"><b>${w.short}</b><span>${w.label.replace(/\(.*\)/, '')}</span></div>
       <div class="mprice" id="mprice-${w.code}">–</div>
-      ${w.code === MARKET ? '<span class="pill neutral">보는 중</span>' : `<a class="btn" href="?market=${w.code}#dash">열기</a>`}</div>
+      ${w.code === MARKET ? '<span class="pill neutral">보는 중</span>' : `<a class="btn" href="${D.hrefFor({ market: w.code }).replace(/#.*$/, "")}#dash">열기</a>`}</div>
     <div class="mstatus"><span class="pill neutral" id="mpill-${w.code}">데이터 대기</span>
       <div class="mgauge"><div class="g buy"><span id="mgb-${w.code}">매수 –</span><i id="mgbi-${w.code}" style="width:0"></i><b style="left:65%"></b></div>
         <div class="g sell"><span id="mgs-${w.code}">매도 –</span><i id="mgsi-${w.code}" style="width:0"></i><b style="left:65%"></b></div></div></div>
