@@ -9,11 +9,11 @@
 <meta name="apple-mobile-web-app-title" content="WLD 대시보드">
 <title>WLD 스캘핑 조건 대시보드</title>
 <meta name="description" content="업비트·빗썸 KRW-WLD 1분봉 기술적 지표 조건, 수익률·급락 알림, 월드코인·OpenAI 해외 뉴스 한국어 번역. 투자 조언이 아닙니다.">
-<meta name="theme-color" content="#121826">
+<meta name="theme-color" content="#05060a">
 <link rel="preconnect" href="https://api.upbit.com"><link rel="preconnect" href="https://api.bithumb.com">
 <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;500;600;700&family=Noto+Sans+KR:wght@400;500;700&family=Noto+Serif+KR:wght@600&display=swap" rel="stylesheet">
 <link rel="modulepreload" href="./app.js"><link rel="modulepreload" href="./engine.js"><link rel="modulepreload" href="./markets.js">
 <link rel="manifest" href="./manifest.json">
 <link rel="icon" href="./icon.svg" type="image/svg+xml">
@@ -480,6 +480,95 @@
     .altp { grid-column: 2; grid-row: 4; align-self: center; margin-top: 4px; padding: 6px 10px; font-size: 11.5px; }
     table.watch .alt { font-size: 11.5px; }
   }
+
+  /* ================= 테마 T · Taste (angelcore × cloud-trance) =================
+     원칙 1) 검은 공허(void) 위에 뼈색(bone) 글자. 한 화면에 강한 색은 하나만.
+     원칙 2) 의미 색은 그대로: 매수 초록 · 매도 금빛 · 상승 빨강 · 하락 파랑. 구조 악센트는 바이올렛 하나.
+     원칙 3) 유리 블러를 걷고 헤어라인 + 고요한 그림자. 질감은 필름 그레인, 움직임은 천천히 떠다니는 빛(transform 만).
+     원칙 4) 강한 신호는 배너 안에서 불씨가 올라가고, 신호가 뜨는 순간 화면에 한 번의 블룸(divine flash). */
+  :root {
+    --bg: #05060a; --solid: #0a0c14; --solid2: #10131f;
+    --panel: rgba(244,241,234,.028); --panel2: rgba(244,241,234,.055); --line: rgba(244,241,234,.085);
+    --text: #f4f1ea; --muted: #949aaa;
+    --accent: #a690ff; --violet: #8a6bff; --cyan: #4fc3ff; --magenta: #ff6ad5;
+    --radius: 20px; --radius-s: 14px;
+    --serif: 'Noto Serif KR', 'Nanum Myeongjo', serif;
+  }
+  body { background: var(--bg); background-attachment: scroll; color: var(--text); }
+  body::before { content: ""; position: fixed; inset: -20%; z-index: -1; pointer-events: none; will-change: transform;
+    background:
+      radial-gradient(38% 34% at 18% 10%, rgba(138,107,255,.20), transparent 70%),
+      radial-gradient(34% 30% at 88% 92%, rgba(79,195,255,.10), transparent 70%),
+      radial-gradient(26% 24% at 72% 18%, rgba(255,106,213,.06), transparent 70%);
+    animation: drift 80s ease-in-out infinite alternate; }
+  @keyframes drift { from { transform: translate3d(0,0,0) scale(1); } to { transform: translate3d(-3%,2.5%,0) rotate(2.5deg) scale(1.06); } }
+  body::after { content: ""; position: fixed; inset: 0; z-index: 40; pointer-events: none; opacity: .055; background-size: 160px 160px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 .9 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"); }
+  /* 블러 제거: 스크롤·렌더 비용을 줄이고 패널을 더 선명하게 */
+  .card, .mcard, .timing, .news-item, .person, .kpi, .sbstatus, .topbar, .toast, .minibar { backdrop-filter: none; -webkit-backdrop-filter: none; }
+  .card { background: linear-gradient(180deg, rgba(244,241,234,.04), rgba(244,241,234,.014)); border: 1px solid var(--line); border-radius: var(--radius);
+    box-shadow: inset 0 1px 0 rgba(244,241,234,.05), 0 18px 40px -28px rgba(0,0,0,.9); }
+  .card h2 { font-size: 11px; letter-spacing: .1em; font-weight: 600; color: var(--muted); }
+  .kpi { background: rgba(244,241,234,.035); } .kpi .v { font-weight: 500; }
+  .mcard { background: linear-gradient(180deg, rgba(244,241,234,.04), rgba(244,241,234,.014)); box-shadow: inset 0 1px 0 rgba(244,241,234,.05); }
+  .mcard.buy_strong { background: radial-gradient(70% 120% at 0% 0%, rgba(61,220,151,.16), transparent 70%), var(--solid); animation: none; box-shadow: 0 0 60px -22px rgba(61,220,151,.4); }
+  .mcard.sell_strong { background: radial-gradient(70% 120% at 0% 0%, rgba(255,178,77,.17), transparent 70%), var(--solid); animation: none; box-shadow: 0 0 60px -22px rgba(255,178,77,.4); }
+  .price { font-weight: 300; letter-spacing: -.035em; }
+  header h1 { color: var(--muted); }
+  nav.markets a.active { background: var(--text); color: #05060a; }
+  nav.exch a.active { background: rgba(138,107,255,.22); color: #dcd4ff; box-shadow: inset 0 0 0 1px rgba(166,144,255,.45); }
+  .btn.primary { background: var(--text); border-color: var(--text); color: #05060a; }
+  .err { background: rgba(138,107,255,.10); color: #dcd4ff; border-color: rgba(138,107,255,.28); }
+  .news-head .chip.active { background: rgba(138,107,255,.14); border-color: rgba(166,144,255,.5); }
+  .person .pn .cnt { background: rgba(138,107,255,.16); color: var(--accent); }
+  table.watch tr.me td { background: rgba(138,107,255,.10); }
+  table.watch .now { background: rgba(138,107,255,.2); color: var(--accent); }
+  .topbar { background: rgba(5,6,10,.84); }
+  .brand b { border-radius: 50%; background: conic-gradient(from 200deg, #8a6bff, #4fc3ff, #ff6ad5, #8a6bff); box-shadow: 0 0 26px rgba(138,107,255,.42); }
+  .brand b::before { content: "S"; display: flex; align-items: center; justify-content: center; width: 36px; height: 36px; border-radius: 50%; background: var(--bg); color: var(--text); font: 300 17px/1 var(--font); }
+  nav.tabs a.active { background: linear-gradient(180deg, rgba(138,107,255,.22), rgba(138,107,255,.07)); border-color: rgba(166,144,255,.45); box-shadow: 0 0 28px -8px rgba(138,107,255,.55); color: var(--text); }
+  nav.tabs a.active svg { color: #dcd4ff; }
+  /* 타이밍 배너 */
+  .timing { position: relative; overflow: hidden; background: linear-gradient(180deg, rgba(244,241,234,.04), rgba(244,241,234,.012)); box-shadow: inset 0 1px 0 rgba(244,241,234,.05); }
+  .timing > * { position: relative; z-index: 1; }
+  .timing .big { font-family: var(--serif); font-weight: 600; letter-spacing: -.025em; }
+  .timing.buy_strong { --ember: #c9ffe6; animation: none; background: radial-gradient(60% 150% at 0% 50%, rgba(61,220,151,.17), transparent 70%), var(--solid); border-color: rgba(61,220,151,.5); box-shadow: 0 0 90px -24px rgba(61,220,151,.4); }
+  .timing.sell_strong { --ember: #ffd699; animation: none; background: radial-gradient(60% 150% at 0% 50%, rgba(255,178,77,.18), transparent 70%), var(--solid); border-color: rgba(255,178,77,.5); box-shadow: 0 0 90px -24px rgba(255,178,77,.4); }
+  /* 불씨: 420px 주기 패턴을 한 주기만큼 위로 밀어 끊김 없이 반복 (transform 만 사용) */
+  .timing.buy_strong::after, .timing.sell_strong::after { content: ""; position: absolute; left: 0; right: 0; top: 0; height: calc(100% + 420px); z-index: 0; pointer-events: none; opacity: .6;
+    background-size: 420px 420px; background-repeat: repeat; will-change: transform; animation: rise 16s linear infinite;
+    background-image:
+      radial-gradient(2px 2px at 12% 18%, var(--ember) 55%, transparent 60%), radial-gradient(1.5px 1.5px at 33% 64%, var(--ember) 55%, transparent 60%),
+      radial-gradient(2.5px 2.5px at 57% 32%, var(--ember) 55%, transparent 60%), radial-gradient(1.5px 1.5px at 78% 81%, var(--ember) 55%, transparent 60%),
+      radial-gradient(2px 2px at 91% 47%, var(--ember) 55%, transparent 60%), radial-gradient(1px 1px at 46% 92%, var(--ember) 55%, transparent 60%); }
+  @keyframes rise { to { transform: translate3d(0,-420px,0); } }
+  /* 링: 가는 선 + 은은한 후광, 숫자는 가볍게 */
+  .ring { --ringc: var(--muted); --ringg: rgba(148,154,170,.12); }
+  .ring.buy { --ringc: var(--green); --ringg: rgba(61,220,151,.24); } .ring.sell { --ringc: var(--amber); --ringg: rgba(255,178,77,.22); }
+  .ring.big::before { content: ""; position: absolute; inset: -22px; border-radius: 50%; z-index: 0; pointer-events: none; background: radial-gradient(closest-side, var(--ringg), transparent 72%); }
+  .ring svg { position: relative; z-index: 1; }
+  .ring svg circle + circle { filter: drop-shadow(0 0 6px var(--ringc)); }
+  .ring .rv { z-index: 2; }
+  .ring .rv b { font-weight: 300; letter-spacing: -.04em; }
+  /* 신호 순간의 블룸 (한 번, 1.2초) */
+  #bloom { position: fixed; inset: 0; z-index: 45; pointer-events: none; opacity: 0; }
+  #bloom.buy { background: radial-gradient(70% 55% at 50% 22%, rgba(255,255,255,.5), rgba(61,220,151,.28) 28%, transparent 62%); animation: bloom 1.2s ease-out; }
+  #bloom.sell { background: radial-gradient(70% 55% at 50% 22%, rgba(255,255,255,.46), rgba(255,178,77,.3) 28%, transparent 62%); animation: bloom 1.2s ease-out; }
+  @keyframes bloom { 0% { opacity: 0; } 10% { opacity: .85; } 100% { opacity: 0; } }
+  @media (min-width: 701px) {
+    .price { font-size: 42px; }
+    .ring .rv b { font-size: 48px; } .ring.sm .rv b { font-size: 24px; }
+  }
+  @media (max-width: 700px) {
+    .price { font-size: 28px; }
+    .ring .rv b { font-size: 34px; } .ring.sm .rv b { font-size: 22px; }
+    .ring.big::before { inset: -14px; }
+    .timing.buy_strong::after, .timing.sell_strong::after { opacity: .45; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { animation: none !important; transition: none !important; }
+    #bloom { display: none; }
+  }
 </style>
 </head>
 <body>
@@ -681,6 +770,7 @@
   </div>
 </section>
 
+<div id="bloom" aria-hidden="true"></div>
 <div id="toasts"></div>
 <script type="module" src="./app.js"></script>
 <script type="module" src="./news.js"></script>

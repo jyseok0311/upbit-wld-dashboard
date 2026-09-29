@@ -160,9 +160,9 @@ function ensureChart() {
     handleScroll: { vertTouchDrag: false, mouseWheel: true, pressedMouseMove: true, horzTouchDrag: true },
     handleScale: { axisPressedMouseMove: true, mouseWheel: true, pinch: true },
   });
-  series.me = chart.addLineSeries({ color: '#3fd6ff', lineWidth: 2, title: BASE, priceLineVisible: false });
-  series.factor = chart.addLineSeries({ color: '#ffb454', lineWidth: 1, title: FACTOR_SHORT, priceLineVisible: false, lastValueVisible: true });
-  series.theme = chart.addLineSeries({ color: '#3ddc97', lineWidth: 1, title: `${R.theme.label} 평균`, priceLineVisible: false, lastValueVisible: true });
+  series.me = chart.addLineSeries({ color: '#f4f1ea', lineWidth: 2, title: BASE, priceLineVisible: false });
+  series.factor = chart.addLineSeries({ color: '#8a6bff', lineWidth: 1, title: FACTOR_SHORT, priceLineVisible: false, lastValueVisible: true });
+  series.theme = chart.addLineSeries({ color: '#4fc3ff', lineWidth: 1, title: `${R.theme.label} 평균`, priceLineVisible: false, lastValueVisible: true });
   series.me.createPriceLine({ price: 0, color: 'rgba(230,234,242,.35)', lineStyle: 2, lineWidth: 1, title: '0%' });
 }
 function normalized(candles, times) {

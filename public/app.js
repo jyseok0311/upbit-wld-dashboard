@@ -415,13 +415,13 @@ const common = {
 };
 const chart = LWC.createChart($('chart'), { ...common, autoSize: true });
 const candleSeries = chart.addCandlestickSeries({ upColor: '#ff6580', downColor: '#4f8dff', borderVisible: false, wickUpColor: '#ff6580', wickDownColor: '#4f8dff' });
-const ema9S = chart.addLineSeries({ color: '#3fd6ff', lineWidth: 1, priceLineVisible: false, lastValueVisible: false, title: 'EMA9' });
-const ema21S = chart.addLineSeries({ color: '#8b7cff', lineWidth: 1, priceLineVisible: false, lastValueVisible: false, title: 'EMA21' });
-const bbU = chart.addLineSeries({ color: 'rgba(63,214,255,.35)', lineWidth: 1, lineStyle: 2, priceLineVisible: false, lastValueVisible: false });
-const bbL = chart.addLineSeries({ color: 'rgba(63,214,255,.35)', lineWidth: 1, lineStyle: 2, priceLineVisible: false, lastValueVisible: false });
+const ema9S = chart.addLineSeries({ color: 'rgba(244,241,234,.9)', lineWidth: 1, priceLineVisible: false, lastValueVisible: false, title: 'EMA9' });
+const ema21S = chart.addLineSeries({ color: '#8a6bff', lineWidth: 1, priceLineVisible: false, lastValueVisible: false, title: 'EMA21' });
+const bbU = chart.addLineSeries({ color: 'rgba(166,144,255,.28)', lineWidth: 1, lineStyle: 2, priceLineVisible: false, lastValueVisible: false });
+const bbL = chart.addLineSeries({ color: 'rgba(166,144,255,.28)', lineWidth: 1, lineStyle: 2, priceLineVisible: false, lastValueVisible: false });
 let avgLine = null, targetLine = null, dropLine = null, planLines = [];
 const rsiChart = LWC.createChart($('rsi'), { ...common, autoSize: true, rightPriceScale: { ...common.rightPriceScale, scaleMargins: { top: .1, bottom: .1 } } });
-const rsiS = rsiChart.addLineSeries({ color: '#8b7cff', lineWidth: 1.5, priceLineVisible: false });
+const rsiS = rsiChart.addLineSeries({ color: '#a690ff', lineWidth: 1.5, priceLineVisible: false });
 rsiS.createPriceLine({ price: 70, color: 'rgba(255,180,84,.6)', lineStyle: 2, lineWidth: 1, title: '70' });
 rsiS.createPriceLine({ price: 30, color: 'rgba(61,220,151,.6)', lineStyle: 2, lineWidth: 1, title: '30' });
 chart.timeScale().subscribeVisibleLogicalRangeChange(r => r && rsiChart.timeScale().setVisibleLogicalRange(r));
@@ -523,8 +523,8 @@ function renderTiming(c) {
     const r = (size - 14) / 2, cc = 2 * Math.PI * r, col = kind === 'buy' ? 'var(--green)' : 'var(--amber)';
     const tick = sg.thresholds.strong / 100 * 360 - 90, tx = size / 2 + Math.cos(tick * Math.PI / 180) * r, ty = size / 2 + Math.sin(tick * Math.PI / 180) * r;
     return `<div class="ring ${kind} ${extra}"><svg width="${size}" height="${size}" viewBox="0 0 ${size} ${size}" aria-label="${kind === 'buy' ? '매수' : '매도'} 점수 ${v}">
-      <circle cx="${size / 2}" cy="${size / 2}" r="${r}" fill="none" stroke="rgba(255,255,255,.08)" stroke-width="${extra === 'sm' ? 8 : 10}"/>
-      <circle cx="${size / 2}" cy="${size / 2}" r="${r}" fill="none" stroke="${col}" stroke-width="${extra === 'sm' ? 8 : 10}" stroke-linecap="round" stroke-dasharray="${(cc * v / 100).toFixed(1)} ${cc.toFixed(1)}" transform="rotate(-90 ${size / 2} ${size / 2})" style="transition: stroke-dasharray .5s"/>
+      <circle cx="${size / 2}" cy="${size / 2}" r="${r}" fill="none" stroke="rgba(255,255,255,.08)" stroke-width="${extra === 'sm' ? 5 : 6}"/>
+      <circle cx="${size / 2}" cy="${size / 2}" r="${r}" fill="none" stroke="${col}" stroke-width="${extra === 'sm' ? 5 : 6}" stroke-linecap="round" stroke-dasharray="${(cc * v / 100).toFixed(1)} ${cc.toFixed(1)}" transform="rotate(-90 ${size / 2} ${size / 2})" style="transition: stroke-dasharray .5s"/>
       <circle cx="${tx.toFixed(1)}" cy="${ty.toFixed(1)}" r="3" fill="var(--text)"/></svg>
       <div class="rv"><b>${v}</b><small>${kind === 'buy' ? '매수' : '매도'}</small></div></div>`;
   };
@@ -683,6 +683,15 @@ function render(m) {
 }
 
 // 강한 신호 관리: 새로 뜨면 기록·마커·알림, 이후 HOLD 동안 유지, 반대 신호가 뜨거나 점수가 준비 기준 아래로 떨어지면 해제
+// 신호가 뜨는 순간 화면 전체에 한 번의 블룸. 20초 안에는 반복하지 않고, 숨은 탭·동작 줄이기 설정에서는 건너뛴다
+let lastBloom = 0;
+function bloom(kind) {
+  const now = Date.now();
+  if (document.hidden || now - lastBloom < 20000 || matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  lastBloom = now;
+  const el = $('bloom'); if (!el) return;
+  el.className = ''; void el.offsetWidth; el.className = kind;
+}
 let lastSignalNotify = { buy: 0, sell: 0 };
 function updateSignal(c) {
   const sg = c.signals, now = Date.now();
@@ -692,6 +701,7 @@ function updateSignal(c) {
     const score = strong === 'buy' ? sg.buyScore : sg.sellScore;
     const barTime = state.candles1m[state.candles1m.length - 1].time;
     state.signal = { kind: strong, since: now, price: c.indicators.price, score, plan: sg.plan, triggers: (strong === 'buy' ? sg.buyParts : sg.sellParts).triggers.map(t => t.label) };
+    bloom(strong);
     if (!state.signalMarks.some(mk => mk.time === barTime && mk.kind === strong)) {
       state.signalMarks.push({ time: barTime, kind: strong, score }); state.signalMarks = state.signalMarks.slice(-40);
     }
@@ -732,7 +742,7 @@ function tick() {
 
 // 다른 모듈(relate.js 등)이 같은 데이터·REST 제한 관리 로직을 쓰도록 공개
 window.dash = {
-  state, MARKET, BASE, BASKET, WATCH, PROFILE, EX, OTHER, hrefFor, KST, restJson, mergeCandles, toCandle, fmt, fmtKRW, big, kstTime, notify, settings,
+  state, MARKET, BASE, BASKET, WATCH, PROFILE, EX, OTHER, hrefFor, bloom, KST, restJson, mergeCandles, toCandle, fmt, fmtKRW, big, kstTime, notify, settings,
   subscribe(fn) { listeners.add(fn); return () => listeners.delete(fn); },
   markDirty() { dirty = true; },
 };

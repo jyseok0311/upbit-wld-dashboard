@@ -40,7 +40,7 @@ function compute() {
     if (!c || !settings.signalAlerts) continue;
     const st = c.signals.status;
     if ((st === 'buy_strong' || st === 'sell_strong') && now - (lastNotify[w.code] || 0) > COOLDOWN) {
-      lastNotify[w.code] = now;
+      lastNotify[w.code] = now; if (D.bloom) D.bloom(st === 'buy_strong' ? 'buy' : 'sell');
       const kind = st === 'buy_strong' ? 'buy' : 'sell', score = kind === 'buy' ? c.signals.buyScore : c.signals.sellScore;
       const p = c.signals.plan, trig = (kind === 'buy' ? c.signals.buyParts : c.signals.sellParts).triggers.map(t => t.label.split(' (')[0]).join(', ');
       notify(kind, `${w.short} ${kind === 'buy' ? '▲ 매수' : '▼ 매도'} 타이밍 · ${score}점`,
@@ -62,8 +62,8 @@ function ensureChart(code) {
     handleScale: { axisPressedMouseMove: false, mouseWheel: false, pinch: true },
   });
   const series = chart.addCandlestickSeries({ upColor: '#ff6580', downColor: '#4f8dff', borderVisible: false, wickUpColor: '#ff6580', wickDownColor: '#4f8dff', priceLineVisible: true });
-  const ema9 = chart.addLineSeries({ color: '#3fd6ff', lineWidth: 1, priceLineVisible: false, lastValueVisible: false });
-  const ema21 = chart.addLineSeries({ color: '#8b7cff', lineWidth: 1, priceLineVisible: false, lastValueVisible: false });
+  const ema9 = chart.addLineSeries({ color: 'rgba(244,241,234,.9)', lineWidth: 1, priceLineVisible: false, lastValueVisible: false });
+  const ema21 = chart.addLineSeries({ color: '#8a6bff', lineWidth: 1, priceLineVisible: false, lastValueVisible: false });
   charts[code] = { chart, series, ema9, ema21, first: true, lastLen: 0, lastFirst: 0 };
   return charts[code];
 }
